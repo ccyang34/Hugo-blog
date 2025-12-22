@@ -35,6 +35,40 @@ body {
     color: var(--news-text-main);
 }
 
+/* 🎨 顶部导航栏 - 与分类栏统一风格 */
+.nav_header {
+    background: var(--news-card-bg) !important;
+    border-bottom: 1px solid var(--news-border) !important;
+    padding: 0 1.5rem !important;
+    box-shadow: none !important;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 0 !important;
+}
+
+.nav_item {
+    color: var(--news-text-main) !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    padding: 6px 12px !important;
+    transition: color 0.2s ease !important;
+}
+
+.nav_item:hover {
+    color: var(--news-primary) !important;
+    background: transparent !important;
+}
+
+/* Logo/品牌样式 */
+.nav_brand a {
+    color: var(--news-text-main) !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+}
+
 /* 🚀 顶部标题区域：避让导航栏 42px，且自身不留底部 padding */
 .news_header {
     padding-top: 12px !important;
