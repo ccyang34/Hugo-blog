@@ -6,13 +6,14 @@ relativeURLs = true
 canonifyURLs = true
 
 [outputs]
-  home = ["html", "rss", "print", "search"]
-  section = ["html", "rss", "print", "search"]
-  page = ["html", "rss", "print", "search"]
+  home = ["html", "rss", "print"]
+  section = ["html", "rss", "print"]
+  page = ["html", "rss", "print"]
 
 [params]
   # 可以在这里添加 Relearn 特有的参数
   editURL = ""
-  description = "我的 Hugo 个人博客 - 使用 Relearn 主题"
-  author = "ccyang34"
+  title = "我的 Hugo 博客 - 使用 Relearn 主题"
+  [params.author]
+    name = "ccyang34"
   showBreadcrumbs = true
