@@ -193,7 +193,7 @@ main.content,
 .single .content,
 html.page main,
 html.page .content {
-    padding-top: 5rem !important;
+    padding-top: 3.5rem !important;
     margin-top: 0 !important;
 }
 
@@ -201,7 +201,7 @@ html.page .content {
 .taxonomy .content,
 .terms .content,
 .list .content {
-    padding-top: 5rem !important;
+    padding-top: 3.5rem !important;
 }
 
 .post_header {
