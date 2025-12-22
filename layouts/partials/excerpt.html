@@ -10,9 +10,7 @@
                 <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
             </h3>
 
-            <p class="news_excerpt">
-                {{- if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | truncate 60 }}{{ end -}}
-            </p>
+            <!-- 移除文章预览 (Excerpt) -->
 
             <div class="news_meta">
                 <span class="news_date">{{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}</span>
