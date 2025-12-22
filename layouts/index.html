@@ -1,14 +1,12 @@
 {{ define "main" }}
-<div class="news_header wrap content">
-    <!-- 仅保留分类药丸筛选栏 -->
-    <div class="news_filter_scroll">
-        <div class="news_filters">
-            <a href="/" class="news_filter_btn active">All</a>
-            {{ range $name, $items := .Site.Taxonomies.categories }}
-            <a href="{{ " /categories/" | relLangURL }}{{ $name | urlize }}" class="news_filter_btn">{{ $name | title
-                }}</a>
-            {{ end }}
-        </div>
+<div class="category_bar">
+    <div class="category_bar_inner">
+        <a href="/" class="category_pill active">首页</a>
+        {{ range $name, $items := .Site.Taxonomies.categories }}
+        <a href="{{ " /categories/" | relLangURL }}{{ $name | urlize }}" class="category_link">{{ $name | title }}</a>
+        {{ end }}
+        <span class="category_more">»</span>
+        <a href="/categories/" class="category_link">更多</a>
     </div>
 </div>
 

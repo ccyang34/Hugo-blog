@@ -68,34 +68,61 @@ body {
     }
 }
 
-/* 进一步压缩分类栏的垂直占用 */
-.news_filter_scroll {
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    padding: 0 0 4px 0 !important;
-    margin-bottom: 0 !important;
-}
-
-.news_filters {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.news_filter_btn {
-    padding: 4px 12px;
+/* 🎯 分类标签栏 - 参考图样式 */
+.category_bar {
     background: var(--news-card-bg);
-    border: 1px solid var(--news-border);
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--news-text-secondary);
+    border-bottom: 1px solid var(--news-border);
+    padding: 10px 1.5rem;
+    margin-top: 3.5rem;
 }
 
-.news_filter_btn.active {
-    background: var(--news-primary) !important;
+.category_bar_inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.category_bar_inner::-webkit-scrollbar {
+    display: none;
+}
+
+.category_pill {
+    padding: 6px 16px;
+    background: var(--news-primary);
     color: #fff !important;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.category_pill:hover {
+    background: hsl(203, 92%, 52%);
+}
+
+.category_link {
+    color: var(--news-text-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.category_link:hover {
+    color: var(--news-primary);
+}
+
+.category_more {
+    color: var(--news-text-secondary);
+    font-weight: bold;
 }
 
 /* News List Item - 极致紧凑 */
