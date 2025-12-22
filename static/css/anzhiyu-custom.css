@@ -1,4 +1,4 @@
-/* Anzhiyu Style Custom CSS for Hugo Clarity - Fixed for Theme Modes */
+/* Anzhiyu Style Custom CSS for Hugo Clarity - Fully Responsive Version */
 
 :root {
     --anzhiyu-theme: #49b1f5;
@@ -11,7 +11,7 @@
     --anzhiyu-border: rgba(255, 255, 255, 0.5);
 }
 
-/* Dark Mode Overrides (Clarity uses [data-mode="dim"]) */
+/* Dark Mode Overrides */
 html[data-mode="dim"] {
     --anzhiyu-bg: #0d1117;
     --anzhiyu-card-bg: rgba(22, 27, 34, 0.9);
@@ -19,7 +19,6 @@ html[data-mode="dim"] {
     --anzhiyu-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Also support system preference if theme allows */
 @media (prefers-color-scheme: dark) {
     html:not([data-mode="lit"]) {
         --anzhiyu-bg: #0d1117;
@@ -29,13 +28,13 @@ html[data-mode="dim"] {
     }
 }
 
-/* 页面背景 - 响应模式变量 */
+/* Base Style */
 body {
     background-color: var(--anzhiyu-bg) !important;
     font-family: var(--anzhiyu-font) !important;
 }
 
-/* 导航栏毛玻璃特效 */
+/* Nav Bar */
 .nav_container {
     background: var(--anzhiyu-glass-bg) !important;
     backdrop-filter: blur(10px);
@@ -46,24 +45,68 @@ body {
     z-index: 100;
 }
 
-/* 文章卡片式布局 */
+/* Post Excerpt Card - Enhanced for Mobile */
 .excerpt {
     background: var(--anzhiyu-card-bg) !important;
     border-radius: 12px !important;
-    padding: 20px !important;
+    padding: 24px !important;
     margin-bottom: 25px !important;
     box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--anzhiyu-border) !important;
 }
 
-.excerpt:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-    border-color: var(--anzhiyu-theme) !important;
+.excerpt_header h3.post_link a {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--theme);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-/* 侧边栏玻璃化 */
+.excerpt_header h3.post_link a:hover {
+    color: var(--anzhiyu-theme);
+}
+
+/* Meta Data Optimization */
+.post_meta {
+    margin-top: 12px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    align-items: center !important;
+    font-size: 0.85rem !important;
+    color: #888 !important;
+}
+
+.post_meta span {
+    margin: 0 !important;
+}
+
+/* Mobile Specific Optimizations */
+@media screen and (max-width: 768px) {
+    .excerpt {
+        padding: 16px !important;
+        /* Smaller padding on mobile */
+        margin-bottom: 16px !important;
+    }
+
+    .excerpt_header h3.post_link a {
+        font-size: 1.2rem;
+        /* Comfortable title size for small screens */
+    }
+
+    .post_meta {
+        font-size: 0.8rem !important;
+    }
+
+    .post_tag {
+        padding: 0.1rem 0.6rem !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Sidebar Styling */
 .sidebar {
     background: var(--anzhiyu-card-bg) !important;
     border-radius: 12px !important;
@@ -71,31 +114,25 @@ body {
     border: 1px solid var(--anzhiyu-border) !important;
 }
 
-/* 标签样式优化 - 提高对比度 (使用实色背景) */
+/* Tags & Buttons (High Contrast) */
 .post_tag,
 .button_translucent {
     background-color: var(--anzhiyu-theme) !important;
     color: #ffffff !important;
-    /* 白色文字大幅提高对比度 */
     border-radius: 6px !important;
     border: none !important;
     font-weight: 500 !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
 }
 
 .post_tag:hover,
 .button_translucent:hover {
     background-color: #3b97d1 !important;
-    transform: scale(1.05);
+    transform: translateY(-2px);
 }
 
-/* 按钮样式优化 */
 .button:not(.post_tag):not(.button_translucent) {
     background-color: var(--anzhiyu-theme) !important;
     border-radius: 8px !important;
-    transition: background 0.3s;
-}
-
-.button:hover:not(.post_tag):not(.button_translucent) {
-    background-color: #3b97d1 !important;
 }
