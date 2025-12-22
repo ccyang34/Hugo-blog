@@ -1,163 +1,193 @@
-/* Anzhiyu Style Custom CSS for Hugo Clarity - Final Polished Version */
+/* Anzhiyu Style Custom CSS - Premium Mobile-First Version */
 
 :root {
     --anzhiyu-theme: #49b1f5;
+    --anzhiyu-theme-light: rgba(73, 177, 245, 0.1);
     --anzhiyu-font: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 
-    /* Light Mode Variables */
+    /* Light Mode */
     --anzhiyu-bg: #f7f9fe;
     --anzhiyu-card-bg: #ffffff;
-    --anzhiyu-glass-bg: rgba(255, 255, 255, 0.8);
+    --anzhiyu-glass-bg: rgba(255, 255, 255, 0.85);
     --anzhiyu-border: #e3e8f7;
-    --anzhiyu-text-main: #1f2d3d;
+    --anzhiyu-text-title: #1f2d3d;
     --anzhiyu-text-meta: #7a828b;
+    --anzhiyu-shadow: 0 8px 12px -3px rgba(40, 109, 234, 0.08);
 }
 
-/* Dark Mode Overrides */
+/* Dark Mode */
 html[data-mode="dim"] {
     --anzhiyu-bg: #0d1117;
     --anzhiyu-card-bg: #161b22;
-    --anzhiyu-glass-bg: rgba(13, 17, 23, 0.85);
+    --anzhiyu-glass-bg: rgba(13, 17, 23, 0.88);
     --anzhiyu-border: #30363d;
-    --anzhiyu-text-main: #c9d1d9;
+    --anzhiyu-text-title: #c9d1d9;
     --anzhiyu-text-meta: #8b949e;
+    --anzhiyu-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-@media (prefers-color-scheme: dark) {
-    html:not([data-mode="lit"]) {
-        --anzhiyu-bg: #0d1117;
-        --anzhiyu-card-bg: #161b22;
-        --anzhiyu-glass-bg: rgba(13, 17, 23, 0.85);
-        --anzhiyu-border: #30363d;
-        --anzhiyu-text-main: #c9d1d9;
-        --anzhiyu-text-meta: #8b949e;
-    }
-}
-
-/* Base Reset & Body */
+/* Base Body */
 body {
     background-color: var(--anzhiyu-bg) !important;
     font-family: var(--anzhiyu-font) !important;
-    color: var(--anzhiyu-text-main);
+    line-height: 1.6;
+    color: var(--anzhiyu-text-title);
 }
 
-/* Nav Bar - Glassmorphism */
+/* Enhanced Nav */
 .nav_container {
     background: var(--anzhiyu-glass-bg) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--anzhiyu-border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 2px solid var(--anzhiyu-border);
+    transition: background 0.3s;
 }
 
-/* Article Card (List Item) */
+/* Article List Card - Premium Polishing */
 .excerpt {
     background: var(--anzhiyu-card-bg) !important;
-    border-radius: 12px !important;
-    padding: 24px !important;
-    margin-bottom: 20px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 16px !important;
+    /* Softer corners */
+    padding: 28px !important;
+    margin-bottom: 24px !important;
+    box-shadow: var(--anzhiyu-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--anzhiyu-border) !important;
     position: relative;
-    overflow: hidden;
-}
-
-/* Left accent line on hover */
-.excerpt::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0;
-    background-color: var(--anzhiyu-theme);
-    transition: width 0.3s;
-}
-
-.excerpt:hover::before {
-    width: 4px;
+    display: block;
+    text-decoration: none !important;
 }
 
 .excerpt:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px) scale(1.01);
     border-color: var(--anzhiyu-theme) !important;
+    box-shadow: 0 15px 30px -5px rgba(73, 177, 245, 0.2);
 }
 
-/* Title Styling */
+/* Interactive accent on the side */
+.excerpt::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 0;
+    width: 0;
+    background: var(--anzhiyu-theme);
+    border-radius: 0 4px 4px 0;
+    transition: all 0.3s;
+}
+
+.excerpt:hover::after {
+    height: 40%;
+    width: 5px;
+}
+
+/* Title Spacing & Typography */
 .excerpt_header h3.post_link {
     margin: 0 !important;
+    transition: transform 0.3s;
 }
 
 .excerpt_header h3.post_link a {
-    font-size: 1.45rem;
-    font-weight: 700;
-    line-height: 1.4;
-    color: var(--anzhiyu-text-main) !important;
-    text-decoration: none;
-    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    /* Bolder titles */
+    letter-spacing: -0.02em;
+    color: var(--anzhiyu-text-title) !important;
+    transition: color 0.3s;
 }
 
-/* Meta Data (Date, Time, Tags) */
+.excerpt:hover h3.post_link a {
+    color: var(--anzhiyu-theme) !important;
+}
+
+/* Meta Data - Compact & Clear */
 .post_meta {
-    margin-top: 15px !important;
+    margin-top: 16px !important;
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 10px 15px !important;
+    gap: 12px 18px !important;
     align-items: center !important;
-    font-size: 0.88rem !important;
+    font-size: 0.9rem !important;
     color: var(--anzhiyu-text-meta) !important;
+    font-weight: 500;
 }
 
-/* Mobile Optimizations */
+.post_meta span.post_tag {
+    margin: 0 !important;
+    background: var(--anzhiyu-theme) !important;
+    color: #fff !important;
+    padding: 4px 10px !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    box-shadow: 0 4px 8px -2px rgba(73, 177, 245, 0.3);
+    transition: all 0.3s;
+}
+
+.post_meta span.post_tag:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+/* Mobile Optimizations - The "Touch-Friendly" Grid */
 @media screen and (max-width: 768px) {
     .excerpt {
-        padding: 18px !important;
-        margin-bottom: 16px !important;
-        border-radius: 10px !important;
+        padding: 20px 16px !important;
+        /* Tighter padding for mobile screen real estate */
+        margin-bottom: 18px !important;
+        border-radius: 12px !important;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .excerpt_header h3.post_link a {
-        font-size: 1.25rem;
-        line-height: 1.35;
+        font-size: 1.3rem;
+        line-height: 1.3;
     }
 
     .post_meta {
-        margin-top: 12px !important;
+        margin-top: 14px !important;
         gap: 8px 12px !important;
     }
 
-    .post_tag {
-        padding: 2px 8px !important;
-        font-size: 0.78rem !important;
-        border-radius: 4px !important;
+    .post_meta svg {
+        width: 14px;
+        height: 14px;
     }
 }
 
-/* Tags Style (High Contrast) */
-.post_tag,
-.button_translucent {
-    background-color: var(--anzhiyu-theme) !important;
-    color: #ffffff !important;
-    border: none !important;
-    font-weight: 600 !important;
-    box-shadow: 0 2px 6px rgba(73, 177, 245, 0.3);
-    padding: 3px 10px !important;
-    font-size: 0.82rem !important;
+/* Content Page Title Styles (Inside single post) */
+.post_title {
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    color: var(--anzhiyu-text-title) !important;
+    line-height: 1.2 !important;
 }
 
-/* Sidebar */
+@media screen and (max-width: 768px) {
+    .post_title {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* Sidebar & Generic Buttons */
 .sidebar {
     background: var(--anzhiyu-card-bg) !important;
-    border-radius: 12px !important;
+    border-radius: 16px !important;
     border: 1px solid var(--anzhiyu-border) !important;
+    box-shadow: var(--anzhiyu-shadow);
 }
 
-/* Buttons */
-.button:not(.post_tag):not(.button_translucent) {
-    background-color: var(--anzhiyu-theme) !important;
+.button {
+    border-radius: 10px !important;
     font-weight: 600 !important;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(73, 177, 245, 0.25);
 }
