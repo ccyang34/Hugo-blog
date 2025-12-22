@@ -29,7 +29,7 @@ params:
 
     sidebar:
         emoji: 🚀
-        subtitle: CCY's Hugo - 个人博客
+        subtitle: 
         avatar:
             enabled: false
             local: true
