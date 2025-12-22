@@ -1,5 +1,5 @@
 ---
-title: Links
+title: "链接"
 links:
   - title: GitHub
     description: GitHub is the world's largest software development platform.
@@ -11,6 +11,7 @@ links:
     image: ts-logo-128.jpg
 menu:
     main: 
+        name: "链接"
         weight: -50
         params:
             icon: link

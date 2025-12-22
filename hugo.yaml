@@ -28,12 +28,7 @@ params:
         lastUpdated: 2006年01月02日 15:04
 
     sidebar:
-        emoji: 🚀
         subtitle: CCY's Hugo - 个人博客
-        avatar:
-            enabled: false
-            local: true
-            src: img/avatar.png
 
     article:
         math: false
