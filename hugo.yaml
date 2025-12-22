@@ -1,0 +1,105 @@
+baseurl: https://hugo.ccyang.online/
+languageCode: zh-cn
+theme: hugo-theme-stack
+title: "CCY's Hugo"
+copyright: CCY
+
+DefaultContentLanguage: zh-cn
+hasCJKLanguage: true
+
+pagination:
+    pagerSize: 10
+
+permalinks:
+    posts: /posts/:slug/
+    page: /:slug/
+
+params:
+    mainSections:
+        - posts
+    featuredImageField: image
+    rssFullContent: true
+
+    footer:
+        since: 2024
+
+    dateFormat:
+        published: 2006年01月02日
+        lastUpdated: 2006年01月02日 15:04
+
+    sidebar:
+        emoji: 🚀
+        subtitle: CCY's Hugo - 个人博客
+        avatar:
+            enabled: true
+            local: true
+            src: img/avatar.png
+
+    article:
+        math: false
+        toc: true
+        readingTime: true
+        license:
+            enabled: false
+
+    comments:
+        enabled: false
+
+    widgets:
+        homepage:
+            - type: search
+            - type: archives
+              params:
+                  limit: 5
+            - type: categories
+              params:
+                  limit: 10
+            - type: tag-cloud
+              params:
+                  limit: 15
+        page:
+            - type: toc
+
+    colorScheme:
+        toggle: true
+        default: auto
+
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+menu:
+    main: []
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/ccyang34
+          params:
+              icon: brand-github
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+        - name: categories
+          weight: 200
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    tableOfContents:
+        endLevel: 4
+        ordered: true
+        startLevel: 2
+    highlight:
+        noClasses: false
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        tabWidth: 4
