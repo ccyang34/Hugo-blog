@@ -2,3 +2,5 @@ baseURL = 'https://ccyang34.github.io/Hugo-blog/'
 languageCode = 'zh-cn'
 title = '我的 Hugo 博客'
 theme = 'ananke'
+relativeURLs = true
+canonifyURLs = true
