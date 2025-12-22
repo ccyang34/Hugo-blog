@@ -214,6 +214,20 @@ html.page .content {
     padding-top: 1rem !important;
 }
 
+/* 📝 文章详情页标题 - 与列表链接大小一致 */
+.post_title,
+.post_link {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+}
+
+h1.post_title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+}
+
 /* 🎯 分类标签栏 - 参考图样式 */
 .category_bar {
     background: var(--news-card-bg);
