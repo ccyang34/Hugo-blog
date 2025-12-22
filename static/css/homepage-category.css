@@ -1,0 +1,80 @@
+/* 主页分类导航通用样式 */
+.main-category-nav {
+    display: flex;
+    align-items: center;
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    padding: 15px 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-l1);
+    border: 1px solid var(--card-border);
+}
+
+/* 左侧图标和标题 */
+.main-category-nav .category-icon {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-right: 20px;
+    color: var(--card-text-color-main);
+    flex-shrink: 0;
+}
+
+.main-category-nav .category-icon svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    stroke-width: 2;
+}
+
+/* 右侧可滚动的分类列表 */
+.main-category-nav .category-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    /* 隐藏滚动条但保留功能 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    /* 避免阴影被截断 */
+}
+
+.main-category-nav .category-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* 分类按钮样式 */
+.main-category-nav .category-item {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: var(--body-background);
+    color: var(--card-text-color-secondary);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.main-category-nav .category-item:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+}
+
+/* 适配暗色模式和移动端 */
+@media (max-width: 768px) {
+    .main-category-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .main-category-nav .category-list {
+        width: 100%;
+    }
+}
