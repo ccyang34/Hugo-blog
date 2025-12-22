@@ -30,7 +30,6 @@ defaults:
 jobs:
   # Build job
   build:
-    runs-id: ubuntu-latest
     env:
       HUGO_VERSION: 0.139.4
     runs-on: ubuntu-latest
