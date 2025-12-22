@@ -10,9 +10,11 @@ canonifyURLs = true
   tag = "tags"
 
 [params]
-  description = "我的 Hugo 个人博客 - 使用 Clarity 主题"
+  description = "我的 Hugo 个人博客 - 使用 Clarity 主题并模仿 Anzhiyu 布局"
   author = "ccyang34"
-  introDescription = "记录技术与生活的 Hugo 博客"
+  bannerTitle = "探索技术的无限可能"
+  bannerSubtitle = "记录每一个灵光乍现的瞬间"
+  introDescription = "一个追求极致体验的 Hugo 博客"
   enableSearch = true
   mainSections = ["posts"]
   codeMaxLines = 10

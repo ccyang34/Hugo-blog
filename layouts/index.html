@@ -1,0 +1,7 @@
+{{ define "main" }}
+<div class="anzhiyu-banner">
+    <h1>{{ .Site.Params.bannerTitle | default .Site.Title }}</h1>
+    <p>{{ .Site.Params.bannerSubtitle | default .Site.Params.introDescription }}</p>
+</div>
+{{- partial "archive" . }}
+{{ end }}

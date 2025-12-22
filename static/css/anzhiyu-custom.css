@@ -1,0 +1,89 @@
+/* Anzhiyu Style Custom CSS for Hugo Clarity */
+
+:root {
+    --anzhiyu-theme: #49b1f5;
+    --anzhiyu-bg: #f7f9fe;
+    --anzhiyu-card-bg: rgba(255, 255, 255, 0.9);
+    --anzhiyu-glass-bg: rgba(255, 255, 255, 0.7);
+    --anzhiyu-font: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+/* 页面背景 */
+body {
+    background-color: var(--anzhiyu-bg);
+    font-family: var(--anzhiyu-font) !important;
+}
+
+/* 导航栏毛玻璃特效 */
+.nav_container {
+    background: var(--anzhiyu-glass-bg) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 文章卡片式布局 */
+.excerpt {
+    background: var(--anzhiyu-card-bg) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.excerpt:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--anzhiyu-theme);
+}
+
+/* 顶部 Banner 区域容器 */
+.anzhiyu-banner {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, #49b1f5 0%, #00d2ff 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 30px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 10px 20px rgba(73, 177, 245, 0.2);
+    text-align: center;
+}
+
+.anzhiyu-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.anzhiyu-banner p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 侧边栏玻璃化 */
+.sidebar {
+    background: var(--anzhiyu-card-bg) !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 按钮样式优化 */
+.button {
+    background-color: var(--anzhiyu-theme) !important;
+    border-radius: 8px !important;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #3b97d1 !important;
+}
