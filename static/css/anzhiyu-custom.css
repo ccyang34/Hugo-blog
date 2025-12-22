@@ -1,31 +1,52 @@
-/* Anzhiyu Style Custom CSS for Hugo Clarity - Compact Version */
+/* Anzhiyu Style Custom CSS for Hugo Clarity - Fixed for Theme Modes */
 
 :root {
     --anzhiyu-theme: #49b1f5;
+    --anzhiyu-font: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+
+    /* Light Mode Variables */
     --anzhiyu-bg: #f7f9fe;
     --anzhiyu-card-bg: rgba(255, 255, 255, 0.9);
     --anzhiyu-glass-bg: rgba(255, 255, 255, 0.7);
-    --anzhiyu-font: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --anzhiyu-border: rgba(255, 255, 255, 0.5);
 }
 
-/* 页面背景 */
+/* Dark Mode Overrides (Clarity uses [data-mode="dim"]) */
+html[data-mode="dim"] {
+    --anzhiyu-bg: #0d1117;
+    --anzhiyu-card-bg: rgba(22, 27, 34, 0.9);
+    --anzhiyu-glass-bg: rgba(13, 17, 23, 0.8);
+    --anzhiyu-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Also support system preference if theme allows */
+@media (prefers-color-scheme: dark) {
+    html:not([data-mode="lit"]) {
+        --anzhiyu-bg: #0d1117;
+        --anzhiyu-card-bg: rgba(22, 27, 34, 0.9);
+        --anzhiyu-glass-bg: rgba(13, 17, 23, 0.8);
+        --anzhiyu-border: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* 页面背景 - 响应模式变量 */
 body {
-    background-color: var(--anzhiyu-bg);
+    background-color: var(--anzhiyu-bg) !important;
     font-family: var(--anzhiyu-font) !important;
 }
 
-/* 导航栏毛玻璃特效 - 保持简洁 */
+/* 导航栏毛玻璃特效 */
 .nav_container {
     background: var(--anzhiyu-glass-bg) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid var(--anzhiyu-border);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-/* 文章卡片式布局 - 保持 Anzhiyu 的卡片质感 */
+/* 文章卡片式布局 */
 .excerpt {
     background: var(--anzhiyu-card-bg) !important;
     border-radius: 12px !important;
@@ -33,13 +54,13 @@ body {
     margin-bottom: 25px !important;
     box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--anzhiyu-border) !important;
 }
 
 .excerpt:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-    border-color: var(--anzhiyu-theme);
+    border-color: var(--anzhiyu-theme) !important;
 }
 
 /* 侧边栏玻璃化 */
@@ -47,16 +68,34 @@ body {
     background: var(--anzhiyu-card-bg) !important;
     border-radius: 12px !important;
     padding: 15px !important;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--anzhiyu-border) !important;
+}
+
+/* 标签样式优化 - 提高对比度 (使用实色背景) */
+.post_tag,
+.button_translucent {
+    background-color: var(--anzhiyu-theme) !important;
+    color: #ffffff !important;
+    /* 白色文字大幅提高对比度 */
+    border-radius: 6px !important;
+    border: none !important;
+    font-weight: 500 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post_tag:hover,
+.button_translucent:hover {
+    background-color: #3b97d1 !important;
+    transform: scale(1.05);
 }
 
 /* 按钮样式优化 */
-.button {
+.button:not(.post_tag):not(.button_translucent) {
     background-color: var(--anzhiyu-theme) !important;
     border-radius: 8px !important;
     transition: background 0.3s;
 }
 
-.button:hover {
+.button:hover:not(.post_tag):not(.button_translucent) {
     background-color: #3b97d1 !important;
 }
