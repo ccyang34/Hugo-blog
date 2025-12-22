@@ -1,4 +1,4 @@
-/* Anzhiyu Style Custom CSS for Hugo Clarity - Fully Responsive Version */
+/* Anzhiyu Style Custom CSS for Hugo Clarity - Final Polished Version */
 
 :root {
     --anzhiyu-theme: #49b1f5;
@@ -6,133 +6,158 @@
 
     /* Light Mode Variables */
     --anzhiyu-bg: #f7f9fe;
-    --anzhiyu-card-bg: rgba(255, 255, 255, 0.9);
-    --anzhiyu-glass-bg: rgba(255, 255, 255, 0.7);
-    --anzhiyu-border: rgba(255, 255, 255, 0.5);
+    --anzhiyu-card-bg: #ffffff;
+    --anzhiyu-glass-bg: rgba(255, 255, 255, 0.8);
+    --anzhiyu-border: #e3e8f7;
+    --anzhiyu-text-main: #1f2d3d;
+    --anzhiyu-text-meta: #7a828b;
 }
 
 /* Dark Mode Overrides */
 html[data-mode="dim"] {
     --anzhiyu-bg: #0d1117;
-    --anzhiyu-card-bg: rgba(22, 27, 34, 0.9);
-    --anzhiyu-glass-bg: rgba(13, 17, 23, 0.8);
-    --anzhiyu-border: rgba(255, 255, 255, 0.1);
+    --anzhiyu-card-bg: #161b22;
+    --anzhiyu-glass-bg: rgba(13, 17, 23, 0.85);
+    --anzhiyu-border: #30363d;
+    --anzhiyu-text-main: #c9d1d9;
+    --anzhiyu-text-meta: #8b949e;
 }
 
 @media (prefers-color-scheme: dark) {
     html:not([data-mode="lit"]) {
         --anzhiyu-bg: #0d1117;
-        --anzhiyu-card-bg: rgba(22, 27, 34, 0.9);
-        --anzhiyu-glass-bg: rgba(13, 17, 23, 0.8);
-        --anzhiyu-border: rgba(255, 255, 255, 0.1);
+        --anzhiyu-card-bg: #161b22;
+        --anzhiyu-glass-bg: rgba(13, 17, 23, 0.85);
+        --anzhiyu-border: #30363d;
+        --anzhiyu-text-main: #c9d1d9;
+        --anzhiyu-text-meta: #8b949e;
     }
 }
 
-/* Base Style */
+/* Base Reset & Body */
 body {
     background-color: var(--anzhiyu-bg) !important;
     font-family: var(--anzhiyu-font) !important;
+    color: var(--anzhiyu-text-main);
 }
 
-/* Nav Bar */
+/* Nav Bar - Glassmorphism */
 .nav_container {
     background: var(--anzhiyu-glass-bg) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--anzhiyu-border);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-/* Post Excerpt Card - Enhanced for Mobile */
+/* Article Card (List Item) */
 .excerpt {
     background: var(--anzhiyu-card-bg) !important;
     border-radius: 12px !important;
     padding: 24px !important;
-    margin-bottom: 25px !important;
-    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid var(--anzhiyu-border) !important;
+    position: relative;
+    overflow: hidden;
 }
 
-.excerpt_header h3.post_link a {
-    font-size: 1.4rem;
-    line-height: 1.4;
-    color: var(--theme);
-    text-decoration: none;
-    transition: color 0.3s;
+/* Left accent line on hover */
+.excerpt::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background-color: var(--anzhiyu-theme);
+    transition: width 0.3s;
 }
 
-.excerpt_header h3.post_link a:hover {
-    color: var(--anzhiyu-theme);
+.excerpt:hover::before {
+    width: 4px;
 }
 
-/* Meta Data Optimization */
-.post_meta {
-    margin-top: 12px !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px 12px !important;
-    align-items: center !important;
-    font-size: 0.85rem !important;
-    color: #888 !important;
+.excerpt:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--anzhiyu-theme) !important;
 }
 
-.post_meta span {
+/* Title Styling */
+.excerpt_header h3.post_link {
     margin: 0 !important;
 }
 
-/* Mobile Specific Optimizations */
+.excerpt_header h3.post_link a {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--anzhiyu-text-main) !important;
+    text-decoration: none;
+    display: block;
+}
+
+/* Meta Data (Date, Time, Tags) */
+.post_meta {
+    margin-top: 15px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 15px !important;
+    align-items: center !important;
+    font-size: 0.88rem !important;
+    color: var(--anzhiyu-text-meta) !important;
+}
+
+/* Mobile Optimizations */
 @media screen and (max-width: 768px) {
     .excerpt {
-        padding: 16px !important;
-        /* Smaller padding on mobile */
+        padding: 18px !important;
         margin-bottom: 16px !important;
+        border-radius: 10px !important;
     }
 
     .excerpt_header h3.post_link a {
-        font-size: 1.2rem;
-        /* Comfortable title size for small screens */
+        font-size: 1.25rem;
+        line-height: 1.35;
     }
 
     .post_meta {
-        font-size: 0.8rem !important;
+        margin-top: 12px !important;
+        gap: 8px 12px !important;
     }
 
     .post_tag {
-        padding: 0.1rem 0.6rem !important;
-        font-size: 0.75rem !important;
+        padding: 2px 8px !important;
+        font-size: 0.78rem !important;
+        border-radius: 4px !important;
     }
 }
 
-/* Sidebar Styling */
-.sidebar {
-    background: var(--anzhiyu-card-bg) !important;
-    border-radius: 12px !important;
-    padding: 15px !important;
-    border: 1px solid var(--anzhiyu-border) !important;
-}
-
-/* Tags & Buttons (High Contrast) */
+/* Tags Style (High Contrast) */
 .post_tag,
 .button_translucent {
     background-color: var(--anzhiyu-theme) !important;
     color: #ffffff !important;
-    border-radius: 6px !important;
     border: none !important;
-    font-weight: 500 !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 6px rgba(73, 177, 245, 0.3);
+    padding: 3px 10px !important;
+    font-size: 0.82rem !important;
 }
 
-.post_tag:hover,
-.button_translucent:hover {
-    background-color: #3b97d1 !important;
-    transform: translateY(-2px);
+/* Sidebar */
+.sidebar {
+    background: var(--anzhiyu-card-bg) !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--anzhiyu-border) !important;
 }
 
+/* Buttons */
 .button:not(.post_tag):not(.button_translucent) {
     background-color: var(--anzhiyu-theme) !important;
-    border-radius: 8px !important;
+    font-weight: 600 !important;
 }
