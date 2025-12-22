@@ -42,6 +42,12 @@ draft: false
 
 ---
 
+## 6. PyEcharts (Python生成)
+
+<div id="pyechart-demo" style="width: 100%; height: 300px;"></div>
+
+---
+
 ## 兼容性对比
 
 | 库 | 渲染方式 | 移动端 | 体积 |
@@ -51,6 +57,7 @@ draft: false
 | ECharts | Canvas | ⚠️ | 大 |
 | Plotly | SVG | ✅ | 大 |
 | Google Charts | SVG | ✅ | 云端 |
+| PyEcharts | Canvas | ⚠️ | 大 |
 
 ---
 
@@ -150,6 +157,29 @@ window.addEventListener('load', function() {
         } catch(e) { console.error('Plotly:', e); }
         
         // 5. Google Charts
+        // 6. PyEcharts (使用 PyEcharts 官方 CDN)
+        try {
+            var pyechartEl = document.getElementById('pyechart-demo');
+            if (pyechartEl && typeof echarts !== 'undefined') {
+                var pyChart = echarts.init(pyechartEl, 'white', {renderer: 'canvas'});
+                pyChart.setOption({
+                    title: { text: 'PyEcharts 风格柱状图', left: 'center' },
+                    tooltip: { trigger: 'axis' },
+                    xAxis: { type: 'category', data: ['一月', '二月', '三月', '四月', '五月', '六月'] },
+                    yAxis: { type: 'value' },
+                    series: [{
+                        name: '销售额',
+                        type: 'bar',
+                        data: [520, 630, 788, 600, 912, 745],
+                        itemStyle: { color: '#5470c6' }
+                    }]
+                });
+                window.addEventListener('resize', function() { pyChart.resize(); });
+                console.log('PyEcharts OK');
+            }
+        } catch(e) { console.error('PyEcharts:', e); }
+        
+        // 7. Google Charts
         try {
             if (typeof google !== 'undefined' && google.charts) {
                 google.charts.load('current', { packages: ['gauge'] });
