@@ -1,6 +1,6 @@
 /* 
-   Anzhiyu Premium UI System v2.1 (Compact News Feed)
-   Refined for vertical alignment and space efficiency
+   Anzhiyu Premium UI System v2.5 (Absolute Compact)
+   极致空间利用：暴力粉碎主题原生边距，实现无缝布局
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap');
@@ -33,62 +33,67 @@ body {
     background-color: var(--news-bg) !important;
     font-family: var(--news-font-body) !important;
     color: var(--news-text-main);
-    transition: background-color 0.4s ease;
 }
 
-/* Fix overlap: push content down to clear the fixed navigation bar */
+/* 🚀 顶部标题区域：避让导航栏 42px，且自身不留底部 padding */
 .news_header {
-    padding-top: 5rem !important;
-    /* Enough to clear most themes' navbars */
-    padding-bottom: 0.5rem !important;
+    padding-top: 12px !important;
+    /* 避让导航 */
+    padding-bottom: 0 !important;
 }
 
-/* Compact Filter Bar */
+/* 🎯 重点打击：彻底摧毁截图所示的 80px 绿色冗余区域 */
+.grid-inverse,
+.grid-inverse.wrap.content,
+.wrap.content,
+.main,
+#content,
+.posts {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* 进一步压缩分类栏的垂直占用 */
 .news_filter_scroll {
     overflow-x: auto;
     white-space: nowrap;
-    margin-bottom: 0px;
-    /* Reduced space */
     scrollbar-width: none;
-    padding: 10px 0;
-    /* Tight vertical space */
+    padding: 0 0 4px 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .news_filters {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     align-items: center;
 }
 
 .news_filter_btn {
-    padding: 6px 16px;
+    padding: 4px 12px;
     background: var(--news-card-bg);
     border: 1px solid var(--news-border);
-    border-radius: 16px;
-    font-size: 0.85rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--news-text-secondary);
-    transition: all 0.2s;
 }
 
 .news_filter_btn.active {
     background: var(--news-primary) !important;
     color: #fff !important;
-    border-color: var(--news-primary);
 }
 
-/* News List Item */
+/* News List Item - 极致紧凑 */
 .news_item {
-    padding: 24px 0 !important;
+    margin: 0 !important;
+    padding: 8px 0 !important;
     border-bottom: 1px solid var(--news-border) !important;
 }
 
 .news_wrapper {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     align-items: center;
-    /* Center align image with text for best consistency */
-    max-width: 100%;
 }
 
 .news_content {
@@ -99,13 +104,12 @@ body {
 .news_category {
     font-weight: 800;
     font-family: var(--news-font-title);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    padding: 1px 6px;
+    font-size: 0.65rem;
     color: var(--news-primary);
     background: var(--news-primary-soft);
-    border-radius: 4px;
-    margin-bottom: 6px;
+    padding: 0 4px;
+    border-radius: 2px;
+    margin-bottom: 3px;
     display: inline-block;
 }
 
@@ -116,28 +120,26 @@ body {
 
 .news_title a {
     font-family: var(--news-font-title) !important;
-    font-size: 1.35rem !important;
+    font-size: 1.25rem !important;
     font-weight: 850 !important;
     color: var(--news-text-main) !important;
     text-decoration: none !important;
 }
 
 .news_meta {
-    margin-top: 6px;
-    font-size: 0.8rem;
+    margin-top: 4px;
+    font-size: 0.7rem;
     color: var(--news-text-secondary);
 }
 
-/* Thumbnail - Scale down to match Title+Meta height */
+/* 🎯 缩略图 */
 .news_thumbnail_wrap {
-    width: 80px;
-    /* Reduced from 140px */
-    height: 80px;
-    /* Reduced from 140px */
+    width: 65px;
+    height: 65px;
     flex-shrink: 0;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
 .news_thumbnail {
@@ -149,19 +151,26 @@ body {
 /* Responsive */
 @media screen and (max-width: 768px) {
     .news_header {
-        padding-top: 4.5rem !important;
+        padding-top: 15px !important;
+    }
+
+    /* 移动端强制消除任何可能的 padding */
+    .grid-inverse,
+    .wrap.content {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
     }
 
     .news_title a {
-        font-size: 1.15rem !important;
+        font-size: 1.1rem !important;
     }
 
     .news_thumbnail_wrap {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
     }
 
     .news_item {
-        padding: 15px 10px !important;
+        padding: 10px 10px !important;
     }
 }
