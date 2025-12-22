@@ -31,7 +31,7 @@ params:
         emoji: 🚀
         subtitle: CCY's Hugo - 个人博客
         avatar:
-            enabled: true
+            enabled: false
             local: true
             src: img/avatar.png
 
