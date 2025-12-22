@@ -1,199 +1,217 @@
-/* Anzhiyu Style News-App Layout - Refined Version */
+/* 
+   Anzhiyu Premium UI System v2.0
+   Design Principles: Clean, Dynamic, and Content-First
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap');
 
 :root {
-    --news-theme: #49b1f5;
-    --news-bg: #ffffff;
-    --news-text-main: #1d1d1f;
-    --news-text-secondary: #86868b;
-    --news-border: #f2f2f5;
-    --news-accent: #ff6b6b;
+    /* Semantic Colors - HSL for better rhythm */
+    --news-primary: hsl(203, 92%, 62%);
+    --news-primary-soft: hsl(203, 92%, 96%);
+    --news-accent: hsl(0, 100%, 71%);
+
+    /* Light Mode Palette */
+    --news-bg: hsl(225, 40%, 98%);
+    --news-card-bg: hsl(0, 0%, 100%);
+    --news-text-main: hsl(240, 6%, 10%);
+    --news-text-secondary: hsl(240, 4%, 45%);
+    --news-border: hsl(240, 16%, 95%);
+    --news-shadow: 0 10px 30px -10px hsla(240, 20%, 30%, 0.1);
+
+    --news-font-title: 'Outfit', sans-serif;
+    --news-font-body: 'Inter', -apple-system, sans-serif;
 }
 
 /* Dark Mode Overrides */
 html[data-mode="dim"] {
-    --news-bg: #0d1117;
-    --news-text-main: #f5f5f7;
-    --news-text-secondary: #8b949e;
-    --news-border: #21262d;
+    --news-bg: hsl(210, 30%, 8%);
+    --news-card-bg: hsl(210, 25%, 12%);
+    --news-text-main: hsl(210, 15%, 90%);
+    --news-text-secondary: hsl(210, 10%, 65%);
+    --news-border: hsl(210, 15%, 18%);
+    --news-shadow: 0 15px 40px -10px hsla(0, 0%, 0%, 0.5);
+    --news-primary-soft: hsla(203, 92%, 62%, 0.15);
 }
 
 body {
     background-color: var(--news-bg) !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: var(--news-font-body) !important;
+    color: var(--news-text-main);
+    transition: background-color 0.4s ease;
 }
 
-/* Header & Categories */
+/* Nav Bar - Ultra Glass */
+.nav_container {
+    background: hsla(0, 0%, 100%, 0.8) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--news-border);
+}
+
+html[data-mode="dim"] .nav_container {
+    background: hsla(210, 30%, 8%, 0.85) !important;
+}
+
+/* News Header & Filters */
 .news_header {
-    padding-top: 1.5rem !important;
-    /* 大幅缩小 PC 端顶部的空白 */
-    padding-bottom: 0.5rem !important;
-}
-
-/* Filter Pills */
-.news_filter_scroll {
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-bottom: 1rem;
-    scrollbar-width: none;
-}
-
-.news_filter_scroll::-webkit-scrollbar {
-    display: none;
+    padding-top: 2rem !important;
+    padding-bottom: 1rem !important;
 }
 
 .news_filters {
-    display: flex;
-    gap: 10px;
-    padding: 5px 0;
+    gap: 12px;
+    padding-bottom: 10px;
 }
 
 .news_filter_btn {
-    display: inline-block;
-    padding: 6px 16px;
-    background: var(--news-border);
-    border-radius: 18px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    padding: 8px 22px;
+    background: var(--news-card-bg);
+    border: 1px solid var(--news-border);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
     color: var(--news-text-secondary);
-    text-decoration: none;
-    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .news_filter_btn.active {
-    background: var(--news-theme);
-    color: #ffffff;
+    background: var(--news-primary) !important;
+    color: #fff !important;
+    border-color: var(--news-primary);
+    box-shadow: 0 5px 15px hsla(203, 92%, 62%, 0.3);
+    transform: translateY(-1px);
 }
 
-.news_filter_btn:hover {
-    background: #e5e5e8;
-    color: var(--news-text-main);
+.news_filter_btn:hover:not(.active) {
+    border-color: var(--news-primary);
+    color: var(--news-primary);
 }
 
-/* News List Items */
-.posts {
-    margin-top: 0 !important;
-    padding: 0 !important;
-}
-
+/* News List Item - Advanced Micro-interactions */
 .news_item {
-    padding: 24px 0 !important;
-    border-bottom: 1px solid var(--news-border) !important;
-    /* 明显的分割线 */
-}
-
-.news_item:last-child {
-    border-bottom: none !important;
+    padding: 32px 0 !important;
+    border-bottom: 2px solid var(--news-border) !important;
+    transition: transform 0.3s ease;
 }
 
 .news_wrapper {
     display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    align-items: flex-start;
-}
-
-.news_content {
-    flex: 1;
-}
-
-.news_category {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--news-theme);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.news_title {
-    margin: 0 0 10px 0 !important;
+    gap: 32px;
+    position: relative;
 }
 
 .news_title a {
-    font-size: 1.35rem;
-    /* 稍微加大标题 */
-    font-weight: 850 !important;
-    /* 强调加粗 */
-    line-height: 1.3;
-    color: var(--news-text-main) !important;
-    text-decoration: none !important;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-family: var(--news-font-title) !important;
+    font-size: 1.45rem !important;
+    font-weight: 800 !important;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+.news_item:hover .news_title a {
+    color: var(--news-primary) !important;
 }
 
 .news_excerpt {
-    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-top: 12px;
     color: var(--news-text-secondary);
-    margin-bottom: 14px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-height: 1.6;
 }
 
 .news_meta {
-    font-size: 0.8rem;
-    color: var(--news-text-secondary);
+    margin-top: 18px;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 }
 
-/* Thumbnail */
+.news_category {
+    font-weight: 800;
+    font-family: var(--news-font-title);
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    background: var(--news-primary-soft);
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Thumbnail - Scale Effect */
 .news_thumbnail_wrap {
-    width: 120px;
-    /* PC 端稍微加大缩略图 */
-    height: 120px;
-    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: var(--news-shadow);
 }
 
 .news_thumbnail {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.news_thumbnail_placeholder {
-    width: 100%;
-    height: 100%;
-    background: var(--news-border);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
+.news_item:hover .news_thumbnail {
+    transform: scale(1.1);
 }
 
-/* PC Side Bar Logic - Avoid overlapping with center feed */
+/* Global Content Styling - Breathing Room */
+.post_content {
+    background: var(--news-card-bg) !important;
+    border: none !important;
+    padding: 60px !important;
+    box-shadow: var(--news-shadow) !important;
+}
+
+.post_body {
+    line-height: 1.85;
+    font-size: 1.1rem;
+}
+
+/* Quote & Block Styles */
+blockquote {
+    border-left: 5px solid var(--news-primary) !important;
+    background: var(--news-primary-soft) !important;
+    padding: 20px 30px !important;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0 !important;
+    font-style: italic;
+    color: var(--news-text-main);
+}
+
+/* Code Blocks */
+pre,
+code {
+    font-family: 'ui-monospace', monospace !important;
+    border-radius: 8px !important;
+}
+
+/* PC Side Bar Logic - Clean floating */
 @media screen and (min-width: 1024px) {
     .wrap.content {
-        max-width: 900px !important;
-        /* 核心内容区宽度优化 */
-        margin: 0 auto;
+        max-width: 1100px !important;
+        /* Slightly wider for better balance with sidebar */
     }
 }
 
-/* Responsive */
+/* Mobile Tweaks */
 @media screen and (max-width: 768px) {
-    .news_header {
-        padding-top: 1rem !important;
+    .news_wrapper {
+        gap: 16px;
     }
 
     .news_title a {
-        font-size: 1.2rem;
+        font-size: 1.2rem !important;
     }
 
     .news_thumbnail_wrap {
         width: 90px;
         height: 90px;
+        border-radius: 12px;
     }
 
-    .news_excerpt {
-        font-size: 0.9rem;
+    .post_content {
+        padding: 30px 20px !important;
     }
 }
