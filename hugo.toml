@@ -1,19 +1,23 @@
 baseURL = 'https://ccyang34.github.io/Hugo-blog/'
 languageCode = 'zh-cn'
 title = '我的 Hugo 博客'
-theme = 'relearn'
+theme = 'clarity'
 relativeURLs = true
 canonifyURLs = true
 
-[outputs]
-  home = ["html", "rss", "print"]
-  section = ["html", "rss", "print"]
-  page = ["html", "rss", "print"]
+[taxonomies]
+  category = "categories"
+  tag = "tags"
 
 [params]
-  # 可以在这里添加 Relearn 特有的参数
-  editURL = ""
-  title = "我的 Hugo 博客 - 使用 Relearn 主题"
-  [params.author]
-    name = "ccyang34"
-  showBreadcrumbs = true
+  description = "我的 Hugo 个人博客 - 使用 Clarity 主题"
+  author = "ccyang34"
+  introDescription = "记录技术与生活的 Hugo 博客"
+  enableSearch = true
+  mainSections = ["posts"]
+  codeMaxLines = 10
+  codeLineNumbers = true
+  mobileNavigation = "left"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
