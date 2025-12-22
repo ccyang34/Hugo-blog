@@ -29,8 +29,8 @@ hasCJKLanguage = true
     subtitle = "CCY's Hugo - 个人博客"
     [params.sidebar.avatar]
       enabled = true
-      local = false
-      src = ''
+      local = true
+      src = 'img/avatar.png'
 
   [params.article]
     math = false
