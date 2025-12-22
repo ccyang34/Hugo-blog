@@ -69,6 +69,89 @@ body {
     font-size: 1.1rem !important;
 }
 
+/* 🔽 下拉子菜单 - 统一风格 */
+.nav_sub {
+    background: var(--news-card-bg) !important;
+    border: 1px solid var(--news-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.nav_sub .nav_item,
+.nav_child {
+    color: var(--news-text-main) !important;
+    font-size: 0.85rem !important;
+    padding: 8px 16px !important;
+}
+
+.nav_sub .nav_item:hover,
+.nav_child:hover {
+    background: var(--news-primary-soft) !important;
+    color: var(--news-primary) !important;
+}
+
+/* 📱 移动端导航 */
+.nav_body {
+    background: var(--news-card-bg) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .nav_header {
+        padding: 0 1rem !important;
+    }
+
+    .nav_body {
+        border-top: 1px solid var(--news-border) !important;
+    }
+
+    .nav_item {
+        border-bottom: 1px solid var(--news-border) !important;
+        padding: 12px 16px !important;
+    }
+}
+
+/* 🔍 搜索框统一风格 */
+.search {
+    background: transparent !important;
+}
+
+.search_field {
+    background: var(--news-bg) !important;
+    border: 1px solid var(--news-border) !important;
+    border-radius: 20px !important;
+    padding: 6px 16px !important;
+    font-size: 0.85rem !important;
+}
+
+.search_field:focus {
+    border-color: var(--news-primary) !important;
+    outline: none !important;
+}
+
+.search_results {
+    background: var(--news-card-bg) !important;
+    border: 1px solid var(--news-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.search_result {
+    color: var(--news-text-main) !important;
+    padding: 10px 16px !important;
+}
+
+.search_result:hover {
+    background: var(--news-primary-soft) !important;
+    color: var(--news-primary) !important;
+}
+
+.search_title {
+    background: var(--news-primary) !important;
+    color: #fff !important;
+    padding: 8px 16px !important;
+    font-size: 0.9rem !important;
+}
+
 /* 🚀 顶部标题区域：避让导航栏 42px，且自身不留底部 padding */
 .news_header {
     padding-top: 12px !important;
