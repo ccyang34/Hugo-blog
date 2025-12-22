@@ -185,13 +185,23 @@ body {
     }
 }
 
-/* 📄 文章详情页 - 避让导航栏 */
+/* 📄 所有页面 - 避让导航栏 (通用修复) */
+main,
+main.content,
+.content,
 .page .content,
 .single .content,
 html.page main,
 html.page .content {
     padding-top: 5rem !important;
     margin-top: 0 !important;
+}
+
+/* 分类/标签/归档列表页 */
+.taxonomy .content,
+.terms .content,
+.list .content {
+    padding-top: 5rem !important;
 }
 
 .post_header {
