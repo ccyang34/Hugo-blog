@@ -75,10 +75,16 @@ class 榨利博客生成器:
                 
                 if not (date_col and price_col and basis_col): return None
                 
+                # 修复：确保所有数组长度一致
+                dates = data[date_col]
+                prices = data[price_col]
+                basis = data[basis_col]
+                min_len = min(len(dates), len(prices), len(basis))
+                
                 df = pd.DataFrame({
-                    '日期': data[date_col],
-                    f'{名称}价格': data[price_col],
-                    f'{名称}基差': data[basis_col]
+                    '日期': dates[:min_len],
+                    f'{名称}价格': prices[:min_len],
+                    f'{名称}基差': basis[:min_len]
                 })
                 
                 # 日期处理
