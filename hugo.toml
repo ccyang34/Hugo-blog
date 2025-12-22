@@ -12,6 +12,7 @@ canonifyURLs = false
 [params]
   description = "我的 Hugo 个人博客 - 使用 Clarity 主题并模仿 Anzhiyu 布局"
   author = "ccyang34"
+  dateFormat = "2006年01月02日"
   introDescription = "一个追求极致体验的 Hugo 博客"
   enableSearch = true
   mainSections = ["posts"]

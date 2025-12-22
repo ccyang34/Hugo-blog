@@ -1,0 +1,11 @@
+<li class="post_item">
+    <div class="excerpt">
+        <div class="excerpt_header">
+            <h3 class="post_link">
+                <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | markdownify }}</a>
+            </h3>
+            {{ partial "post-meta" . }}
+        </div>
+        <!-- 移除了 excerpt_footer 以实现简约布局 -->
+    </div>
+</li>
