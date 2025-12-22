@@ -185,6 +185,25 @@ body {
     }
 }
 
+/* 📄 文章详情页 - 避让导航栏 */
+.page .content,
+.single .content,
+html.page main,
+html.page .content {
+    padding-top: 5rem !important;
+    margin-top: 0 !important;
+}
+
+.post_header {
+    margin-top: 3.5rem !important;
+}
+
+/* 文章标题区域 */
+.post_content,
+.post_body {
+    padding-top: 1rem !important;
+}
+
 /* 🎯 分类标签栏 - 参考图样式 */
 .category_bar {
     background: var(--news-card-bg);
