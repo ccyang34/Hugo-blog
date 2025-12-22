@@ -1,9 +1,9 @@
-baseURL = 'https://ccyang34.github.io/Hugo-blog/'
+baseURL = 'https://hugo.ccyang.online/'
 languageCode = 'zh-cn'
 title = '我的 Hugo 博客'
 theme = 'clarity'
-relativeURLs = true
-canonifyURLs = true
+relativeURLs = false
+canonifyURLs = false
 
 [taxonomies]
   category = "categories"
