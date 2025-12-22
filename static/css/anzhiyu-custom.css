@@ -53,6 +53,21 @@ body {
     margin-top: 0 !important;
 }
 
+/* 🖥️ PC端：覆盖主题默认的 5rem padding-top */
+.content {
+    padding-top: 3rem !important;
+}
+
+@media screen and (min-width: 769px) {
+    .content {
+        padding-top: 3.5rem !important;
+    }
+
+    .news_header {
+        padding-top: 8px !important;
+    }
+}
+
 /* 进一步压缩分类栏的垂直占用 */
 .news_filter_scroll {
     overflow-x: auto;
