@@ -1,5 +1,5 @@
 ---
-title: "欢迎来到我的知识库"
+title: "CCY's Hugo"
 date: 2025-12-22T09:00:00+08:00
 draft: false
 ---
