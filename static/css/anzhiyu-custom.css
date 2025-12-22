@@ -1,11 +1,11 @@
-/* Anzhiyu Style News-App Layout */
+/* Anzhiyu Style News-App Layout - Refined Version */
 
 :root {
     --news-theme: #49b1f5;
     --news-bg: #ffffff;
     --news-text-main: #1d1d1f;
     --news-text-secondary: #86868b;
-    --news-border: #f5f5f7;
+    --news-border: #f2f2f5;
     --news-accent: #ff6b6b;
 }
 
@@ -22,63 +22,50 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 
-/* Header & Greeting */
+/* Header & Categories */
 .news_header {
-    padding-top: 6rem !important;
-    padding-bottom: 1rem !important;
-}
-
-.news_greeting h1 {
-    font-size: 2rem !important;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    color: var(--news-text-main);
-}
-
-.news_greeting p {
-    color: var(--news-text-secondary);
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    padding-top: 1.5rem !important;
+    /* 大幅缩小 PC 端顶部的空白 */
+    padding-bottom: 0.5rem !important;
 }
 
 /* Filter Pills */
 .news_filter_scroll {
     overflow-x: auto;
     white-space: nowrap;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     scrollbar-width: none;
-    /* Firefox */
 }
 
 .news_filter_scroll::-webkit-scrollbar {
     display: none;
-    /* Chrome/Safari */
 }
 
 .news_filters {
     display: flex;
-    gap: 12px;
+    gap: 10px;
+    padding: 5px 0;
 }
 
 .news_filter_btn {
     display: inline-block;
-    padding: 8px 20px;
+    padding: 6px 16px;
     background: var(--news-border);
-    border-radius: 20px;
-    font-size: 0.9rem;
+    border-radius: 18px;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--news-text-secondary);
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
 .news_filter_btn.active {
-    background: var(--news-text-main);
-    color: var(--news-bg);
+    background: var(--news-theme);
+    color: #ffffff;
 }
 
 .news_filter_btn:hover {
-    background: #e1e1e3;
+    background: #e5e5e8;
     color: var(--news-text-main);
 }
 
@@ -86,18 +73,22 @@ body {
 .posts {
     margin-top: 0 !important;
     padding: 0 !important;
-    list-style: none !important;
 }
 
 .news_item {
-    padding: 20px 0 !important;
-    border-bottom: 1px solid var(--news-border);
+    padding: 24px 0 !important;
+    border-bottom: 1px solid var(--news-border) !important;
+    /* 明显的分割线 */
+}
+
+.news_item:last-child {
+    border-bottom: none !important;
 }
 
 .news_wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 24px;
     align-items: flex-start;
 }
 
@@ -106,22 +97,24 @@ body {
 }
 
 .news_category {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--news-theme);
     text-transform: uppercase;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .news_title {
-    margin: 0 0 8px 0 !important;
+    margin: 0 0 10px 0 !important;
 }
 
 .news_title a {
-    font-size: 1.25rem;
-    font-weight: 800;
-    line-height: 1.35;
+    font-size: 1.35rem;
+    /* 稍微加大标题 */
+    font-weight: 850 !important;
+    /* 强调加粗 */
+    line-height: 1.3;
     color: var(--news-text-main) !important;
     text-decoration: none !important;
     display: -webkit-box;
@@ -131,14 +124,14 @@ body {
 }
 
 .news_excerpt {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--news-text-secondary);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .news_meta {
@@ -146,17 +139,14 @@ body {
     color: var(--news-text-secondary);
     display: flex;
     align-items: center;
-    gap: 6px;
-}
-
-.news_dot {
-    font-weight: bold;
+    gap: 8px;
 }
 
 /* Thumbnail */
 .news_thumbnail_wrap {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    /* PC 端稍微加大缩略图 */
+    height: 120px;
     flex-shrink: 0;
 }
 
@@ -164,37 +154,46 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .news_thumbnail_placeholder {
     width: 100%;
     height: 100%;
     background: var(--news-border);
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
+}
+
+/* PC Side Bar Logic - Avoid overlapping with center feed */
+@media screen and (min-width: 1024px) {
+    .wrap.content {
+        max-width: 900px !important;
+        /* 核心内容区宽度优化 */
+        margin: 0 auto;
+    }
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
     .news_header {
-        padding-top: 5rem !important;
-    }
-
-    .news_greeting h1 {
-        font-size: 1.7rem !important;
+        padding-top: 1rem !important;
     }
 
     .news_title a {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
     }
 
     .news_thumbnail_wrap {
-        width: 85px;
-        height: 85px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .news_excerpt {
+        font-size: 0.9rem;
     }
 }
