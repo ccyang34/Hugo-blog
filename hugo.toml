@@ -1,47 +1,100 @@
 baseURL = 'https://hugo.ccyang.online/'
 languageCode = 'zh-cn'
 title = "CCY's Hugo"
-theme = 'clarity'
-relativeURLs = false
-canonifyURLs = false
+theme = 'stack'
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
+DefaultContentLanguage = 'zh-cn'
+hasCJKLanguage = true
+
+[pagination]
+  pagerSize = 10
+
+[permalinks]
+  posts = '/posts/:slug/'
 
 [params]
-  description = "CCY's Hugo - 个人博客"
-  author = "ccyang34"
-  dateFormat = "2006年01月02日 15:04:05"
-  introDescription = "一个追求极致体验的 Hugo 博客"
-  enableSearch = true
-  mainSections = ["posts"]
-  codeMaxLines = 10
-  codeLineNumbers = true
-  mobileNavigation = "left"
+  mainSections = ['posts']
+  featuredImageField = 'image'
+  rssFullContent = true
 
-[menu]
-  [[menu.main]]
-    name = "首页"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    name = "分类"
-    url = "/categories/"
-    weight = 2
-  [[menu.main]]
-    name = "标签"
-    url = "/tags/"
-    weight = 3
-  [[menu.main]]
-    name = "归档"
-    url = "/posts/"
-    weight = 4
+  [params.footer]
+    since = 2024
 
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
+  [params.dateFormat]
+    published = '2006年01月02日'
+    lastUpdated = '2006年01月02日 15:04'
+
+  [params.sidebar]
+    emoji = '🚀'
+    subtitle = "CCY's Hugo - 个人博客"
+    [params.sidebar.avatar]
+      enabled = true
+      local = false
+      src = ''
+
+  [params.article]
+    math = false
+    toc = true
+    readingTime = true
+    [params.article.license]
+      enabled = false
+
+  [params.comments]
+    enabled = false
+
+  [params.widgets]
+    [[params.widgets.homepage]]
+      type = 'search'
+    [[params.widgets.homepage]]
+      type = 'archives'
+      [params.widgets.homepage.params]
+        limit = 5
+    [[params.widgets.homepage]]
+      type = 'categories'
+      [params.widgets.homepage.params]
+        limit = 10
+    [[params.widgets.homepage]]
+      type = 'tag-cloud'
+      [params.widgets.homepage.params]
+        limit = 15
+    [[params.widgets.page]]
+      type = 'toc'
+
+  [params.colorScheme]
+    toggle = true
+    default = 'auto'
+
+  [params.imageProcessing]
+    [params.imageProcessing.cover]
+      enabled = true
+    [params.imageProcessing.content]
+      enabled = true
+
+[[menu.social]]
+  identifier = 'github'
+  name = 'GitHub'
+  url = 'https://github.com/ccyang34'
+  [menu.social.params]
+    icon = 'brand-github'
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = true
+    startLevel = 2
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    tabWidth = 4
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
