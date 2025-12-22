@@ -1,6 +1,6 @@
 ---
 title: "从零到一：Hugo + GitHub Actions 部署实战全记录"
-date: 2025-12-22T13:58:00+08:00
+date: 2025-12-22T09:02:00+08:00
 draft: false
 tags: ["Hugo", "GitHub Actions", "Deployment"]
 categories: ["实战指南"]

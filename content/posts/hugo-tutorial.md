@@ -1,6 +1,6 @@
 ---
 title: "Hugo 入门精简教程"
-date: 2025-12-22T13:55:00+08:00
+date: 2025-12-22T09:01:00+08:00
 draft: false
 tags: ["Hugo", "Tutorial"]
 categories: ["技术"]
