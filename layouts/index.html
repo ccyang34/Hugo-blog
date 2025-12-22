@@ -3,7 +3,7 @@
     <div class="category_bar_inner">
         <a href="/" class="category_pill active">首页</a>
         {{ range $name, $items := .Site.Taxonomies.categories }}
-        <a href="{{ " /categories/" | relLangURL }}{{ $name | urlize }}" class="category_link">{{ $name | title }}</a>
+        <a href="{{ " /categories/" | relLangURL }}{{ $name | urlize }}/" class="category_link">{{ $name | title }}</a>
         {{ end }}
         <span class="category_more">»</span>
         <a href="/categories/" class="category_link">更多</a>
