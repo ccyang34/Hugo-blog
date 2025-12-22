@@ -1,194 +1,200 @@
-/* Anzhiyu Style Custom CSS - Final Polished Responsive Version */
+/* Anzhiyu Style News-App Layout */
 
 :root {
-    --anzhiyu-theme: #49b1f5;
-    --anzhiyu-theme-light: rgba(73, 177, 245, 0.1);
-    --anzhiyu-font: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-
-    /* Light Mode */
-    --anzhiyu-bg: #f7f9fe;
-    --anzhiyu-card-bg: #ffffff;
-    --anzhiyu-glass-bg: rgba(255, 255, 255, 0.9);
-    --anzhiyu-border: #e3e8f7;
-    --anzhiyu-text-title: #1f2d3d;
-    --anzhiyu-text-meta: #7a828b;
-    --anzhiyu-shadow: 0 8px 12px -3px rgba(40, 109, 234, 0.08);
+    --news-theme: #49b1f5;
+    --news-bg: #ffffff;
+    --news-text-main: #1d1d1f;
+    --news-text-secondary: #86868b;
+    --news-border: #f5f5f7;
+    --news-accent: #ff6b6b;
 }
 
-/* Dark Mode */
+/* Dark Mode Overrides */
 html[data-mode="dim"] {
-    --anzhiyu-bg: #0d1117;
-    --anzhiyu-card-bg: #161b22;
-    --anzhiyu-glass-bg: rgba(13, 17, 23, 0.9);
-    --anzhiyu-border: #30363d;
-    --anzhiyu-text-title: #c9d1d9;
-    --anzhiyu-text-meta: #8b949e;
-    --anzhiyu-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    --news-bg: #0d1117;
+    --news-text-main: #f5f5f7;
+    --news-text-secondary: #8b949e;
+    --news-border: #21262d;
 }
 
-/* Base Body Style */
 body {
-    background-color: var(--anzhiyu-bg) !important;
-    font-family: var(--anzhiyu-font) !important;
-    color: var(--anzhiyu-text-title);
-    -webkit-font-smoothing: antialiased;
+    background-color: var(--news-bg) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 
-/* Navigation - Modern Sticky */
-.nav_container {
-    background: var(--anzhiyu-glass-bg) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--anzhiyu-border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+/* Header & Greeting */
+.news_header {
+    padding-top: 6rem !important;
+    padding-bottom: 1rem !important;
 }
 
-/* Article List Card - Premium Touch-safe */
-.excerpt {
-    background: var(--anzhiyu-card-bg) !important;
-    border-radius: 16px !important;
-    padding: 24px !important;
-    margin-bottom: 24px !important;
-    box-shadow: var(--anzhiyu-shadow);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--anzhiyu-border) !important;
-    position: relative;
-    overflow: hidden;
-    display: block !important;
-    text-decoration: none !important;
-}
-
-.excerpt:hover {
-    transform: translateY(-8px);
-    border-color: var(--anzhiyu-theme) !important;
-    box-shadow: 0 15px 35px -5px rgba(73, 177, 245, 0.25);
-}
-
-/* Accent Strip */
-.excerpt::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0;
-    background: var(--anzhiyu-theme);
-    transition: width 0.3s;
-}
-
-.excerpt:hover::after {
-    width: 5px;
-}
-
-/* List Title Styling */
-.excerpt_header h3.post_link a {
-    font-size: 1.5rem;
+.news_greeting h1 {
+    font-size: 2rem !important;
     font-weight: 800;
-    line-height: 1.4;
-    color: var(--anzhiyu-text-title) !important;
+    margin-bottom: 0.5rem;
+    color: var(--news-text-main);
+}
+
+.news_greeting p {
+    color: var(--news-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Filter Pills */
+.news_filter_scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 2rem;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.news_filter_scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.news_filters {
+    display: flex;
+    gap: 12px;
+}
+
+.news_filter_btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--news-border);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--news-text-secondary);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.news_filter_btn.active {
+    background: var(--news-text-main);
+    color: var(--news-bg);
+}
+
+.news_filter_btn:hover {
+    background: #e1e1e3;
+    color: var(--news-text-main);
+}
+
+/* News List Items */
+.posts {
+    margin-top: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.news_item {
+    padding: 20px 0 !important;
+    border-bottom: 1px solid var(--news-border);
+}
+
+.news_wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.news_content {
+    flex: 1;
+}
+
+.news_category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--news-theme);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.news_title {
+    margin: 0 0 8px 0 !important;
+}
+
+.news_title a {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--news-text-main) !important;
     text-decoration: none !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.excerpt:hover h3.post_link a {
-    color: var(--anzhiyu-theme) !important;
+.news_excerpt {
+    font-size: 0.9rem;
+    color: var(--news-text-secondary);
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
 }
 
-/* Single Post Page Title & Meta Styles */
-.post_content {
-    background: var(--anzhiyu-card-bg) !important;
-    padding: 40px !important;
-    border-radius: 16px !important;
-    border: 1px solid var(--anzhiyu-border) !important;
-    box-shadow: var(--anzhiyu-shadow);
+.news_meta {
+    font-size: 0.8rem;
+    color: var(--news-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.post_title {
-    font-size: 2.2rem !important;
-    font-weight: 800 !important;
-    margin: 0.5rem 0 1.5rem 0 !important;
-    text-align: left;
-    line-height: 1.25 !important;
-    color: var(--anzhiyu-text-title) !important;
+.news_dot {
+    font-weight: bold;
 }
 
-.post_meta {
-    margin: 0.5rem 0 2rem 0 !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 12px 16px !important;
-    align-items: center !important;
-    font-size: 0.9rem !important;
-    color: var(--anzhiyu-text-meta) !important;
-    background: rgba(0, 0, 0, 0.02);
-    padding: 10px 15px !important;
-    border-radius: 10px !important;
+/* Thumbnail */
+.news_thumbnail_wrap {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
 }
 
-/* Meta Data - Tags Styling */
-.post_tag {
-    background-color: var(--anzhiyu-theme) !important;
-    color: #fff !important;
-    font-weight: 700 !important;
-    padding: 4px 12px !important;
-    border-radius: 6px !important;
-    font-size: 0.82rem !important;
-    box-shadow: 0 4px 10px -2px rgba(73, 177, 245, 0.4);
+.news_thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Mobile Specific Tweaks for Small Screens */
+.news_thumbnail_placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--news-border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+/* Responsive */
 @media screen and (max-width: 768px) {
-    .content {
-        padding: 10px !important;
+    .news_header {
+        padding-top: 5rem !important;
     }
 
-    .post_content {
-        padding: 20px 15px !important;
-        /* Tighten single post padding */
-        border-radius: 12px !important;
+    .news_greeting h1 {
+        font-size: 1.7rem !important;
     }
 
-    .excerpt {
-        padding: 20px 15px !important;
-        margin-bottom: 20px !important;
-        border-radius: 12px !important;
-        margin-left: 5px !important;
-        margin-right: 5px !important;
+    .news_title a {
+        font-size: 1.15rem;
     }
 
-    .excerpt_header h3.post_link a {
-        font-size: 1.25rem;
-        /* Slightly smaller for mobile */
-        line-height: 1.3;
+    .news_thumbnail_wrap {
+        width: 85px;
+        height: 85px;
     }
-
-    .post_title {
-        font-size: 1.6rem !important;
-        margin-bottom: 1rem !important;
-    }
-
-    .post_meta {
-        font-size: 0.75rem !important;
-        padding: 6px 10px !important;
-        gap: 6px 10px !important;
-        margin-bottom: 1.5rem !important;
-    }
-
-    .sidebar {
-        margin-top: 20px !important;
-    }
-}
-
-/* Misc UI Improvements */
-.sidebar {
-    background: var(--anzhiyu-card-bg) !important;
-    border-radius: 16px !important;
-    border: 1px solid var(--anzhiyu-border) !important;
-    box-shadow: var(--anzhiyu-shadow);
-}
-
-.button {
-    border-radius: 12px !important;
-    font-weight: 700 !important;
 }

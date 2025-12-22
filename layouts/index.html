@@ -1,3 +1,21 @@
 {{ define "main" }}
+<div class="news_header wrap content">
+    <div class="news_greeting">
+        <h1>Hello, Explorer!</h1>
+        <p>Let's see the latest market insights for you.</p>
+    </div>
+
+    <!-- 分类药丸按钮 -->
+    <div class="news_filter_scroll">
+        <div class="news_filters">
+            <a href="/" class="news_filter_btn active">All</a>
+            {{ range $name, $items := .Site.Taxonomies.categories }}
+            <a href="{{ " /categories/" | relLangURL }}{{ $name | urlize }}" class="news_filter_btn">{{ $name | title
+                }}</a>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
 {{- partial "archive" . }}
 {{ end }}
