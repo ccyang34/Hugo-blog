@@ -1,6 +1,6 @@
 baseURL = 'https://hugo.ccyang.online/'
 languageCode = 'zh-cn'
-title = '我的 Hugo 博客'
+title = "CCY's Hugo"
 theme = 'clarity'
 relativeURLs = false
 canonifyURLs = false
