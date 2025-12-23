@@ -14,8 +14,8 @@
 
     /* 主容器间距优化 */
     .main-container {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
         padding-top: 5px !important;
         gap: 8px !important;
     }
@@ -23,6 +23,12 @@
     /* 左侧边栏头部下移对齐 */
     .left-sidebar header {
         padding-top: 5px !important;
+    }
+
+    /* 底部页脚边距 */
+    .site-footer {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
 
     /* 分类导航紧凑化 */
@@ -98,5 +104,35 @@
     .article-page .main-article .article-content blockquote {
         padding: 10px 15px !important;
         margin: 1em 0 !important;
+    }
+
+    /* 相关文章改为垂直列表 */
+    .related-content {
+        overflow-x: visible !important;
+        padding-bottom: 10px !important;
+    }
+
+    .related-content>.flex {
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .related-content article {
+        width: 100% !important;
+        height: auto !important;
+        margin-right: 0 !important;
+        background: var(--card-background) !important;
+        border-radius: var(--tag-border-radius) !important;
+        box-shadow: var(--shadow-l1) !important;
+    }
+
+    .related-content article .article-details {
+        padding: 12px 15px !important;
+    }
+
+    .related-content article .article-title {
+        font-size: 1.4rem !important;
     }
 }
