@@ -1,4 +1,5 @@
-baseurl: https://hugo.ccyang.online/
+baseurl: https://ccyang34.github.io/Hugo-blog/
+relativeURLs: true
 languageCode: zh-cn
 theme: hugo-theme-stack
 title: "🏠 CCY's Hugo"
