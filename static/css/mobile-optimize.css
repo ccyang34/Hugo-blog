@@ -44,6 +44,12 @@
         margin-top: 8px !important;
     }
 
+    /* 文章页主容器无边距 */
+    .article-page .main-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
     /* 移除文章卡片的圆角和阴影 */
     .article-page .main-article {
         border-radius: 0 !important;
