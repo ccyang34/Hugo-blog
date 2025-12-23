@@ -26,13 +26,17 @@
         padding-left: 15px !important;
         padding-right: 15px !important;
         padding-bottom: 10px !important;
-        background: var(--card-background) !important;
-        border-bottom: 1px solid var(--card-separator-color) !important;
+        background: #2d3748 !important;
+        border-bottom: 1px solid #4a5568 !important;
+    }
+
+    .left-sidebar header .site-name a {
+        color: #fff !important;
     }
 
     /* 分类导航栏背景 */
     .main-category-nav {
-        background: var(--card-background) !important;
+        background: #2d3748 !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
     }
