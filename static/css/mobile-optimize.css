@@ -52,6 +52,12 @@
         margin-top: 8px !important;
     }
 
+    /* 主页文章标题字号 */
+    .article-list .article-title {
+        font-size: 1.6rem !important;
+    }
+
+
     /* 文章页主容器无边距 */
     .article-page .main-container {
         padding-left: 0 !important;
