@@ -50,14 +50,14 @@
     display: none;
 }
 
-/* 分类按钮 - 更小巧 */
+/* 分类按钮 - 与文章卡片标签一致 */
 .main-category-nav .category-item {
     display: inline-block;
-    padding: 4px 10px;
+    padding: 8px 16px;
     border-radius: var(--tag-border-radius);
     background: var(--card-background);
     color: var(--card-text-color-secondary);
-    font-size: 0.85rem;
+    font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
