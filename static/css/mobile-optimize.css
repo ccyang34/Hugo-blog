@@ -20,13 +20,21 @@
         gap: 8px !important;
     }
 
-    /* 左侧边栏头部下移对齐 */
+    /* 左侧边栏头部下移对齐 + 边距 */
     .left-sidebar header {
         padding-top: 5px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
 
     /* 底部页脚边距 */
     .site-footer {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    /* 相关文章区域边距 */
+    .related-content {
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
