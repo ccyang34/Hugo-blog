@@ -179,4 +179,14 @@
     .related-content article .article-title {
         font-size: 1.4rem !important;
     }
+
+    .related-content article .article-time {
+        font-size: 1.2rem !important;
+        color: #a0aec0 !important;
+        margin-top: 5px !important;
+    }
+
+    .related-content .article-image {
+        display: none !important;
+    }
 }
