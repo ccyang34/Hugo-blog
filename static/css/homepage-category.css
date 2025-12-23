@@ -1,13 +1,23 @@
+/* 全局变量覆盖：减少卡片之间的间距 */
+:root {
+    --section-separation: 20px !important;
+    /* 原值为 35px-50px，改为更紧凑的 20px */
+}
+
 /* 主页分类导航通用样式 */
 .main-category-nav {
     display: flex;
     align-items: center;
-    background: var(--card-background);
-    border-radius: var(--card-border-radius);
-    padding: 15px 20px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-l1);
-    border: 1px solid var(--card-border);
+    background: transparent;
+    /* 背景透明 */
+    padding: 10px 0;
+    /* 缩减内边距 */
+    margin-bottom: 20px;
+    /* 缩减下边距 */
+    box-shadow: none;
+    /* 移除大阴影 */
+    border: none;
+    /* 移除外边框 */
 }
 
 /* 左侧图标和标题 */
@@ -45,24 +55,30 @@
     display: none;
 }
 
-/* 分类按钮样式 */
+/* 分类按钮样式：参照右侧侧边栏组件 */
 .main-category-nav .category-item {
     display: inline-block;
-    padding: 6px 14px;
-    border-radius: 8px;
-    background: var(--body-background);
+    padding: 8px 16px;
+    border-radius: var(--tag-border-radius);
+    /* 使用标准圆角 */
+    background: var(--card-background);
+    /* 使用卡片背景色 */
     color: var(--card-text-color-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
+    box-shadow: var(--shadow-l1);
+    /* 添加轻微阴影实现立体感 */
+    border: 1px solid var(--card-separator-color);
 }
 
 .main-category-nav .category-item:hover {
-    background: var(--primary);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+    background: var(--card-background-selected);
+    color: var(--card-text-color-main);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-l2);
+    /* 悬停时加重阴影 */
 }
 
 /* 适配暗色模式和移动端 */
