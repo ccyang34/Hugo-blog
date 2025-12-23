@@ -10,7 +10,8 @@
         {{ T "list.section" }}
         {{ end }}
         {{ else }}
-        {{ .Parent.Title }}
+        {{ if eq .Parent.Title "Categories" }}分类{{ else if eq .Parent.Title "Tags" }}标签{{ else }}{{ .Parent.Title }}{{
+        end }}
         {{ end }}
     </h3>
 
