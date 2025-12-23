@@ -16,16 +16,16 @@
     .main-container {
         padding-left: 0 !important;
         padding-right: 0 !important;
-        padding-top: 5px !important;
+        padding-top: 0 !important;
         gap: 8px !important;
     }
 
     /* 左侧边栏头部下移对齐 + 边距 + 背景色 */
     .left-sidebar header {
-        padding-top: 5px !important;
+        padding-top: 15px !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
-        padding-bottom: 10px !important;
+        padding-bottom: 15px !important;
         background: #2d3748 !important;
         border-bottom: 1px solid #4a5568 !important;
     }
@@ -34,9 +34,8 @@
         color: #fff !important;
     }
 
-    /* 分类导航栏背景 */
+    /* 分类导航栏 */
     .main-category-nav {
-        background: #2d3748 !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
     }
