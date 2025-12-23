@@ -16,12 +16,18 @@
     .main-container {
         padding-left: 0 !important;
         padding-right: 0 !important;
-        padding-top: 10px !important;
+        padding-top: 5px !important;
         gap: 8px !important;
+    }
+
+    /* 左侧边栏头部下移对齐 */
+    .left-sidebar header {
+        padding-top: 5px !important;
     }
 
     /* 分类导航紧凑化 */
     .main-category-nav {
+        margin-top: 10px !important;
         margin-bottom: 0 !important;
         padding: 0 15px !important;
     }
