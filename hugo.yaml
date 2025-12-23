@@ -1,7 +1,7 @@
 baseurl: https://hugo.ccyang.online/
 languageCode: zh-cn
 theme: hugo-theme-stack
-title: "CCY's Hugo"
+title: "🏠 CCY's Hugo"
 copyright: CCY
 
 DefaultContentLanguage: zh-cn
