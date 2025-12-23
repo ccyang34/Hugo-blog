@@ -5,30 +5,29 @@
 
 @media screen and (max-width: 768px) {
     :root {
-        /* 减小正文字号和行高 */
         --article-font-size: 1.45rem !important;
         --article-line-height: 1.6 !important;
-
-        /* 缩减卡片内边距和容器边距 */
         --card-padding: 15px !important;
         --section-separation: 20px !important;
         --container-padding: 0px !important;
-        /* 移除容器侧边距 */
     }
 
-    /* 全屏化文章容器 */
+    /* 全屏化文章容器 - 移除白边 */
     .article-page .main-article {
         border-radius: 0 !important;
-        /* 移除圆角 */
         box-shadow: none !important;
-        /* 移除阴影 */
         margin: 0 !important;
-        /* 移除外边距 */
         border: none !important;
-        /* 移除边框 */
     }
 
-    /* 优化头部大图实现无缝全屏 */
+    /* 主容器全宽 */
+    .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* 文章头图全屏 */
     .article-page .main-article .article-header .article-image {
         margin: 0 !important;
         width: 100% !important;
@@ -38,44 +37,43 @@
         border-radius: 0 !important;
     }
 
-    /* 针对文章内容的进一步微调 */
+    /* 文章内容区域 */
     .article-page .main-article .article-content {
         padding: 0 15px !important;
-        /* 确保文字不贴边 */
+    }
 
-        /* 缩减段落间距 */
-        p {
-            margin: 0.8em 0 !important;
-        }
+    /* 段落间距 */
+    .article-page .main-article .article-content p {
+        margin: 0.8em 0 !important;
+    }
 
-        /* 减小标题字号和间距 */
-        h2 {
-            font-size: 1.8rem !important;
-            margin-top: 1.2em !important;
-            margin-bottom: 0.6em !important;
-        }
+    /* 标题字号 */
+    .article-page .main-article .article-content h2 {
+        font-size: 1.8rem !important;
+        margin-top: 1.2em !important;
+        margin-bottom: 0.6em !important;
+    }
 
-        h3 {
-            font-size: 1.5rem !important;
-            margin-top: 1em !important;
-            margin-bottom: 0.5em !important;
-        }
+    .article-page .main-article .article-content h3 {
+        font-size: 1.5rem !important;
+        margin-top: 1em !important;
+        margin-bottom: 0.5em !important;
+    }
 
-        /* 紧凑化列表 */
-        ul,
-        ol {
-            padding-left: 1.2em !important;
-            margin-bottom: 0.8em !important;
+    /* 列表紧凑化 */
+    .article-page .main-article .article-content ul,
+    .article-page .main-article .article-content ol {
+        padding-left: 1.2em !important;
+        margin-bottom: 0.8em !important;
+    }
 
-            li {
-                margin-bottom: 0.4em !important;
-            }
-        }
+    .article-page .main-article .article-content li {
+        margin-bottom: 0.4em !important;
+    }
 
-        /* 引用块紧凑化 */
-        blockquote {
-            padding: 10px 15px !important;
-            margin: 1em 0 !important;
-        }
+    /* 引用块 */
+    .article-page .main-article .article-content blockquote {
+        padding: 10px 15px !important;
+        margin: 1em 0 !important;
     }
 }
