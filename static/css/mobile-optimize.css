@@ -57,6 +57,10 @@
         font-size: 1.8rem !important;
     }
 
+    /* 主页文章摘要字号 */
+    .article-list .article-subtitle {
+        font-size: 1.4rem !important;
+    }
 
     /* 文章页主容器无边距 */
     .article-page .main-container {
