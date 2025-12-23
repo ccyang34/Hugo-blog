@@ -1,76 +1,116 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+###########################################################################
+# 整体说明：此工作流用于自动化构建 Hugo 静态站点，并部署到 GitHub Pages
+# 核心逻辑：代码推送到 main 分支/手动触发 → 构建 Hugo 站点 → 部署到 Pages
+###########################################################################
+name: 部署 Hugo 站点到 Pages
 
+# ===================== 触发条件配置 =====================
 on:
-  # Runs on pushes targeting the default branch
+  # 1. 自动触发：当代码推送到 main 分支时执行（默认分支可根据仓库调整为 master）
   push:
     branches:
-      - main
+      - main  # 仅监听 main 分支的推送事件，其他分支推送不会触发
 
-  # Allows you to run this workflow manually from the Actions tab
+  # 2. 手动触发：允许在 GitHub 仓库的「Actions」选项卡手动点击运行此工作流
+  #    场景：代码未推送但需重新部署、测试部署效果时使用
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# ===================== 权限配置（部署 Pages 必需） =====================
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read          # 权限1：允许读取仓库代码（拉取源码、子模块必需）
+  pages: write            # 权限2：允许写入 GitHub Pages 配置（部署产物到 Pages 服务器必需）
+  id-token: write         # 权限3：允许生成身份验证令牌（Pages 部署鉴权，防止未授权部署）
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# ===================== 并发控制（避免重复部署） =====================
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "pages"                  # 将所有此工作流的运行归为「pages」分组
+  cancel-in-progress: false       # 不取消正在运行的部署任务
+  # 备注：
+  # - 若设为 true，新推送会中断正在部署的任务，可能导致生产环境部署失败
+  # - 设为 false 可保证生产环境部署完整执行，仅跳过中间排队的重复任务
 
-# Default to bash
+# ===================== 默认执行配置 =====================
 defaults:
   run:
-    shell: bash
+    shell: bash  # 所有「run」步骤默认使用 bash 终端（Ubuntu 环境原生支持，兼容大部分命令）
 
+# ===================== 核心任务：分为「构建」和「部署」两个阶段 =====================
 jobs:
-  # Build job
+  # --------------------- 任务1：构建 Hugo 站点 ---------------------
   build:
+    # 环境变量：定义 Hugo 版本（此处为预留配置，后续步骤实际用了 latest）
     env:
-      HUGO_VERSION: 0.139.4
-    runs-on: ubuntu-latest
+      HUGO_VERSION: 0.139.4  # 可替换为固定版本（如和本地开发一致的版本），避免 latest 版本兼容问题
+    runs-on: ubuntu-latest   # 运行环境：GitHub 提供的最新版 Ubuntu 虚拟机（稳定、兼容大部分工具）
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # 步骤1：检出仓库代码到运行环境
+      - name: 检出代码
+        uses: actions/checkout@v4  # 使用官方检出代码的 Action（v4 是稳定版，兼容最新 GitHub 接口）
         with:
+          # 关键配置1：递归拉取子模块（Hugo 主题通常以 Git 子模块形式存放在 themes 目录）
+          # 备注：若不开启此配置，主题文件会缺失，导致部署后无样式
           submodules: recursive
+          # 关键配置2：拉取完整的提交历史（fetch-depth: 0 = 不限深度）
+          # 备注：Hugo 生成归档、时间线、文章最后修改时间等功能需要完整提交历史，否则会显示异常
           fetch-depth: 0
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+
+      # 步骤2：安装并配置 Hugo 环境（替代手动下载安装，更高效）
+      - name: 配置 Hugo 环境
+        uses: peaceiris/actions-hugo@v3  # 第三方成熟的 Hugo 安装 Action（支持扩展版、版本指定）
         with:
-          hugo-version: 'latest'
+          hugo-version: 'latest'  # 安装最新版 Hugo（可替换为上方的 0.139.4 固定版本）
+          # 关键配置：安装 Hugo 扩展版（必需！）
+          # 备注：大部分 Hugo 主题使用 SCSS/SASS 编写样式，只有扩展版支持编译 SCSS → CSS
+          #       若关闭此配置，主题样式无法编译，部署后页面仅显示纯文本
           extended: true
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with Hugo
+
+      # 步骤3：配置 GitHub Pages 基础环境（自动适配 Pages 域名、路径等）
+      - name: 配置 Pages 环境
+        id: pages  # 给步骤命名，后续可通过 steps.pages 引用其输出（如 Pages 域名）
+        uses: actions/configure-pages@v5  # 官方 Pages 配置工具，自动处理 Pages 环境变量
+
+      # 步骤4：使用 Hugo 构建静态站点（核心步骤）
+      - name: 使用 Hugo 构建站点
         env:
+          # 配置1：Hugo 缓存目录（指向虚拟机临时目录，加速重复构建）
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          # 配置2：构建环境为生产环境（Hugo 会禁用调试模式、优化输出）
           HUGO_ENVIRONMENT: production
+          # 配置3：时区设置为上海（确保站点内的时间/日期（如文章发布时间）和本地一致）
           TZ: Asia/Shanghai
+        # 执行 Hugo 构建命令
         run: |
           hugo \
-            --gc \
-            --minify
-      - name: Check build output
-        run: ls -R public/index.html
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+            --gc \          # 启用垃圾回收：清理构建过程中未使用的资源（减小产物体积）
+            --minify       # 压缩产物：自动压缩 HTML/CSS/JS（提升站点加载速度）
+          # 备注：Hugo 默认将构建产物输出到「public」目录，此目录是 Pages 识别的默认根目录
 
-  # Deployment job
+      # 步骤5：检查构建产物（验证核心文件是否生成，调试用）
+      - name: 检查构建输出文件
+        # 列出 public 目录下的 index.html（验证构建是否成功）
+        # 扩展：若需检查主题资源，可改为 ls -R public/ 查看所有文件（如 css/js 目录是否存在）
+        run: ls -R public/index.html
+
+      # 步骤6：上传构建产物（供后续部署步骤使用）
+      - name: 上传构建产物
+        uses: actions/upload-pages-artifact@v3  # 官方上传 Pages 产物的 Action
+        with:
+          # 指定上传目录：Hugo 构建的 public 目录（包含所有静态文件）
+          path: ./public
+          # 备注：上传后的产物会临时存储，供 deploy 任务拉取部署
+
+  # --------------------- 任务2：部署到 GitHub Pages（依赖 build 任务完成） ---------------------
   deploy:
+    # 部署环境配置（可在仓库「Settings→Environments」配置环境保护规则，如审批后部署）
     environment:
-      name: github-pages
+      name: github-pages  # 关联 GitHub Pages 专属环境
+      # 部署完成后，在 Actions 面板显示站点访问地址（取自部署步骤的输出）
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+    runs-on: ubuntu-latest  # 运行环境：和构建任务一致，保证兼容性
+    needs: build            # 依赖关系：仅当 build 任务成功完成后，才执行 deploy 任务
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # 步骤1：将上传的构建产物部署到 GitHub Pages 服务器
+      - name: 部署到 GitHub Pages
+        id: deployment      # 给步骤命名，用于输出站点访问地址
+        uses: actions/deploy-pages@v4  # 官方 Pages 部署 Action（v4 支持最新鉴权方式）
+        # 备注：此步骤会自动将 public 目录的文件部署到 Pages 服务器，无需手动配置
