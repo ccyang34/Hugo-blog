@@ -39,6 +39,13 @@
         padding-right: 15px !important;
     }
 
+    /* 分类/标签页面标题：取消大写、增加边距 */
+    .section-title {
+        text-transform: none !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
     /* 分类导航紧凑化 */
     .main-category-nav {
         margin-top: 0 !important;
