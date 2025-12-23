@@ -1,10 +1,6 @@
 {{ define "main" }}
 <!-- 分类导航 Start -->
 <div class="main-category-nav">
-    <div class="category-icon">
-        {{ partial "helper/icon" "categories" }}
-        <span>分类</span>
-    </div>
     <div class="category-list">
         {{ range .Site.Taxonomies.categories.ByCount }}
         <a href="{{ .Page.RelPermalink }}" class="category-item">
