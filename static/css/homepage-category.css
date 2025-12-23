@@ -1,96 +1,82 @@
 /* 全局变量覆盖：减少卡片之间的间距 */
 :root {
-    --section-separation: 20px !important;
-    /* 原值为 35px-50px，改为更紧凑的 20px */
+    --section-separation: 12px !important;
+    --main-top-padding: 15px !important;
 }
 
-/* 主页分类导航通用样式 */
+/* 主页分类导航 - 单行紧凑样式 */
 .main-category-nav {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
     background: transparent;
-    /* 背景透明 */
-    padding: 10px 0;
-    /* 缩减内边距 */
-    margin-bottom: 20px;
-    /* 缩减下边距 */
+    padding: 0;
+    margin-bottom: 10px;
     box-shadow: none;
-    /* 移除大阴影 */
     border: none;
-    /* 移除外边框 */
+    gap: 8px;
 }
 
-/* 左侧图标和标题 */
+/* 左侧图标和标题 - 更紧凑 */
 .main-category-nav .category-icon {
     display: flex;
     align-items: center;
     font-weight: bold;
-    font-size: 1.1rem;
-    margin-right: 20px;
+    font-size: 1rem;
+    margin-right: 8px;
     color: var(--card-text-color-main);
     flex-shrink: 0;
 }
 
 .main-category-nav .category-icon svg {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
     stroke-width: 2;
 }
 
-/* 右侧可滚动的分类列表 */
+/* 分类列表 - 单行滚动 */
 .main-category-nav .category-list {
     display: flex;
     overflow-x: auto;
-    gap: 10px;
-    /* 隐藏滚动条但保留功能 */
+    gap: 8px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     white-space: nowrap;
-    padding-bottom: 2px;
-    /* 避免阴影被截断 */
+    flex-wrap: nowrap;
 }
 
 .main-category-nav .category-list::-webkit-scrollbar {
     display: none;
 }
 
-/* 分类按钮样式：参照右侧侧边栏组件 */
+/* 分类按钮 - 更小巧 */
 .main-category-nav .category-item {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 4px 10px;
     border-radius: var(--tag-border-radius);
-    /* 使用标准圆角 */
     background: var(--card-background);
-    /* 使用卡片背景色 */
     color: var(--card-text-color-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-l1);
-    /* 添加轻微阴影实现立体感 */
     border: 1px solid var(--card-separator-color);
 }
 
 .main-category-nav .category-item:hover {
     background: var(--card-background-selected);
     color: var(--card-text-color-main);
-    transform: translateY(-1px);
     box-shadow: var(--shadow-l2);
-    /* 悬停时加重阴影 */
 }
 
-/* 适配暗色模式和移动端 */
+/* 移动端 - 保持单行，可滚动 */
 @media (max-width: 768px) {
     .main-category-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
-        gap: 12px;
-    }
-
-    .main-category-nav .category-list {
-        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 15px;
+        margin-bottom: 8px;
     }
 }
