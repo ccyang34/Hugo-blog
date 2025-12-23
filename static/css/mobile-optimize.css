@@ -22,13 +22,14 @@
 
     /* 分类导航紧凑化 */
     .main-category-nav {
-        margin-bottom: 5px !important;
+        margin-bottom: 0 !important;
         padding: 0 15px !important;
     }
 
     /* 文章列表间距 */
     .article-list {
-        gap: 10px !important;
+        gap: 8px !important;
+        margin-top: 8px !important;
     }
 
     /* 移除文章卡片的圆角和阴影 */
