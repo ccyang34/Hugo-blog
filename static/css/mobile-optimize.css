@@ -33,8 +33,8 @@
         padding-right: 15px !important;
     }
 
-    /* 相关文章区域边距 */
-    .related-content {
+    /* 相关文章区域边距（包括标题） */
+    .related-content--wrapper {
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
