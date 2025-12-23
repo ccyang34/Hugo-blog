@@ -9,17 +9,43 @@
         --article-font-size: 1.45rem !important;
         --article-line-height: 1.6 !important;
 
-        /* 缩减卡片内边距 */
+        /* 缩减卡片内边距和容器边距 */
         --card-padding: 15px !important;
-        --section-separation: 25px !important;
+        --section-separation: 20px !important;
+        --container-padding: 0px !important;
+        /* 移除容器侧边距 */
+    }
+
+    /* 全屏化文章容器 */
+    .article-page .main-article {
+        border-radius: 0 !important;
+        /* 移除圆角 */
+        box-shadow: none !important;
+        /* 移除阴影 */
+        margin: 0 !important;
+        /* 移除外边距 */
+        border: none !important;
+        /* 移除边框 */
+    }
+
+    /* 优化头部大图实现无缝全屏 */
+    .article-page .main-article .article-header .article-image {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .article-page .main-article .article-header .article-image img {
+        border-radius: 0 !important;
     }
 
     /* 针对文章内容的进一步微调 */
     .article-page .main-article .article-content {
+        padding: 0 15px !important;
+        /* 确保文字不贴边 */
 
         /* 缩减段落间距 */
         p {
-            margin-bottom: 0.8em !important;
+            margin: 0.8em 0 !important;
         }
 
         /* 减小标题字号和间距 */
