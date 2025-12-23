@@ -33,7 +33,7 @@
 
     /* 分类导航紧凑化 */
     .main-category-nav {
-        margin-top: 10px !important;
+        margin-top: 0 !important;
         margin-bottom: 0 !important;
         padding: 0 15px !important;
     }
