@@ -14,8 +14,8 @@
 
     /* 主容器间距优化 */
     .main-container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         padding-top: 5px !important;
         gap: 8px !important;
     }
