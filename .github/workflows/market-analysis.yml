@@ -37,7 +37,7 @@ jobs:
         
     - name: 运行油脂期货分析
       run: |
-        python "scripts/AI油脂期货分析师_增强版.py"
+        python "分析文章脚本/AI油脂期货分析师_增强版.py"
       env:
         HUGO_BLOG_DIR: "."
         
