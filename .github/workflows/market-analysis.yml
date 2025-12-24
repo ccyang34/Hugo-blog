@@ -59,7 +59,7 @@ jobs:
         }
         
     - name: 上传博客文件
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: futures-analysis-reports
