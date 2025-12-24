@@ -1,39 +1,41 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
+# 构建并将 Hugo 站点部署到 GitHub Pages 的示例工作流
 name: Deploy Hugo site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # 在针对默认分支的推送上运行
   push:
     branches:
       - main
 
-  # Allows you to run this workflow manually from the Actions tab
+  # 允许你从 Actions 选项卡手动运行此工作流
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# 只允许一个并发部署，跳过在进行中的运行和最新排队的运行之间排队的运行。
+# 但是，不要取消正在进行的运行，因为我们要允许这些生产部署完成。
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# Default to bash
+# 默认为 bash
 defaults:
   run:
     shell: bash
 
 jobs:
-  # Build job
+  # 构建任务
   build:
     env:
       HUGO_VERSION: 0.139.4
     runs-on: ubuntu-latest
     steps:
+      # 1. 检出代码库
+      # 包括递归获取子模块，fetching-depth: 0 表示获取完整历史（Hugo构建可能需要Git信息）
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -41,41 +43,59 @@ jobs:
           fetch-depth: 0
           
       # 👇 新增：强制初始化并更新所有子模块
+      # 确保主题等子模块文件被完整下载
       - name: Initialize submodules
         run: git submodule update --init --recursive
 
+      # 2. 安装 Hugo 环境
+      # 使用 peaceiris/actions-hugo 动作，extended: true 表示支持 Sass/SCSS
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
+
+      # 3. 配置 GitHub Pages
+      # 用于生成 build 时的 metadata，供 Hugo 使用
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      # 4. 构建 Hugo 站点
+      # --gc: 构建前运行垃圾回收
+      # --minify: 压缩输出文件
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
-          TZ: Asia/Shanghai
+          TZ: Asia/Shanghai # 设置时区，确保日期时间正确
         run: |
           hugo \
             --gc \
             --minify
+
+      # 5. 检查构建产物
+      # 简单验证 index.html 是否生成，防止空部署
       - name: Check build output
         run: ls -R public/index.html
+
+      # 6. 上传构建好的静态文件
+      # 此时文件会被打包成 Artifact 供 deploy job 使用
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-  # Deployment job
+  # 部署任务
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: build # 依赖于 build 任务
     steps:
+      # 7. 部署到 GitHub Pages
+      # 从 artifact 中获取文件并推送
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -2,7 +2,7 @@ name: AI油脂期货分析师
 
 permissions:
   contents: write       # 允许写入仓库内容
-  actions: read         # 读取actions信息
+  actions: write        # 允许触发其他 workflow
   # 如果后续需要部署到其他仓库，可以添加:
   # contents: write      # 写入仓库内容
   # pull-requests: write # 写入PR
@@ -68,4 +68,10 @@ jobs:
           git commit -m "Auto-generated: Futures Analysis Report [skip ci]"
           git push
         fi
+        
+    - name: 触发部署 (Trigger Deploy)
+      if: success()
+      run: gh workflow run hugo.yml
+      env:
+        GH_TOKEN: ${{ github.token }}
         
