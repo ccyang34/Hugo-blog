@@ -2,15 +2,18 @@ import subprocess
 import sys
 import datetime
 
-def run_command(command):
+def run_command(command, exit_on_error=True):
     """运行 shell 命令并打印输出"""
     try:
         result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
         print(result.stdout)
+        return True
     except subprocess.CalledProcessError as e:
         print(f"Error executing command: {command}")
         print(e.stderr)
-        sys.exit(1)
+        if exit_on_error:
+            sys.exit(1)
+        return False
 
 def main():
     # 获取当前时间
@@ -29,18 +32,23 @@ def main():
     # 执行 Git 命令
     run_command("git add .")
     
-    # 注意：如果没有任何更改需要提交，git commit 可能会返回非零退出码，
-    # 这里我们简单处理，允许它失败（例如没有暂存的更改）而不中断，或者并在脚本中更精细处理。
-    # 为了脚本的健壮性，我们可以先检查状态，或者允许 commit 失败但继续 push（虽然没 commit push 也没用）。
-    # 这里采用标准流程，如果 commit 失败（比如无变更），通常不应继续 push。
-    # 但为了简单起见，我们使用 subprocess.run 的 check=False 来允许 'nothing to commit' 的情况
-    
     try:
+        # 尝试提交，允许失败（例如没有变更）
         subprocess.run(f'git commit -m "{commit_msg}"', shell=True, check=True, text=True)
     except subprocess.CalledProcessError:
         print("Git commit failed (possibly nothing to commit). Continuing...")
 
-    run_command("git push")
+    # 尝试推送，如果失败则拉取并重新推送
+    if not run_command("git push", exit_on_error=False):
+        print("Push failed. Attempting to pull remote changes (rebase)...")
+        if run_command("git pull --rebase", exit_on_error=False):
+            print("Rebase successful. Pushing again...")
+            run_command("git push")
+        else:
+            print("Automatic pull/rebase failed. Please check git status manually.")
+            sys.exit(1)
+    
+    print("Sync completed!")
     
     print("Sync completed!")
 
