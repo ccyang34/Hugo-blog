@@ -1,6 +1,7 @@
 <aside class="sidebar left-sidebar sticky {{ if .Site.Params.sidebar.compact }}compact{{ end }}">
+    {{- $searchURL := "/search/" | relURL -}}
     <!-- 搜索图标 - 独立定位，链接到搜索页面 -->
-    <a href="{{ " /page/search/" | relURL }}" class="header-search-icon" aria-label="搜索">
+    <a href="{{ $searchURL }}" class="header-search-icon" aria-label="搜索">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
