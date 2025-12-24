@@ -63,8 +63,7 @@ def safe_sync(commit_msg):
         
         # 针对内容文件和图表图片，在 rebase 冲突中：
         # --theirs 指代“我的当前提交（即将要合并进去的变更）”
-        # --ours 指代“上游现有的基础（HEAD）”
-        # 我们优先保留本地新生成的内容
+        # 我们优先保留本地最新生成的内容
         run_command("git checkout --theirs content/posts/*.md static/img/charts/*.png static/images/charts/*.png", exit_on_error=False)
         run_command("git add .")
         
