@@ -1,0 +1,81 @@
+<style>
+    /* =========================================
+   全局样式 - 最高优先级
+   ========================================= */
+
+    /* 只对有图片的文章应用右侧缩略图布局 */
+    section.article-list article.has-image .article-header,
+    .article-list article.has-image .article-header {
+        display: flex !important;
+        flex-direction: row-reverse !important;
+        align-items: center !important;
+        overflow: hidden !important;
+    }
+
+    /* 缩略图样式 - 统一尺寸，右侧显示 */
+    section.article-list article.has-image .article-image,
+    .article-list article.has-image .article-image {
+        width: 100px !important;
+        min-width: 100px !important;
+        max-width: 100px !important;
+        height: 80px !important;
+        max-height: 80px !important;
+        margin: 12px !important;
+        display: block !important;
+        flex-shrink: 0 !important;
+        border-radius: 6px !important;
+        overflow: hidden !important;
+    }
+
+    section.article-list article.has-image .article-image a,
+    section.article-list article.has-image .article-image img,
+    .article-list article.has-image .article-image a,
+    .article-list article.has-image .article-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 6px !important;
+    }
+
+    /* 分类标签基础样式 */
+    footer.article-time .article-category-footer a.category-tag,
+    .article-time .article-category-footer a.category-tag,
+    .article-category-footer a.category-tag,
+    a.category-tag {
+        display: inline-flex !important;
+        align-items: center !important;
+        padding: 2px 8px !important;
+        border-radius: 4px !important;
+        line-height: 1.4 !important;
+        font-size: 1.4rem !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        background-color: #34495e !important;
+    }
+
+    /* 根据文章序号循环使用5种颜色 */
+    section.article-list article:nth-child(5n+1) a.category-tag,
+    .article-list article:nth-child(5n+1) a.category-tag {
+        background-color: #8ea885 !important;
+    }
+
+    section.article-list article:nth-child(5n+2) a.category-tag,
+    .article-list article:nth-child(5n+2) a.category-tag {
+        background-color: #df7988 !important;
+    }
+
+    section.article-list article:nth-child(5n+3) a.category-tag,
+    .article-list article:nth-child(5n+3) a.category-tag {
+        background-color: #0177b8 !important;
+    }
+
+    section.article-list article:nth-child(5n+4) a.category-tag,
+    .article-list article:nth-child(5n+4) a.category-tag {
+        background-color: #ffb900 !important;
+    }
+
+    section.article-list article:nth-child(5n+5) a.category-tag,
+    .article-list article:nth-child(5n+5) a.category-tag {
+        background-color: #6b69d6 !important;
+    }
+</style>

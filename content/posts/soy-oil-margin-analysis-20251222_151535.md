@@ -1,7 +1,7 @@
 ---
 title: "豆油压榨利润深度分析报告 (2025年12月22日)"
 date: 2025-12-22T15:15:35+08:00
-image: images/margin-charts/margin-trend-20251222_151535.png
+image: /images/margin-charts/margin-trend-20251222_151535.png
 description: "基于 DeepSeek AI 深度分析的豆油压榨利润报告，包含市场仪表盘、交易指令及产业链深度逻辑解读。"
 draft: false
 categories:

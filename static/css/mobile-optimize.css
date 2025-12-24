@@ -82,7 +82,6 @@
         font-size: 1.4rem !important;
     }
 
-
     /* =========================================
        其他原有针对文章详情页的优化保持不变
        ========================================= */
@@ -196,28 +195,115 @@
     .related-content .article-image {
         display: none !important;
     }
+}
 
-    /* Footer Category Tag */
-    .article-category-footer {
-        display: inline-flex;
-        align-items: center;
-        margin-left: auto;
-        /* Push to the right */
-        font-size: 0.85rem;
-        /* Match typical reading time size */
-    }
+/* =========================================
+   全局样式（适用于所有屏幕尺寸）
+   使用高优先级选择器覆盖主题默认样式
+   ========================================= */
 
-    .article-category-footer .category-tag {
-        display: inline-block;
-        padding: 4px 8px;
-        /* Restored padding for pill shape */
-        border-radius: 5px;
-        /* Restored border radius */
-        line-height: 1;
-        font-size: inherit;
-        /* Inherit 0.85rem */
-        text-transform: none;
-        margin-left: 0;
-        /* Background color is handled by inline style */
-    }
+/* 文章列表缩略图 - 右侧显示，带留白 */
+section.article-list article .article-header,
+.article-list article .article-header,
+article .article-header {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+section.article-list article .article-image,
+.article-list article .article-image {
+    width: 100px !important;
+    min-width: 100px !important;
+    max-width: 100px !important;
+    height: 80px !important;
+    max-height: 80px !important;
+    margin: 12px !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+section.article-list article .article-image a,
+section.article-list article .article-image img,
+.article-list article .article-image a,
+.article-list article .article-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+}
+
+section.article-list article .article-details,
+.article-list article .article-details {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding: 12px 10px 12px 12px !important;
+}
+
+/* =========================================
+   分类标签样式 - 使用主题原始颜色
+   ========================================= */
+
+/* 分类标签容器 */
+footer.article-time .article-category-footer,
+.article-time .article-category-footer,
+.article-category-footer {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-left: 8px !important;
+    gap: 5px !important;
+}
+
+/* 分类标签基础样式 - 高优先级 */
+footer.article-time .article-category-footer a.category-tag,
+.article-time .article-category-footer a.category-tag,
+.article-category-footer a.category-tag,
+.article-details a.category-tag,
+a.category-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    line-height: 1.4 !important;
+    font-size: 1.4rem !important;
+    text-transform: none !important;
+    margin-left: 0 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 400 !important;
+    vertical-align: middle !important;
+    background-color: #34495e !important;
+}
+
+/* 根据文章序号循环使用5种颜色（与主题一致） */
+section.article-list article:nth-child(5n+1) a.category-tag,
+.article-list article:nth-child(5n+1) a.category-tag {
+    background-color: #8ea885 !important;
+}
+
+section.article-list article:nth-child(5n+2) a.category-tag,
+.article-list article:nth-child(5n+2) a.category-tag {
+    background-color: #df7988 !important;
+}
+
+section.article-list article:nth-child(5n+3) a.category-tag,
+.article-list article:nth-child(5n+3) a.category-tag {
+    background-color: #0177b8 !important;
+}
+
+section.article-list article:nth-child(5n+4) a.category-tag,
+.article-list article:nth-child(5n+4) a.category-tag {
+    background-color: #ffb900 !important;
+}
+
+section.article-list article:nth-child(5n+5) a.category-tag,
+.article-list article:nth-child(5n+5) a.category-tag {
+    background-color: #6b69d6 !important;
+}
+
+a.category-tag:hover {
+    filter: brightness(0.9) !important;
 }
