@@ -37,7 +37,34 @@
         border-radius: 6px !important;
     }
 
-    /* 分类标签基础样式 */
+    /* =========================================
+   分类标签样式 - 统一放在左下角（新行）
+   ========================================= */
+
+    /* article-time 容器：使用 flex-wrap 让分类标签换行 */
+    footer.article-time,
+    .article-time {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px 15px !important;
+        align-items: center !important;
+    }
+
+    /* 分类标签容器 - 强制占满整行，换到新行显示 */
+    footer.article-time .article-category-footer,
+    .article-time .article-category-footer,
+    .article-category-footer {
+        display: flex !important;
+        align-items: center !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        gap: 5px !important;
+        flex-basis: 100% !important;
+        /* 占满整行 */
+        margin-top: 4px !important;
+    }
+
+    /* 分类标签样式 */
     footer.article-time .article-category-footer a.category-tag,
     .article-time .article-category-footer a.category-tag,
     .article-category-footer a.category-tag,
