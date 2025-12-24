@@ -29,7 +29,7 @@ DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 HUGO_BLOG_DIR = os.path.dirname(SCRIPT_DIR)
 HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
-HUGO_IMAGES_DIR = os.path.join(HUGO_BLOG_DIR, "static", "img", "charts")
+HUGO_IMAGES_DIR = os.path.join(HUGO_BLOG_DIR, "static", "images", "charts")
 
 # 时区配置
 BEIJING_TZ = pytz.timezone('Asia/Shanghai')
@@ -42,11 +42,8 @@ class 榨利计算器V3:
     
     def __init__(self):
         """初始化"""
-        # 设置中文字体 - 兼容多系统
-        plt.rcParams['font.sans-serif'] = [
-            'SimHei', 'Microsoft YaHei', 'SimSun', 'FangSong',
-            'STHeiti', 'PingFang HK', 'PingFang SC', 'Heiti TC', 'Arial Unicode MS'
-        ]
+        # 设置中文字体 - 针对 Ubuntu 系统优化
+        plt.rcParams['font.sans-serif'] = ['WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'SimHei', 'DejaVu Sans']
         plt.rcParams['axes.unicode_minus'] = False
         
         # 压榨产出比例
@@ -275,12 +272,14 @@ class 榨利计算器V3:
         ai_text = self.深度分析(df)
         
         content = f"""---
-title: "大豆榨利深度分析报告：{date_str}"
+title: "大豆榨利深度分析报告"
 date: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%dT%H:%M:%S+08:00')}
+lastmod: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%dT%H:%M:%S+08:00')}
 description: "自动化生成的压榨利润深度报告，引用原始版本高精绘图和 DeepSeek AI 逻辑。"
+draft: false
 categories: ["榨利深度分析"]
 tags: ["大豆", "豆油", "豆粕", "期货", "可视化"]
-image: ../../img/charts/{文件名列表[0]}
+image: ../../images/charts/{文件名列表[0]}
 ---
 
 ## 🛰️ 数据核心快照
@@ -299,17 +298,17 @@ image: ../../img/charts/{文件名列表[0]}
 ## 📈 多维度走势分析
 
 ### 近半年明细 (高精度)
-![半年走势](../../img/charts/{文件名列表[0]})
+![半年走势](../../images/charts/{文件名列表[0]})
 
 ### 近一年对比
-![一年走势](../../img/charts/{文件名列表[1]})
+![一年走势](../../images/charts/{文件名列表[1]})
 
 ### 近两年对比
-![两年走势](../../img/charts/{文件名列表[2]})
+![两年走势](../../images/charts/{文件名列表[2]})
 
 ### 全历史周期
 展现大周期的榨利轮回。
-![全历史走势](../../img/charts/{文件名列表[3]})
+![全历史走势](../../images/charts/{文件名列表[3]})
 
 ---
 

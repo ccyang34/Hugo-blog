@@ -1,4 +1,4 @@
-name: AI油脂期货分析师
+name: 多AI分析文件运行
 
 permissions:
   contents: write       # 允许写入仓库内容
@@ -9,8 +9,7 @@ permissions:
 
 on:
   schedule:
-    # 每天收盘后运行 (UTC时间上午9点，即北京时间下午5点)
-    - cron: '0 9 * * 1-5'
+    - cron: '30 7 * * 1-5'  # 每天收盘后运行 (UTC时间上午7:30，即北京时间下午3:30)
   workflow_dispatch:  # 允许手动触发
   push:
     branches: [ main, master ]
