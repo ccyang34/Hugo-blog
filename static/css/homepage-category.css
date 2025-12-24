@@ -50,24 +50,43 @@
     display: none;
 }
 
-/* 分类按钮 - 与文章卡片标签一致 */
+/* 分类按钮 - 使用彩色底色 */
 .main-category-nav .category-item {
     display: inline-block;
     padding: 8px 16px;
     border-radius: var(--tag-border-radius);
-    background: var(--card-background);
-    color: var(--card-text-color-secondary);
+    color: #ffffff;
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-l1);
-    border: 1px solid var(--card-separator-color);
+    border: none;
+}
+
+/* 5种颜色循环 */
+.main-category-nav .category-item:nth-child(5n+1) {
+    background-color: #8ea885;
+}
+
+.main-category-nav .category-item:nth-child(5n+2) {
+    background-color: #df7988;
+}
+
+.main-category-nav .category-item:nth-child(5n+3) {
+    background-color: #0177b8;
+}
+
+.main-category-nav .category-item:nth-child(5n+4) {
+    background-color: #ffb900;
+}
+
+.main-category-nav .category-item:nth-child(5n+5) {
+    background-color: #6b69d6;
 }
 
 .main-category-nav .category-item:hover {
-    background: var(--card-background-selected);
-    color: var(--card-text-color-main);
+    filter: brightness(0.9);
     box-shadow: var(--shadow-l2);
 }
 

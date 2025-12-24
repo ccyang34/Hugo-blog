@@ -105,4 +105,111 @@
     .article-list article:nth-child(5n+5) a.category-tag {
         background-color: #6b69d6 !important;
     }
+
+    /* =========================================
+       分类页面标题样式
+       ========================================= */
+
+    /* 分类名称 h1.section-term - 加底色，使用动画轮换 */
+    h1.section-term {
+        display: inline-flex !important;
+        width: fit-content !important;
+        padding: 6px 12px !important;
+        border-radius: 4px !important;
+        background-color: #8ea885 !important;
+        color: #ffffff !important;
+        font-size: 1.6rem !important;
+        margin: 0 !important;
+        order: 1 !important;
+        animation: color-cycle 10s ease-in-out infinite !important;
+    }
+
+    @keyframes color-cycle {
+
+        0%,
+        100% {
+            background-color: #8ea885;
+        }
+
+        /* 绿 */
+        20% {
+            background-color: #df7988;
+        }
+
+        /* 粉 */
+        40% {
+            background-color: #0177b8;
+        }
+
+        /* 蓝 */
+        60% {
+            background-color: #ffb900;
+        }
+
+        /* 橙 */
+        80% {
+            background-color: #6b69d6;
+        }
+
+        /* 紫 */
+    }
+
+    /* 页面数量 h3.section-count - 在同一行右侧 */
+    h3.section-count {
+        display: inline-flex !important;
+        font-size: 1.2rem !important;
+        color: #888 !important;
+        margin: 0 !important;
+        order: 2 !important;
+    }
+
+    /* 容器用 flex 布局，左对齐，不换行 */
+    .section-details {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 5px 0 !important;
+    }
+
+    /* 分类卡片：取消白色背景和阴影，降低高度 */
+    .section-card {
+        text-align: left !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 8px 15px !important;
+        margin: 0 !important;
+    }
+
+
+    /* =========================================
+       顶部分类导航按钮彩色底色
+       ========================================= */
+    .main-category-nav .category-item {
+        color: #ffffff !important;
+        border: none !important;
+    }
+
+    .main-category-nav .category-list .category-item:nth-child(5n+1) {
+        background-color: #8ea885 !important;
+    }
+
+    .main-category-nav .category-list .category-item:nth-child(5n+2) {
+        background-color: #df7988 !important;
+    }
+
+    .main-category-nav .category-list .category-item:nth-child(5n+3) {
+        background-color: #0177b8 !important;
+    }
+
+    .main-category-nav .category-list .category-item:nth-child(5n+4) {
+        background-color: #ffb900 !important;
+    }
+
+    .main-category-nav .category-list .category-item:nth-child(5n+5) {
+        background-color: #6b69d6 !important;
+    }
 </style>
