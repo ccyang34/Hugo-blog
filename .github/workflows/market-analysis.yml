@@ -40,23 +40,23 @@ jobs:
         python "scripts/AI油脂期货分析师_增强版.py"
       env:
         DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        HUGO_BLOG_DIR: "hugo-blog"
+        HUGO_BLOG_DIR: "."
         
     - name: 检查执行状态
       run: |
-        if ($LASTEXITCODE -eq 0) {
-          Write-Host "✅ 油脂期货分析完成"
+        if [ $? -eq 0 ]; then
+          echo "✅ 油脂期货分析完成"
           # 检查生成的Hugo博客文件
-          if (Test-Path "hugo-blog\content\posts\*.md") {
-            Write-Host "✅ Hugo博客文件生成成功"
-            Get-ChildItem "hugo-blog\content\posts\*.md" | Select-Object Name, LastWriteTime
-          } else {
-            Write-Host "⚠️ 未找到Hugo博客文件"
-          }
-        } else {
-          Write-Host "❌ 油脂期货分析失败，退出码: $LASTEXITCODE"
-          exit $LASTEXITCODE
-        }
+          if ls content/posts/*.md 1> /dev/null 2>&1; then
+            echo "✅ Hugo博客文件生成成功"
+            ls -l content/posts/*.md
+          else
+            echo "⚠️ 未找到Hugo博客文件"
+          fi
+        else
+          echo "❌ 油脂期货分析失败"
+          exit 1
+        fi
         
     - name: 上传博客文件
       uses: actions/upload-artifact@v4
@@ -64,6 +64,6 @@ jobs:
       with:
         name: futures-analysis-reports
         path: |
-          hugo-blog/
+          content/posts/
           *.md
         retention-days: 30

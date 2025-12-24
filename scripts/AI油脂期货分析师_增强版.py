@@ -11,7 +11,7 @@ DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-063857d175bd48038684520e7b6
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 
 # Hugo博客配置
-HUGO_BLOG_DIR = os.getenv("HUGO_BLOG_DIR", "hugo-blog")
+HUGO_BLOG_DIR = os.getenv("HUGO_BLOG_DIR", ".")
 HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
 
 # 时区配置
