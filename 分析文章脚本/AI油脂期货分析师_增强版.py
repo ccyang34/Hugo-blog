@@ -10,9 +10,10 @@ import os
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-063857d175bd48038684520e7b6ec934")
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 
-# Hugo博客配置
+# Hugo 博客配置
 HUGO_BLOG_DIR = os.getenv("HUGO_BLOG_DIR", ".")
 HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
+HUGO_IMAGES_DIR = os.path.join(HUGO_BLOG_DIR, "static", "images")
 
 # 时区配置
 BEIJING_TZ = pytz.timezone('Asia/Shanghai')
