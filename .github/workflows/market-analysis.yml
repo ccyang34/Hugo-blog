@@ -39,7 +39,6 @@ jobs:
       run: |
         python "scripts/AI油脂期货分析师_增强版.py"
       env:
-        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         HUGO_BLOG_DIR: "."
         
     - name: 检查执行状态
