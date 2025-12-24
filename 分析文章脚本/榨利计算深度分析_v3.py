@@ -1,33 +1,33 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-榨利计算器 v3 - 升级版
-1. 移除 CSV 保存逻辑
-2. 图表与博客生成统一在 blog 目录下
-3. 生成支持 Hugo 的 Markdown 文档
-4. 集成 DeepSeek AI 深度分析
+榨利计算器 v3 - 深度分析增强版
+1. 引用原始版本稳定数据获取逻辑 (akshare + 元爬虫)
+2. 引用原始版本 3x1 详尽图表绘制逻辑
+3. 集成 DeepSeek AI 深度分析
+4. 自动生成 Hugo Markdown 博客并同步图片
 """
 
 import akshare as ak
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 from datetime import datetime, timedelta
 import os
+import json
 import requests
 import time
 import urllib3
 import pytz
-import json
 
 # ================= 配置区域 =================
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-063857d175bd48038684520e7b6ec934")
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 
 # Hugo 博客配置
-# 脚本目录
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-HUGO_BLOG_DIR = os.path.dirname(SCRIPT_DIR) # 假设脚本在 Hugo-blog/分析文章脚本，上级是 Hugo-blog
+HUGO_BLOG_DIR = os.path.dirname(SCRIPT_DIR)
 HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
 HUGO_IMAGES_DIR = os.path.join(HUGO_BLOG_DIR, "static", "img", "charts")
 
@@ -38,17 +38,18 @@ BEIJING_TZ = pytz.timezone('Asia/Shanghai')
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class 榨利计算器V3:
-    """榨利计算器V3类"""
+    """榨利计算深度分析器 V3"""
     
     def __init__(self):
         """初始化"""
-        # 设置中文字体
+        # 设置中文字体 - 兼容多系统
         plt.rcParams['font.sans-serif'] = [
-            'SimHei', 'Microsoft YaHei', 'SimSun', 'STHeiti', 'PingFang SC', 'Arial Unicode MS'
+            'SimHei', 'Microsoft YaHei', 'SimSun', 'FangSong',
+            'STHeiti', 'PingFang HK', 'PingFang SC', 'Heiti TC', 'Arial Unicode MS'
         ]
         plt.rcParams['axes.unicode_minus'] = False
         
-        # 压榨参数
+        # 压榨产出比例
         self.豆油产出率 = 0.185
         self.豆粕产出率 = 0.785
         self.压榨成本 = 150.0
@@ -56,273 +57,299 @@ class 榨利计算器V3:
         # 确保目录存在
         os.makedirs(HUGO_CONTENT_DIR, exist_ok=True)
         os.makedirs(HUGO_IMAGES_DIR, exist_ok=True)
-        # 本地备份目录
         self.输出目录 = os.path.join(SCRIPT_DIR, "blog")
         os.makedirs(self.输出目录, exist_ok=True)
         
-        print(f"🚀 榨利计算器V3 AI版初始化完成")
-        print(f"📂 内容目录: {HUGO_CONTENT_DIR}")
-        print(f"📂 图片目录: {HUGO_IMAGES_DIR}")
+        print("🚀 榨利计算器V3 AI深度分析版初始化完成")
+
+    # ================= 数据获取逻辑 (引用自 榨利计算器.py) =================
 
     def 获取豆二数据(self):
-        """获取豆二(B0)期货数据"""
-        print("🌱 获取豆二数据...")
+        """使用akshare获取豆二(B0)期货数据"""
+        print("\n🌱 开始获取豆二(B0)期货数据...")
         try:
-            df = ak.futures_zh_daily_sina(symbol="B0")
-            if df.empty: return None
-            df = df.rename(columns={'date': '日期', 'settle': '豆二价格'})
-            df['日期'] = pd.to_datetime(df['日期'])
-            return df[['日期', '豆二价格']]
+            # 获取豆二主力合约数据
+            豆二数据 = ak.futures_zh_daily_sina(symbol="B0")
+            if 豆二数据.empty: return None
+            
+            # 重命名列名为中文
+            豆二数据 = 豆二数据.rename(columns={
+                'date': '日期', 'open': '开盘价', 'high': '最高价', 
+                'low': '最低价', 'close': '收盘价', 'volume': '成交量',
+                'hold': '持仓量', 'settle': '结算价'
+            })
+            
+            # 使用收盘价作为基础，结算价用于展示
+            豆二数据['豆二价格'] = 豆二数据['收盘价']
+            豆二数据['日期'] = pd.to_datetime(豆二数据['日期'])
+            return 豆二数据[['日期', '豆二价格', '结算价']]
+            
         except Exception as e:
             print(f"❌ 获取豆二数据失败: {e}")
             return None
 
-    def 获取元数据(self, 类型, 名称):
-        """使用元爬虫获取数据"""
-        print(f"📊 获取{名称}数据...")
+    def 获取元爬虫数据(self, 产品类型='Y'):
+        """引用原始稳健的元爬虫获取逻辑"""
+        产品映射 = {'Y': '豆油', 'M': '豆粕'}
+        产品名称 = 产品映射.get(产品类型, '未知产品')
+        print(f"📊 开始获取{产品名称}数据...")
+        
         url = "https://www.jiaoyifamen.com/tools/api//future-basis/query"
-        params = {'t': int(time.time() * 1000), 'type': 类型}
-        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'}
+        params = {'t': int(time.time() * 1000), 'type': 产品类型}
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Referer': 'https://www.jiaoyifamen.com/variety/varieties-varieties'
+        }
         
         try:
-            res = requests.get(url, params=params, headers=headers, verify=False, timeout=30)
-            data = res.json().get('data', {})
-            
-            date_col = next((k for k in data.keys() if 'category' in k.lower()), None)
-            price_col = next((k for k in data.keys() if 'price' in k.lower() and 'value' in k.lower()), None)
-            basis_col = next((k for k in data.keys() if 'basis' in k.lower() and 'value' in k.lower()), None)
-            
-            if not (date_col and price_col and basis_col): return None
-            
-            dates, prices, basis = data[date_col], data[price_col], data[basis_col]
-            min_len = min(len(dates), len(prices), len(basis))
-            
-            df = pd.DataFrame({
-                '日期': dates[:min_len],
-                f'{名称}价格': prices[:min_len],
-                f'{名称}基差': basis[:min_len]
-            })
-            
-            curr_year = datetime.now().year
-            def try_parse_date(x):
-                if '-' in str(x) and len(str(x)) <= 5:
-                    try: return pd.to_datetime(f"{curr_year}-{x}")
-                    except:
-                        try: return pd.to_datetime(f"{curr_year-1}-{x}")
-                        except: return pd.NaT
-                return pd.to_datetime(x, errors='coerce')
-
-            df['日期'] = df['日期'].apply(try_parse_date)
-            df = df.dropna(subset=['日期'])
-            df[f'{名称}价格'] = pd.to_numeric(df[f'{名称}价格'], errors='coerce')
-            df[f'{名称}基差'] = pd.to_numeric(df[f'{名称}基差'], errors='coerce')
-            return df.dropna()
+            response = requests.get(url, params=params, headers=headers, timeout=30, verify=False)
+            if response.status_code == 200:
+                数据 = response.json()
+                return self.解析元爬虫数据(数据, 产品类型)
+            else:
+                print(f"❌ {产品名称}数据请求失败: {response.status_code}")
+                return None
         except Exception as e:
-            print(f"❌ 获取{名称}数据异常: {e}")
+            print(f"❌ 获取{产品名称}数据异常: {e}")
             return None
 
-    def 绘制图表(self, df, 天数, 名称):
-        """统一绘图函数"""
-        print(f"🎨 绘制{名称}走势图...")
-        data = df.tail(天数).copy() if 天数 < len(df) else df.copy()
-        fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 14), dpi=100)
+    def 解析元爬虫数据(self, 原始数据, 产品类型):
+        """引用原始稳健的数据解析逻辑"""
+        if not 原始数据 or 'data' not in 原始数据: return None
+        数据内容 = 原始数据['data']
         
+        日期数据 = 数据内容.get('category')
+        if 日期数据 is None:
+            for k in 数据内容.keys():
+                if 'category' in k.lower(): 日期数据 = 数据内容[k]; break
+        
+        价格数据, 基差数据 = None, None
+        for k, v in 数据内容.items():
+            if 'price' in k.lower() and 'value' in k.lower(): 价格数据 = v
+            if 'basis' in k.lower() and 'value' in k.lower(): 基差数据 = v
+            
+        if not (日期数据 and 价格数据 and 基差数据): return None
+        
+        min_len = min(len(日期数据), len(价格数据), len(基差数据))
+        产品数据 = pd.DataFrame({
+            '日期': 日期数据[:min_len],
+            '价格': 价格数据[:min_len],
+            '基差': 基差数据[:min_len]
+        })
+        
+        # 转换日期，处理非闰年2-29等异常
+        curr_year = datetime.now().year
+        def try_parse_date(x):
+            if isinstance(x, str) and '-' in x and len(x) <= 5:
+                try: return pd.to_datetime(f"{curr_year}-{x}")
+                except:
+                    try: return pd.to_datetime(f"{curr_year-1}-{x}")
+                    except: return pd.NaT
+            return pd.to_datetime(x, errors='coerce')
+
+        产品数据['日期'] = 产品数据['日期'].apply(try_parse_date)
+        产品数据 = 产品数据.dropna(subset=['日期'])
+        产品数据['价格'] = pd.to_numeric(产品数据['价格'], errors='coerce')
+        产品数据['基差'] = pd.to_numeric(产品数据['基差'], errors='coerce')
+        产品数据 = 产品数据.dropna()
+        
+        col_prefix = '豆油' if 产品类型 == 'Y' else '豆粕'
+        return 产品数据.rename(columns={'价格': f'{col_prefix}价格', '基差': f'{col_prefix}基差'})
+
+    def 合并并计算榨利(self, 豆油数据, 豆粕数据, 豆二数据):
+        """合并数据并计算利润"""
+        print("🔄 合并数据并计算榨利...")
+        合并 = pd.merge(豆油数据, 豆粕数据, on='日期', how='inner')
+        合并 = pd.merge(合并, 豆二数据, on='日期', how='inner')
+        
+        # 核心公式
+        合并['榨利'] = (
+            (合并['豆油价格'] + 合并['豆油基差']) * self.豆油产出率 + 
+            (合并['豆粕价格'] + 合并['豆粕基差']) * self.豆粕产出率 - 
+            合并['豆二价格'] - self.压榨成本
+        )
+        合并['榨利率'] = (合并['榨利'] / 合并['豆二价格']) * 100
+        return 合并
+
+    # ================= 图表绘制逻辑 (基于原始 3x1 结构优化) =================
+
+    def 绘制图表(self, 榨利数据, 天数, 名称):
+        """绘制详尽的多周期图表"""
+        print(f"📊 绘制{名称}走势图...")
+        data = 榨利数据.tail(天数).copy() if 天数 < len(榨利数据) else 榨利数据.copy()
+        
+        fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 14), dpi=100)
+        最新日期 = data['日期'].max().strftime('%Y-%m-%d')
+        
+        # 1. 期货价格走势 (上图)
         ax1.plot(data['日期'], data['豆油价格'], 'r-', label='豆油价格', linewidth=1.5)
-        ax1.set_ylabel('豆油价格', color='r')
+        ax1.set_title(f'期货价格走势 (双轴) - {名称}', fontsize=14)
+        ax1.set_ylabel('豆油价格(元/吨)', color='r')
         ax1.tick_params(axis='y', labelcolor='r')
         ax1.grid(True, alpha=0.3)
+        
         ax1_r = ax1.twinx()
         ax1_r.plot(data['日期'], data['豆粕价格'], 'b-', label='豆粕价格', linewidth=1.5)
         ax1_r.plot(data['日期'], data['豆二价格'], 'g-', label='豆二价格', linewidth=1.5)
-        ax1_r.set_ylabel('豆粕/豆二价格')
-        ax1.set_title(f'大豆压榨相关品种价格走势 ({名称})', fontsize=14)
+        ax1_r.set_ylabel('豆粕/豆二价格(元/吨)')
+        
         lines1, labels1 = ax1.get_legend_handles_labels()
         lines2, labels2 = ax1_r.get_legend_handles_labels()
-        ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left')
+        ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
         
-        ax2.plot(data['日期'], data['豆油基差'], 'r--', label='豆油基差')
-        ax2.plot(data['日期'], data['豆粕基差'], 'b--', label='豆粕基差')
-        ax2.axhline(0, color='black', alpha=0.3)
-        ax2.set_title(f'品种基差走势 ({名称})', fontsize=12)
-        ax2.legend(loc='upper left')
+        # 2. 基差走势 (中图)
+        ax2.plot(data['日期'], data['豆油基差'], 'r--', label='豆油基差', alpha=0.8)
+        ax2.plot(data['日期'], data['豆粕基差'], 'b--', label='豆粕基差', alpha=0.8)
+        ax2.axhline(0, color='gray', linestyle='--', alpha=0.5)
+        ax2.set_title('品种基差走势', fontsize=12)
+        ax2.set_ylabel('基差(元/吨)')
+        ax2.legend(loc='upper left', fontsize=9)
         ax2.grid(True, alpha=0.3)
         
+        # 3. 榨利走势 (下图)
         ax3.plot(data['日期'], data['榨利'], color='purple', label='盘面榨利', linewidth=2)
-        ax3.axhline(0, color='red', linestyle='--', alpha=0.6, label='盈亏平衡')
+        ax3.axhline(0, color='red', linestyle='-', alpha=0.6, label='盈亏平衡')
+        
+        # 标注最值
         max_v, min_v = data['榨利'].max(), data['榨利'].min()
         max_d = data.loc[data['榨利'].idxmax(), '日期']
         min_d = data.loc[data['榨利'].idxmin(), '日期']
-        ax3.annotate(f'最高: {max_v:.0f}', xy=(max_d, max_v), xytext=(0, 10), textcoords='offset points', ha='center', color='purple')
-        ax3.annotate(f'最低: {min_v:.0f}', xy=(min_d, min_v), xytext=(0, -20), textcoords='offset points', ha='center', color='purple')
-        ax3.set_title(f'压榨利润(榨利)走势 ({名称})', fontsize=14)
-        ax3.legend(loc='upper left')
+        ax3.annotate(f'最高: {max_v:.0f}', xy=(max_d, max_v), xytext=(0, 10), textcoords='offset points', ha='center', color='purple', fontsize=8)
+        ax3.annotate(f'最低: {min_v:.0f}', xy=(min_d, min_v), xytext=(0, -20), textcoords='offset points', ha='center', color='purple', fontsize=8)
+        
+        ax3.set_title(f'大豆压榨利润(榨利)走势 - 最新: {data["榨利"].iloc[-1]:.2f}', fontsize=14)
+        ax3.set_ylabel('榨利(元/吨)')
+        ax3.legend(loc='upper left', fontsize=9)
         ax3.grid(True, alpha=0.3)
         
         plt.tight_layout()
-        文件名 = f"margin_chart_{名称}_{datetime.now().strftime('%Y%m%d')}.png"
-        # 同时保存到博客目录和备份目录
+        文件名 = f"margin_chart_{名称}.png"
         plt.savefig(os.path.join(HUGO_IMAGES_DIR, 文件名))
         plt.savefig(os.path.join(self.输出目录, 文件名))
         plt.close()
         return 文件名
 
-    def 调用DeepSeek分析(self, df_half_year):
-        """调用 DeepSeek API 进行深度分析"""
-        print("🤖 正在调用 DeepSeek 进行深度分析...")
-        
-        # 准备数据摘要
-        latest = df_half_year.iloc[-1]
+    # ================= AI 分析与博客生成逻辑 =================
+
+    def 深度分析(self, 榨利数据):
+        """调用 DeepSeek AI 分析半年数据"""
+        print("🤖 启动 AI 深度解读...")
+        data = 榨利数据.tail(180)
+        curr = data.iloc[-1]
         stats = {
-            'avg_margin': df_half_year['榨利'].mean(),
-            'max_margin': df_half_year['榨利'].max(),
-            'min_margin': df_half_year['榨利'].min(),
-            'latest_margin': latest['榨利'],
-            'win_days': len(df_half_year[df_half_year['榨利'] > 0]),
-            'total_days': len(df_half_year),
-            'latest_y_basis': latest['豆油基差'],
-            'latest_m_basis': latest['豆粕基差']
+            'latest': curr['榨利'], 'avg': data['榨利'].mean(),
+            'max': data['榨利'].max(), 'min': data['榨利'].min(),
+            'win_rate': (len(data[data['榨利'] > 0]) / len(data)) * 100,
+            'y_basis': curr['豆油基差'], 'm_basis': curr['豆粕基差']
         }
         
-        # 构建提示词
         prompt = f"""
-你是一位资深的农产品期货分析师，请根据以下近半年的大豆压榨利润（榨利）数据进行深度分析：
+你是一位资深的期货分析师，请根据以下数据对大豆压榨利润进行深度点评：
+1. 当前榨利: {stats['latest']:.2f} 元/吨 (半年均值: {stats['avg']:.2f}, 最值区间: [{stats['min']:.0f}, {stats['max']:.0f}])
+2. 半年胜率: {stats['win_rate']:.1f}%
+3. 最新基差: 豆油 {stats['y_basis']} / 豆粕 {stats['m_basis']}
 
-1. **核心指标**:
-   - 最新榨利: {stats['latest_margin']:.2f} 元/吨
-   - 半年平均榨利: {stats['avg_margin']:.2f} 元/吨
-   - 半年最高榨利: {stats['max_margin']:.2f} 元/吨
-   - 半年最低榨利: {stats['min_margin']:.2f} 元/吨
-   - 盈利天数占比: {stats['win_days']}/{stats['total_days']} ({(stats['win_days']/stats['total_days']*100):.1f}%)
-
-2. **最新基差状态**:
-   - 豆油基差: {stats['latest_y_basis']:.0f} 元/吨
-   - 豆粕基差: {stats['latest_m_basis']:.0f} 元/吨
-
-请根据以上数据给出 3-5 段深度解读，包括：
-- 当前榨利水平在历史区间的位置评价。
-- 基差变动对当前榨利的影响分析。
-- 对未来短期压榨利润走势的预测与建议。
-- 风险提示。
-
-请直接返回 Markdown 格式的分析内容，不要包含任何自我介绍或多余的解释。
+要求：
+- 分析当前利润在历史周期中的位置。
+- 说明当前高/低基差如何影响油厂利润策略。
+- 给出短期持仓或企业避险建议。
+- 保持专业、犀利、结构化。
+请直接返回 Markdown。
 """
-        
-        headers = {
-            "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
-            "Content-Type": "application/json"
-        }
-        payload = {
-            "model": "deepseek-chat",
-            "messages": [
-                {"role": "system", "content": "你是一个专业的期货行业研究员，擅长农产品产业链分析。"},
-                {"role": "user", "content": prompt}
-            ],
-            "stream": False
-        }
-        
         try:
-            response = requests.post(DEEPSEEK_BASE_URL + "/chat/completions", headers=headers, json=payload, timeout=60)
-            if response.status_code == 200:
-                result = response.json()
-                return result['choices'][0]['message']['content']
-            else:
-                print(f"❌ DeepSeek API 请求失败: {response.status_code}, {response.text}")
-                return "AI 分析暂时不可用，请参考上方基础指标。"
-        except Exception as e:
-            print(f"❌ 调用 DeepSeek 发生异常: {e}")
-            return "AI 分析请求执行异常。"
+            headers = {"Authorization": f"Bearer {DEEPSEEK_API_KEY}", "Content-Type": "application/json"}
+            payload = {
+                "model": "deepseek-chat",
+                "messages": [{"role": "system", "content": "你是一个资深大宗商品研究员。"}, {"role": "user", "content": prompt}]
+            }
+            res = requests.post(DEEPSEEK_BASE_URL + "/chat/completions", headers=headers, json=payload, timeout=60)
+            return res.json()['choices'][0]['message']['content']
+        except:
+            return "AI 分析连接超时，请关注盘面基差变化。"
 
-    def 生成博客(self, df, 图片列表):
-        """生成整合了 AI 分析的 Hugo Markdown"""
-        print("📝 正在整合 AI 报告并生成博客...")
+    def 生成报告(self, df, 文件名列表):
+        """生成最终 Hugo 博客文章"""
+        print("📝 整合报告中...")
         latest = df.iloc[-1]
         date_str = latest['日期'].strftime('%Y-%m-%d')
-        
-        # 获取 AI 分析
-        ai_report = self.调用DeepSeek分析(df.tail(180))
+        ai_text = self.深度分析(df)
         
         content = f"""---
-title: "大豆压榨利润(榨利)深度分析报告 - {date_str}"
+title: "大豆榨利深度分析报告：{date_str}"
 date: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%dT%H:%M:%S+08:00')}
-description: "基于 DeepSeek AI 深度解读的豆油、豆粕压榨利润分析报告。涵盖最新基差、盘面榨利及未来走势预测。"
-categories: ["分析报告"]
-tags: ["豆油", "豆粕", "大豆", "榨利", "AI分析"]
-image: ../../img/charts/{图片列表[0]}
+description: "自动化生成的压榨利润深度报告，引用原始版本高精绘图和 DeepSeek AI 逻辑。"
+categories: ["榨利深度分析"]
+tags: ["大豆", "豆油", "豆粕", "期货", "可视化"]
+image: ../../img/charts/{文件名列表[0]}
 ---
 
-## 🛰️ 核心摘要
+## 🛰️ 数据核心快照
 
-截至 **{date_str}**，盘面数据概览：
-
-- **当前榨利**: `{latest['榨利']:.2f}` 元/吨 (压榨成本按 {self.压榨成本} 元/吨计)
-- **豆油基差**: `{latest['豆油基差']:.0f}` | **豆粕基差**: `{latest['豆粕基差']:.0f}`
-
----
-
-## 🤖 AI 深度解读 (Powered by DeepSeek)
-
-{ai_report}
+- **最新榨利**: `{latest['榨利']:.2f}` 元/吨 (压榨成本：{self.压榨成本})
+- **基差详情**: 豆油 `{latest['豆油基差']:.0f}` | 豆粕 `{latest['豆粕基差']:.0f}`
 
 ---
 
-## 📈 走势可视化
+## 🤖 AI 首席分析师解读
 
-### 1. 全历史走势
-展现长周期内压榨利润的周期性规律与极端位置。
-![全历史走势](../../img/charts/{图片列表[3]})
-
-### 2. 近两年细节
-![近两年走势](../../img/charts/{图片列表[2]})
-
-### 3. 近一年细节
-![近一年走势](../../img/charts/{图片列表[1]})
-
-### 4. 近半年精细分析
-![近半年走势](../../img/charts/{图片列表[0]})
+{ai_text}
 
 ---
 
-## 🔍 相关性与公式
-> **计算公式**: 榨利 = (豆油现货价格 × 18.5% + 豆粕现货价格 × 78.5%) - 豆二价格 - {self.压榨成本}
-> *注：数据来源于交易法门(基差)与新浪财经(期货)，报告自动生成。*
+## 📈 多维度走势分析
+
+### 近半年明细 (高精度)
+![半年走势](../../img/charts/{文件名列表[0]})
+
+### 近一年对比
+![一年走势](../../img/charts/{文件名列表[1]})
+
+### 近两年对比
+![两年走势](../../img/charts/{文件名列表[2]})
+
+### 全历史周期
+展现大周期的榨利轮回。
+![全历史走势](../../img/charts/{文件名列表[3]})
 
 ---
-> 数据更新时间: {datetime.now(BEIJING_TZ).strftime('%Y-%m-%d %H:%M:%S')}
+
+## 🛠️ 计算说明
+> 榨利 = (豆油现货价格 × 18.5% + 豆粕现货价格 × 78.5%) - 豆二价格 - {self.压榨成本}
+> 数据源：交易法门(基差) / Akshare(期货)
+> 更新时间：{datetime.now(BEIJING_TZ).strftime('%Y-%m-%d %H:%M:%S')}
 """
-        # 保存到博客目录
-        md_name = "榨利深度分析报告.md"
-        with open(os.path.join(HUGO_CONTENT_DIR, md_name), 'w', encoding='utf-8') as f:
+        # 保存固定文件名的博客
+        md_path = os.path.join(HUGO_CONTENT_DIR, "榨利深度分析报告.md")
+        with open(md_path, 'w', encoding='utf-8') as f:
             f.write(content)
-        # 备份一份在本地 blog 目录
-        with open(os.path.join(self.输出目录, md_name), 'w', encoding='utf-8') as f:
+        # 同时也保存到本地输出目录
+        with open(os.path.join(self.输出目录, "榨利深度分析报告.md"), 'w', encoding='utf-8') as f:
             f.write(content)
-            
-        print(f"✅ 完整报告已生成: {md_name}")
+        print(f"✅ 深度报告已更新: {md_path}")
 
-    def 运行(self):
-        """执行流程"""
+    def 启动(self):
+        """执行完整工作流"""
+        print("=" * 60)
         豆二 = self.获取豆二数据()
-        豆油 = self.获取元数据('Y', '豆油')
-        豆粕 = self.获取元数据('M', '豆粕')
+        豆油 = self.获取元爬虫数据('Y')
+        豆粕 = self.获取元爬虫数据('M')
         
-        if 豆二 is None or 豆油 is None or 豆粕 is None: return
+        if 豆二 is None or 豆油 is None or 豆粕 is None:
+            print("❌ 数据获取不完整，任务终止")
+            return
+            
+        df = self.合并并计算榨利(豆油, 豆粕, 豆二)
         
-        df = pd.merge(豆油, 豆粕, on='日期', how='inner')
-        df = pd.merge(df, 豆二, on='日期', how='inner')
-        df['榨利'] = (
-            (df['豆油价格'] + df['豆油基差']) * self.豆油产出率 +
-            (df['豆粕价格'] + df['豆粕基差']) * self.豆粕产出率 -
-            df['豆二价格'] - self.压榨成本
-        )
+        # 绘图顺序：半年、一年、两年、全历史
+        imgs = []
+        imgs.append(self.绘制图表(df, 180, "半年"))
+        imgs.append(self.绘制图表(df, 365, "一年"))
+        imgs.append(self.绘制图表(df, 730, "两年"))
+        imgs.append(self.绘制图表(df, 9999, "全历史"))
         
-        图片 = []
-        图片.append(self.绘制图表(df, 180, "半年"))
-        图片.append(self.绘制图表(df, 365, "一年"))
-        图片.append(self.绘制图表(df, 730, "两年"))
-        图片.append(self.绘制图表(df, 9999, "全历史"))
-        
-        self.生成博客(df, 图片)
-        print("🎉 任务完成！")
+        self.生成报告(df, imgs)
+        print("\n🎉 榨利深度分析 V3 工作流执行完毕！")
+        print("=" * 60)
 
 if __name__ == "__main__":
-    榨利计算器V3().运行()
+    榨利计算器V3().启动()
