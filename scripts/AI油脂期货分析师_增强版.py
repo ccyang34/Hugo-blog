@@ -466,6 +466,21 @@ def prepare_context_for_ai(df_dict):
         )
     us_s_data_str = "\n".join(us_s_data_lines)
     
+    # 构建美豆状态文本
+    us_s_info = ""
+    if us_s_latest is not None:
+        us_s_info = f"""
+    [美豆(S)当前状态] 
+    - 最新价格: {us_s_latest['close']:.2f} 美分/蒲式耳
+    - 日涨跌幅: {us_s_latest['pct_change']:+.2f}%
+    - MA5: {us_s_latest['MA5']:.2f}, MA20: {us_s_latest['MA20']:.2f}, MA60: {us_s_latest['MA60']:.2f}
+    - 价格位置: {'MA5之上' if us_s_latest['above_MA5'] else 'MA5之下'}, {'MA20之上' if us_s_latest['above_MA20'] else 'MA20之下'}
+    - 20日波动率: {us_s_latest['volatility']:.2f}%
+    - 成交量比: {us_s_latest['volume_ratio']:.2f}倍
+    """
+        if 'hold' in us_s_latest:
+             us_s_info += f"    - 持仓量: {us_s_latest['hold']:.0f}\n"
+    
     # 构建上下文
     context = f"""
     [分析基准]
@@ -508,16 +523,7 @@ def prepare_context_for_ai(df_dict):
     - 成交量比: {s_latest['volume_ratio']:.2f}倍
     - 持仓量: {s_latest['hold']:.0f}
     
-    {f"""
-    [美豆(S)当前状态] 
-    - 最新价格: {us_s_latest['close']:.2f} 美分/蒲式耳
-    - 日涨跌幅: {us_s_latest['pct_change']:+.2f}%
-    - MA5: {us_s_latest['MA5']:.2f}, MA20: {us_s_latest['MA20']:.2f}, MA60: {us_s_latest['MA60']:.2f}
-    - 价格位置: {'MA5之上' if us_s_latest['above_MA5'] else 'MA5之下'}, {'MA20之上' if us_s_latest['above_MA20'] else 'MA20之下'}
-    - 20日波动率: {us_s_latest['volatility']:.2f}%
-    - 成交量比: {us_s_latest['volume_ratio']:.2f}倍
-    - 持仓量: {us_s_latest['hold']:.0f}
-    """ if us_s_latest is not None else ""}
+    {us_s_info}
     
     [价差分析]
     - 当前价差(豆油-棕榈油): {price_spread:+.0f} 元/吨
