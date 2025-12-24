@@ -1,0 +1,69 @@
+name: AI油脂期货分析师
+
+permissions:
+  contents: read        # 读取仓库内容
+  actions: read         # 读取actions信息
+  # 如果后续需要部署到其他仓库，可以添加:
+  # contents: write      # 写入仓库内容
+  # pull-requests: write # 写入PR
+
+on:
+  schedule:
+    # 每天收盘后运行 (UTC时间上午9点，即北京时间下午5点)
+    - cron: '0 9 * * 1-5'
+  workflow_dispatch:  # 允许手动触发
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  analysis:
+    runs-on: windows-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置Python环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 安装依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas numpy matplotlib seaborn requests beautifulsoup4 lxml yfinance akshare hugo jieba wordcloud pytz
+        
+    - name: 运行油脂期货分析
+      run: |
+        python "Hugo-blog/分析文章脚本/AI油脂期货分析师_增强版.py"
+      env:
+        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        HUGO_BLOG_DIR: "hugo-blog"
+        
+    - name: 检查执行状态
+      run: |
+        if ($LASTEXITCODE -eq 0) {
+          Write-Host "✅ 油脂期货分析完成"
+          # 检查生成的Hugo博客文件
+          if (Test-Path "hugo-blog\content\posts\*.md") {
+            Write-Host "✅ Hugo博客文件生成成功"
+            Get-ChildItem "hugo-blog\content\posts\*.md" | Select-Object Name, LastWriteTime
+          } else {
+            Write-Host "⚠️ 未找到Hugo博客文件"
+          }
+        } else {
+          Write-Host "❌ 油脂期货分析失败，退出码: $LASTEXITCODE"
+          exit $LASTEXITCODE
+        }
+        
+    - name: 上传博客文件
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: futures-analysis-reports
+        path: |
+          hugo-blog/
+          *.md
+        retention-days: 30
