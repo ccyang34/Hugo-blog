@@ -1,7 +1,7 @@
 name: AI油脂期货分析师
 
 permissions:
-  contents: read        # 读取仓库内容
+  contents: write       # 允许写入仓库内容
   actions: read         # 读取actions信息
   # 如果后续需要部署到其他仓库，可以添加:
   # contents: write      # 写入仓库内容
@@ -56,6 +56,18 @@ jobs:
         else
           echo "❌ 油脂期货分析失败"
           exit 1
+        fi
+        
+    - name: 提交并推送生成的报告
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git add content/posts/*.md
+        if git diff --staged --quiet; then
+          echo "没有新文件需要提交"
+        else
+          git commit -m "Auto-generated: Futures Analysis Report [skip ci]"
+          git push
         fi
         
     - name: 上传博客文件
