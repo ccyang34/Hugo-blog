@@ -1,11 +1,17 @@
 import subprocess
 import sys
 import datetime
+import os
 
 def run_command(command, exit_on_error=True):
     """运行 shell 命令并打印输出"""
+    # 设置环境变量以强制输出中文 (如果系统支持)
+    env = os.environ.copy()
+    env["LANG"] = "zh_CN.UTF-8"
+    
     try:
-        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
+        # 传递 env 参数
+        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True, env=env)
         print(result.stdout)
         return True
     except subprocess.CalledProcessError as e:
@@ -33,8 +39,12 @@ def main():
     run_command("git add .")
     
     try:
+        # 设置环境变量
+        env = os.environ.copy()
+        env["LANG"] = "zh_CN.UTF-8"
+        
         # 尝试提交，允许失败（例如没有变更）
-        subprocess.run(f'git commit -m "{commit_msg}"', shell=True, check=True, text=True)
+        subprocess.run(f'git commit -m "{commit_msg}"', shell=True, check=True, text=True, env=env)
     except subprocess.CalledProcessError:
         print("Git 提交失败 (可能没有新的变更需要提交)。继续执行...")
 
