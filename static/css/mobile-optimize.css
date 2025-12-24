@@ -82,6 +82,11 @@
         font-size: 1.4rem !important;
     }
 
+
+    /* =========================================
+       其他原有针对文章详情页的优化保持不变
+       ========================================= */
+
     /* 文章页主容器无边距 */
     .article-page .main-container {
         padding-left: 0 !important;
@@ -122,13 +127,13 @@
 
     /* 标题字号 */
     .article-page .main-article .article-content h2 {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important;
         margin-top: 1.2em !important;
         margin-bottom: 0.6em !important;
     }
 
     .article-page .main-article .article-content h3 {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important;
         margin-top: 1em !important;
         margin-bottom: 0.5em !important;
     }
@@ -169,24 +174,50 @@
         margin-right: 0 !important;
         background: var(--card-background) !important;
         border-radius: var(--tag-border-radius) !important;
-        box-shadow: var(--shadow-l1) !important;
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
     }
 
     .related-content article .article-details {
-        padding: 12px 15px !important;
+        padding: 12px !important;
     }
 
     .related-content article .article-title {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important;
+        margin-bottom: 4px !important;
     }
 
     .related-content article .article-time {
-        font-size: 1.2rem !important;
+        font-size: 0.85rem !important;
         color: #a0aec0 !important;
-        margin-top: 5px !important;
+        margin-top: 2px !important;
     }
 
     .related-content .article-image {
         display: none !important;
+    }
+
+    /* Footer Category Tag */
+    .article-category-footer {
+        display: inline-flex;
+        align-items: center;
+        margin-left: auto;
+        /* Push to the right */
+        font-size: 0.85rem;
+        /* Match typical reading time size */
+    }
+
+    .article-category-footer .category-tag {
+        display: inline-block;
+        padding: 4px 8px;
+        /* Restored padding for pill shape */
+        border-radius: 5px;
+        /* Restored border radius */
+        line-height: 1;
+        font-size: inherit;
+        /* Inherit 0.85rem */
+        text-transform: none;
+        margin-left: 0;
+        /* Background color is handled by inline style */
     }
 }
