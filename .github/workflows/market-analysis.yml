@@ -19,7 +19,7 @@ on:
 
 jobs:
   analysis:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
     - name: 检出代码
