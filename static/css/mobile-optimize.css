@@ -98,10 +98,17 @@
         box-shadow: none !important;
     }
 
-    /* 文章头图全屏 */
+    /* 隐藏文章详情页的头图 */
+    .article-page .main-article .article-header .article-image {
+        display: none !important;
+    }
+
+    /* 文章头图全屏（如果需要显示时） */
     .article-page .main-article .article-header .article-image img {
         border-radius: 0 !important;
     }
+
+
 
     /* 文章内容区保留适当内边距（避免文字贴边） */
     .article-page .main-article .article-content {
@@ -201,6 +208,13 @@
    全局样式（适用于所有屏幕尺寸）
    使用高优先级选择器覆盖主题默认样式
    ========================================= */
+
+/* 文章详情页描述字体缩小 */
+.article-page .article-header .article-subtitle {
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+    color: #666 !important;
+}
 
 /* 文章列表缩略图 - 右侧显示，带留白 */
 section.article-list article .article-header,
@@ -306,4 +320,50 @@ section.article-list article:nth-child(5n+5) a.category-tag,
 
 a.category-tag:hover {
     filter: brightness(0.9) !important;
+}
+
+/* =========================================
+   文章卡片整体可点击
+   使用 ::after 伪元素覆盖实现
+   ========================================= */
+
+/* 文章列表中的 article 设置为相对定位 */
+section.article-list article,
+.article-list article,
+article:has(.article-details) {
+    position: relative !important;
+    cursor: pointer !important;
+    transition: box-shadow 0.2s ease, transform 0.15s ease !important;
+}
+
+/* 悬停效果 - 提升可点击感知 */
+section.article-list article:hover,
+.article-list article:hover,
+article:has(.article-details):hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* 标题链接扩展为覆盖整个卡片的可点击区域 */
+.article-details .article-title a::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 1 !important;
+}
+
+/* 确保分类标签可独立点击（层级高于覆盖层） */
+.article-details a.category-tag,
+a.category-tag {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* 确保图片链接也保持可点击 */
+.article-image a {
+    position: relative !important;
+    z-index: 2 !important;
 }

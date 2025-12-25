@@ -257,3 +257,43 @@
         background-color: #ffffff !important;
     }
 </style>
+
+<script>
+    // 文章卡片整体可点击
+    document.addEventListener('DOMContentLoaded', function () {
+        // 获取文章列表中的所有 article 元素
+        document.querySelectorAll('article').forEach(function (article) {
+            // 找到文章链接
+            var titleLink = article.querySelector('.article-title a');
+            if (!titleLink) return;
+
+            var href = titleLink.getAttribute('href');
+            if (!href) return;
+
+            // 添加 cursor 样式
+            article.style.cursor = 'pointer';
+
+            // 点击事件
+            article.addEventListener('click', function (e) {
+                // 如果点击的是分类标签或其他链接，不处理
+                if (e.target.closest('a.category-tag') ||
+                    e.target.closest('a') && e.target.closest('a') !== titleLink) {
+                    return;
+                }
+                // 跳转到文章页
+                window.location.href = href;
+            });
+
+            // 悬停效果
+            article.addEventListener('mouseenter', function () {
+                this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+                this.style.transform = 'translateY(-2px)';
+                this.style.transition = 'box-shadow 0.2s ease, transform 0.15s ease';
+            });
+            article.addEventListener('mouseleave', function () {
+                this.style.boxShadow = '';
+                this.style.transform = '';
+            });
+        });
+    });
+</script>
