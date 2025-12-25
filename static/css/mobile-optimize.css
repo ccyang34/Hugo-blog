@@ -367,3 +367,27 @@ a.category-tag {
     position: relative !important;
     z-index: 2 !important;
 }
+
+/* =========================================
+   文章浏览页：禁用卡片点击和 hover 效果
+   ========================================= */
+
+/* 禁用文章浏览页的 hover 移动效果 */
+.article-page article,
+.article-page .main-article {
+    cursor: auto !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+.article-page article:hover,
+.article-page .main-article:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* 禁用文章浏览页的全屏点击覆盖层 */
+.article-page .article-details .article-title a::after {
+    content: none !important;
+    display: none !important;
+}
