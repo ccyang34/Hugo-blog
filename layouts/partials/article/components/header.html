@@ -2,6 +2,8 @@
     {{- $image := partialCached "helper/image" (dict "Context" . "Type" "article") .RelPermalink "article" -}}
     {{- $hasImage := or $image.exists .Params.image -}}
     {{- $contentImage := "" -}}
+    {{/* 判断是否为文章浏览页（单页面）*/}}
+    {{- $isSinglePage := eq .Kind "page" -}}
 
     {{/* 如果没有明确指定图片，尝试从内容中提取第一张图片 */}}
     {{ if not $hasImage }}
@@ -21,7 +23,8 @@
 
     {{ if $hasImage }}
     <div class="article-image">
-        <a href="{{ .RelPermalink }}">
+        {{/* 在文章浏览页不使用链接包裹图片，避免点击刷新 */}}
+        {{ if not $isSinglePage }}<a href="{{ .RelPermalink }}">{{ end }}
             {{ if $image.resource }}
             {{- $Permalink := $image.resource.RelPermalink -}}
             {{- $Width := $image.resource.Width -}}
@@ -46,7 +49,7 @@
             {{ else if $contentImage }}
             <img src="{{ $contentImage | relURL }}" loading="lazy" alt="Featured image of post {{ .Title }}" />
             {{ end }}
-        </a>
+            {{ if not $isSinglePage }}</a>{{ end }}
     </div>
     {{ end }}
 
