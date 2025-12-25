@@ -67,9 +67,106 @@ def process_data(data):
         if d_idx < len(dates) and i_idx < len(industries):
             parsed_data.append({'date': dates[d_idx], 'industry': industries[i_idx], 'value': val})
     df = pd.DataFrame(parsed_data)
+
     df = df.drop_duplicates(subset=['industry', 'date'])
     pivot = df.pivot(index='industry', columns='date', values='value')
     return pivot, dates
+
+def calculate_breadth_momentum(pivot, dates):
+    """
+    计算市场宽度动量 (3日/5日变化)
+    """
+    try:
+        if len(dates) < 5:
+            return None
+            
+        current = pivot[dates[-1]]
+        prev_3d = pivot[dates[-3]]
+        prev_5d = pivot[dates[-5]]
+        
+        momentum = pd.DataFrame({
+            'Current': current,
+            'Change3D': current - prev_3d,
+            'Change5D': current - prev_5d
+        })
+        
+        return momentum
+    except Exception as e:
+        print(f"[Warning] 动量计算失败: {e}")
+        return None
+
+def analyze_market_sentiment_snapshot():
+    """
+    基于实时快照分析市场情绪 (涨跌比/涨停数/中位数)
+    """
+    print("正在分析全市场实时情绪...")
+    try:
+        # 获取快照 (带缓存)
+        # 注意: get_market_snapshot 返回的是 dict name map, 这里我们需要 raw dataframe
+        # 所以直接调用 ak.stock_zh_a_spot() 或复用逻辑
+        df = ak.stock_zh_a_spot()
+        
+        if df is None or df.empty:
+            return None
+            
+        # df columns: 代码,名称,最新价,涨跌幅,涨跌额,成交量,成交额,振幅,最高,最低,今开,昨收...
+        # 涨跌幅 column might be '涨跌幅' or 'changepercent' depending on source
+        # Sina source: code, name, trade, pricechange, changepercent, buy, sell, settlement, open, high, low, volume, amount...
+        
+        # 统一列名查找
+        pct_col = None
+        for col in ['涨跌幅', 'changepercent', 'm:chg']:
+            if col in df.columns:
+                pct_col = col
+                break
+        
+        if not pct_col:
+            print("[Warning] 未找到涨跌幅列，无法分析情绪")
+            return None
+            
+        # 清洗数据
+        df[pct_col] = pd.to_numeric(df[pct_col], errors='coerce').fillna(0)
+        
+        total_count = len(df)
+        up_count = len(df[df[pct_col] > 0])
+        down_count = len(df[df[pct_col] < 0])
+        flat_count = len(df[df[pct_col] == 0])
+        
+        limit_up = len(df[df[pct_col] > 9.5])
+        limit_down = len(df[df[pct_col] < -9.5])
+        
+        median_change = df[pct_col].median()
+        mean_change = df[pct_col].mean()
+        
+        # 成交额 (如果有)
+        amount_col = None
+        for col in ['成交额', 'amount']:
+            if col in df.columns:
+                amount_col = col
+                break
+        
+        total_amount = 0
+        if amount_col:
+             total_amount = pd.to_numeric(df[amount_col], errors='coerce').sum()
+        
+        sentiment = {
+            'total': total_count,
+            'up': up_count,
+            'down': down_count,
+            'flat': flat_count,
+            'limit_up': limit_up,
+            'limit_down': limit_down,
+            'median_change': median_change,
+            'mean_change': mean_change,
+            'total_amount': total_amount
+        }
+        
+        print(f"情绪分析完成: 涨{up_count}/跌{down_count}, 涨停{limit_up}")
+        return sentiment
+        
+    except Exception as e:
+        print(f"[Warning] 情绪分析失败: {e}")
+        return None
 
 def get_sector_map():
     """
@@ -195,7 +292,8 @@ def get_sector_map():
 
 # ================= 本地预分析 (为 AI 准备数据) =================
 
-def prepare_context_for_ai(pivot, dates):
+
+def prepare_context_for_ai(pivot, dates, momentum_df=None, sentiment_data=None):
     latest_date = dates[-1]
     
     # --- 1. 全市场分布统计 (Market Distribution) ---
@@ -233,7 +331,33 @@ def prepare_context_for_ai(pivot, dates):
     
     full_history_str = "\n".join(history_csv_lines)
 
-    # --- 3. 构建发送给 AI 的结构化上下文 ---
+    # --- 3. 补充动量与情绪数据 ---
+    momentum_str = ""
+    if momentum_df is not None:
+        # 找出动量最强(Change5D Max)和动量最弱(Change5D Min)的前5名
+        top_momentum = momentum_df.sort_values('Change5D', ascending=False).head(5)
+        bottom_momentum = momentum_df.sort_values('Change5D', ascending=True).head(5)
+        
+        momentum_str = "\n[行业动量异动 (5日宽度变化)]\n"
+        momentum_str += "加速向上 (Leaders):\n"
+        for idx, row in top_momentum.iterrows():
+            momentum_str += f"- {idx}: 当前{row['Current']:.1f}%, 5日变动+{row['Change5D']:.1f}%\n"
+            
+        momentum_str += "加速向下 (Laggards):\n"
+        for idx, row in bottom_momentum.iterrows():
+            momentum_str += f"- {idx}: 当前{row['Current']:.1f}%, 5日变动{row['Change5D']:.1f}%\n"
+
+    sentiment_str = ""
+    if sentiment_data:
+        sentiment_str = f"""
+    [全市场实时情绪快照]
+    - 上涨家数: {sentiment_data['up']} / 下跌家数: {sentiment_data['down']}
+    - 涨停家数: {sentiment_data['limit_up']} / 跌停家数: {sentiment_data['limit_down']}
+    - 涨跌幅中位数: {sentiment_data['median_change']:.2f}%
+    - 总成交额: {sentiment_data['total_amount']/100000000:.1f} 亿
+        """
+
+    # --- 4. 构建发送给 AI 的结构化上下文 ---
     context = f"""
     [分析基准]
     数据截止日期: {latest_date}
@@ -246,6 +370,10 @@ def prepare_context_for_ai(pivot, dates):
     - 极度冰点(<20%)行业数: {oversold} / {total_inds}
     - 正常区间(20-80%)行业数: {neutral} / {total_inds}
 
+    {sentiment_str}
+
+    {momentum_str}
+
     [全行业完整历史数据 (CSV矩阵)]
     {full_history_str}
     """
@@ -253,23 +381,25 @@ def prepare_context_for_ai(pivot, dates):
 
 # ================= AI 分析模块 (DeepSeek) =================
 
+
 def call_deepseek_analysis(context):
     if not DEEPSEEK_API_KEY or "sk-" not in DEEPSEEK_API_KEY:
         print("[Warning] 未配置 DEEPSEEK_API_KEY，跳过 AI 分析。")
         return "未配置 API Key，无法生成 AI 报告。"
 
-    system_prompt = """你是一位拥有20年经验的A股首席策略分析师。请基于提供的全市场行业宽度数据（Market Breadth），撰写一份深度市场分析报告。
+    system_prompt = """你是一位拥有20年经验的A股首席策略分析师。请基于提供的全市场行业宽度数据（Market Breadth）、动量异动数据和实时市场情绪快照，撰写一份深度市场分析报告。
 
     **分析逻辑与要求：**
 
     1.  **全景定调 (The Big Picture)**:
-        *   不要只看平均值。结合“过热/冰点”行业数量分布，判断市场情绪的极致程度。
-        *   如果中位数远低于平均值，说明是少数权重股在撑场面（指数失真）；反之则是普涨。
-        
+        *   结合“实时情绪快照”（涨跌比、涨停数、中位数）判断当日盘面强弱。
+        *   结合“过热/冰点”行业分布，判断市场是否处于极端位置。
+        *   **关键判断**: 市场是在加速上行、高位分歧、还是底部反弹？
+
     2.  **结构与主线 (Structure & Rotation)**:
-        *   利用提供的全行业数据，识别当前最强的 1-2 个核心主线（Sector）。
+        *   利用**[行业动量异动]**数据，识别“加速向上”的板块。这些是当前的主线。
+        *   对比“当前宽度”高但“5日变动”为负的板块，警惕高位退潮。
         *   **深度挖掘**: 找出“强中之强”（领涨行业）和“弱中之强”（底部刚启动）。
-        *   分析资金流向：哪些板块正在被资金抛弃（周变化大幅为负）？
         
     3.  **异动与背离 (Divergence)**:
         *   寻找“背离”现象：例如某些高位板块虽然宽度仍高，但周变化开始转负（高位派发迹象）。
@@ -277,20 +407,20 @@ def call_deepseek_analysis(context):
 
     4.  **实战策略 (Actionable Strategy)**:
         *   给出具体的仓位建议（0-10成）。
-        *   **进攻方向**: 具体到细分行业。
-        *   **防御/规避**: 点名需要回避的风险板块。
+        *   **进攻方向**: 具体到细分行业，优先选择动量加速向上的板块。
+        *   **防御/规避**: 点名需要回避的风险板块（高位动能衰竭）。
 
     **输出格式要求：**
     *   使用 Markdown 格式。
-    *   **必须引用数据**: 在分析时，必须引用具体的宽度数值或变化率作为支撑（例如：“通信设备宽度高达85%，且周涨幅+10%...”）。
+    *   **必须引用数据**: 在分析时，必须引用具体的宽度数值、5日变化率或情绪指标（涨停数等）作为支撑。
     *   语气专业、客观、有洞察力。不要使用模棱两可的废话。
-    *   字数控制在 600-800 字之间，内容要详实。
+    *   字数控制在 800-1000 字之间，内容要详实。
 
     **报告结构：**
     # 深度市场宽度日报
-    ## 📊 市场全景温度计
-    ## 🔄 核心主线与资金流向
-    ## ⚠️ 异动扫描与风险提示
+    ## 📊 市场全景与情绪
+    ## 🚀 行业动量与主线扫描
+    ## ⚠️ 异动背离与风险
     ## 💡 交易策略与建议
     
     **重要：** 请在报告的最后，**必须**以 JSON 格式列出你最看好的 1-2 个具体的“进攻方向”板块名称，并为每个板块推荐 5 只最具代表性的龙头股/强势股代码（6位数字代码）。格式如下：
@@ -753,6 +883,7 @@ def plot_market_breadth(pivot, dates):
         
         print(f"[Info] 市场宽度全景图已生成: {save_path}")
         
+
         # 返回用于 Markdown 引用的相对路径
         return f"/images/charts/{filename}"
         
@@ -762,11 +893,93 @@ def plot_market_breadth(pivot, dates):
         traceback.print_exc()
         return None
 
+def plot_sector_momentum(momentum_df, date_str):
+    """
+    绘制行业动量散点图 (X: 当前宽度, Y: 5日变化)
+    """
+    try:
+        if momentum_df is None:
+            return None
+            
+        print("正在生成行业动量散点图...")
+        
+        # 设置中文字体
+        plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'PingFang SC', 'Heiti TC', 'sans-serif']
+        plt.rcParams['axes.unicode_minus'] = False
+        
+        plt.figure(figsize=(12, 10))
+        
+        x = momentum_df['Current']
+        y = momentum_df['Change5D']
+        
+        # 绘制散点
+        # 根据象限设置颜色
+        colors = []
+        for idx, row in momentum_df.iterrows():
+            curr = row['Current']
+            chg = row['Change5D']
+            if curr > 50 and chg > 0:
+                colors.append('#ff4d4f') # 强+强 (红)
+            elif curr > 50 and chg < 0:
+                colors.append('#faad14') # 强+弱 (黄)
+            elif curr < 50 and chg > 0:
+                colors.append('#1890ff') # 弱+强 (蓝)
+            else:
+                colors.append('#8c8c8c') # 弱+弱 (灰)
+                
+        plt.scatter(x, y, c=colors, alpha=0.7, s=100)
+        
+        # 添加标签 (只标记极值点以避免拥挤)
+        # 逻辑: 距离中心点 (50, 0) 最远的 N 个点，或者每个象限选几个
+        for idx, row in momentum_df.iterrows():
+            curr = row['Current']
+            chg = row['Change5D']
+            
+            # 简单的过滤逻辑：只显示特别显著的
+            if abs(chg) > 10 or curr > 85 or curr < 15:
+                plt.text(curr+1, chg, idx, fontsize=9, alpha=0.8)
+        
+        plt.axhline(y=0, color='black', linestyle='--', alpha=0.3)
+        plt.axvline(x=50, color='black', linestyle='--', alpha=0.3)
+        
+        plt.title(f'行业宽度动量分析 (5日变化 vs 当前水平) - {date_str}', fontsize=16)
+        plt.xlabel('当前市场宽度 (MA20%)', fontsize=12)
+        plt.ylabel('5日宽度变化 (%)', fontsize=12)
+        
+        # 添加象限说明
+        plt.text(95, 15, '领涨/主线\n(强势加速)', ha='right', va='top', fontsize=12, color='#ff4d4f', fontweight='bold')
+        plt.text(95, -15, '高位滞涨\n(动能衰竭)', ha='right', va='bottom', fontsize=12, color='#faad14', fontweight='bold')
+        plt.text(5, 15, '底部反转\n(蓄势待发)', ha='left', va='top', fontsize=12, color='#1890ff', fontweight='bold')
+        plt.text(5, -15, '低位弱势\n(继续探底)', ha='left', va='bottom', fontsize=12, color='#8c8c8c', fontweight='bold')
+        
+        plt.grid(True, linestyle=':', alpha=0.6)
+        plt.tight_layout()
+        
+        # 保存
+        static_img_dir = HUGO_IMAGES_DIR
+        if not os.path.exists(static_img_dir):
+            os.makedirs(static_img_dir, exist_ok=True)
+            
+        filename = "A股行业动量分析图.png"
+        save_path = os.path.join(static_img_dir, filename)
+        
+        plt.savefig(save_path, dpi=120, bbox_inches='tight')
+        plt.close()
+        
+        print(f"[Info] 行业动量图已生成: {save_path}")
+        return f"/images/charts/{filename}"
+        
+    except Exception as e:
+        print(f"[Error] 动量图绘制失败: {e}")
+        return None
+
 # ================= Hugo博客集成模块 =================
 
-def save_to_hugo_blog(content, beijing_time, image_path=None):
+
+def save_to_hugo_blog(content, beijing_time, image_path=None, extra_images=None):
     """
     保存报告到Hugo博客，并支持Git自动推送
+    extra_images: list of tuples (title, path)
     """
     # 构建Hugo博客文件路径
     
@@ -801,7 +1014,11 @@ draft: false
     # 插入图片 (如果有)
     image_section = ""
     if image_path:
-        image_section = f"## 📊 市场宽度全景图\n\n![A股市场宽度全景图]({image_path})\n\n"
+        image_section += f"## 📊 市场宽度全景图\n\n![A股市场宽度全景图]({image_path})\n\n"
+    
+    if extra_images:
+        for title, path in extra_images:
+            image_section += f"## {title}\n\n![{title}]({path})\n\n"
 
     # 组合完整内容
     full_content = front_matter + image_section + content
@@ -899,13 +1116,26 @@ def main():
         print(f"[Warning] 数据最新日期 ({latest_date}) 不等于今天 ({today_date})。")
         # return # v3 暂时注释掉，允许回测演示
     
+
     # 3. 生成数据上下文
-    context = prepare_context_for_ai(pivot, dates)
+    # 计算动量
+    momentum_df = calculate_breadth_momentum(pivot, dates)
+    
+    # 获取实时情绪
+    sentiment_data = analyze_market_sentiment_snapshot()
+    
+    context = prepare_context_for_ai(pivot, dates, momentum_df, sentiment_data)
     print("--- 生成的数据上下文 ---")
     print(context)
     
     # 生成可视化图表
     image_rel_path = plot_market_breadth(pivot, dates)
+    
+    extra_images = []
+    # 生成动量图
+    momentum_img_path = plot_sector_momentum(momentum_df, dates[-1])
+    if momentum_img_path:
+        extra_images.append(("🚀 行业动量分析图", momentum_img_path))
     
     # 4. 调用 AI 分析 (Round 1: 市场宽度)
     print(f"[{get_beijing_time().strftime('%H:%M:%S')}] 正在请求 DeepSeek 进行分析 (Round 1)...")
@@ -964,10 +1194,11 @@ def main():
         f.write(final_report)
     print(f"[Info] 报告已保存至 {filename}")
     
+
     # 如果启用Hugo博客保存功能
     if ENABLE_HUGO_BLOG:
         print("[Info] 正在保存到Hugo博客...")
-        hugo_success = save_to_hugo_blog(final_report, beijing_time, image_rel_path)
+        hugo_success = save_to_hugo_blog(final_report, beijing_time, image_rel_path, extra_images)
         if not hugo_success:
             print("[Warning] Hugo博客保存失败，但报告已保存到当前目录")
     
