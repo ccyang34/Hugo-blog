@@ -158,12 +158,20 @@ class 榨利计算器V3:
         合并 = pd.merge(豆油数据, 豆粕数据, on='日期', how='inner')
         合并 = pd.merge(合并, 豆二数据, on='日期', how='inner')
         
-        # 核心公式
+        # 核心公式：含基差榨利
         合并['榨利'] = (
             (合并['豆油价格'] + 合并['豆油基差']) * self.豆油产出率 + 
             (合并['豆粕价格'] + 合并['豆粕基差']) * self.豆粕产出率 - 
             合并['豆二价格'] - self.压榨成本
         )
+        # 盘面榨利：不含基差
+        合并['盘面榨利'] = (
+            合并['豆油价格'] * self.豆油产出率 + 
+            合并['豆粕价格'] * self.豆粕产出率 - 
+            合并['豆二价格'] - self.压榨成本
+        )
+        # 现货油粕比
+        合并['现货油粕比'] = (合并['豆油价格'] + 合并['豆油基差']) / (合并['豆粕价格'] + 合并['豆粕基差'])
         合并['榨利率'] = (合并['榨利'] / 合并['豆二价格']) * 100
         return 合并
 
@@ -193,27 +201,40 @@ class 榨利计算器V3:
         lines2, labels2 = ax1_r.get_legend_handles_labels()
         ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
         
-        # 2. 基差走势 (中图)
+        # 2. 基差走势 (中图) - 含现货油粕比面积图
         ax2.plot(data['日期'], data['豆油基差'], 'r--', label='豆油基差', alpha=0.8)
         ax2.plot(data['日期'], data['豆粕基差'], 'b--', label='豆粕基差', alpha=0.8)
         ax2.axhline(0, color='gray', linestyle='--', alpha=0.5)
-        ax2.set_title('品种基差走势', fontsize=12)
         ax2.set_ylabel('基差(元/吨)')
-        ax2.legend(loc='upper left', fontsize=9)
         ax2.grid(True, alpha=0.3)
         
-        # 3. 榨利走势 (下图)
-        ax3.plot(data['日期'], data['榨利'], color='purple', label='盘面榨利', linewidth=2)
+        # 右轴：现货油粕比面积图
+        ax2_r = ax2.twinx()
+        ax2_r.fill_between(data['日期'], data['现货油粕比'].min() * 0.98, data['现货油粕比'], alpha=0.25, color='green', label='现货油粕比')
+        ax2_r.set_ylabel('现货油粕比', color='green')
+        ax2_r.tick_params(axis='y', labelcolor='green')
+        
+        # 合并图例
+        lines1, labels1 = ax2.get_legend_handles_labels()
+        lines2, labels2 = ax2_r.get_legend_handles_labels()
+        ax2.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
+        ax2.set_title(f'基差走势 & 现货油粕比 - 最新油粕比: {data["现货油粕比"].iloc[-1]:.3f}', fontsize=12)
+        
+        # 3. 榨利走势 (下图) - 含盘面榨利面积图
+        # 盘面榨利面积图（不含基差）
+        ax3.fill_between(data['日期'], 0, data['盘面榨利'], alpha=0.3, color='orange', label='盘面榨利(不含基差)')
+        # 含基差榨利折线
+        ax3.plot(data['日期'], data['榨利'], color='purple', label='现货榨利(含基差)', linewidth=2)
         ax3.axhline(0, color='red', linestyle='-', alpha=0.6, label='盈亏平衡')
         
-        # 标注最值
+        # 标注含基差榨利最值
         max_v, min_v = data['榨利'].max(), data['榨利'].min()
         max_d = data.loc[data['榨利'].idxmax(), '日期']
         min_d = data.loc[data['榨利'].idxmin(), '日期']
         ax3.annotate(f'最高: {max_v:.0f}', xy=(max_d, max_v), xytext=(0, 10), textcoords='offset points', ha='center', color='purple', fontsize=8)
         ax3.annotate(f'最低: {min_v:.0f}', xy=(min_d, min_v), xytext=(0, -20), textcoords='offset points', ha='center', color='purple', fontsize=8)
         
-        ax3.set_title(f'大豆压榨利润(榨利)走势 - 最新: {data["榨利"].iloc[-1]:.2f}', fontsize=14)
+        ax3.set_title(f'大豆压榨利润走势 - 现货榨利: {data["榨利"].iloc[-1]:.2f} | 盘面榨利: {data["盘面榨利"].iloc[-1]:.2f}', fontsize=14)
         ax3.set_ylabel('榨利(元/吨)')
         ax3.legend(loc='upper left', fontsize=9)
         ax3.grid(True, alpha=0.3)
