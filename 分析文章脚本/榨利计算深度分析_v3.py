@@ -42,8 +42,8 @@ class 榨利计算器V3:
     
     def __init__(self):
         """初始化"""
-        # 设置中文字体，增强跨平台中文显示兼容性
-        plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'PingFang SC', 'Arial Unicode MS', 'sans-serif']
+        # 设置中文字体，GitHub Actions 优先使用 Noto Sans CJK
+        plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'SimHei', 'Microsoft YaHei', 'PingFang SC', 'Arial Unicode MS', 'DejaVu Sans']
         plt.rcParams['axes.unicode_minus'] = False
         # 压榨产出比例
         self.豆油产出率 = 0.185
