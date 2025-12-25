@@ -715,8 +715,8 @@ def save_to_hugo_blog(title, content, date):
         # 构建 Hugo 博客格式的内容
         hugo_content = f"""---
 title: "{fixed_title}"
-date: {date.strftime('%Y-%m-%d %H:%M:%S')} +08:00
-lastmod: {date.strftime('%Y-%m-%d %H:%M:%S')} +08:00
+date: {date.strftime('%Y-%m-%dT%H:%M:%S+08:00')}
+lastmod: {date.strftime('%Y-%m-%dT%H:%M:%S+08:00')}
 draft: false
 tags: ["期货分析", "油脂油料", "榨利分析", "AI分析"]
 categories: ["期货市场"]

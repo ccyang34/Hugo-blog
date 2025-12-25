@@ -746,12 +746,29 @@ class ReportGenerator:
         try:
             # 获取市场概况
             summary = DataAnalyzer.get_industry_summary(data)
+            beijing_now = get_beijing_time()
+            date_iso = beijing_now.strftime('%Y-%m-%dT%H:%M:%S+08:00')
             
-            # 生成报告内容
-            report_content = f"""# 证监会行业资金流向AI分析报告
-
+            # 统一固定标题
+            fixed_title = "AI行业资金流向分析报告"
+            
+            # 构建 Hugo 博客格式的内容 (Front Matter)
+            front_matter = f"""---
+title: "{fixed_title}"
+date: {date_iso}
+lastmod: {date_iso}
+description: "基于新浪财经证监会行业数据的AI深度资金流向分析报告，涵盖3日、5日及10日多维度趋势。"
+draft: false
+categories: ["行业分析"]
+tags: ["A股", "资金流向", "AI分析", "证监会行业"]
+author: ["AI分析师"]
+---
+"""
+            
+            # 生成报告正文
+            report_body = f"""
 ## 📊 行业整体概况
-- **数据获取时间**: {get_beijing_time().strftime('%Y-%m-%d %H:%M:%S')}
+- **数据获取时间**: {beijing_now.strftime('%Y-%m-%d %H:%M:%S')}
 - **行业总数**: {summary['total_industries']}个
 - **3日上涨行业**: {summary['positive_3d_count']}个 ({summary['positive_3d_count']/summary['total_industries']*100:.1f}%)
 - **5日上涨行业**: {summary['positive_5d_count']}个 ({summary['positive_5d_count']/summary['total_industries']*100:.1f}%)
@@ -766,30 +783,33 @@ class ReportGenerator:
 ## 💰 净流入前10行业（3日）
 """
             for i, stock in enumerate(summary['top_inflow_3d'], 1):
-                report_content += f"{i}. **{stock['行业名称']}**({stock['行业代码']}) - 净流入: {stock['3日净流入']/1e8:.2f}亿元, 涨跌幅: {stock['3日平均涨跌幅']*100:.2f}%\n"
+                report_body += f"{i}. **{stock['行业名称']}**({stock['行业代码']}) - 净流入: {stock['3日净流入']/1e8:.2f}亿元, 涨跌幅: {stock['3日平均涨跌幅']*100:.2f}%\n"
             
-            report_content += f"""
+            report_body += f"""
 ## 💰 净流入前10行业（5日）
 """
             for i, stock in enumerate(summary['top_inflow_5d'], 1):
-                report_content += f"{i}. **{stock['行业名称']}**({stock['行业代码']}) - 净流入: {stock['5日净流入']/1e8:.2f}亿元, 涨跌幅: {stock['5日平均涨跌幅']*100:.2f}%\n"
+                report_body += f"{i}. **{stock['行业名称']}**({stock['行业代码']}) - 净流入: {stock['5日净流入']/1e8:.2f}亿元, 涨跌幅: {stock['5日平均涨跌幅']*100:.2f}%\n"
             
-            report_content += f"""
+            report_body += f"""
 ## 💰 净流入前10行业（10日）
 """
             for i, stock in enumerate(summary['top_inflow_10d'], 1):
-                report_content += f"{i}. **{stock['行业名称']}**({stock['行业代码']}) - 净流入: {stock['10日净流入']/1e8:.2f}亿元, 涨跌幅: {stock['10日平均涨跌幅']*100:.2f}%\n"
+                report_body += f"{i}. **{stock['行业名称']}**({stock['行业代码']}) - 净流入: {stock['10日净流入']/1e8:.2f}亿元, 涨跌幅: {stock['10日平均涨跌幅']*100:.2f}%\n"
             
-            report_content += f"""
+            report_body += f"""
 ## 🤖 AI智能分析报告
 
 {ai_report}
 
 ---
-*报告生成时间: {get_beijing_time().strftime('%Y-%m-%d %H:%M:%S')}*
+*报告生成时间: {beijing_now.strftime('%Y-%m-%d %H:%M:%S')}*
 *数据来源: 新浪财经证监会行业资金流向数据*
 *分析工具: DeepSeek AI*
 """
+            
+            # 组合完整内容
+            report_content = front_matter + report_body
             
             # 保存报告
             filepath = os.path.join(HUGO_CONTENT_DIR, filename)
