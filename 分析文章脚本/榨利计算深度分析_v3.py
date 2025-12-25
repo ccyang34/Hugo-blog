@@ -188,15 +188,15 @@ class 榨利计算器V3:
         最新日期 = data['日期'].max().strftime('%Y-%m-%d')
         
         # 1. 期货价格走势 (上图)
-        ax1.plot(data['日期'], data['豆油价格'], 'r-', label='豆油价格', linewidth=1.5)
+        ax1.plot(data['日期'], data['豆油价格'], color='darkorange', linestyle='-', label='豆油价格', linewidth=1.5)
         ax1.set_title(f'期货价格走势 (双轴) - {名称}', fontsize=14)
-        ax1.set_ylabel('豆油价格(元/吨)', color='r')
-        ax1.tick_params(axis='y', labelcolor='r')
+        ax1.set_ylabel('豆油价格(元/吨)', color='darkorange')
+        ax1.tick_params(axis='y', labelcolor='darkorange')
         ax1.grid(True, alpha=0.3)
         
         ax1_r = ax1.twinx()
         ax1_r.plot(data['日期'], data['豆粕价格'], 'b-', label='豆粕价格', linewidth=1.5)
-        ax1_r.plot(data['日期'], data['豆二价格'], 'g-', label='豆二价格', linewidth=1.5)
+        ax1_r.plot(data['日期'], data['豆二价格'], 'g--', label='豆二价格', linewidth=1.5)
         ax1_r.set_ylabel('豆粕/豆二价格(元/吨)')
         
         lines1, labels1 = ax1.get_legend_handles_labels()
@@ -209,7 +209,7 @@ class 榨利计算器V3:
                  bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.7))
         
         # 2. 基差走势 (中图) - 含现货油粕比面积图
-        ax2.plot(data['日期'], data['豆油基差'], 'r--', label='豆油基差', alpha=0.8)
+        ax2.plot(data['日期'], data['豆油基差'], color='darkorange', linestyle='--', label='豆油基差', alpha=0.8)
         ax2.plot(data['日期'], data['豆粕基差'], 'b--', label='豆粕基差', alpha=0.8)
         ax2.axhline(0, color='gray', linestyle='--', alpha=0.5)
         ax2.set_ylabel('基差(元/吨)')
@@ -277,6 +277,7 @@ class 榨利计算器V3:
 要求：
 - 分析当前利润在历史周期中的位置。
 - 说明当前高/低基差如何影响油厂利润策略。
+- 针对豆油下游生产商需求，基于当前的基差与价格水平，给出具体的现货采购决策及期货买入/套保建议。
 - 给出短期持仓或企业避险建议。
 - 保持专业、犀利、结构化。
 
