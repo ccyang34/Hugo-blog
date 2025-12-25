@@ -839,7 +839,7 @@ def main():
     
     # 7. 组合最终报告
     beijing_time = get_beijing_time()
-    report_title = f"油脂期货深度分析报告（含榨利分析） - {beijing_time.strftime('%Y年%m月%d日')}"
+    report_title = "油脂期货深度分析报告（含榨利分析）"
     
     report_header = f"""
 ## 📊 分析概况
