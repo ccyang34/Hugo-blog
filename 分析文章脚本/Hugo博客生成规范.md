@@ -130,6 +130,46 @@ def 保存图表(fig, 文件名):
     return 文件名
 ```
 
+### 3.4 Matplotlib 中文字体配置
+
+GitHub Actions 的 Ubuntu 环境默认没有中文字体，需要：
+
+**1. 在 workflow 中安装字体**（`.github/workflows/*.yml`）：
+```yaml
+- name: 安装中文字体
+  run: |
+    sudo apt-get update
+    sudo apt-get install -y fonts-noto-cjk fonts-wqy-microhei
+    fc-cache -fv
+```
+
+**2. Python 脚本中配置字体优先级**：
+```python
+import matplotlib.pyplot as plt
+
+# GitHub Actions 优先使用 Noto Sans CJK（已安装）
+# 本地 macOS 使用 PingFang SC，Windows 使用 SimHei
+plt.rcParams['font.sans-serif'] = [
+    'Noto Sans CJK SC',      # GitHub Actions (Ubuntu)
+    'WenQuanYi Micro Hei',   # GitHub Actions 备选
+    'SimHei',                # Windows
+    'Microsoft YaHei',       # Windows 备选
+    'PingFang SC',           # macOS
+    'Arial Unicode MS',      # 通用回退
+    'DejaVu Sans'            # 最终回退
+]
+plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+```
+
+**常见错误**：
+```
+findfont: Generic family 'sans-serif' not found because none of 
+the following families were found: SimHei, Microsoft YaHei...
+```
+
+**原因**：GitHub Actions 的 Ubuntu 镜像没有中文字体。
+**解决**：按上述步骤安装 `fonts-noto-cjk`。
+
 ---
 
 ## 四、文件命名规范
