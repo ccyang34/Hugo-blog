@@ -172,6 +172,8 @@ class 榨利计算器V3:
         )
         # 现货油粕比
         合并['现货油粕比'] = (合并['豆油价格'] + 合并['豆油基差']) / (合并['豆粕价格'] + 合并['豆粕基差'])
+        # 豆油基差率（基差/期货价格）
+        合并['豆油基差率'] = 合并['豆油基差'] / 合并['豆油价格'] * 100  # 百分比
         合并['榨利率'] = (合并['榨利'] / 合并['豆二价格']) * 100
         return 合并
 
@@ -201,6 +203,11 @@ class 榨利计算器V3:
         lines2, labels2 = ax1_r.get_legend_handles_labels()
         ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
         
+        # 右上角显示最新数据日期
+        ax1.text(0.99, 0.97, f'数据截止: {最新日期}', transform=ax1.transAxes, 
+                 fontsize=9, ha='right', va='top', 
+                 bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.7))
+        
         # 2. 基差走势 (中图) - 含现货油粕比面积图
         ax2.plot(data['日期'], data['豆油基差'], 'r--', label='豆油基差', alpha=0.8)
         ax2.plot(data['日期'], data['豆粕基差'], 'b--', label='豆粕基差', alpha=0.8)
@@ -208,17 +215,18 @@ class 榨利计算器V3:
         ax2.set_ylabel('基差(元/吨)')
         ax2.grid(True, alpha=0.3)
         
-        # 右轴：现货油粕比面积图
+        # 右轴：现货油粕比面积图 + 豆油基差率折线
         ax2_r = ax2.twinx()
         ax2_r.fill_between(data['日期'], data['现货油粕比'].min() * 0.98, data['现货油粕比'], alpha=0.25, color='green', label='现货油粕比')
-        ax2_r.set_ylabel('现货油粕比', color='green')
+        ax2_r.plot(data['日期'], data['豆油基差率'], color='purple', linestyle='-', linewidth=1.5, label='豆油基差率(%)')
+        ax2_r.set_ylabel('油粕比 / 基差率(%)', color='green')
         ax2_r.tick_params(axis='y', labelcolor='green')
         
         # 合并图例
         lines1, labels1 = ax2.get_legend_handles_labels()
         lines2, labels2 = ax2_r.get_legend_handles_labels()
         ax2.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
-        ax2.set_title(f'基差走势 & 现货油粕比 - 最新油粕比: {data["现货油粕比"].iloc[-1]:.3f}', fontsize=12)
+        ax2.set_title(f'基差走势 & 油粕比 - 最新油粕比: {data["现货油粕比"].iloc[-1]:.3f} | 基差率: {data["豆油基差率"].iloc[-1]:.1f}%', fontsize=12)
         
         # 3. 榨利走势 (下图) - 含盘面榨利面积图
         # 盘面榨利面积图（不含基差）
