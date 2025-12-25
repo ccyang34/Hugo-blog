@@ -386,8 +386,30 @@ a.category-tag {
     transform: none !important;
 }
 
-/* 禁用文章浏览页的全屏点击覆盖层 */
-.article-page .article-details .article-title a::after {
+/* 禁用文章浏览页的所有点击覆盖层 */
+.article-page .article-title a::after,
+.article-page .article-details .article-title a::after,
+.article-page .main-article .article-title a::after,
+.article-page article a::after {
     content: none !important;
     display: none !important;
+    position: static !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* 确保文章浏览页内的链接正常（不扩展点击区域） */
+.article-page .article-content a,
+.article-page .article-header a,
+.article-page .article-details a {
+    position: static !important;
+}
+
+/* 禁用文章浏览页的 pointer-events 覆盖 */
+.article-page .main-article {
+    pointer-events: auto !important;
+}
+
+.article-page .main-article * {
+    pointer-events: auto !important;
 }
