@@ -9,12 +9,8 @@ permissions:
 
 on:
   schedule:
-    - cron: '30 7 * * 1-5'  # 每天收盘后运行 (UTC时间上午7:30，即北京时间下午3:30)
+    - cron: '30 7 * * 1-5'  # 工作日收盘后运行 (UTC 7:30 = 北京时间 15:30)
   workflow_dispatch:  # 允许手动触发
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
 
 jobs:
   analysis:
