@@ -704,16 +704,18 @@ def save_to_hugo_blog(title, content, date):
         # 创建 Hugo 博客目录
         os.makedirs(HUGO_CONTENT_DIR, exist_ok=True)
         
-        # 生成文件名（使用日期和slug）
-        date_str = date.strftime('%Y-%m-%d')
-        slug = title.replace('（', '-').replace('）', '').replace('(', '-').replace(')', '').replace(' ', '-').lower()
-        filename = f"{date_str}-{slug}.md"
+        # 生成固定文件名
+        filename = "油脂期货深度分析报告.md"
         filepath = os.path.join(HUGO_CONTENT_DIR, filename)
+        
+        # 统一固定标题
+        fixed_title = "油脂期货深度分析报告"
         
         # 构建 Hugo 博客格式的内容
         hugo_content = f"""---
-title: "{title}"
+title: "{fixed_title}"
 date: {date.strftime('%Y-%m-%d %H:%M:%S')} +08:00
+lastmod: {date.strftime('%Y-%m-%d %H:%M:%S')} +08:00
 draft: false
 tags: ["期货分析", "油脂油料", "榨利分析", "AI分析"]
 categories: ["期货市场"]

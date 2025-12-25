@@ -739,8 +739,7 @@ class ReportGenerator:
             str: 保存的文件名，失败返回None
         """
         if filename is None:
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            filename = f"AI证监会行业资金流向分析报告_{timestamp}.md"
+            filename = "AI证监会行业资金流向分析报告.md"
         
         try:
             # 获取市场概况
