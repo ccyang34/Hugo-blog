@@ -250,7 +250,8 @@ class 榨利计算器V3:
 - 说明当前高/低基差如何影响油厂利润策略。
 - 给出短期持仓或企业避险建议。
 - 保持专业、犀利、结构化。
-请直接返回 Markdown。
+
+**重要格式要求**：直接输出纯 Markdown 文本，禁止使用 ```markdown 或任何代码块包裹整篇文章。
 """
         try:
             headers = {"Authorization": f"Bearer {DEEPSEEK_API_KEY}", "Content-Type": "application/json"}
