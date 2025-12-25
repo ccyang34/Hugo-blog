@@ -42,10 +42,9 @@ class 榨利计算器V3:
     
     def __init__(self):
         """初始化"""
-        # 设置中文字体 - 针对 Ubuntu 系统优化
-        plt.rcParams['font.sans-serif'] = ['WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'SimHei', 'DejaVu Sans']
+        # 设置中文字体，增强跨平台中文显示兼容性
+        plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'PingFang SC', 'Arial Unicode MS', 'sans-serif']
         plt.rcParams['axes.unicode_minus'] = False
-        
         # 压榨产出比例
         self.豆油产出率 = 0.185
         self.豆粕产出率 = 0.785
