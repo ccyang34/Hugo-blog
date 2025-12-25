@@ -37,10 +37,12 @@ DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-063857d175bd48038684520e7b6
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 MODEL_NAME = "deepseek-chat"
 
-# ---------------- 推送配置 (WxPusher) ----------------
-WXPUSHER_APP_TOKEN = os.getenv("WXPUSHER_APP_TOKEN", "AT_UHus2F8p0yjnG6XvGEDzdCp5GkwvLdkc")
-WXPUSHER_TOPIC_IDS = [42353]  # 目标主题 ID 列表42540备用
-WXPUSHER_URL = "https://wxpusher.zjiecode.com/api/send/message"
+# Hugo 博客配置
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+HUGO_BLOG_DIR = os.path.dirname(SCRIPT_DIR)
+HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
+HUGO_IMAGES_DIR = os.path.join(HUGO_BLOG_DIR, "static", "images", "charts")
+
 
 # ---------------- 时区配置 ----------------
 BEIJING_TZ = pytz.timezone('Asia/Shanghai')
@@ -739,7 +741,7 @@ class ReportGenerator:
             str: 保存的文件名，失败返回None
         """
         if filename is None:
-            filename = "AI证监会行业资金流向分析报告.md"
+            filename = "AI行业资金流向分析报告.md"
         
         try:
             # 获取市场概况
@@ -790,176 +792,16 @@ class ReportGenerator:
 """
             
             # 保存报告
-            with open(filename, 'w', encoding='utf-8') as f:
+            filepath = os.path.join(HUGO_CONTENT_DIR, filename)
+            with open(filepath, 'w', encoding='utf-8') as f:
                 f.write(report_content)
             
-            print(f"AI分析报告已保存到: {filename}")
-            return filename
+            print(f"AI分析报告已保存到: {filepath}")
+            return filepath
             
         except Exception as e:
             print(f"生成分析报告出错: {str(e)}")
             return None
-
-# =============================================================================
-# 推送功能模块
-# =============================================================================
-
-class PushNotifier:
-    """
-    推送通知类 - 专注于微信推送功能
-    """
-    
-    @staticmethod
-    def send_push(title, content, url=None):
-        """
-        使用 WxPusher 推送消息
-        
-        Args:
-            title: 推送标题
-            content: 推送内容
-            url: 推送链接
-            
-        Returns:
-            bool: 推送是否成功
-        """
-        print("\n" + "="*20 + f" PUSH: {title} " + "="*20)
-        print("正在发送 WxPusher 推送...")
-        print("="*50 + "\n")
-        
-        payload = {
-            "appToken": WXPUSHER_APP_TOKEN,
-            "content": content,
-            "summary": title,
-            "contentType": 3,  # 3 表示 Markdown 格式
-            "topicIds": WXPUSHER_TOPIC_IDS,
-            "url": url,
-            "verifyPay": False,
-            "selfUid": "",
-            "showPushType": 1
-        }
-
-        try:
-            response = requests.post(WXPUSHER_URL, 
-                                   json=payload, 
-                                   headers={'Content-Type': 'application/json'},
-                                   timeout=10)
-            
-            if response.status_code == 200:
-                result = response.json()
-                if result.get('code') == 1000:
-                    print("✅ WxPusher 推送成功")
-                    return True
-                else:
-                    print(f"❌ WxPusher 推送失败: {result.get('msg', '未知错误')}")
-                    return False
-            else:
-                print(f"❌ HTTP请求失败: {response.status_code} - {response.text}")
-                return False
-                
-        except Exception as e:
-            print(f"❌ 推送过程出错: {str(e)}")
-            return False
-    
-    @staticmethod
-    def generate_push_content(summary, csv_file, ai_report, full_report=False):
-        """
-        生成推送内容（只推送AI分析报告的markdown格式）
-        
-        Args:
-            summary: 分析摘要数据
-            csv_file: CSV数据文件路径
-            ai_report: DeepSeek返回的AI分析报告内容
-            full_report: 是否推送完整报告内容
-            
-        Returns:
-            str: 推送内容
-        """
-        try:
-            if ai_report:
-                # 直接使用AI报告内容（已控制在3000字以内）
-                content = ai_report
-                return content
-            elif csv_file is not None:
-                # 如果有CSV文件但没有AI报告，显示基础信息
-                basic_content = f"""证监会行业资金流向分析报告
-
-📊 数据概况：
-- 行业总数: {summary.get('total_industries', 0)}个
-- 3日总净流入: {summary.get('total_inflow_3d_billion', 0):.2f}亿元  
-- 5日总净流入: {summary.get('total_inflow_5d_billion', 0):.2f}亿元
-- 10日总净流入: {summary.get('total_inflow_10d_billion', 0):.2f}亿元
-
-📁 数据文件：{os.path.basename(csv_file)}
-🕒 生成时间：{get_beijing_time().strftime('%Y-%m-%d %H:%M:%S')}
-
-⚠️ AI分析生成失败，请检查API配置。"""
-                return basic_content
-            else:
-                  # 既没有AI报告也没有CSV文件，显示最简信息
-                  minimal_content = f"""证监会行业资金流向分析报告
-
-📊 数据概况：
-- 行业总数: {summary.get('total_industries', 0)}个
-- 3日总净流入: {summary.get('total_inflow_3d_billion', 0):.2f}亿元  
-- 5日总净流入: {summary.get('total_inflow_5d_billion', 0):.2f}亿元
-- 10日总净流入: {summary.get('total_inflow_10d_billion', 0):.2f}亿元
-
-🕒 生成时间：{get_beijing_time().strftime('%Y-%m-%d %H:%M:%S')}
-
-⚠️ AI分析生成失败，请检查API配置。"""
-                  return minimal_content
-            
-        except Exception as e:
-            print(f"⚠️  生成推送内容失败: {str(e)}")
-            # 如果生成失败，使用简化的错误提示
-            error_content = f"""证监会行业资金流向AI分析报告
-
-⚠️  内容生成失败: {str(e)}
-
-🕒 生成时间：{get_beijing_time().strftime('%Y-%m-%d %H:%M:%S')}"""
-            return error_content
-    
-    @staticmethod
-    def push_analysis_results(summary, csv_file, ai_report, push_enabled=True, full_report=False):
-        """
-        推送分析结果
-        
-        Args:
-            summary: 分析摘要数据
-            csv_file: CSV数据文件路径
-            ai_report: AI分析报告内容
-            push_enabled: 是否启用推送
-            full_report: 是否推送完整报告内容
-        """
-        if not push_enabled:
-            print("📱 推送功能已禁用")
-            return
-        
-        if not WXPUSHER_APP_TOKEN:
-            print("⚠️  未配置 WXPUSHER_APP_TOKEN，跳过推送")
-            return
-        
-        try:
-            # 生成推送内容
-            title = f"AI行业资金流向分析 - {get_beijing_time().strftime('%m月%d日')}"
-            content = PushNotifier.generate_push_content(summary, csv_file, ai_report, full_report)
-            
-            # 设置URL (如果没有CSV文件则不设置URL)
-            url = f"file://{os.path.abspath(csv_file)}" if csv_file else None
-            
-            # 发送推送
-            success = PushNotifier.send_push(title, content, url)
-            
-            if success:
-                if full_report:
-                    print("🎉 完整分析报告推送完成")
-                else:
-                    print("🎉 分析结果推送完成")
-            else:
-                print("❌ 分析结果推送失败")
-                
-        except Exception as e:
-            print(f"❌ 推送过程出错: {str(e)}")
 
 # =============================================================================
 # 主程序模块
@@ -977,16 +819,14 @@ class CSRCIndustryAIAnalyzer:
         self.data_analyzer = DataAnalyzer()
         self.ai_analyzer = AIAnalyzer()
         self.report_generator = ReportGenerator()
-        self.push_notifier = PushNotifier()
     
-    def run_analysis(self, total_pages=8, page_size=20, push_enabled=True):
+    def run_analysis(self, total_pages=8, page_size=20):
         """
         运行完整的证监会行业资金流向分析流程
         
         Args:
             total_pages: 获取的数据页数
             page_size: 每页数据量
-            push_enabled: 是否启用推送
             
         Returns:
             dict: 分析结果，包含文件路径等信息
@@ -1033,16 +873,9 @@ class CSRCIndustryAIAnalyzer:
             print(f"\n🎉 行业分析完成！")
             print(f"📄 AI报告: DeepSeek返回的markdown格式分析报告")
             
-            # 5. 推送分析结果（推送AI报告内容）
-            if push_enabled:
-                print("\n=== 第五步：推送DeepSeek分析报告 ===")
-                self.push_notifier.push_analysis_results(
-                    results['summary'], 
-                    None,  # 不再需要CSV文件路径
-                    results['ai_report'], 
-                    push_enabled=True, 
-                    full_report=True
-                )
+            # 5. 生成报告文件
+            print("\n=== 第五步：生成分析报告文件 ===")
+            results['report_file'] = self.report_generator.generate_analysis_report(results['data'], results['ai_report'])
         else:
             print("❌ AI行业分析失败或未配置API")
         
@@ -1066,8 +899,7 @@ def main():
     # 运行完整分析流程
     results = analyzer.run_analysis(
         total_pages=8,     # 获取8页完整数据
-        page_size=20,      # 每页20条数据
-        push_enabled=True  # 启用推送
+        page_size=20       # 每页20条数据
     )
     
     return results

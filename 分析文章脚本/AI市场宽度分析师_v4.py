@@ -22,7 +22,7 @@ DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"  # DeepSeek 官方 API 地址
 
 
 
-# Hugo博客集成配置
+# Hugo 博客配置
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 HUGO_BLOG_DIR = os.path.dirname(SCRIPT_DIR)
 HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
