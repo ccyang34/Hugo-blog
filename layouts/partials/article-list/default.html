@@ -1,15 +1,3 @@
-{{ $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" }}
-{{/* 检查 front matter 中是否有 image */}}
-{{ $hasImage := or $image.exists .Params.image }}
-{{/* 如果没有，尝试从内容中提取第一张图片 */}}
-{{ if not $hasImage }}
-{{ $content := .RawContent }}
-{{ $imgPattern := `!\[.*?\]\((.*?)\)` }}
-{{ $matches := findRE $imgPattern $content 1 }}
-{{ if $matches }}
-{{ $hasImage = true }}
-{{ end }}
-{{ end }}
-<article class="{{ if $hasImage }}has-image{{ end }}">
-    {{ partial "article/components/header" . }}
+<article class="">
+    {{ partial "article/components/header" (dict "Page" . "HideImage" true) }}
 </article>

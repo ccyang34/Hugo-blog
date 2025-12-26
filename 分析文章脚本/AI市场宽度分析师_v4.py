@@ -14,6 +14,10 @@ import matplotlib.pyplot as plt
 import matplotlib
 from pathlib import Path
 
+# 设置中文字体，GitHub Actions 优先使用 Noto Sans CJK 
+plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'SimHei', 'Microsoft YaHei', 'PingFang SC', 'Arial Unicode MS', 'DejaVu Sans'] 
+plt.rcParams['axes.unicode_minus'] = False
+
 
 # ================= 配置区域 =================
 # 请在环境变量中设置 DEEPSEEK_API_KEY，或直接在此处填入 (不推荐直接提交到代码库)
@@ -830,8 +834,8 @@ def plot_market_breadth(pivot, dates):
         latest_date = dates[-1]
         current_vals = pivot[latest_date].sort_values(ascending=True)
         
-        # 设置中文字体 (优先尝试 MacOS 常见字体)
-        plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'PingFang SC', 'Heiti TC', 'sans-serif']
+        # 设置中文字体，GitHub Actions 优先使用 Noto Sans CJK
+        plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'SimHei', 'Microsoft YaHei', 'PingFang SC', 'Arial Unicode MS', 'DejaVu Sans']
         plt.rcParams['axes.unicode_minus'] = False
         
         # 创建画布
@@ -902,10 +906,6 @@ def plot_sector_momentum(momentum_df, date_str):
             return None
             
         print("正在生成行业动量散点图...")
-        
-        # 设置中文字体
-        plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'PingFang SC', 'Heiti TC', 'sans-serif']
-        plt.rcParams['axes.unicode_minus'] = False
         
         plt.figure(figsize=(12, 10))
         
