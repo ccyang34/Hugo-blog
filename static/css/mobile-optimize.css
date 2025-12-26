@@ -59,11 +59,39 @@
         padding-right: 15px !important;
     }
 
-    /* 分类导航紧凑化 */
+    /* 分类导航紧凑化 - 支持横向滑动 */
     .main-category-nav {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
+        padding: 0 !important;
+        /* 容器无内边距，实现边缘对齐 */
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        /* iOS惯性滚动 */
+        scrollbar-width: none !important;
+        /* Firefox隐藏滚动条 */
+    }
+
+    .main-category-nav::-webkit-scrollbar {
+        display: none !important;
+        /* Chrome/Safari隐藏滚动条 */
+    }
+
+    .main-category-nav .category-list {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 10px !important;
+        width: max-content !important;
+        /* 确保内容撑开宽度 */
         padding: 0 15px !important;
+        /* 内边距加在内容上，保证滚动首尾留白 */
+    }
+
+    .main-category-nav .category-item {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        display: inline-block !important;
+        /* 也可以是 flex, 但 inline-block 兼容性较好 */
     }
 
     /* 文章列表间距 */
