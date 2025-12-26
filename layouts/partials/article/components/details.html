@@ -50,16 +50,17 @@
         {{/* View Count - Only show on single pages to avoid incorrect counts on lists */}}
         {{ if .IsPage }}
         <div class="article-view-count">
-            <span id="busuanzi_container_page_pv" style="display:none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+            <span id="busuanzi_container_page_uv">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <circle cx="12" cy="12" r="2" />
-                    <path
-                        d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
                 </svg>
-                <span><span id="busuanzi_value_page_pv"></span> views</span>
+                <span><span id="busuanzi_value_page_uv">--</span> 人阅读</span>
             </span>
         </div>
         {{ end }}
