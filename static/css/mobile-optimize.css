@@ -5,7 +5,7 @@
 
 @media screen and (max-width: 767px) {
     :root {
-        --article-font-size: 1.7rem !important;
+        --article-font-size: 1.6rem !important;
         --article-line-height: 1.6 !important;
         --card-padding: 15px !important;
         --section-separation: 10px !important;
@@ -132,14 +132,15 @@
     }
 
     /* 标题字号 */
+    /* 标题字号 */
     .article-page .main-article .article-content h2 {
-        font-size: 1.6rem !important;
+        font-size: 2.0rem !important;
         margin-top: 1.2em !important;
         margin-bottom: 0.6em !important;
     }
 
     .article-page .main-article .article-content h3 {
-        font-size: 1.4rem !important;
+        font-size: 1.8rem !important;
         margin-top: 1em !important;
         margin-bottom: 0.5em !important;
     }
