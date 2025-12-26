@@ -442,3 +442,26 @@ a.category-tag {
 .article-page .main-article * {
     pointer-events: auto !important;
 }
+
+/* =========================================
+   文章阅读量显示控制
+   ========================================= */
+
+/* 默认隐藏（在列表页不显示，避免 ID 冲突和数据错误） */
+.article-view-count {
+    display: none !important;
+}
+
+/* 仅在文章详情页（Body class: article-page）显示 */
+.article-page .article-view-count {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-left: 10px !important;
+    /* 与前面图标的间距 */
+}
+
+.article-page .article-view-count span {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
