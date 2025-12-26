@@ -457,11 +457,34 @@ a.category-tag {
     display: inline-flex !important;
     align-items: center !important;
     margin-left: 10px !important;
-    /* 与前面图标的间距 */
+    /* 默认桌面端间距 */
 }
 
 .article-page .article-view-count span {
     display: inline-flex !important;
     align-items: center !important;
     gap: 4px !important;
+}
+
+@media screen and (max-width: 767px) {
+
+    /* 移动端：阅读量换行显示，与时间左对齐 */
+    .article-page .article-view-count {
+        display: flex !important;
+        flex-basis: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 8px !important;
+        color: #718096 !important;
+        /* 适配一般阅读时间的灰色 */
+        font-size: 1.4rem !important;
+        /* 保持与阅读时长/日期一致的字号 */
+    }
+
+    /* 调整图标大小适配文字 */
+    .article-page .article-view-count svg {
+        width: 20px !important;
+        height: 20px !important;
+        margin-right: 4px !important;
+    }
 }
