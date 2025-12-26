@@ -475,7 +475,9 @@ a.category-tag {
         width: 100% !important;
         margin-left: 0 !important;
         margin-top: 0 !important;
-        /* 移除额外间距，仅保留 flex gap */
+        /* 移除额外上间距 */
+        margin-bottom: 0 !important;
+        /* 移除额外下间距 */
         color: #718096 !important;
         /* 适配一般阅读时间的灰色 */
         font-size: 1.4rem !important;
