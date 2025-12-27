@@ -308,10 +308,10 @@ footer.article-time .article-category-footer a.category-tag,
 a.category-tag {
     display: inline-flex !important;
     align-items: center !important;
-    padding: 1px 5px !important;
-    border-radius: 4px !important;
-    line-height: 1.4 !important;
-    font-size: 1.4rem !important;
+    padding: 0px 3px !important;
+    border-radius: 2px !important;
+    line-height: 1.1 !important;
+    font-size: 1.0rem !important;
     text-transform: none !important;
     margin-left: 0 !important;
     color: #ffffff !important;
