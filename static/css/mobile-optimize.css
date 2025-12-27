@@ -96,13 +96,13 @@
 
     /* 文章列表间距 */
     .article-list {
-        gap: 8px !important;
-        margin-top: 8px !important;
+        gap: 6px !important;
+        margin-top: 6px !important;
     }
 
     /* 主页文章标题字号 */
     .article-list .article-title {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important;
     }
 
     /* 主页文章摘要字号 */
@@ -308,7 +308,7 @@ footer.article-time .article-category-footer a.category-tag,
 a.category-tag {
     display: inline-flex !important;
     align-items: center !important;
-    padding: 2px 8px !important;
+    padding: 1px 5px !important;
     border-radius: 4px !important;
     line-height: 1.4 !important;
     font-size: 1.4rem !important;
