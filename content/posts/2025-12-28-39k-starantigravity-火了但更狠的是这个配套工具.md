@@ -1,98 +1,98 @@
 ---
 title: "3.9K Star！Antigravity 火了，但更狠的是这个配套工具！"
-date: 2025-12-28T13:55:12+08:00
-lastmod: 2025-12-28T13:55:12+08:00
+date: 2025-12-28T13:58:51+08:00
+lastmod: 2025-12-28T13:58:51+08:00
 categories: ["AI编程工具"]
-tags: ["Vibe Coding", "Antigravity", "AI编程", "Claude Code", "Gemini", "开源工具", "模型路由", "Coding Agent"]
+tags: ["Vibe Coding", "Antigravity", "AI编程", "Claude Code", "Gemini", "开源工具", "模型路由", "开发者工具"]
 ---
 
-如果说 2024 年是 AI 编程工具的元年，那么 2025 年绝对是 **Vibe Coding（氛围编程）** 的爆发年。
+如果说2024年是AI编程工具的元年，那么2025年绝对是 **Vibe Coding（氛围编程）** 的爆发年。
 
 最近如果你刷 `Vibe Coding` 圈子，一定绕不开一个名字：**Antigravity**。
 
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/NjA8gwicXyeJA5JDUk9f6rxkyvjMZYu4UNYEp2SKq4fpjZCvErjicocWymOSyLZDr3ibgVexJnNAEPa5qZ0iak22Mg/640?wx_fmt=jpeg&from=appmsg)
 
-这是 Google 在 11 月份同 Gemini 3 Pro 模型一块推出的一款 IDE 级 Vibe Coding 工具，主打「所见即所得 + 强模型驱动」。
+这是Google在11月份同Gemini 3 Pro模型一块推出的一款IDE级Vibe Coding工具，主打「所见即所得 + 强模型驱动」。
 
 支持 Gemini 3 Pro、Claude Opus 4.5(Thinking) 等主流大模型，免费额度还不低，写代码速度快，生成质量稳定。
 
-不少人已经用它轻松做出了完整 AI 应用。
+不少人已经用它轻松做出了完整AI应用。
 
-但是，问题来了：这么好的模型，只能困在 Antigravity 编辑器里用，太可惜了！
+但是，问题来了：这么好的模型，只能困在Antigravity编辑器里用，太可惜了！
 
-习惯了 Claude Code (CC) 的极客们，看着这个免费的大金矿却挖不走，是不是很急？
+习惯了Claude Code (CC)的极客们，看着这个免费的大金矿却挖不走，是不是很急？
 
-而且国内用户们，为了能够多限额使用，多个账号切换，频繁使用容易限额，针对 CC/CodeX/Gemini CLI 这类 Coding Agent 没有一个标准 API，生态较割裂。
+而且国内用户们，为了能够多限额使用，多个账号切换，频繁使用容易限额，针对CC/CodeX/Gemini CLI这类Coding Agent没有一个标准API，生态较割裂。
 
-别急，开源社区的大神 lbjlaq 出手了。他开发的 **Antigravity-Manager**，直接打通了这“最后一公里”。
+别急，开源社区的大神lbjlaq出手了。他开发的 **Antigravity-Manager**，直接打通了这“最后一公里”。
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/NjA8gwicXyeJA5JDUk9f6rxkyvjMZYu4UgRWoyukJliaqr9tialolhAfHTI2jIWqIZYIw4FY7WtBL4kMzK6vmmUYQ/640?wx_fmt=png&from=appmsg)
 
-今天，我就带大家深挖这个让你的 Coding Agent 满血复活的神器。
+今天，我就带大家深挖这个让你的Coding Agent满血复活的神器。
 
-#### 项目简介
+## 项目简介
 
 简单来说，Antigravity Tools（Antigravity Manager）是一个中间件，或者你可以叫它“模型路由器”。
 
-一个专为开发者和 AI 爱好者设计的全功能桌面应用。它将多账号管理、协议转换和智能请求调度完美结合，为您提供一个稳定、极速且成本低廉的本地 AI 中转站。
+一个专为开发者和AI爱好者设计的全功能桌面应用。它将多账号管理、协议转换和智能请求调度完美结合，为您提供一个稳定、极速且成本低廉的本地AI中转站。
 
-它把 Antigravity 里的模型，转成一套“标准 API”，给 Claude Code、Codex 等 Coding Agent 用。
+它把Antigravity里的模型，转成一套“标准API”，给Claude Code、Codex等Coding Agent用。
 
-能够管理多个 Google 账号，每个账号都有一定的 Antigravity 模型额度，如果额度不够了，可智能切换到额度足够的账号。
+能够管理多个Google账号，每个账号都有一定的Antigravity模型额度，如果额度不够了，可智能切换到额度足够的账号。
 
-只用一个 Google 账号体系，就能驱动多个编程智能体。
+只用一个Google账号体系，就能驱动多个编程智能体。
 
-#### 主要功能
+## 主要功能
 
-**1、智能账号仪表盘，实时监控**
+### 1. 智能账号仪表盘，实时监控
 
-一眼洞察所有账号的健康状况，包括 Gemini Pro、Gemini Flash、Claude 以及 Gemini 绘图的平均剩余配额。
+一眼洞察所有账号的健康状况，包括Gemini Pro、Gemini Flash、Claude以及Gemini绘图的平均剩余配额。
 
 系统会根据当前所有账号的配额冗余度，实时算法筛选并推荐“最佳账号”，支持一键切换。
 
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/NjA8gwicXyeJA5JDUk9f6rxkyvjMZYu4Uvia3Z1OeOKf6ibxCT3bTqhvdG1K5uoW0tM8eooyJK2Up2xoMLLRScRuQ/640?wx_fmt=jpeg&from=appmsg)
 
-**2、账号管家**
+### 2. 账号管家
 
-支持 OAuth 2.0 授权；支持单条 Token 录入、JSON 批量导入等多维度导入；
+支持OAuth 2.0授权；支持单条Token录入、JSON批量导入等多维度导入；
 
-支持“列表”与“网格”双视图切换。提供 403 封禁检测，自动标注并跳过权限异常的账号。
+支持“列表”与“网格”双视图切换。提供403封禁检测，自动标注并跳过权限异常的账号。
 
-**3、协议转换与中继**
+### 3. 协议转换与中继
 
 **全协议适配 (Multi-Sink):**
 
-*   **OpenAI 格式:** 提供 /v1/chat/completions 端点，兼容 99% 的现有 AI 应用。
-*   **Anthropic 格式:** 提供原生 /v1/messages 接口，支持 Claude Code CLI 的全功能（如思维链、系统提示词）。
-*   **Gemini 格式:** 支持 Google 官方 SDK 直接调用。
+*   **OpenAI格式:** 提供 /v1/chat/completions 端点，兼容99%的现有AI应用。
+*   **Anthropic格式:** 提供原生 /v1/messages 接口，支持Claude Code CLI的全功能（如思维链、系统提示词）。
+*   **Gemini格式:** 支持Google官方SDK直接调用。
 
-**智能状态自愈:** 当请求遇到 429 (Too Many Requests) 或 401 (Expire) 时，后端会毫秒级触发自动重试与静默轮换，确保业务不中断。
+**智能状态自愈:** 当请求遇到429 (Too Many Requests) 或401 (Expire) 时，后端会毫秒级触发自动重试与静默轮换，确保业务不中断。
 
-**4、模型路由中心**
+### 4. 模型路由中心
 
-*   **系列化映射:** 您可以将复杂的原始模型 ID 归类到“规格家族”（如将所有 GPT-4 请求统一路由到 gemini-3-pro-high）。
+*   **系列化映射:** 您可以将复杂的原始模型ID归类到“规格家族”（如将所有GPT-4请求统一路由到gemini-3-pro-high）。
 *   **专家级重定向:** 支持自定义正则表达式级模型映射，精准控制每一个请求的落地模型。
 
-**5、多模态与 Imagen 3 支持**
+### 5. 多模态与Imagen 3支持
 
-*   **高级画质控制:** 支持通过 OpenAI size (如 1024x1024, 16:9) 参数自动映射到 Imagen 3 的相应规格。
-*   **超强 Body 支持:** 后端支持高达 100MB 的 Payload，处理 4K 高清图识别绰绰有余。
+*   **高级画质控制:** 支持通过OpenAI size (如1024x1024, 16:9) 参数自动映射到Imagen 3的相应规格。
+*   **超强Body支持:** 后端支持高达100MB的Payload，处理4K高清图识别绰绰有余。
 
-#### 快速入手
+## 快速入手
 
-**Step 1：安装桌面版 Antigravity Tools**
+**Step 1：安装桌面版Antigravity Tools**
 
-进入项目 Release 页面，下载安装桌面应用（目前仅支持本地）。
+进入项目Release页面，下载安装桌面应用（目前仅支持本地）。
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/NjA8gwicXyeJA5JDUk9f6rxkyvjMZYu4UBpXfGbIVD7VRuO521x67gknVb4YbsfyAtnMy9wcky58H8yeFDnTGyQ/640?wx_fmt=png&from=appmsg)
 
-**Step 2：添加 Google 账号**
+**Step 2：添加Google账号**
 
-*   在 Antigravity Tools 中添加账号
+*   在Antigravity Tools中添加账号
 *   自动拉起浏览器
-*   使用 Google 账号登录 Antigravity
+*   使用Google账号登录Antigravity
 
-**Step 3：配置 Claude Code**
+**Step 3：配置Claude Code**
 
 在终端中设置环境变量：
 
@@ -101,13 +101,13 @@ export ANTHROPIC_API_KEY="sk-xxx"
 export ANTHROPIC_BASE_URL="http://127.0.0.1:8045"
 ```
 
-这一步的含义是：让 Claude Code 把请求发给本地 Antigravity Tools，而不是官方 API。
+这一步的含义是：让Claude Code把请求发给本地Antigravity Tools，而不是官方API。
 
-**Step 4：开始 Vibe Coding**
+**Step 4：开始Vibe Coding**
 
-打开 Claude Code，直接发指令即可。
+打开Claude Code，直接发指令即可。
 
-Python 使用代码示例：
+Python使用代码示例：
 
 ```python
 import openai
@@ -124,43 +124,43 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-#### 进阶玩法：模型映射与高级套餐
+## 进阶玩法：模型映射与高级套餐
 
-除了 Claude Code，很多朋友还在用 Codex 或者其他 IDE 插件。
+除了Claude Code，很多朋友还在用Codex或者其他IDE插件。
 
-这里有个痛点：很多插件把模型名字写死了（比如只能选 GPT-4）。
+这里有个痛点：很多插件把模型名字写死了（比如只能选GPT-4）。
 
-Antigravity Tools 提供了一个 **“移花接木”** 的功能 — **模型映射**。
+Antigravity Tools提供了一个 **“移花接木”** 的功能 — **模型映射**。
 
-Antigravity 非高级订阅用户不支持 GPT 模型，但你可以这样设置：
+Antigravity非高级订阅用户不支持GPT模型，但你可以这样设置：
 
 *   请求模型名：`gpt-4` 或 `gpt-5-codex`
 *   实际转发给：`gemini-3-pro-high`
 
-这样，当你使用的工具傻傻地请求 GPT-4 时，Antigravity Tools 会在后台默默把它转发给 Gemini 3 Pro，返回结果后再伪装成 GPT-4 给回去。
+这样，当你使用的工具傻傻地请求GPT-4时，Antigravity Tools会在后台默默把它转发给Gemini 3 Pro，返回结果后再伪装成GPT-4给回去。
 
 这一招，能让所有不支持自定义模型的工具瞬间兼容！
 
-#### 目前需要注意几点：
+## 目前需要注意几点：
 
 *   仅提供桌面版
-*   不支持 Web
-*   不支持服务器部署当中转 API
+*   不支持Web
+*   不支持服务器部署当中转API
 *   主要定位是个人/本地使用
 
-一个 Google 账号，就能打通 Antigravity + Claude Code + Codex + Gemini CLI。
+一个Google账号，就能打通Antigravity + Claude Code + Codex + Gemini CLI。
 
-#### 写在最后
+## 写在最后
 
-Antigravity 本身已经很强了，而 **Antigravity Tools** 做的，是把这种能力升级为整个 Coding Agent 生态都能用。
+Antigravity本身已经很强了，而 **Antigravity Tools** 做的，是把这种能力升级为整个Coding Agent生态都能用。
 
-ta 做的不是“模型创新”，而是把一个原本封闭的 IDE 能力，工程化释放出来。
+ta做的不是“模型创新”，而是把一个原本封闭的IDE能力，工程化释放出来。
 
-如果你是 Vibe Coding 重度用户、Claude Code 玩家，想低成本/稳定用强模型写代码。
+如果你是Vibe Coding重度用户、Claude Code玩家，想低成本/稳定用强模型写代码。
 
 那这个项目，非常值得你亲自装一遍。
 
-Antigravity Tools 桌面端如果有下载问题，可复制 **AntigravityTools** 在公众号回复获取桌面软件包。
+Antigravity Tools桌面端如果有下载问题，可复制 **AntigravityTools** 在公众号回复获取桌面软件包。
 
 GitHub：
 
@@ -168,6 +168,6 @@ GitHub：
 
 ![](https://mmbiz.qpic.cn/mmbiz_gif/NjA8gwicXyeKqAjyn8A3ob9xT4DDY8DB3JCvIaM6JKWXFsgCxznXicJhpRYJ5MIPb9xvgGA4WYhPagIKorlScib0Q/640?wx_fmt=gif)
 
-如果本文对您有帮助，也请帮忙点个 赞👍 + 在看 哈！❤️
+如果本文对您有帮助，也请帮忙点个 **赞👍 + 在看** 哈！❤️
 
 **在看你就赞赞我！**![](https://mmbiz.qpic.cn/mmbiz_gif/NjA8gwicXyeLZdEkueqhds4y07sImrPvibkDIsnVCibl5ibS6jSiccRh6RtH8ZqBPBWSib0kn7Ep6mP5YPJCJkraJ3kw/640?wx_fmt=gif)
