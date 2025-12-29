@@ -1,9 +1,9 @@
 ---
 title: "Claude Code超级助手 - SuperClaude"
-date: 2025-12-29T21:40:45+08:00
-lastmod: 2025-12-29T21:40:45+08:00
+date: 2025-12-29T21:45:11+08:00
+lastmod: 2025-12-29T21:45:11+08:00
 categories: ["AI编程工具"]
-tags: ["SuperClaude", "Claude Code", "AI开发助手", "配置框架", "MCP集成", "AI编程", "开源工具"]
+tags: ["SuperClaude", "Claude Code", "AI开发助手", "配置框架", "MCP集成", "AI编程", "开源工具", "开发工作流"]
 ---
 
 SuperClaude是一个专门为Claude Code设计的综合配置框架，旨在将Claude Code转变为一个专业的AI开发助手。它通过结构化的配置文件和专业化的工作流程，极大地增强了Claude Code的开发能力。
@@ -35,14 +35,14 @@ SuperClaude 是一个轻量级的嵌入式配置框架，它将 Claude Code 从�
 Python 3.14.0  
 
 ❯ pip --version  
-pip 24.2 from /opt/anaconda3/lib/python3.12/site-packages/pip (python 3.12)  
+pip 24.2 from /opt/anaconda3/lib/python3.12/site-packages/pip (python 3.12)
 ```
 
 ### 安装
 
 官方给了三种方式
 
-* **方式一：pipx**
+*   **方式一：pipx**
 
 ```
 pipx install SuperClaude && pipx upgrade SuperClaude && SuperClaude install  
@@ -90,19 +90,19 @@ superclaude is already at latest version 4.1.9 (location:
 
 📁 Installation directory: /Users/sun/.claude/commands/sc  
 
-💡 Tip: Restart Claude Code to use the new commands  
+💡 Tip: Restart Claude Code to use the new commands
 ```
 
-* **方式二：pip**
+*   **方式二：pip**
 
 ```
-pip install SuperClaude && pip upgrade SuperClaude && SuperClaude install  
+pip install SuperClaude && pip upgrade SuperClaude && SuperClaude install
 ```
 
-* **方式三：npm**
+*   **方式三：npm**
 
 ```
-npm install -g @bifrost_inc/superclaude && superclaude install  
+npm install -g @bifrost_inc/superclaude && superclaude install
 ```
 
 ## 使用
@@ -112,16 +112,16 @@ npm install -g @bifrost_inc/superclaude && superclaude install
 SuperClaude 的所有功能都通过命令调用。基本语法如下：
 
 ```
-/command [flags] [arguments]  
+/command [flags] [arguments]
 
-/命令名 --标志1 --标志2 --persona-角色名 "任务描述"  
+/命令名 --标志1 --标志2 --persona-角色名 "任务描述"
 ```
 
 **注意事项：**
 
-* ✅ 使用直接斜杠格式：/build, /analyze, /review
-* ✅ 标志使用双破折号：-flag
-* ✅ Persona作为通用标志使用：-persona-名称
+*   ✅ 使用直接斜杠格式：/build, /analyze, /review
+*   ✅ 标志使用双破折号：-flag
+*   ✅ Persona作为通用标志使用：-persona-名称
 
 ### 命令
 
@@ -173,30 +173,30 @@ SuperClaude 的所有功能都通过命令调用。基本语法如下：
 
 ### 常用示例：
 
-* **核心开发流程命令**
+*   **核心开发流程命令**
 
 ```
 # 这三个命令大概是比较常用的组合  
-/sc:brainstorm "移动端支付系统"# 苏格拉底式提问，挖掘需求  
+/sc:brainstorm "移动端支付系统" # 苏格拉底式提问，挖掘需求  
 /sc:analyze --focus architecture   # 架构分析，感觉还挺全面  
-/sc:implement "支付安全模块"# 多阶段实现，不只是简单的代码生成  
+/sc:implement "支付安全模块" # 多阶段实现，不只是简单的代码生成
 ```
 
-* **质量保证命令**
+*   **质量保证命令**
 
 ```
 /sc:test --coverage             # 生成测试用例，覆盖率分析  
 /sc:review --focus security     # 代码审查，安全视角    
-/sc:troubleshoot "性能瓶颈" # 系统诊断，找根因  
+/sc:troubleshoot "性能瓶颈" # 系统诊断，找根因
 ```
 
-* **高级工程命令**
+*   **高级工程命令**
 
 ```
 /sc:refactor --scope module     # 模块级重构  
 /sc:optimize --focus memory     # 性能优化  
 /sc:design "微服务架构；TDD架构等" # 系统设计  
-/sc:docs --format api          # 文档生成  
+/sc:docs --format api          # 文档生成
 ```
 
 ## FAQ
