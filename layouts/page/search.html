@@ -44,42 +44,47 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #ccc;
-        box-shadow: 0 0 0 3px rgba(204, 204, 204, 0.2);
-        margin-top: 5px;
+        background-color: #d1d5db;
+        /* 默认灰色 */
+        display: inline-block;
         flex-shrink: 0;
+        margin-top: 5px;
     }
 
     .status-dot.success {
-        background: #10b981;
-        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-    }
-
-    .status-dot.failure {
-        background: #ef4444;
-        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        background-color: #10b981;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
     }
 
     .status-dot.progress {
-        background: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        animation: pulse 1.5s infinite;
+        background-color: #3b82f6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        animation: pulse 2s infinite;
+    }
+
+    .status-dot.failure {
+        background-color: #ef4444;
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+    }
+
+    .status-dot.unknown {
+        background-color: #9ca3af;
     }
 
     @keyframes pulse {
         0% {
-            transform: scale(0.95);
-            opacity: 0.7;
+            opacity: 1;
+            transform: scale(1);
         }
 
         50% {
-            transform: scale(1.05);
-            opacity: 1;
+            opacity: 0.6;
+            transform: scale(0.95);
         }
 
         100% {
-            transform: scale(0.95);
-            opacity: 0.7;
+            opacity: 1;
+            transform: scale(1);
         }
     }
 
@@ -280,40 +285,53 @@
 
         async function fetchGitHubStatus() {
             // Update GH UI
-            ghStatusText.innerText = "正在查询...";
+            ghStatusText.innerText = "Checking...";
             ghStatusDot.className = "status-dot progress";
 
-            const API_URL = 'https://hugo-fabu.ccyang.online/api/github-status';
+            const BACKEND_API_URL = 'https://hugo-fabu.ccyang.online';
 
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(`${BACKEND_API_URL}/api/github-status`);
                 const data = await response.json();
 
                 if (data.success && data.result) {
                     const status = (data.result.status || 'unknown').toLowerCase();
                     const conclusion = (data.result.conclusion || '').toLowerCase();
 
+                    let displayStatus = status.toUpperCase();
+                    let dotClass = 'progress'; // 默认为进行中/蓝色
+
+                    // 状态映射逻辑
                     if (status === 'completed') {
-                        ghStatusText.innerText = conclusion.toUpperCase();
+                        displayStatus = conclusion.toUpperCase();
                         if (conclusion === 'success') {
-                            ghStatusDot.className = "status-dot success";
+                            dotClass = 'success';
+                        } else if (conclusion === 'failure' || conclusion === 'timed_out' || conclusion === 'cancelled') {
+                            dotClass = 'failure';
                         } else {
-                            ghStatusDot.className = "status-dot failure";
+                            dotClass = 'unknown';
                         }
-                    } else if (['in_progress', 'queued', 'pending'].includes(status)) {
-                        ghStatusText.innerText = '运行中';
-                        ghStatusDot.className = "status-dot progress";
+                    } else if (status === 'in_progress' || status === 'queued') {
+                        const activeCount = data.result.active_count || 1;
+                        displayStatus = activeCount > 1 ? `RUNNING (${activeCount})` : 'RUNNING';
+                        dotClass = 'progress';
                     } else {
-                        ghStatusText.innerText = status.toUpperCase();
-                        ghStatusDot.className = "status-dot progress";
+                        // 其他状态 (waiting, requested, etc.)
+                        dotClass = 'unknown';
                     }
+
+                    // 更新 UI
+                    ghStatusText.textContent = displayStatus;
+                    ghStatusDot.className = `status-dot ${dotClass}`;
+
                 } else {
-                    throw new Error(data.error || '未知错误');
+                    ghStatusText.textContent = 'UNKNOWN';
+                    ghStatusDot.className = 'status-dot unknown';
                 }
             } catch (error) {
-                console.error('GitHub 状态获取错误:', error);
-                ghStatusText.innerText = "离线";
-                ghStatusDot.className = "status-dot failure";
+                console.warn('[GitHub Widget] Fetch failed:', error);
+                ghStatusText.textContent = 'ERROR';
+                ghStatusDot.className = 'status-dot failure';
             }
         }
 
