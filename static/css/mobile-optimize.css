@@ -352,8 +352,8 @@ a.category-tag:hover {
 }
 
 /* =========================================
-   文章卡片整体可点击
-   使用 ::after 伪元素覆盖实现
+   华尔街见闻风格 - 文章卡片
+   无边框、无阴影、底部细分隔线
    ========================================= */
 
 /* 文章列表中的 article 设置为相对定位 */
@@ -362,15 +362,32 @@ section.article-list article,
 article:has(.article-details) {
     position: relative !important;
     cursor: pointer !important;
-    transition: box-shadow 0.2s ease, transform 0.15s ease !important;
+    transition: background-color 0.15s ease !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-/* 悬停效果 - 提升可点击感知 */
+[data-scheme="dark"] section.article-list article,
+[data-scheme="dark"] .article-list article {
+    border-bottom-color: #333 !important;
+}
+
+/* 悬停效果 - 仅背景色变化，无位移 */
 section.article-list article:hover,
 .article-list article:hover,
 article:has(.article-details):hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    transform: translateY(-2px) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    background-color: #f8f9fa !important;
+}
+
+[data-scheme="dark"] section.article-list article:hover,
+[data-scheme="dark"] .article-list article:hover {
+    background-color: #252538 !important;
 }
 
 /* 标题链接扩展为覆盖整个卡片的可点击区域 */
@@ -489,5 +506,243 @@ a.category-tag {
         width: 20px !important;
         height: 20px !important;
         margin-right: 4px !important;
+    }
+}
+
+/* =========================================
+   资讯APP风格增强 - 全局组件
+   ========================================= */
+
+/* 阅读进度条 - 仅在文章页显示 */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #8ea885 0%, #0177b8 50%, #6b69d6 100%);
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 返回顶部按钮 */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.back-to-top:active {
+    transform: translateY(-1px);
+}
+
+.back-to-top svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* =========================================
+   华尔街见闻风格 - 紧凑列表模式
+   ========================================= */
+
+.article-list {
+    gap: 0 !important;
+    background: #fff;
+}
+
+[data-scheme="dark"] .article-list {
+    background: #1a1a2e;
+}
+
+.article-list article {
+    margin-bottom: 0 !important;
+}
+
+.article-list .article-details {
+    padding: 12px 15px !important;
+}
+
+.article-list .article-title {
+    font-size: 1.6rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+    font-weight: 500 !important;
+    color: #222 !important;
+}
+
+[data-scheme="dark"] .article-list .article-title {
+    color: #e0e0e0 !important;
+}
+
+.article-list .article-title a {
+    color: inherit !important;
+}
+
+.article-list .article-subtitle {
+    font-size: 1.4rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+    margin-top: 4px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    color: #666 !important;
+}
+
+/* 相对时间样式 */
+.article-time .relative-time {
+    color: #999;
+    font-size: 1.2rem;
+}
+
+/* 隐藏文章列表中的分类标签（顶部已有分类导航） */
+.article-list .article-category {
+    display: none !important;
+}
+
+/* =========================================
+   华尔街见闻风格 - 头条标签
+   ========================================= */
+
+/* 头条标签基础样式 */
+.headline-tag {
+    display: inline-block;
+    padding: 1px 6px;
+    margin-right: 6px;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    vertical-align: middle;
+}
+
+/* 为第一篇文章自动添加头条样式（通过JS控制） */
+.article-list article.is-headline .headline-tag {
+    display: inline-block;
+}
+
+.article-list article:not(.is-headline) .headline-tag {
+    display: none;
+}
+
+/* =========================================
+   移动端底部导航栏
+   ========================================= */
+
+@media screen and (max-width: 767px) {
+
+    /* 底部导航栏 */
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background: var(--card-background, #ffffff);
+        border-top: 1px solid var(--body-text-color, #e2e8f0);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 暗色模式适配 */
+    [data-scheme="dark"] .mobile-bottom-nav {
+        background: #1a1a2e;
+        border-top-color: #333355;
+    }
+
+    .mobile-bottom-nav .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        height: 100%;
+        text-decoration: none;
+        color: #718096;
+        transition: color 0.2s ease;
+        gap: 3px;
+    }
+
+    .mobile-bottom-nav .nav-item:active,
+    .mobile-bottom-nav .nav-item.active {
+        color: #667eea;
+    }
+
+    .mobile-bottom-nav .nav-item svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .mobile-bottom-nav .nav-item span {
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    /* 为底部导航留出空间 */
+    body {
+        padding-bottom: 60px !important;
+    }
+
+    .site-footer {
+        margin-bottom: 60px !important;
+    }
+
+    /* 返回顶部按钮移动端位置调整 */
+    .back-to-top {
+        bottom: 80px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    /* 移动端紧凑列表进一步优化 */
+    .article-list {
+        gap: 4px !important;
+    }
+
+    .article-list .article-details {
+        padding: 8px 10px !important;
+    }
+
+    .article-list .article-title {
+        font-size: 1.4rem !important;
+    }
+
+    .article-list .article-subtitle {
+        font-size: 1.2rem !important;
+        -webkit-line-clamp: 1 !important;
     }
 }

@@ -195,31 +195,20 @@
 
 
     /* =========================================
-       顶部分类导航按钮彩色底色
+       华尔街见闻风格 - 分类导航纯文字样式
        ========================================= */
     .main-category-nav .category-item {
-        color: #ffffff !important;
+        color: #333 !important;
         border: none !important;
+        background: transparent !important;
     }
 
-    .main-category-nav .category-list .category-item:nth-child(5n+1) {
-        background-color: #8ea885 !important;
-    }
-
-    .main-category-nav .category-list .category-item:nth-child(5n+2) {
-        background-color: #df7988 !important;
-    }
-
-    .main-category-nav .category-list .category-item:nth-child(5n+3) {
-        background-color: #0177b8 !important;
-    }
-
-    .main-category-nav .category-list .category-item:nth-child(5n+4) {
-        background-color: #ffb900 !important;
-    }
-
+    .main-category-nav .category-list .category-item:nth-child(5n+1),
+    .main-category-nav .category-list .category-item:nth-child(5n+2),
+    .main-category-nav .category-list .category-item:nth-child(5n+3),
+    .main-category-nav .category-list .category-item:nth-child(5n+4),
     .main-category-nav .category-list .category-item:nth-child(5n+5) {
-        background-color: #6b69d6 !important;
+        background-color: transparent !important;
     }
 
     /* =========================================
@@ -299,6 +288,193 @@
 </script>
 
 <!-- Busuanzi Analytics -->
-<!-- Busuanzi Analytics -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
     referrerpolicy="no-referrer-when-downgrade"></script>
+
+<!-- =========================================
+     资讯APP风格增强组件
+     ========================================= -->
+
+<!-- 阅读进度条 - 仅在文章页显示 -->
+<div class="reading-progress-bar" id="readingProgress"></div>
+
+<!-- 返回顶部按钮 -->
+<button class="back-to-top" id="backToTop" aria-label="返回顶部">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+</button>
+
+<!-- 移动端底部导航栏 -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <a href="/" class="nav-item" data-page="home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>首页</span>
+    </a>
+    <a href="/categories/" class="nav-item" data-page="categories">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>分类</span>
+    </a>
+    <a href="/search/" class="nav-item" data-page="search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>搜索</span>
+    </a>
+    <a href="/archives/" class="nav-item" data-page="archives">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>归档</span>
+    </a>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // =========================================
+        // 阅读进度条
+        // =========================================
+        const progressBar = document.getElementById('readingProgress');
+        const isArticlePage = document.body.classList.contains('article-page');
+
+        if (isArticlePage && progressBar) {
+            window.addEventListener('scroll', function () {
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPos = window.scrollY;
+                const progress = (scrollPos / docHeight) * 100;
+                progressBar.style.width = Math.min(progress, 100) + '%';
+            });
+        } else if (progressBar) {
+            progressBar.style.display = 'none';
+        }
+
+        // =========================================
+        // 返回顶部按钮
+        // =========================================
+        const backToTop = document.getElementById('backToTop');
+
+        if (backToTop) {
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // =========================================
+        // 移动端底部导航高亮当前页
+        // =========================================
+        const bottomNav = document.getElementById('mobileBottomNav');
+        if (bottomNav) {
+            const currentPath = window.location.pathname;
+            const navItems = bottomNav.querySelectorAll('.nav-item');
+
+            navItems.forEach(function (item) {
+                const href = item.getAttribute('href');
+                if (currentPath === href ||
+                    (href !== '/' && currentPath.startsWith(href))) {
+                    item.classList.add('active');
+                }
+            });
+
+            // 首页特殊处理
+            if (currentPath === '/' || currentPath === '') {
+                navItems[0].classList.add('active');
+            }
+        }
+
+        // =========================================
+        // 相对时间转换
+        // =========================================
+        function formatRelativeTime(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffSec = Math.floor(diffMs / 1000);
+            const diffMin = Math.floor(diffSec / 60);
+            const diffHour = Math.floor(diffMin / 60);
+            const diffDay = Math.floor(diffHour / 24);
+            const diffWeek = Math.floor(diffDay / 7);
+            const diffMonth = Math.floor(diffDay / 30);
+
+            if (diffSec < 60) {
+                return '刚刚';
+            } else if (diffMin < 60) {
+                return diffMin + '分钟前';
+            } else if (diffHour < 24) {
+                return diffHour + '小时前';
+            } else if (diffDay === 1) {
+                return '昨天';
+            } else if (diffDay === 2) {
+                return '前天';
+            } else if (diffDay < 7) {
+                return diffDay + '天前';
+            } else if (diffWeek < 4) {
+                return diffWeek + '周前';
+            } else if (diffMonth < 12) {
+                return diffMonth + '个月前';
+            } else {
+                return Math.floor(diffMonth / 12) + '年前';
+            }
+        }
+
+        // 转换文章列表中的时间显示，并隐藏图标
+        const timeElements = document.querySelectorAll('.article-list .article-time--published');
+        timeElements.forEach(function (el) {
+            const datetime = el.getAttribute('datetime');
+            if (datetime) {
+                const relativeText = formatRelativeTime(datetime);
+                // 只显示相对时间，不显示图标
+                const parentDiv = el.parentElement;
+                if (parentDiv) {
+                    parentDiv.innerHTML = '<span class="relative-time">' + relativeText + '</span>';
+                }
+            }
+        });
+
+        // 隐藏列表页的阅读时间
+        const readingTimeElements = document.querySelectorAll('.article-list .article-time--reading');
+        readingTimeElements.forEach(function (el) {
+            const parentDiv = el.parentElement;
+            if (parentDiv) {
+                parentDiv.style.display = 'none';
+            }
+        });
+
+        // =========================================
+        // 华尔街见闻风格 - 头条标签
+        // 为第一篇文章添加 is-headline 类
+        // =========================================
+        const articleList = document.querySelector('.article-list');
+        if (articleList) {
+            const firstArticle = articleList.querySelector('article');
+            if (firstArticle) {
+                firstArticle.classList.add('is-headline');
+            }
+        }
+    });
+</script>
