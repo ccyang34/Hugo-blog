@@ -924,3 +924,78 @@ footer.article-time {
         box-shadow: var(--shadow-l1) !important;
     }
 }
+
+/* =========================================
+   分类总览页 - 自适应宽度方块布局 (全局生效)
+   ========================================= */
+.taxonomy-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    padding: 15px !important;
+    margin-top: 5px !important;
+    justify-content: flex-start !important;
+}
+
+.taxonomy-item {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 10px 18px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    color: #fff !important;
+    /* 统一为白色文字以匹配深色背景 */
+    transition: all 0.2s ease !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    white-space: nowrap !important;
+    width: auto !important;
+}
+
+.taxonomy-item:active {
+    transform: scale(0.95) !important;
+}
+
+.taxonomy-name {
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0 !important;
+    margin-right: 10px !important;
+    color: #fff !important;
+}
+
+.taxonomy-count {
+    font-size: 1rem !important;
+    color: #fff !important;
+    opacity: 0.9 !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    padding: 1px 8px !important;
+    border-radius: 10px !important;
+}
+
+/* 同步主题原始 5 色循环 */
+.taxonomy-item:nth-child(5n+1) {
+    background-color: #8ea885 !important;
+}
+
+.taxonomy-item:nth-child(5n+2) {
+    background-color: #df7988 !important;
+}
+
+.taxonomy-item:nth-child(5n+3) {
+    background-color: #0177b8 !important;
+}
+
+.taxonomy-item:nth-child(5n+4) {
+    background-color: #ffb900 !important;
+}
+
+.taxonomy-item:nth-child(5n+5) {
+    background-color: #6b69d6 !important;
+}
+
+/* 暗色模式下适当调低亮度 */
+[data-scheme="dark"] .taxonomy-item {
+    filter: saturate(0.8) brightness(0.9) !important;
+}

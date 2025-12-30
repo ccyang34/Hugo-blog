@@ -30,11 +30,15 @@
         </div>
         {{ end }}
 
-        {{/* 始终显示阅读时长 */}}
+        {{/* 始终显示阅读时长或文章数量（分类页显示数量） */}}
         <div>
             {{ partial "helper/icon" "clock" }}
             <time class="article-time--reading">
+                {{ if eq .Kind "term" }}
+                {{ len .Pages }} 篇文章
+                {{ else }}
                 {{ T "article.readingTime" .ReadingTime }}
+                {{ end }}
             </time>
         </div>
 

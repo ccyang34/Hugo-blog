@@ -73,13 +73,28 @@
 
 {{/* List only pages that are not a subsection */}}
 {{ $paginator := .Paginate $pages }}
+{{ if eq .Kind "taxonomy" }}
+<section class="taxonomy-grid">
+    {{ range $paginator.Pages }}
+    <a href="{{ .RelPermalink }}" class="taxonomy-item">
+        <div class="taxonomy-name">{{ .Title }}</div>
+        <div class="taxonomy-count">{{ len .Pages }} 篇文章</div>
+    </a>
+    {{ end }}
+</section>
+{{ else }}
 <section class="article-list">
     {{ range $paginator.Pages }}
     {{ partial "article-list/default" . }}
     {{ end }}
 </section>
+{{ end }}
 
 {{- partial "pagination.html" . -}}
+
+{{/* 无限滚动触发锚点 */}}
+<div id="infinite-scroll-trigger" data-next-url="{{ if .Paginator.HasNext }}{{ .Paginator.Next.URL }}{{ end }}"
+    style="height: 10px; margin-bottom: 20px;"></div>
 
 {{ partialCached "footer/footer" . }}
 {{ end }}
