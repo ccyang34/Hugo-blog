@@ -466,41 +466,63 @@ class DataVisualizer:
         if not os.path.exists(HUGO_IMAGES_DIR):
             os.makedirs(HUGO_IMAGES_DIR, exist_ok=True)
             
-    def plot_top_inflow(self, data, days=3):
+    def plot_combined_inflow(self, data, top_n=12):
         """
-        绘制净流入前10行业柱状图
+        绘制3/5/10日资金流向合并柱状图
         
         Args:
             data: 行业数据列表
-            days: 天数周期 (3, 5, 10)
+            top_n:这也是显示前多少名行业
         """
         if not data:
             return None
             
         df = pd.DataFrame(data)
-        col_name = f'{days}日净流入'
-        top_df = df.nlargest(10, col_name).sort_values(by=col_name, ascending=True)
         
-        plt.figure(figsize=(10, 6))
-        bars = plt.barh(top_df['行业名称'], top_df[col_name] / 1e8, color='skyblue')
+        # 按3日净流入排序选取前top_n
+        top_df = df.nlargest(top_n, '3日净流入')
         
-        # 添加数值标签
-        for bar in bars:
-            width = bar.get_width()
-            plt.text(width, bar.get_y() + bar.get_height()/2, f' {width:.2f}亿', 
-                     va='center', fontsize=10)
-            
-        plt.title(f'证监会行业 {days}日净流入前10 (亿元)', fontsize=14)
+        # 准备数据
+        industries = top_df['行业名称'].tolist()
+        inflow_3d = top_df['3日净流入'] / 1e8
+        inflow_5d = top_df['5日净流入'] / 1e8
+        inflow_10d = top_df['10日净流入'] / 1e8
+        
+        # 设置图表
+        plt.figure(figsize=(14, 8))
+        
+        y = np.arange(len(industries))
+        height = 0.25  # 柱状图高度
+        
+        # 绘制三组柱状图（注意 y 轴翻转，让第一名在最上面）
+        # 因 matplotlib 默认 y 轴从下到上，我们用 iloc[::-1] 翻转数据
+        industries = industries[::-1]
+        inflow_3d = inflow_3d.iloc[::-1]
+        inflow_5d = inflow_5d.iloc[::-1]
+        inflow_10d = inflow_10d.iloc[::-1]
+        
+        plt.barh(y + height, inflow_3d, height, label='3日净流入', color='#FF6B6B', alpha=0.9)
+        plt.barh(y, inflow_5d, height, label='5日净流入', color='#4ECDC4', alpha=0.9)
+        plt.barh(y - height, inflow_10d, height, label='10日净流入', color='#45B7D1', alpha=0.9)
+        
+        # 设置标签和标题
+        plt.yticks(y, industries, fontsize=11)
         plt.xlabel('净流入金额 (亿元)', fontsize=12)
-        plt.grid(axis='x', linestyle='--', alpha=0.7)
+        plt.title('证监会行业资金流向多维对比 (3/5/10日)', fontsize=16, pad=20)
+        
+        # 添加图例
+        plt.legend(loc='lower right', fontsize=10)
+        
+        plt.grid(axis='x', linestyle='--', alpha=0.3)
+        plt.axvline(0, color='black', linewidth=0.8, alpha=0.5)
         plt.tight_layout()
         
-        filename = f"industry_inflow_{days}d.png"
+        filename = "industry_inflow_combined.png"
         save_path = os.path.join(HUGO_IMAGES_DIR, filename)
         plt.savefig(save_path, dpi=120)
         plt.close()
         
-        print(f"📊 图表已保存: {save_path}")
+        print(f"📊 合并图表已保存: {save_path}")
         return filename
 
     def plot_flow_scatter(self, data, days=5):
@@ -514,27 +536,26 @@ class DataVisualizer:
         x_col = f'{days}日净流入占比'
         y_col = f'{days}日平均涨跌幅'
         
-        plt.figure(figsize=(10, 8))
-        plt.scatter(df[x_col], df[y_col] * 100, alpha=0.6, s=100, c='coral', edgecolors='white')
+        plt.figure(figsize=(20, 15))  # 高分辨率画布
+        plt.scatter(df[x_col], df[y_col] * 100, alpha=0.7, s=120, c='coral', edgecolors='white')
         
-        # 标记前5大净流入行业
-        top_5 = df.nlargest(5, f'{days}日净流入')
-        for i, row in top_5.iterrows():
+        # 标记所有行业
+        for i, row in df.iterrows():
             plt.annotate(row['行业名称'], (row[x_col], row[y_col] * 100), 
-                         xytext=(5, 5), textcoords='offset points', fontsize=9)
+                         xytext=(5, 5), textcoords='offset points', fontsize=8, alpha=0.9)
             
         plt.axhline(0, color='gray', linestyle='--', alpha=0.5)
         plt.axvline(0, color='gray', linestyle='--', alpha=0.5)
         
-        plt.title(f'行业资金流向分布 ({days}日) - 占比 vs 涨跌幅', fontsize=14)
-        plt.xlabel('净流入占比 (%)', fontsize=12)
-        plt.ylabel('平均涨跌幅 (%)', fontsize=12)
+        plt.title(f'行业资金流向分布 ({days}日) - 占比 vs 涨跌幅', fontsize=20)
+        plt.xlabel('净流入占比 (%)', fontsize=16)
+        plt.ylabel('平均涨跌幅 (%)', fontsize=16)
         plt.grid(True, linestyle=':', alpha=0.6)
         plt.tight_layout()
         
         filename = f"industry_scatter_{days}d.png"
         save_path = os.path.join(HUGO_IMAGES_DIR, filename)
-        plt.savefig(save_path, dpi=120)
+        plt.savefig(save_path, dpi=300)  # 高清保存
         plt.close()
         
         print(f"📈 散点图已保存: {save_path}")
@@ -855,9 +876,8 @@ author: ["AI分析师"]
             if image_filenames:
                 for img_file in image_filenames:
                     title = "行业数据图表"
-                    if "inflow" in img_file:
-                        days = img_file.split("_")[-1].replace("d.png", "")
-                        title = f"{days}日净流入前10行业"
+                    if "inflow_combined" in img_file:
+                        title = "行业资金流向多维对比 (3/5/10日)"
                     elif "scatter" in img_file:
                         days = img_file.split("_")[-1].replace("d.png", "")
                         title = f"{days}日资金流向分布散点图"
@@ -999,10 +1019,9 @@ class CSRCIndustryAIAnalyzer:
             print("\n=== 第五步：生成行业可视化图表 ===")
             image_filenames = []
             try:
-                # 生成3日、5日、10日的流入图
-                for d in [3, 5, 10]:
-                    fn = self.visualizer.plot_top_inflow(results['data'], days=d)
-                    if fn: image_filenames.append(fn)
+                # 生成3日、5日、10日合并流入图
+                fn = self.visualizer.plot_combined_inflow(results['data'])
+                if fn: image_filenames.append(fn)
                 
                 # 生成5日散点图
                 fn_s = self.visualizer.plot_flow_scatter(results['data'], days=5)
