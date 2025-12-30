@@ -297,6 +297,8 @@ class 榨利计算器V3:
     def 生成报告(self, df, 文件名列表):
         """生成最终 Hugo 博客文章"""
         print("📝 整合报告中...")
+        latest = df.iloc[-1]
+        ai_text = self.深度分析(df)
         # 统一固定标题
         fixed_title = "🫘大豆榨利深度分析报告"
         date_iso = datetime.now(BEIJING_TZ).strftime('%Y-%m-%dT%H:%M:%S+08:00')
