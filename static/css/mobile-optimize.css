@@ -673,9 +673,9 @@ footer.article-time {
    华尔街见闻风格 - 头条标签
    ========================================= */
 
-/* 头条标签基础样式 */
+/* 头条标签基础样式 - 默认隐藏 */
 .headline-tag {
-    display: inline-block;
+    display: none;
     padding: 1px 6px;
     margin-right: 6px;
     border-radius: 2px;
@@ -686,13 +686,14 @@ footer.article-time {
     vertical-align: middle;
 }
 
-/* 为第一篇文章自动添加头条样式（通过JS控制） */
+/* 只在文章列表页且5小时内发布的文章显示头条标签 */
 .article-list article.is-headline .headline-tag {
     display: inline-block;
 }
 
-.article-list article:not(.is-headline) .headline-tag {
-    display: none;
+/* 文章详情页不显示头条标签 */
+.article-page .headline-tag {
+    display: none !important;
 }
 
 /* =========================================

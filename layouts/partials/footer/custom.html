@@ -442,6 +442,32 @@
             }
         }
 
+        // =========================================
+        // 华尔街见闻风格 - 头条标签
+        // 发布时间5小时以内的文章显示头条标签
+        // 注意：必须在相对时间转换之前执行
+        // =========================================
+        const articleList = document.querySelector('.article-list');
+        if (articleList) {
+            const articles = articleList.querySelectorAll('article');
+            const fiveHoursMs = 5 * 60 * 60 * 1000; // 5小时的毫秒数
+            const now = new Date();
+
+            articles.forEach(function (article) {
+                const timeEl = article.querySelector('time[datetime]');
+                if (timeEl) {
+                    const datetime = timeEl.getAttribute('datetime');
+                    if (datetime) {
+                        const publishDate = new Date(datetime);
+                        const diffMs = now - publishDate;
+                        if (diffMs <= fiveHoursMs && diffMs >= 0) {
+                            article.classList.add('is-headline');
+                        }
+                    }
+                }
+            });
+        }
+
         // 转换文章列表中的时间显示，并隐藏图标
         const timeElements = document.querySelectorAll('.article-list .article-time--published');
         timeElements.forEach(function (el) {
@@ -464,30 +490,5 @@
                 parentDiv.style.display = 'none';
             }
         });
-
-        // =========================================
-        // 华尔街见闻风格 - 头条标签
-        // 发布时间5小时以内的文章显示头条标签
-        // =========================================
-        const articleList = document.querySelector('.article-list');
-        if (articleList) {
-            const articles = articleList.querySelectorAll('article');
-            const fiveHoursMs = 5 * 60 * 60 * 1000; // 5小时的毫秒数
-            const now = new Date();
-
-            articles.forEach(function (article) {
-                const timeEl = article.querySelector('.article-time--published');
-                if (timeEl) {
-                    const datetime = timeEl.getAttribute('datetime');
-                    if (datetime) {
-                        const publishDate = new Date(datetime);
-                        const diffMs = now - publishDate;
-                        if (diffMs <= fiveHoursMs && diffMs >= 0) {
-                            article.classList.add('is-headline');
-                        }
-                    }
-                }
-            });
-        }
     });
 </script>
