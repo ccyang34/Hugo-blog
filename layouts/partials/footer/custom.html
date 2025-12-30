@@ -490,5 +490,116 @@
                 parentDiv.style.display = 'none';
             }
         });
+
+        // =========================================
+        // 无限滚动加载
+        // =========================================
+        const articleListContainer = document.querySelector('.article-list');
+        const paginationEl = document.querySelector('.pagination');
+
+        if (articleListContainer && paginationEl) {
+            // 隐藏传统分页器
+            paginationEl.style.display = 'none';
+
+            // 获取下一页链接
+            let nextPageLink = paginationEl.querySelector('a[aria-label="next page"]');
+            if (!nextPageLink) {
+                nextPageLink = paginationEl.querySelector('.page-link:last-child');
+            }
+
+            let isLoading = false;
+            let hasMorePages = !!nextPageLink;
+
+            // 创建加载提示
+            const loadingIndicator = document.createElement('div');
+            loadingIndicator.className = 'infinite-scroll-loading';
+            loadingIndicator.innerHTML = '<span>加载中...</span>';
+            loadingIndicator.style.cssText = 'text-align: center; padding: 20px; color: #999; display: none;';
+            articleListContainer.parentNode.insertBefore(loadingIndicator, articleListContainer.nextSibling);
+
+            // 加载下一页
+            async function loadNextPage() {
+                if (isLoading || !hasMorePages || !nextPageLink) return;
+
+                isLoading = true;
+                loadingIndicator.style.display = 'block';
+
+                try {
+                    const response = await fetch(nextPageLink.href);
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+
+                    // 获取新文章
+                    const newArticles = doc.querySelectorAll('.article-list article');
+                    newArticles.forEach(function (article) {
+                        articleListContainer.appendChild(article.cloneNode(true));
+                    });
+
+                    // 获取新页面的下一页链接
+                    const newPagination = doc.querySelector('.pagination');
+                    if (newPagination) {
+                        nextPageLink = newPagination.querySelector('a[aria-label="next page"]');
+                        if (!nextPageLink) {
+                            nextPageLink = newPagination.querySelector('.page-link:last-child');
+                            if (nextPageLink && !nextPageLink.href) {
+                                nextPageLink = null;
+                            }
+                        }
+                    } else {
+                        nextPageLink = null;
+                    }
+
+                    hasMorePages = !!nextPageLink;
+
+                    // 重新应用头条标签和相对时间
+                    applyHeadlineAndTime();
+
+                } catch (error) {
+                    console.error('加载下一页失败:', error);
+                }
+
+                isLoading = false;
+                loadingIndicator.style.display = 'none';
+            }
+
+            // 重新应用头条标签和相对时间的函数
+            function applyHeadlineAndTime() {
+                const fiveHoursMs = 5 * 60 * 60 * 1000;
+                const now = new Date();
+
+                articleListContainer.querySelectorAll('article').forEach(function (article) {
+                    const timeEl = article.querySelector('time[datetime]');
+                    if (timeEl) {
+                        const datetime = timeEl.getAttribute('datetime');
+                        if (datetime) {
+                            // 头条标签
+                            const publishDate = new Date(datetime);
+                            const diffMs = now - publishDate;
+                            if (diffMs <= fiveHoursMs && diffMs >= 0) {
+                                article.classList.add('is-headline');
+                            }
+
+                            // 相对时间
+                            const relativeText = formatRelativeTime(datetime);
+                            const parentDiv = timeEl.parentElement;
+                            if (parentDiv && !parentDiv.querySelector('.relative-time')) {
+                                parentDiv.innerHTML = '<span class="relative-time">' + relativeText + '</span>';
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 监听滚动事件
+            window.addEventListener('scroll', function () {
+                const scrollPosition = window.innerHeight + window.scrollY;
+                const threshold = document.body.offsetHeight - 500;
+
+                if (scrollPosition >= threshold) {
+                    loadNextPage();
+                }
+            });
+        }
     });
 </script>
