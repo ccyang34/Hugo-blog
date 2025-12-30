@@ -999,11 +999,15 @@ def save_to_hugo_blog(content, beijing_time, image_path=None, extra_images=None)
     
     featured_image = image_path if image_path else ""
     
+    # 统一固定标题
+    fixed_title = "📈A股市场宽度分析日报"
+    date_iso = beijing_time.strftime('%Y-%m-%dT%H:%M:%S+08:00')
+    
     # 构建Hugo Front Matter
     front_matter = f"""---
-title: "📈A股市场宽度分析日报"
-date: {beijing_time.strftime('%Y-%m-%dT%H:%M:%S+08:00')}
-lastmod: {beijing_time.strftime('%Y-%m-%dT%H:%M:%S+08:00')}
+title: "{fixed_title}"
+date: {date_iso}
+lastmod: {date_iso}
 description: "基于市场宽度指标的A股深度分析报告，包含AI智能解读和投资建议"
 tags: ["A股", "市场分析", "AI分析", "投资策略", "股票市场"]
 categories: ["市场分析", "投资策略"]

@@ -162,19 +162,20 @@
     /* 文章详情页标题 */
     .article-page .main-article .article-header .article-title {
         font-size: 2.2rem !important;
-        line-height: 1.3 !important;
-        margin-bottom: 3px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     /* 文章详情页元信息区域紧凑化 */
     .article-page .main-article .article-header .article-details {
         gap: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 5px !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
     }
 
     .article-page .main-article .article-header .article-time {
-        gap: 8px !important;
+        gap: 6px !important;
         margin: 0 !important;
         padding: 0 !important;
         font-size: 1.25rem !important;
@@ -267,8 +268,10 @@
 /* 文章详情页描述字体缩小 */
 .article-page .article-header .article-subtitle {
     font-size: 1.2rem !important;
-    line-height: 1.5 !important;
+    line-height: 1.4 !important;
     color: #666 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* 文章列表缩略图 - 右侧显示，带留白 */
@@ -519,7 +522,7 @@ a.category-tag {
         flex-basis: 100% !important;
         width: 100% !important;
         margin-left: 0 !important;
-        margin-top: 0 !important;
+        margin-top: -2px !important;
         /* 移除额外上间距 */
         margin-bottom: 0 !important;
         /* 移除额外下间距 */
