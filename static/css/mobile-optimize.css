@@ -283,7 +283,7 @@ section.article-list article .article-details,
 .article-list article .article-details {
     flex: 1 !important;
     min-width: 0 !important;
-    padding: 12px 10px 12px 12px !important;
+    /* padding由后续紧凑样式控制 */
 }
 
 /* =========================================
