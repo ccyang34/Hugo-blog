@@ -25,6 +25,8 @@ from io import StringIO
 import requests
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import pytz
 
 
@@ -442,19 +444,101 @@ class DataAnalyzer:
         hot_volume_5d = df[df['5日净流入'] > 2e8]  # 5日净流入超2亿
         hot_volume_10d = df[df['10日净流入'] > 2e8]  # 10日净流入超2亿
         
-        analysis_result['hot_industries'] = {
-            'hot_ratio_3d_count': len(hot_ratio_3d),
-            'hot_ratio_5d_count': len(hot_ratio_5d),
-            'hot_ratio_10d_count': len(hot_ratio_10d),
-            'hot_volume_3d_count': len(hot_volume_3d),
-            'hot_volume_5d_count': len(hot_volume_5d),
-            'hot_volume_10d_count': len(hot_volume_10d),
-            'hot_ratio_3d': hot_ratio_3d[['行业代码', '行业名称', '3日流入流出比', '3日净流入']].to_dict('records'),
-            'hot_ratio_5d': hot_ratio_5d[['行业代码', '行业名称', '5日流入流出比', '5日净流入']].to_dict('records'),
-            'hot_ratio_10d': hot_ratio_10d[['行业代码', '行业名称', '10日流入流出比', '10日净流入']].to_dict('records')
-        }
-        
         return analysis_result
+
+
+# =============================================================================
+# 可视化模块
+# =============================================================================
+
+class DataVisualizer:
+    """
+    数据可视化类 - 生成行业资金流向分析图表
+    """
+    
+    def __init__(self):
+        """初始化可视化配置"""
+        # 设置中文字体
+        plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'SimHei', 'Microsoft YaHei', 'PingFang SC', 'Arial Unicode MS', 'DejaVu Sans']
+        plt.rcParams['axes.unicode_minus'] = False
+        
+        # 确保图片保存目录存在
+        if not os.path.exists(HUGO_IMAGES_DIR):
+            os.makedirs(HUGO_IMAGES_DIR, exist_ok=True)
+            
+    def plot_top_inflow(self, data, days=3):
+        """
+        绘制净流入前10行业柱状图
+        
+        Args:
+            data: 行业数据列表
+            days: 天数周期 (3, 5, 10)
+        """
+        if not data:
+            return None
+            
+        df = pd.DataFrame(data)
+        col_name = f'{days}日净流入'
+        top_df = df.nlargest(10, col_name).sort_values(by=col_name, ascending=True)
+        
+        plt.figure(figsize=(10, 6))
+        bars = plt.barh(top_df['行业名称'], top_df[col_name] / 1e8, color='skyblue')
+        
+        # 添加数值标签
+        for bar in bars:
+            width = bar.get_width()
+            plt.text(width, bar.get_y() + bar.get_height()/2, f' {width:.2f}亿', 
+                     va='center', fontsize=10)
+            
+        plt.title(f'证监会行业 {days}日净流入前10 (亿元)', fontsize=14)
+        plt.xlabel('净流入金额 (亿元)', fontsize=12)
+        plt.grid(axis='x', linestyle='--', alpha=0.7)
+        plt.tight_layout()
+        
+        filename = f"industry_inflow_{days}d.png"
+        save_path = os.path.join(HUGO_IMAGES_DIR, filename)
+        plt.savefig(save_path, dpi=120)
+        plt.close()
+        
+        print(f"📊 图表已保存: {save_path}")
+        return filename
+
+    def plot_flow_scatter(self, data, days=5):
+        """
+        绘制资金流向对比散点图 (净流入占比 vs 涨跌幅)
+        """
+        if not data:
+            return None
+            
+        df = pd.DataFrame(data)
+        x_col = f'{days}日净流入占比'
+        y_col = f'{days}日平均涨跌幅'
+        
+        plt.figure(figsize=(10, 8))
+        plt.scatter(df[x_col], df[y_col] * 100, alpha=0.6, s=100, c='coral', edgecolors='white')
+        
+        # 标记前5大净流入行业
+        top_5 = df.nlargest(5, f'{days}日净流入')
+        for i, row in top_5.iterrows():
+            plt.annotate(row['行业名称'], (row[x_col], row[y_col] * 100), 
+                         xytext=(5, 5), textcoords='offset points', fontsize=9)
+            
+        plt.axhline(0, color='gray', linestyle='--', alpha=0.5)
+        plt.axvline(0, color='gray', linestyle='--', alpha=0.5)
+        
+        plt.title(f'行业资金流向分布 ({days}日) - 占比 vs 涨跌幅', fontsize=14)
+        plt.xlabel('净流入占比 (%)', fontsize=12)
+        plt.ylabel('平均涨跌幅 (%)', fontsize=12)
+        plt.grid(True, linestyle=':', alpha=0.6)
+        plt.tight_layout()
+        
+        filename = f"industry_scatter_{days}d.png"
+        save_path = os.path.join(HUGO_IMAGES_DIR, filename)
+        plt.savefig(save_path, dpi=120)
+        plt.close()
+        
+        print(f"📈 散点图已保存: {save_path}")
+        return filename
 
 # =============================================================================
 # AI分析模块
@@ -728,13 +812,14 @@ class ReportGenerator:
     """
     
     @staticmethod
-    def generate_analysis_report(data, ai_report, filename=None):
+    def generate_analysis_report(data, ai_report, image_filenames=None, filename=None):
         """
         生成证监会行业资金流向AI分析报告文件
         
         Args:
             data: 原始数据
             ai_report: AI分析报告
+            image_filenames: 列表，包含生成的图表文件名
             filename: 文件名，默认自动生成
             
         Returns:
@@ -764,6 +849,22 @@ tags: ["A股", "资金流向", "AI分析", "证监会行业"]
 author: ["AI分析师"]
 ---
 """
+            
+            # 插入可视化图表
+            image_section = "## 📈 行业资金流向可视化\n\n"
+            if image_filenames:
+                for img_file in image_filenames:
+                    title = "行业数据图表"
+                    if "inflow" in img_file:
+                        days = img_file.split("_")[-1].replace("d.png", "")
+                        title = f"{days}日净流入前10行业"
+                    elif "scatter" in img_file:
+                        days = img_file.split("_")[-1].replace("d.png", "")
+                        title = f"{days}日资金流向分布散点图"
+                    
+                    image_section += f"### {title}\n![{title}](/images/charts/{img_file})\n\n"
+            else:
+                image_section = ""
             
             # 生成报告正文
             report_body = f"""
@@ -809,7 +910,7 @@ author: ["AI分析师"]
 """
             
             # 组合完整内容
-            report_content = front_matter + report_body
+            report_content = front_matter + image_section + report_body
             
             # 保存报告
             filepath = os.path.join(HUGO_CONTENT_DIR, filename)
@@ -838,6 +939,7 @@ class CSRCIndustryAIAnalyzer:
         self.data_fetcher = DataFetcher()
         self.data_analyzer = DataAnalyzer()
         self.ai_analyzer = AIAnalyzer()
+        self.visualizer = DataVisualizer()
         self.report_generator = ReportGenerator()
     
     def run_analysis(self, total_pages=8, page_size=20):
@@ -893,9 +995,25 @@ class CSRCIndustryAIAnalyzer:
             print(f"\n🎉 行业分析完成！")
             print(f"📄 AI报告: DeepSeek返回的markdown格式分析报告")
             
-            # 5. 生成报告文件
-            print("\n=== 第五步：生成分析报告文件 ===")
-            results['report_file'] = self.report_generator.generate_analysis_report(results['data'], results['ai_report'])
+            # 5. 生成可视化图表
+            print("\n=== 第五步：生成行业可视化图表 ===")
+            image_filenames = []
+            try:
+                # 生成3日、5日、10日的流入图
+                for d in [3, 5, 10]:
+                    fn = self.visualizer.plot_top_inflow(results['data'], days=d)
+                    if fn: image_filenames.append(fn)
+                
+                # 生成5日散点图
+                fn_s = self.visualizer.plot_flow_scatter(results['data'], days=5)
+                if fn_s: image_filenames.append(fn_s)
+            except Exception as e:
+                print(f"⚠️ 可视化图表生成失败: {e}")
+
+            # 6. 生成报告文件
+            print("\n=== 第六步：生成分析报告文件 ===")
+            results['report_file'] = self.report_generator.generate_analysis_report(
+                results['data'], results['ai_report'], image_filenames=image_filenames)
         else:
             print("❌ AI行业分析失败或未配置API")
         
