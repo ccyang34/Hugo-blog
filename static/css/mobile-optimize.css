@@ -22,10 +22,12 @@
 
     /* 左侧边栏头部下移对齐 + 边距 + 背景色 */
     .left-sidebar header {
-        padding-top: 15px !important;
+        padding-top: 8px !important;
+        /* 调整这里控制上移：数字越小，位置越靠上 */
         padding-left: 15px !important;
         padding-right: 15px !important;
-        padding-bottom: 5px !important;
+        padding-bottom: 12px !important;
+        /* 底部补齐，维持背景块大小 */
         background: #2d3748 !important;
         border-bottom: 1px solid #4a5568 !important;
     }
