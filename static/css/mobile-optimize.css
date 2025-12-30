@@ -22,16 +22,32 @@
 
     /* 左侧边栏头部下移对齐 + 边距 + 背景色 */
     .left-sidebar header {
-        padding-top: 15px !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        padding-bottom: 5px !important;
+        padding: 10px 15px !important;
+        /* 统一上下边距为 10px，确保居中 */
         background: #2d3748 !important;
         border-bottom: 1px solid #4a5568 !important;
+        display: flex !important;
+        align-items: center !important;
+        /* 强制子元素垂直居中 */
+        min-height: 56px !important;
+        /* 与搜索图标高度匹配 */
+    }
+
+    .left-sidebar header .site-meta {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .left-sidebar header .site-name {
+        margin: 0 !important;
+        line-height: 1 !important;
+        /* 防止行高撑开额外空间 */
     }
 
     .left-sidebar header .site-name a {
         color: #fff !important;
+        font-size: 1.8rem !important;
+        /* 略微调整字号使其更协调 */
     }
 
     /* 分类导航栏 */
