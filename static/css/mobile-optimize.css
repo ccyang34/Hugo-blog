@@ -588,7 +588,7 @@ a.category-tag {
 
 .article-list .article-details {
     padding: 8px 15px !important;
-    gap: 2px !important;
+    gap: 5px !important;
     /* 覆盖主题默认的15px */
 }
 
