@@ -587,14 +587,14 @@ a.category-tag {
 }
 
 .article-list .article-details {
-    padding: 12px 15px !important;
+    padding: 10px 15px !important;
 }
 
 .article-list .article-title {
-    font-size: 1.6rem !important;
-    line-height: 1.5 !important;
+    font-size: 1.7rem !important;
+    line-height: 1.35 !important;
     margin-bottom: 0 !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     color: #222 !important;
 }
 
@@ -607,10 +607,10 @@ a.category-tag {
 }
 
 .article-list .article-subtitle {
-    font-size: 1.4rem !important;
-    line-height: 1.5 !important;
+    font-size: 1.35rem !important;
+    line-height: 1.4 !important;
     margin-bottom: 0 !important;
-    margin-top: 4px !important;
+    margin-top: 2px !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 1 !important;
     -webkit-box-orient: vertical !important;
@@ -621,7 +621,13 @@ a.category-tag {
 /* 相对时间样式 */
 .article-time .relative-time {
     color: #999;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+}
+
+/* 文章列表时间容器紧凑化 */
+.article-list .article-time {
+    margin-top: 3px !important;
+    gap: 8px !important;
 }
 
 /* 隐藏文章列表中的分类标签（顶部已有分类导航） */
