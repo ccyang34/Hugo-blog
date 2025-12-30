@@ -1,5 +1,5 @@
 # 构建并将 Hugo 站点部署到 GitHub Pages 的示例工作流
-name: Deploy Hugo site to Pages
+name: 部署Hugo站点到GitHub Pages
 
 on:
   # 在针对默认分支的推送上运行
