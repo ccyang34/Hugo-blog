@@ -1,14 +1,5 @@
 <div class="article-details">
-    {{ if .Params.categories }}
-    <header class="article-category">
-        {{ range (.GetTerms "categories") }}
-        <a href="{{ .RelPermalink }}" {{ with .Params.style
-            }}style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
-            {{ .LinkTitle }}
-        </a>
-        {{ end }}
-    </header>
-    {{ end }}
+
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
@@ -47,7 +38,18 @@
             </time>
         </div>
 
-        {{/* View Count - Only show on single pages to avoid appearing on list pages */}}
+        {{/* 分类标签 - 放在阅读时长后面 */}}
+        {{ if .Params.categories }}
+        <div class="article-category-footer">
+            {{ range (.GetTerms "categories") }}
+            <a href="{{ .RelPermalink }}" class="category-tag" {{ with .Params.style
+                }}style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
+                {{ .LinkTitle }}
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
+
         {{/* View Count - Only show on single pages to avoid appearing on list pages */}}
         {{ if .IsPage }}
         <div class="article-view-count">

@@ -322,11 +322,15 @@ section.article-list article .article-details,
 /* 分类标签容器 */
 footer.article-time .article-category-footer,
 .article-time .article-category-footer,
+.article-details .article-time .article-category-footer,
 .article-category-footer {
     display: inline-flex !important;
     align-items: center !important;
-    margin-left: 8px !important;
-    gap: 5px !important;
+    margin-left: 0 !important;
+    gap: 8px !important;
+    vertical-align: middle !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
 }
 
 /* 分类标签基础样式 - 高优先级 */
@@ -337,17 +341,18 @@ footer.article-time .article-category-footer a.category-tag,
 a.category-tag {
     display: inline-flex !important;
     align-items: center !important;
-    padding: 0px 3px !important;
-    border-radius: 2px !important;
-    line-height: 1.1 !important;
-    font-size: 1.0rem !important;
+    padding: 1px 6px !important;
+    border-radius: 3px !important;
+    line-height: normal !important;
+    font-size: 1.1rem !important;
     text-transform: none !important;
-    margin-left: 0 !important;
-    color: #ffffff !important;
+    margin: 0 !important;
+    color: #999 !important;
     text-decoration: none !important;
     font-weight: 400 !important;
     vertical-align: middle !important;
-    background-color: #34495e !important;
+    background-color: #f5f5f5 !important;
+    border: 1px solid #e0e0e0 !important;
 }
 
 /* 根据文章序号循环使用5种颜色（与主题一致） */
@@ -671,8 +676,12 @@ a.category-tag {
 footer.article-time {
     margin: 0 !important;
     padding: 0 !important;
-    gap: 6px !important;
+    gap: 8px !important;
     line-height: 1.2 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    overflow: hidden !important;
 }
 
 /* 时间容器内的div使用flex布局以精确控制间距 */
@@ -683,6 +692,8 @@ footer.article-time {
     display: flex !important;
     align-items: center !important;
     gap: 0 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
 }
 
 /* 阅读时长样式 - 与相对时间字体保持一致 */
@@ -690,7 +701,8 @@ footer.article-time {
 .article-list .article-time--published {
     font-size: 1.1rem !important;
     color: #999 !important;
-    line-height: 1.2 !important;
+    line-height: normal !important;
+    white-space: nowrap !important;
 }
 
 [data-scheme="dark"] .article-list .article-time--reading,
