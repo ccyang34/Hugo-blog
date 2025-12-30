@@ -642,11 +642,13 @@ a.category-tag {
 }
 
 .article-list .article-title {
-    font-size: 1.8rem !important;
+    font-size: 2.1rem !important;
+    /* 调大字号 */
     line-height: 1.3 !important;
     margin: 0 !important;
     padding: 0 !important;
-    font-weight: 600 !important;
+    font-weight: 400 !important;
+    /* 取消加粗 */
     color: #222 !important;
 }
 
@@ -859,7 +861,10 @@ footer.article-time {
     }
 
     .article-list .article-title {
-        font-size: 1.4rem !important;
+        font-size: 1.7rem !important;
+        /* 移动端同步调大 */
+        font-weight: 400 !important;
+        /* 移动端同步取消加粗 */
     }
 
     .article-list .article-subtitle {
