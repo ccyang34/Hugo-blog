@@ -588,12 +588,15 @@ a.category-tag {
 
 .article-list .article-details {
     padding: 8px 15px !important;
+    gap: 2px !important;
+    /* 覆盖主题默认的15px */
 }
 
 .article-list .article-title {
     font-size: 1.7rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0 !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     font-weight: 600 !important;
     color: #222 !important;
 }
@@ -606,11 +609,12 @@ a.category-tag {
     color: inherit !important;
 }
 
+/* 描述文字 - 和标题紧贴 */
 .article-list .article-subtitle {
     font-size: 1.35rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 0 !important;
-    margin-top: 2px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 1 !important;
     -webkit-box-orient: vertical !important;
@@ -618,31 +622,46 @@ a.category-tag {
     color: #666 !important;
 }
 
+/* h3标签默认margin归零 */
+.article-list h3.article-subtitle {
+    margin: 0 !important;
+}
+
 /* 相对时间样式 */
 .article-time .relative-time {
     color: #999;
     font-size: 1.1rem;
+    line-height: 1.2;
 }
 
-/* 文章列表时间容器紧凑化 */
-.article-list .article-time {
-    margin-top: 1px !important;
-    gap: 8px !important;
+/* 文章列表时间容器紧凑化 - 高优先级 */
+.article-list .article-time,
+.article-list footer.article-time,
+footer.article-time {
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 6px !important;
+    line-height: 1.2 !important;
+}
+
+/* 时间容器内的div也归零 */
+.article-list .article-time>div,
+.article-list footer.article-time>div {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* 标题容器紧凑化 */
 .article-list .article-title-wrapper {
     margin: 0 !important;
     padding: 0 !important;
+    gap: 0 !important;
+    /* 覆盖主题默认的8px */
 }
 
-.article-list .article-title {
+/* h2标签默认margin归零 */
+.article-list h2.article-title {
     margin: 0 !important;
-}
-
-.article-list .article-subtitle {
-    margin-top: 1px !important;
-    margin-bottom: 0 !important;
 }
 
 /* 隐藏文章列表中的分类标签（顶部已有分类导航） */
