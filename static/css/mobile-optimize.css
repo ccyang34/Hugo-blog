@@ -159,8 +159,34 @@
         margin: 0.8em 0 !important;
     }
 
-    /* 标题字号 */
-    /* 标题字号 */
+    /* 文章详情页标题 */
+    .article-page .main-article .article-header .article-title {
+        font-size: 2.2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 3px !important;
+    }
+
+    /* 文章详情页元信息区域紧凑化 */
+    .article-page .main-article .article-header .article-details {
+        gap: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 5px !important;
+    }
+
+    .article-page .main-article .article-header .article-time {
+        gap: 8px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 1.25rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .article-page .main-article .article-header .article-time>div {
+        gap: 4px !important;
+        margin: 0 !important;
+    }
+
+    /* 正文内容标题字号 */
     .article-page .main-article .article-content h2 {
         font-size: 2.0rem !important;
         margin-top: 1.2em !important;
@@ -465,7 +491,9 @@ a.category-tag {
    ========================================= */
 
 /* 默认隐藏（在列表页不显示，避免 ID 冲突和数据错误） */
-.article-view-count {
+.article-list article .article-view-count,
+.article-list .article-time .article-view-count,
+.article-list footer.article-time .article-view-count {
     display: none !important;
 }
 
@@ -644,11 +672,35 @@ footer.article-time {
     line-height: 1.2 !important;
 }
 
-/* 时间容器内的div也归零 */
+/* 时间容器内的div使用flex布局以精确控制间距 */
 .article-list .article-time>div,
 .article-list footer.article-time>div {
     margin: 0 !important;
     padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+}
+
+/* 阅读时长样式 - 与相对时间字体保持一致 */
+.article-list .article-time--reading,
+.article-list .article-time--published {
+    font-size: 1.1rem !important;
+    color: #999 !important;
+    line-height: 1.2 !important;
+}
+
+[data-scheme="dark"] .article-list .article-time--reading,
+[data-scheme="dark"] .article-list .article-time--published {
+    color: #888 !important;
+}
+
+/* 文章列表时间图标缩小 */
+.article-list .article-time svg {
+    width: 13px !important;
+    height: 13px !important;
+    margin-right: 3px !important;
+    vertical-align: -2px !important;
 }
 
 /* 标题容器紧凑化 */

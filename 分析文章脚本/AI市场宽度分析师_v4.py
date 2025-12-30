@@ -1001,7 +1001,7 @@ def save_to_hugo_blog(content, beijing_time, image_path=None, extra_images=None)
     
     # 构建Hugo Front Matter
     front_matter = f"""---
-title: "A股市场宽度分析日报"
+title: "📈A股市场宽度分析日报"
 date: {beijing_time.strftime('%Y-%m-%dT%H:%M:%S+08:00')}
 lastmod: {beijing_time.strftime('%Y-%m-%dT%H:%M:%S+08:00')}
 description: "基于市场宽度指标的A股深度分析报告，包含AI智能解读和投资建议"

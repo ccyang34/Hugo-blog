@@ -710,7 +710,7 @@ def save_to_hugo_blog(title, content, date):
         filepath = os.path.join(HUGO_CONTENT_DIR, filename)
         
         # 统一固定标题
-        fixed_title = "油脂期货深度分析报告"
+        fixed_title = "🥜油脂期货深度分析报告"
         
         # 构建 Hugo 博客格式的内容
         hugo_content = f"""---

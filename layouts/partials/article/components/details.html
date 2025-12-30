@@ -39,16 +39,16 @@
         </div>
         {{ end }}
 
-        {{ if $showReadingTime }}
+        {{/* 始终显示阅读时长 */}}
         <div>
             {{ partial "helper/icon" "clock" }}
             <time class="article-time--reading">
                 {{ T "article.readingTime" .ReadingTime }}
             </time>
         </div>
-        {{ end }}
 
-        {{/* View Count - Only show on single pages to avoid incorrect counts on lists */}}
+        {{/* View Count - Only show on single pages to avoid appearing on list pages */}}
+        {{/* View Count - Only show on single pages to avoid appearing on list pages */}}
         {{ if .IsPage }}
         <div class="article-view-count">
             <span id="busuanzi_container_page_pv">

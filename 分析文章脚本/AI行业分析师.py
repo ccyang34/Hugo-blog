@@ -750,7 +750,7 @@ class ReportGenerator:
             date_iso = beijing_now.strftime('%Y-%m-%dT%H:%M:%S+08:00')
             
             # 统一固定标题
-            fixed_title = "AI行业资金流向分析报告"
+            fixed_title = "📈AI行业资金流向分析报告"
             
             # 构建 Hugo 博客格式的内容 (Front Matter)
             front_matter = f"""---
