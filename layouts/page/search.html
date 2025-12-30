@@ -6,32 +6,48 @@
 <style>
     .cf-status-card {
         margin: -10px 0 0px 0;
-        padding: 5px 14px;
+        padding: 16px;
         border-radius: 12px;
         background: var(--card-background, #fff);
         border: 1px solid var(--line-color, #eee);
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 16px;
         transition: all 0.3s;
     }
 
     .search-form {
-        margin-top: 5px !important;
+        margin-top: 20px !important;
     }
 
-    .status-info {
+    .status-container {
         display: flex;
         align-items: center;
-        gap: 12px;
+        width: 100%;
+    }
+
+    .status-item {
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .status-divider {
+        width: 1px;
+        height: 24px;
+        background: #eee;
+        margin: 0 16px;
     }
 
     .status-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background: #ccc;
         box-shadow: 0 0 0 3px rgba(204, 204, 204, 0.2);
+        margin-top: 5px;
+        flex-shrink: 0;
     }
 
     .status-dot.success {
@@ -67,16 +83,33 @@
         }
     }
 
+    .status-content {
+        display: flex;
+        flex-direction: column;
+    }
+
     .status-label {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         color: #888;
         margin-bottom: 2px;
     }
 
-    #status-text {
+    .status-value {
         font-weight: 700;
         color: var(--card-text-color, #333);
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+        line-height: 1.2;
+    }
+
+    .status-value span {
+        display: none;
+        /* Hide timestamp for compact view */
+    }
+
+    .status-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 0;
     }
 
     #check-status-btn,
@@ -85,25 +118,22 @@
         color: white;
         border: none;
         padding: 8px 14px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-weight: 600;
         cursor: pointer;
         transition: 0.2s;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 6px;
         border: none !important;
         font-size: 0.9rem;
+        flex: 1;
     }
 
     .deploy-btn {
-        background: #0070f3 !important;
-        /* Vercel Blue / Professional Blue */
-    }
-
-    .status-actions {
-        display: flex;
-        gap: 8px;
+        background: #2563eb !important;
+        /* Slightly darker blue */
     }
 
     #check-status-btn:active,
@@ -117,23 +147,18 @@
         cursor: not-allowed;
     }
 
-    @media screen and (max-width: 767px) {
-        .cf-status-card {
-            flex-direction: column;
+    @media screen and (max-width: 480px) {
+        .status-container {
             align-items: flex-start;
-            gap: 12px;
-            padding: 12px 14px;
         }
 
-        .status-actions {
-            width: 100%;
-            justify-content: space-between;
+        .status-item {
+            flex-direction: column;
+            gap: 6px;
         }
 
-        #check-status-btn,
-        .deploy-btn {
-            flex: 1;
-            justify-content: center;
+        .status-dot {
+            margin-top: 2px;
         }
     }
 </style>
@@ -141,13 +166,28 @@
 
 {{ define "main" }}
 <div class="cf-status-card">
-    <div class="status-info">
-        <div id="status-dot" class="status-dot"></div>
-        <div>
-            <div class="status-label">Cloudflare Pages 部署状态</div>
-            <div id="status-text">待查询</div>
+    <div class="status-container">
+        <!-- Cloudflare -->
+        <div class="status-item">
+            <div id="status-dot" class="status-dot"></div>
+            <div class="status-content">
+                <div class="status-label">Cloudflare Pages</div>
+                <div id="status-text" class="status-value">待查询</div>
+            </div>
+        </div>
+
+        <div class="status-divider"></div>
+
+        <!-- GitHub -->
+        <div class="status-item">
+            <div id="gh-status-dot" class="status-dot"></div>
+            <div class="status-content">
+                <div class="status-label">GitHub Actions</div>
+                <div id="gh-status-text" class="status-value">初始化...</div>
+            </div>
         </div>
     </div>
+
     <div class="status-actions">
         <button id="deploy-btn" class="deploy-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -155,7 +195,7 @@
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
             </svg>
-            <span>立即部署</span>
+            <span>CF手动部署</span>
         </button>
         <button id="check-status-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -164,7 +204,7 @@
                 <path d="M1 20v-6h6" />
                 <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
             </svg>
-            <span>刷新反馈</span>
+            <span>刷新</span>
         </button>
     </div>
 </div>
@@ -197,8 +237,12 @@
         const PROXY_URL = "https://status.ccyang.online";
         const DEPLOY_HOOK = "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/3a05327c-b7d8-4d2f-9c94-e8d520941d29";
 
+        // GitHub Status Elements
+        const ghStatusText = document.getElementById('gh-status-text');
+        const ghStatusDot = document.getElementById('gh-status-dot');
+
         async function fetchStatus() {
-            btn.disabled = true;
+            // Update CF UI
             statusText.innerText = "正在查询...";
             statusDot.className = "status-dot progress";
 
@@ -231,10 +275,56 @@
                 console.error(error);
                 statusText.innerText = "查询失败 (检查 Worker)";
                 statusDot.className = "status-dot failure";
-            } finally {
-                btn.disabled = false;
-                btn.querySelector('span').innerText = "刷新反馈";
             }
+        }
+
+        async function fetchGitHubStatus() {
+            // Update GH UI
+            ghStatusText.innerText = "正在查询...";
+            ghStatusDot.className = "status-dot progress";
+
+            const API_URL = 'https://hugo-fabu.ccyang.online/api/github-status';
+
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data.success && data.result) {
+                    const status = (data.result.status || 'unknown').toLowerCase();
+                    const conclusion = (data.result.conclusion || '').toLowerCase();
+
+                    if (status === 'completed') {
+                        ghStatusText.innerText = conclusion.toUpperCase();
+                        if (conclusion === 'success') {
+                            ghStatusDot.className = "status-dot success";
+                        } else {
+                            ghStatusDot.className = "status-dot failure";
+                        }
+                    } else if (['in_progress', 'queued', 'pending'].includes(status)) {
+                        ghStatusText.innerText = '运行中';
+                        ghStatusDot.className = "status-dot progress";
+                    } else {
+                        ghStatusText.innerText = status.toUpperCase();
+                        ghStatusDot.className = "status-dot progress";
+                    }
+                } else {
+                    throw new Error(data.error || '未知错误');
+                }
+            } catch (error) {
+                console.error('GitHub 状态获取错误:', error);
+                ghStatusText.innerText = "离线";
+                ghStatusDot.className = "status-dot failure";
+            }
+        }
+
+        async function fetchAllStatus() {
+            btn.disabled = true;
+            btn.querySelector('span').innerText = "刷新中...";
+
+            await Promise.allSettled([fetchStatus(), fetchGitHubStatus()]);
+
+            btn.disabled = false;
+            btn.querySelector('span').innerText = "刷新";
         }
 
         async function triggerDeploy() {
@@ -246,11 +336,9 @@
             try {
                 const response = await fetch(DEPLOY_HOOK, { method: 'POST' });
                 if (response.ok) {
-                    statusText.innerText = "部署已触发...";
-                    statusDot.className = "status-dot progress";
                     alert("✅ 部署请求已发送！Cloudflare 正在开始构建。");
-                    // 延迟3秒后刷新状态
-                    setTimeout(fetchStatus, 3000);
+                    // 延迟3秒后自动刷新
+                    setTimeout(fetchAllStatus, 3000);
                 } else {
                     alert("❌ 部署触发失败，请检查 Hook URL。");
                 }
@@ -259,15 +347,15 @@
                 alert("⚠️ 网络错误，无法连接到 Cloudflare。");
             } finally {
                 deployBtn.disabled = false;
-                deployBtn.querySelector('span').innerText = "立即部署";
+                deployBtn.querySelector('span').innerText = "CF手动部署";
             }
         }
 
-        btn.addEventListener('click', fetchStatus);
+        btn.addEventListener('click', fetchAllStatus);
         deployBtn.addEventListener('click', triggerDeploy);
 
         // 自动查询一次
-        fetchStatus();
+        fetchAllStatus();
     })();
 </script>
 
