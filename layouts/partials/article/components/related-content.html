@@ -1,0 +1,11 @@
+{{ $related := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) | first 5 }}
+{{ with $related }}
+<aside class="related-content--wrapper">
+    <h2 class="section-title">{{ T "article.relatedContent" }}</h2>
+    <section class="article-list">
+        {{ range . }}
+        {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+</aside>
+{{ end }}
