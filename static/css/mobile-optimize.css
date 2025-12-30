@@ -22,7 +22,7 @@
 
     /* 左侧边栏头部下移对齐 + 边距 + 背景色 */
     .left-sidebar header {
-        padding-top: 8px !important;
+        padding-top: 10px !important;
         /* 调整这里控制上移：数字越小，位置越靠上 */
         padding-left: 15px !important;
         padding-right: 15px !important;
