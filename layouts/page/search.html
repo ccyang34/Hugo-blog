@@ -79,28 +79,62 @@
         font-size: 1.1rem;
     }
 
-    #check-status-btn {
+    #check-status-btn,
+    .deploy-btn {
         background: #f38020;
         color: white;
         border: none;
-        padding: 8px 16px;
+        padding: 8px 14px;
         border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
         transition: 0.2s;
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
         border: none !important;
+        font-size: 0.9rem;
     }
 
-    #check-status-btn:active {
+    .deploy-btn {
+        background: #0070f3 !important;
+        /* Vercel Blue / Professional Blue */
+    }
+
+    .status-actions {
+        display: flex;
+        gap: 8px;
+    }
+
+    #check-status-btn:active,
+    .deploy-btn:active {
         transform: scale(0.95);
     }
 
-    #check-status-btn:disabled {
+    #check-status-btn:disabled,
+    .deploy-btn:disabled {
         opacity: 0.5;
         cursor: not-allowed;
+    }
+
+    @media screen and (max-width: 767px) {
+        .cf-status-card {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 14px;
+        }
+
+        .status-actions {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        #check-status-btn,
+        .deploy-btn {
+            flex: 1;
+            justify-content: center;
+        }
     }
 </style>
 {{ end }}
@@ -114,15 +148,25 @@
             <div id="status-text">待查询</div>
         </div>
     </div>
-    <button id="check-status-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M23 4v6h-6" />
-            <path d="M1 20v-6h6" />
-            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
-        </svg>
-        <span>刷新反馈</span>
-    </button>
+    <div class="status-actions">
+        <button id="deploy-btn" class="deploy-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+            <span>立即部署</span>
+        </button>
+        <button id="check-status-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 4v6h-6" />
+                <path d="M1 20v-6h6" />
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+            </svg>
+            <span>刷新反馈</span>
+        </button>
+    </div>
 </div>
 
 <form action="{{ .RelPermalink }}" class="search-form" {{ with .OutputFormats.Get "json" -}}
@@ -147,9 +191,11 @@
 
     (function () {
         const btn = document.getElementById('check-status-btn');
+        const deployBtn = document.getElementById('deploy-btn');
         const statusText = document.getElementById('status-text');
         const statusDot = document.getElementById('status-dot');
         const PROXY_URL = "https://hugo-status-proxy.chaoyang34-274.workers.dev";
+        const DEPLOY_HOOK = "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/3a05327c-b7d8-4d2f-9c94-e8d520941d29";
 
         async function fetchStatus() {
             btn.disabled = true;
@@ -191,7 +237,35 @@
             }
         }
 
+        async function triggerDeploy() {
+            if (!confirm("确定要立即重新部署博客吗？")) return;
+
+            deployBtn.disabled = true;
+            deployBtn.querySelector('span').innerText = "提交中...";
+
+            try {
+                const response = await fetch(DEPLOY_HOOK, { method: 'POST' });
+                if (response.ok) {
+                    statusText.innerText = "部署已触发...";
+                    statusDot.className = "status-dot progress";
+                    alert("✅ 部署请求已发送！Cloudflare 正在开始构建。");
+                    // 延迟3秒后刷新状态
+                    setTimeout(fetchStatus, 3000);
+                } else {
+                    alert("❌ 部署触发失败，请检查 Hook URL。");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("⚠️ 网络错误，无法连接到 Cloudflare。");
+            } finally {
+                deployBtn.disabled = false;
+                deployBtn.querySelector('span').innerText = "立即部署";
+            }
+        }
+
         btn.addEventListener('click', fetchStatus);
+        deployBtn.addEventListener('click', triggerDeploy);
+
         // 自动查询一次
         fetchStatus();
     })();
