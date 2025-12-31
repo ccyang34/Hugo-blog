@@ -76,26 +76,26 @@ jobs:
       with:
         path: artifacts
         pattern: reports-*
-        merge-multiple: true
+        merge-multiple: false
 
     - name: 汇总并移动文件
       run: |
-        # 确保目标目录存在，避免复制时报错
+        # 确保目标目录存在
         mkdir -p content/posts static/images/charts
         
-        # 将从 Artifacts 下载的 Markdown 报告移动到 Hugo 内容目录
-        if [ -d "artifacts/content/posts" ]; then
-          cp -rf artifacts/content/posts/* content/posts/
-        fi
+        # 遍历所有 reports-* 目录并移动内容，支持多层级覆盖
+        # 报告文件
+        find artifacts -path "*/content/posts/*.md" -exec cp -f {} content/posts/ \;
         
-        # 将生成的分析图表移动到静态资源目录
-        if [ -d "artifacts/static/images/charts" ]; then
-          cp -rf artifacts/static/images/charts/* static/images/charts/
-        fi
+        # 图表文件
+        find artifacts -path "*/static/images/charts/*.png" -exec cp -f {} static/images/charts/ \;
+
     - name: 提交并推送生成的报告
       run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # 精确添加生成的文件，避免误删或漏加
         git add content/posts/*.md
         git add static/images/charts/*.png
         if git diff --staged --quiet; then
