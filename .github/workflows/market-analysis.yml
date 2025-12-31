@@ -46,6 +46,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas numpy requests akshare pytz matplotlib beautifulsoup4 lxml
         
+    - name: 创建干净的输出目录
+      run: |
+        mkdir -p generated/content/posts
+        mkdir -p generated/static/images/charts
+        
     - name: 运行分析脚本
       run: |
         python "${{ matrix.script }}"
@@ -53,14 +58,28 @@ jobs:
         HUGO_BLOG_DIR: "."
         DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
+    - name: 识别新生成的文件并移动到干净目录
+      run: |
+        # 移动最近5分钟内修改的 .md 文件（排除历史文章）
+        find content/posts -name "*.md" -mmin -5 -exec cp {} generated/content/posts/ \;
+        
+        # 移动最近5分钟内修改的图表文件
+        find static/images/charts -type f -mmin -5 -exec cp {} generated/static/images/charts/ \; 2>/dev/null || true
+        
+        echo "=== 新生成的报告 ==="
+        ls -la generated/content/posts/ || echo "无报告文件"
+        echo "=== 新生成的图表 ==="
+        ls -la generated/static/images/charts/ || echo "无图表文件"
+
     - name: 上传生成的报告和图表
       uses: actions/upload-artifact@v4
       with:
         name: reports-${{ strategy.job-index }}
         path: |
-          content/posts/*.md
-          static/images/charts/*
+          generated/content/posts/*
+          generated/static/images/charts/*
         retention-days: 1
+        if-no-files-found: warn
 
   publish:
     needs: analysis
@@ -86,29 +105,24 @@ jobs:
         echo "=== 找到的 .md 文件 ==="
         find artifacts -name "*.md" -type f
         echo ""
-        echo "=== 找到的 .png 文件 ==="
-        find artifacts -name "*.png" -type f
+        echo "=== 找到的图表文件 ==="
+        find artifacts \( -name "*.png" -o -name "*.jpg" -o -name "*.svg" -o -name "*.html" \) -type f
 
     - name: 汇总并移动文件
       run: |
         # 确保目标目录存在
         mkdir -p content/posts static/images/charts
         
-        # 遍历所有 reports-* 目录并移动内容
+        # 遍历所有下载的 artifact 并移动内容
         echo "=== 开始移动报告文件 ==="
         find artifacts -name "*.md" -type f -exec cp -fv {} content/posts/ \;
         
-        echo "=== 开始移动图表文件（支持多种格式）==="
-        # 支持 png, jpg, jpeg, gif, svg, webp 图片格式
+        echo "=== 开始移动图表文件 ==="
         find artifacts \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" -o -name "*.svg" -o -name "*.webp" \) -type f -exec cp -fv {} static/images/charts/ \;
-        
-        # 支持 HTML 图表
-        find artifacts -name "*.html" -type f -exec cp -fv {} static/images/charts/ \;
+        find artifacts -name "*.html" -type f -exec cp -fv {} static/images/charts/ \; 2>/dev/null || true
         
         echo "=== 移动后 content/posts 目录内容 ==="
-        ls -la content/posts/
-        echo "=== 移动后 static/images/charts 目录内容 ==="
-        ls -la static/images/charts/
+        ls -la content/posts/ | grep -E "油脂|榨利|宽度|行业|豆油" || echo "未找到分析报告"
 
     - name: 提交并推送生成的报告
       run: |

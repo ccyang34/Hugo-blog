@@ -1,0 +1,961 @@
+== Artifact 目录完整结构 ===
+artifacts/reports-1/static/images/charts/margin_chart_全历史.png
+artifacts/reports-1/static/images/charts/A股行业动量分析图.png
+artifacts/reports-1/static/images/charts/industry_inflow_10d.png
+artifacts/reports-1/static/images/charts/industry_inflow_5d.png
+artifacts/reports-1/static/images/charts/industry_inflow_combined.png
+artifacts/reports-1/static/images/charts/industry_scatter_5d.png
+artifacts/reports-1/static/images/charts/margin_chart_一年.png
+artifacts/reports-1/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-1/static/images/charts/margin_chart_两年.png
+artifacts/reports-1/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-1/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-1/static/images/charts/margin_chart_半年.png
+artifacts/reports-1/static/images/charts/industry_inflow_3d.png
+artifacts/reports-1/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-1/content/posts/油脂期货深度分析报告.md
+artifacts/reports-1/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-1/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-1/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-1/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-1/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-1/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-1/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-1/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-1/content/posts/A股市场宽度分析日报.md
+artifacts/reports-1/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-1/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-1/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-1/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-1/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-1/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-1/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-1/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-1/content/posts/豆油综合分析报告.md
+artifacts/reports-1/content/posts/interactive-charts-test.md
+artifacts/reports-1/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-1/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-1/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-1/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-1/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-1/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-1/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-1/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-1/content/posts/hugo-tutorial.md
+artifacts/reports-1/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-1/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-1/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-1/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-1/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-1/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-1/content/posts/榨利深度分析报告.md
+artifacts/reports-1/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-1/content/posts/pyecharts测试.md
+artifacts/reports-1/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-1/content/posts/my-first-post copy.md
+artifacts/reports-1/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-1/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-1/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-1/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-1/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-2/static/images/charts/margin_chart_全历史.png
+artifacts/reports-2/static/images/charts/A股行业动量分析图.png
+artifacts/reports-2/static/images/charts/industry_inflow_10d.png
+artifacts/reports-2/static/images/charts/industry_inflow_5d.png
+artifacts/reports-2/static/images/charts/industry_inflow_combined.png
+artifacts/reports-2/static/images/charts/industry_scatter_5d.png
+artifacts/reports-2/static/images/charts/margin_chart_一年.png
+artifacts/reports-2/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-2/static/images/charts/margin_chart_两年.png
+artifacts/reports-2/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-2/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-2/static/images/charts/margin_chart_半年.png
+artifacts/reports-2/static/images/charts/industry_inflow_3d.png
+artifacts/reports-2/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-2/content/posts/油脂期货深度分析报告.md
+artifacts/reports-2/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-2/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-2/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-2/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-2/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-2/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-2/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-2/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-2/content/posts/A股市场宽度分析日报.md
+artifacts/reports-2/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-2/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-2/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-2/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-2/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-2/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-2/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-2/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-2/content/posts/豆油综合分析报告.md
+artifacts/reports-2/content/posts/interactive-charts-test.md
+artifacts/reports-2/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-2/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-2/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-2/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-2/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-2/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-2/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-2/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-2/content/posts/hugo-tutorial.md
+artifacts/reports-2/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-2/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-2/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-2/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-2/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-2/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-2/content/posts/榨利深度分析报告.md
+artifacts/reports-2/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-2/content/posts/pyecharts测试.md
+artifacts/reports-2/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-2/content/posts/my-first-post copy.md
+artifacts/reports-2/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-2/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-2/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-2/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-2/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-0/static/images/charts/margin_chart_全历史.png
+artifacts/reports-0/static/images/charts/A股行业动量分析图.png
+artifacts/reports-0/static/images/charts/industry_inflow_10d.png
+artifacts/reports-0/static/images/charts/industry_inflow_5d.png
+artifacts/reports-0/static/images/charts/industry_inflow_combined.png
+artifacts/reports-0/static/images/charts/industry_scatter_5d.png
+artifacts/reports-0/static/images/charts/margin_chart_一年.png
+artifacts/reports-0/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-0/static/images/charts/margin_chart_两年.png
+artifacts/reports-0/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-0/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-0/static/images/charts/margin_chart_半年.png
+artifacts/reports-0/static/images/charts/industry_inflow_3d.png
+artifacts/reports-0/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-0/content/posts/油脂期货深度分析报告.md
+artifacts/reports-0/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-0/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-0/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-0/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-0/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-0/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-0/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-0/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-0/content/posts/A股市场宽度分析日报.md
+artifacts/reports-0/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-0/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-0/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-0/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-0/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-0/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-0/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-0/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-0/content/posts/豆油综合分析报告.md
+artifacts/reports-0/content/posts/interactive-charts-test.md
+artifacts/reports-0/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-0/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-0/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-0/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-0/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-0/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-0/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-0/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-0/content/posts/hugo-tutorial.md
+artifacts/reports-0/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-0/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-0/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-0/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-0/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-0/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-0/content/posts/榨利深度分析报告.md
+artifacts/reports-0/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-0/content/posts/pyecharts测试.md
+artifacts/reports-0/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-0/content/posts/my-first-post copy.md
+artifacts/reports-0/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-0/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-0/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-0/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-0/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-3/static/images/charts/margin_chart_全历史.png
+artifacts/reports-3/static/images/charts/A股行业动量分析图.png
+artifacts/reports-3/static/images/charts/industry_inflow_10d.png
+artifacts/reports-3/static/images/charts/industry_inflow_5d.png
+artifacts/reports-3/static/images/charts/industry_inflow_combined.png
+artifacts/reports-3/static/images/charts/industry_scatter_5d.png
+artifacts/reports-3/static/images/charts/margin_chart_一年.png
+artifacts/reports-3/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-3/static/images/charts/margin_chart_两年.png
+artifacts/reports-3/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-3/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-3/static/images/charts/margin_chart_半年.png
+artifacts/reports-3/static/images/charts/industry_inflow_3d.png
+artifacts/reports-3/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-3/content/posts/油脂期货深度分析报告.md
+artifacts/reports-3/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-3/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-3/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-3/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-3/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-3/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-3/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-3/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-3/content/posts/A股市场宽度分析日报.md
+artifacts/reports-3/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-3/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-3/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-3/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-3/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-3/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-3/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-3/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-3/content/posts/豆油综合分析报告.md
+artifacts/reports-3/content/posts/interactive-charts-test.md
+artifacts/reports-3/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-3/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-3/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-3/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-3/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-3/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-3/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-3/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-3/content/posts/hugo-tutorial.md
+artifacts/reports-3/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-3/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-3/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-3/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-3/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-3/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-3/content/posts/榨利深度分析报告.md
+artifacts/reports-3/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-3/content/posts/pyecharts测试.md
+artifacts/reports-3/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-3/content/posts/my-first-post copy.md
+artifacts/reports-3/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-3/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-3/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-3/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-3/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-4/static/images/charts/margin_chart_全历史.png
+artifacts/reports-4/static/images/charts/A股行业动量分析图.png
+artifacts/reports-4/static/images/charts/industry_inflow_10d.png
+artifacts/reports-4/static/images/charts/industry_inflow_5d.png
+artifacts/reports-4/static/images/charts/industry_inflow_combined.png
+artifacts/reports-4/static/images/charts/industry_scatter_5d.png
+artifacts/reports-4/static/images/charts/margin_chart_一年.png
+artifacts/reports-4/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-4/static/images/charts/margin_chart_两年.png
+artifacts/reports-4/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-4/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-4/static/images/charts/margin_chart_半年.png
+artifacts/reports-4/static/images/charts/industry_inflow_3d.png
+artifacts/reports-4/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-4/content/posts/油脂期货深度分析报告.md
+artifacts/reports-4/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-4/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-4/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-4/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-4/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-4/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-4/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-4/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-4/content/posts/A股市场宽度分析日报.md
+artifacts/reports-4/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-4/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-4/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-4/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-4/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-4/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-4/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-4/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-4/content/posts/豆油综合分析报告.md
+artifacts/reports-4/content/posts/interactive-charts-test.md
+artifacts/reports-4/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-4/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-4/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-4/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-4/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-4/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-4/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-4/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-4/content/posts/hugo-tutorial.md
+artifacts/reports-4/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-4/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-4/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-4/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-4/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-4/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-4/content/posts/榨利深度分析报告.md
+artifacts/reports-4/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-4/content/posts/pyecharts测试.md
+artifacts/reports-4/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-4/content/posts/my-first-post copy.md
+artifacts/reports-4/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-4/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-4/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-4/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-4/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+
+=== 找到的 .md 文件 ===
+artifacts/reports-1/content/posts/油脂期货深度分析报告.md
+artifacts/reports-1/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-1/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-1/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-1/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-1/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-1/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-1/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-1/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-1/content/posts/A股市场宽度分析日报.md
+artifacts/reports-1/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-1/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-1/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-1/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-1/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-1/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-1/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-1/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-1/content/posts/豆油综合分析报告.md
+artifacts/reports-1/content/posts/interactive-charts-test.md
+artifacts/reports-1/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-1/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-1/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-1/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-1/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-1/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-1/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-1/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-1/content/posts/hugo-tutorial.md
+artifacts/reports-1/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-1/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-1/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-1/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-1/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-1/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-1/content/posts/榨利深度分析报告.md
+artifacts/reports-1/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-1/content/posts/pyecharts测试.md
+artifacts/reports-1/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-1/content/posts/my-first-post copy.md
+artifacts/reports-1/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-1/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-1/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-1/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-1/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-2/content/posts/油脂期货深度分析报告.md
+artifacts/reports-2/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-2/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-2/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-2/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-2/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-2/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-2/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-2/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-2/content/posts/A股市场宽度分析日报.md
+artifacts/reports-2/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-2/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-2/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-2/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-2/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-2/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-2/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-2/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-2/content/posts/豆油综合分析报告.md
+artifacts/reports-2/content/posts/interactive-charts-test.md
+artifacts/reports-2/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-2/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-2/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-2/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-2/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-2/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-2/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-2/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-2/content/posts/hugo-tutorial.md
+artifacts/reports-2/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-2/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-2/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-2/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-2/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-2/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-2/content/posts/榨利深度分析报告.md
+artifacts/reports-2/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-2/content/posts/pyecharts测试.md
+artifacts/reports-2/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-2/content/posts/my-first-post copy.md
+artifacts/reports-2/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-2/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-2/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-2/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-2/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-0/content/posts/油脂期货深度分析报告.md
+artifacts/reports-0/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-0/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-0/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-0/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-0/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-0/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-0/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-0/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-0/content/posts/A股市场宽度分析日报.md
+artifacts/reports-0/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-0/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-0/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-0/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-0/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-0/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-0/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-0/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-0/content/posts/豆油综合分析报告.md
+artifacts/reports-0/content/posts/interactive-charts-test.md
+artifacts/reports-0/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-0/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-0/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-0/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-0/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-0/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-0/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-0/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-0/content/posts/hugo-tutorial.md
+artifacts/reports-0/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-0/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-0/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-0/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-0/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-0/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-0/content/posts/榨利深度分析报告.md
+artifacts/reports-0/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-0/content/posts/pyecharts测试.md
+artifacts/reports-0/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-0/content/posts/my-first-post copy.md
+artifacts/reports-0/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-0/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-0/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-0/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-0/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-3/content/posts/油脂期货深度分析报告.md
+artifacts/reports-3/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-3/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-3/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-3/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-3/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-3/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-3/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-3/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-3/content/posts/A股市场宽度分析日报.md
+artifacts/reports-3/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-3/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-3/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-3/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-3/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-3/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-3/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-3/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-3/content/posts/豆油综合分析报告.md
+artifacts/reports-3/content/posts/interactive-charts-test.md
+artifacts/reports-3/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-3/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-3/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-3/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-3/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-3/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-3/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-3/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-3/content/posts/hugo-tutorial.md
+artifacts/reports-3/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-3/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-3/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-3/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-3/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-3/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-3/content/posts/榨利深度分析报告.md
+artifacts/reports-3/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-3/content/posts/pyecharts测试.md
+artifacts/reports-3/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-3/content/posts/my-first-post copy.md
+artifacts/reports-3/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-3/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-3/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-3/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-3/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+artifacts/reports-4/content/posts/油脂期货深度分析报告.md
+artifacts/reports-4/content/posts/2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+artifacts/reports-4/content/posts/2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+artifacts/reports-4/content/posts/2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+artifacts/reports-4/content/posts/2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+artifacts/reports-4/content/posts/2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+artifacts/reports-4/content/posts/2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+artifacts/reports-4/content/posts/2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+artifacts/reports-4/content/posts/2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+artifacts/reports-4/content/posts/A股市场宽度分析日报.md
+artifacts/reports-4/content/posts/2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+artifacts/reports-4/content/posts/2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+artifacts/reports-4/content/posts/2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+artifacts/reports-4/content/posts/2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+artifacts/reports-4/content/posts/hugo-deployment-deep-dive.md
+artifacts/reports-4/content/posts/2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+artifacts/reports-4/content/posts/2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+artifacts/reports-4/content/posts/2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+artifacts/reports-4/content/posts/豆油综合分析报告.md
+artifacts/reports-4/content/posts/interactive-charts-test.md
+artifacts/reports-4/content/posts/2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+artifacts/reports-4/content/posts/2025年豆油行情全回顾.md
+artifacts/reports-4/content/posts/2025-12-28-刚刚开源-私用挺强的.md
+artifacts/reports-4/content/posts/2025年末A股核心赛道与投资策略解析.md
+artifacts/reports-4/content/posts/2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+artifacts/reports-4/content/posts/2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+artifacts/reports-4/content/posts/2025-12-29-claude-code超级助手-superclaude.md
+artifacts/reports-4/content/posts/2025-12-31-manus上岸了其他人呢.md
+artifacts/reports-4/content/posts/hugo-tutorial.md
+artifacts/reports-4/content/posts/2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+artifacts/reports-4/content/posts/2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+artifacts/reports-4/content/posts/AI行业资金流向分析报告.md
+artifacts/reports-4/content/posts/2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+artifacts/reports-4/content/posts/2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+artifacts/reports-4/content/posts/2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+artifacts/reports-4/content/posts/榨利深度分析报告.md
+artifacts/reports-4/content/posts/2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+artifacts/reports-4/content/posts/pyecharts测试.md
+artifacts/reports-4/content/posts/2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+artifacts/reports-4/content/posts/my-first-post copy.md
+artifacts/reports-4/content/posts/2025-12-23-crush-margin.md
+artifacts/reports-4/content/posts/2025-12-25-2025年豆油行情全回顾.md
+artifacts/reports-4/content/posts/2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+artifacts/reports-4/content/posts/2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+artifacts/reports-4/content/posts/2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+
+=== 找到的 .png 文件 ===
+artifacts/reports-1/static/images/charts/margin_chart_全历史.png
+artifacts/reports-1/static/images/charts/A股行业动量分析图.png
+artifacts/reports-1/static/images/charts/industry_inflow_10d.png
+artifacts/reports-1/static/images/charts/industry_inflow_5d.png
+artifacts/reports-1/static/images/charts/industry_inflow_combined.png
+artifacts/reports-1/static/images/charts/industry_scatter_5d.png
+artifacts/reports-1/static/images/charts/margin_chart_一年.png
+artifacts/reports-1/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-1/static/images/charts/margin_chart_两年.png
+artifacts/reports-1/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-1/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-1/static/images/charts/margin_chart_半年.png
+artifacts/reports-1/static/images/charts/industry_inflow_3d.png
+artifacts/reports-1/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-2/static/images/charts/margin_chart_全历史.png
+artifacts/reports-2/static/images/charts/A股行业动量分析图.png
+artifacts/reports-2/static/images/charts/industry_inflow_10d.png
+artifacts/reports-2/static/images/charts/industry_inflow_5d.png
+artifacts/reports-2/static/images/charts/industry_inflow_combined.png
+artifacts/reports-2/static/images/charts/industry_scatter_5d.png
+artifacts/reports-2/static/images/charts/margin_chart_一年.png
+artifacts/reports-2/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-2/static/images/charts/margin_chart_两年.png
+artifacts/reports-2/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-2/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-2/static/images/charts/margin_chart_半年.png
+artifacts/reports-2/static/images/charts/industry_inflow_3d.png
+artifacts/reports-2/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-0/static/images/charts/margin_chart_全历史.png
+artifacts/reports-0/static/images/charts/A股行业动量分析图.png
+artifacts/reports-0/static/images/charts/industry_inflow_10d.png
+artifacts/reports-0/static/images/charts/industry_inflow_5d.png
+artifacts/reports-0/static/images/charts/industry_inflow_combined.png
+artifacts/reports-0/static/images/charts/industry_scatter_5d.png
+artifacts/reports-0/static/images/charts/margin_chart_一年.png
+artifacts/reports-0/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-0/static/images/charts/margin_chart_两年.png
+artifacts/reports-0/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-0/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-0/static/images/charts/margin_chart_半年.png
+artifacts/reports-0/static/images/charts/industry_inflow_3d.png
+artifacts/reports-0/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-3/static/images/charts/margin_chart_全历史.png
+artifacts/reports-3/static/images/charts/A股行业动量分析图.png
+artifacts/reports-3/static/images/charts/industry_inflow_10d.png
+artifacts/reports-3/static/images/charts/industry_inflow_5d.png
+artifacts/reports-3/static/images/charts/industry_inflow_combined.png
+artifacts/reports-3/static/images/charts/industry_scatter_5d.png
+artifacts/reports-3/static/images/charts/margin_chart_一年.png
+artifacts/reports-3/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-3/static/images/charts/margin_chart_两年.png
+artifacts/reports-3/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-3/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-3/static/images/charts/margin_chart_半年.png
+artifacts/reports-3/static/images/charts/industry_inflow_3d.png
+artifacts/reports-3/static/images/charts/full_analysis_chart_一年半.png
+artifacts/reports-4/static/images/charts/margin_chart_全历史.png
+artifacts/reports-4/static/images/charts/A股行业动量分析图.png
+artifacts/reports-4/static/images/charts/industry_inflow_10d.png
+artifacts/reports-4/static/images/charts/industry_inflow_5d.png
+artifacts/reports-4/static/images/charts/industry_inflow_combined.png
+artifacts/reports-4/static/images/charts/industry_scatter_5d.png
+artifacts/reports-4/static/images/charts/margin_chart_一年.png
+artifacts/reports-4/static/images/charts/full_analysis_chart_半年.png
+artifacts/reports-4/static/images/charts/margin_chart_两年.png
+artifacts/reports-4/static/images/charts/A股市场宽度全景图.png
+artifacts/reports-4/static/images/charts/full_analysis_chart_一年.png
+artifacts/reports-4/static/images/charts/margin_chart_半年.png
+artifacts/reports-4/static/images/charts/industry_inflow_3d.png
+artifacts/reports-4/static/images/charts/full_analysis_chart_一年半.png
+0s
+Run # 确保目标目录存在
+=== 开始移动报告文件 ===
+'artifacts/reports-1/content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-1/content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md' -> 'content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md'
+'artifacts/reports-1/content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md' -> 'content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md'
+'artifacts/reports-1/content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md' -> 'content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md'
+'artifacts/reports-1/content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md' -> 'content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md'
+'artifacts/reports-1/content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md'
+'artifacts/reports-1/content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md'
+'artifacts/reports-1/content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md' -> 'content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md'
+'artifacts/reports-1/content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md'
+'artifacts/reports-1/content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md' -> 'content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md'
+'artifacts/reports-1/content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md' -> 'content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md'
+'artifacts/reports-1/content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md' -> 'content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md'
+'artifacts/reports-1/content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md' -> 'content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md'
+'artifacts/reports-1/content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md'
+'artifacts/reports-1/content/posts/hugo-deployment-deep-dive.md' -> 'content/posts/hugo-deployment-deep-dive.md'
+'artifacts/reports-1/content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md' -> 'content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md'
+'artifacts/reports-1/content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md' -> 'content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md'
+'artifacts/reports-1/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md'
+'artifacts/reports-1/content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-1/content/posts/interactive-charts-test.md' -> 'content/posts/interactive-charts-test.md'
+'artifacts/reports-1/content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md' -> 'content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md'
+'artifacts/reports-1/content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-1/content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md' -> 'content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md'
+'artifacts/reports-1/content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md' -> 'content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md'
+'artifacts/reports-1/content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md'
+'artifacts/reports-1/content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md' -> 'content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md'
+'artifacts/reports-1/content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md' -> 'content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md'
+'artifacts/reports-1/content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md' -> 'content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md'
+'artifacts/reports-1/content/posts/hugo-tutorial.md' -> 'content/posts/hugo-tutorial.md'
+'artifacts/reports-1/content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md'
+'artifacts/reports-1/content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md'
+'artifacts/reports-1/content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-1/content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md' -> 'content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md'
+'artifacts/reports-1/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md'
+'artifacts/reports-1/content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md'
+'artifacts/reports-1/content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-1/content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md' -> 'content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md'
+'artifacts/reports-1/content/posts/pyecharts'$'\346\265\213\350\257\225''.md' -> 'content/posts/pyecharts'$'\346\265\213\350\257\225''.md'
+'artifacts/reports-1/content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md' -> 'content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md'
+'artifacts/reports-1/content/posts/my-first-post copy.md' -> 'content/posts/my-first-post copy.md'
+'artifacts/reports-1/content/posts/2025-12-23-crush-margin.md' -> 'content/posts/2025-12-23-crush-margin.md'
+'artifacts/reports-1/content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-1/content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md' -> 'content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md'
+'artifacts/reports-1/content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md' -> 'content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md'
+'artifacts/reports-1/content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md' -> 'content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md'
+'artifacts/reports-2/content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-2/content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md' -> 'content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md'
+'artifacts/reports-2/content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md' -> 'content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md'
+'artifacts/reports-2/content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md' -> 'content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md'
+'artifacts/reports-2/content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md' -> 'content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md'
+'artifacts/reports-2/content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md'
+'artifacts/reports-2/content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md'
+'artifacts/reports-2/content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md' -> 'content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md'
+'artifacts/reports-2/content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md'
+'artifacts/reports-2/content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md' -> 'content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md'
+'artifacts/reports-2/content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md' -> 'content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md'
+'artifacts/reports-2/content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md' -> 'content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md'
+'artifacts/reports-2/content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md' -> 'content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md'
+'artifacts/reports-2/content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md'
+'artifacts/reports-2/content/posts/hugo-deployment-deep-dive.md' -> 'content/posts/hugo-deployment-deep-dive.md'
+'artifacts/reports-2/content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md' -> 'content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md'
+'artifacts/reports-2/content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md' -> 'content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md'
+'artifacts/reports-2/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md'
+'artifacts/reports-2/content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-2/content/posts/interactive-charts-test.md' -> 'content/posts/interactive-charts-test.md'
+'artifacts/reports-2/content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md' -> 'content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md'
+'artifacts/reports-2/content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-2/content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md' -> 'content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md'
+'artifacts/reports-2/content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md' -> 'content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md'
+'artifacts/reports-2/content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md'
+'artifacts/reports-2/content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md' -> 'content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md'
+'artifacts/reports-2/content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md' -> 'content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md'
+'artifacts/reports-2/content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md' -> 'content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md'
+'artifacts/reports-2/content/posts/hugo-tutorial.md' -> 'content/posts/hugo-tutorial.md'
+'artifacts/reports-2/content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md'
+'artifacts/reports-2/content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md'
+'artifacts/reports-2/content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-2/content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md' -> 'content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md'
+'artifacts/reports-2/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md'
+'artifacts/reports-2/content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md'
+'artifacts/reports-2/content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-2/content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md' -> 'content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md'
+'artifacts/reports-2/content/posts/pyecharts'$'\346\265\213\350\257\225''.md' -> 'content/posts/pyecharts'$'\346\265\213\350\257\225''.md'
+'artifacts/reports-2/content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md' -> 'content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md'
+'artifacts/reports-2/content/posts/my-first-post copy.md' -> 'content/posts/my-first-post copy.md'
+'artifacts/reports-2/content/posts/2025-12-23-crush-margin.md' -> 'content/posts/2025-12-23-crush-margin.md'
+'artifacts/reports-2/content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-2/content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md' -> 'content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md'
+'artifacts/reports-2/content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md' -> 'content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md'
+'artifacts/reports-2/content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md' -> 'content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md'
+'artifacts/reports-0/content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-0/content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md' -> 'content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md'
+'artifacts/reports-0/content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md' -> 'content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md'
+'artifacts/reports-0/content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md' -> 'content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md'
+'artifacts/reports-0/content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md' -> 'content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md'
+'artifacts/reports-0/content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md'
+'artifacts/reports-0/content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md'
+'artifacts/reports-0/content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md' -> 'content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md'
+'artifacts/reports-0/content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md'
+'artifacts/reports-0/content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md' -> 'content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md'
+'artifacts/reports-0/content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md' -> 'content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md'
+'artifacts/reports-0/content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md' -> 'content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md'
+'artifacts/reports-0/content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md' -> 'content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md'
+'artifacts/reports-0/content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md'
+'artifacts/reports-0/content/posts/hugo-deployment-deep-dive.md' -> 'content/posts/hugo-deployment-deep-dive.md'
+'artifacts/reports-0/content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md' -> 'content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md'
+'artifacts/reports-0/content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md' -> 'content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md'
+'artifacts/reports-0/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md'
+'artifacts/reports-0/content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-0/content/posts/interactive-charts-test.md' -> 'content/posts/interactive-charts-test.md'
+'artifacts/reports-0/content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md' -> 'content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md'
+'artifacts/reports-0/content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-0/content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md' -> 'content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md'
+'artifacts/reports-0/content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md' -> 'content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md'
+'artifacts/reports-0/content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md'
+'artifacts/reports-0/content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md' -> 'content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md'
+'artifacts/reports-0/content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md' -> 'content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md'
+'artifacts/reports-0/content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md' -> 'content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md'
+'artifacts/reports-0/content/posts/hugo-tutorial.md' -> 'content/posts/hugo-tutorial.md'
+'artifacts/reports-0/content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md'
+'artifacts/reports-0/content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md'
+'artifacts/reports-0/content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-0/content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md' -> 'content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md'
+'artifacts/reports-0/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md'
+'artifacts/reports-0/content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md'
+'artifacts/reports-0/content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-0/content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md' -> 'content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md'
+'artifacts/reports-0/content/posts/pyecharts'$'\346\265\213\350\257\225''.md' -> 'content/posts/pyecharts'$'\346\265\213\350\257\225''.md'
+'artifacts/reports-0/content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md' -> 'content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md'
+'artifacts/reports-0/content/posts/my-first-post copy.md' -> 'content/posts/my-first-post copy.md'
+'artifacts/reports-0/content/posts/2025-12-23-crush-margin.md' -> 'content/posts/2025-12-23-crush-margin.md'
+'artifacts/reports-0/content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-0/content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md' -> 'content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md'
+'artifacts/reports-0/content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md' -> 'content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md'
+'artifacts/reports-0/content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md' -> 'content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md'
+'artifacts/reports-3/content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-3/content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md' -> 'content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md'
+'artifacts/reports-3/content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md' -> 'content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md'
+'artifacts/reports-3/content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md' -> 'content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md'
+'artifacts/reports-3/content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md' -> 'content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md'
+'artifacts/reports-3/content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md'
+'artifacts/reports-3/content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md'
+'artifacts/reports-3/content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md' -> 'content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md'
+'artifacts/reports-3/content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md'
+'artifacts/reports-3/content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md' -> 'content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md'
+'artifacts/reports-3/content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md' -> 'content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md'
+'artifacts/reports-3/content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md' -> 'content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md'
+'artifacts/reports-3/content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md' -> 'content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md'
+'artifacts/reports-3/content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md'
+'artifacts/reports-3/content/posts/hugo-deployment-deep-dive.md' -> 'content/posts/hugo-deployment-deep-dive.md'
+'artifacts/reports-3/content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md' -> 'content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md'
+'artifacts/reports-3/content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md' -> 'content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md'
+'artifacts/reports-3/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md'
+'artifacts/reports-3/content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-3/content/posts/interactive-charts-test.md' -> 'content/posts/interactive-charts-test.md'
+'artifacts/reports-3/content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md' -> 'content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md'
+'artifacts/reports-3/content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-3/content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md' -> 'content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md'
+'artifacts/reports-3/content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md' -> 'content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md'
+'artifacts/reports-3/content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md'
+'artifacts/reports-3/content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md' -> 'content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md'
+'artifacts/reports-3/content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md' -> 'content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md'
+'artifacts/reports-3/content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md' -> 'content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md'
+'artifacts/reports-3/content/posts/hugo-tutorial.md' -> 'content/posts/hugo-tutorial.md'
+'artifacts/reports-3/content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md'
+'artifacts/reports-3/content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md'
+'artifacts/reports-3/content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-3/content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md' -> 'content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md'
+'artifacts/reports-3/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md'
+'artifacts/reports-3/content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md'
+'artifacts/reports-3/content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-3/content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md' -> 'content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md'
+'artifacts/reports-3/content/posts/pyecharts'$'\346\265\213\350\257\225''.md' -> 'content/posts/pyecharts'$'\346\265\213\350\257\225''.md'
+'artifacts/reports-3/content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md' -> 'content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md'
+'artifacts/reports-3/content/posts/my-first-post copy.md' -> 'content/posts/my-first-post copy.md'
+'artifacts/reports-3/content/posts/2025-12-23-crush-margin.md' -> 'content/posts/2025-12-23-crush-margin.md'
+'artifacts/reports-3/content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-3/content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md' -> 'content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md'
+'artifacts/reports-3/content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md' -> 'content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md'
+'artifacts/reports-3/content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md' -> 'content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md'
+'artifacts/reports-4/content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\262\271\350\204\202\346\234\237\350\264\247\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-4/content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md' -> 'content/posts/2025-12-26-'$'\350\261\206\347\261\273\345\270\202\345\234\272\347\213\254\347\253\213\350\241\214\346\203\205\345\210\206\346\236\220\350\261\206\347\262\225\351\242\206\346\266\250\350\261\206\346\262\271\351\234\207\350\215\241\345\244\247\350\261\206\346\211\277\345\216\213''.md'
+'artifacts/reports-4/content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md' -> 'content/posts/2025-12-31-3'$'\346\255\245\346\220\236\345\256\232\346\210\221\351\235\240\351\202\252\344\277\256\346\220\236\345\210\260\344\272\206''glm-47'$'\347\232\204\345\205\250\345\245\227''skills'$'\346\272\220\347\240\201''.md'
+'artifacts/reports-4/content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md' -> 'content/posts/2025-12-29-claude-code-'$'\345\206\205\344\270\200\351\224\256\350\260\203\347\224\250''-gemini-cli'$'\346\210\221\346\212\212\345\244\232\346\250\241\346\200\201\345\275\273\345\272\225\346\211\223\351\200\232\350\266\205\351\225\277\344\270\212\344\270\213\346\226\207''-'$'\345\205\215\350\264\271\351\242\235\345\272\246''.md'
+'artifacts/reports-4/content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md' -> 'content/posts/2025-12-27-github'$'\345\256\235\350\227\217\351\241\271\347\233\256''111k'$'\346\230\237\346\240\207\347\232\204''claude-skill'$'\344\273\223\345\272\223\350\256\251\344\275\240\347\232\204''ai'$'\345\212\251\346\211\213\347\247\222\345\217\230\345\205\250\350\203\275''.md'
+'artifacts/reports-4/content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-28-39k-starantigravity-'$'\347\201\253\344\272\206\344\275\206\346\233\264\347\213\240\347\232\204\346\230\257\350\277\231\344\270\252\351\205\215\345\245\227\345\267\245\345\205\267''.md'
+'artifacts/reports-4/content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-29-claude'$'\345\256\230\346\226\271\345\274\200\346\272\220''16'$'\344\270\252\346\212\200\350\203\275\345\272\223\350\200\201\351\207\221\345\270\256\344\275\240\346\214\221\345\207\272''5'$'\344\270\252\345\277\205\350\243\205\347\245\236\345\231\250''.md'
+'artifacts/reports-4/content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md' -> 'content/posts/2025-12-28-'$'\350\264\242\345\212\241\345\210\206\346\236\220\346\212\245\345\221\212''-claude-skill-'$'\346\250\241\346\235\277\346\236\204\345\273\272\346\240\207\345\207\206\345\214\226\345\210\206\346\236\220\345\267\245\344\275\234\346\265\201''.md'
+'artifacts/reports-4/content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-github-'$'\344\270\212''-5000-'$'\344\272\272\346\224\266\350\227\217\347\232\204''-vibe-coding-'$'\347\245\236\347\272\247\346\214\207\345\215\227''.md'
+'artifacts/reports-4/content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md' -> 'content/posts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\210\206\346\236\220\346\227\245\346\212\245''.md'
+'artifacts/reports-4/content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md' -> 'content/posts/2025-12-28-'$'\350\200\201\351\207\221\347\232\204\345\205\254\344\274\227\345\217\267\350\207\252\345\212\250\345\206\231\344\275\234\345\212\251\346\211\213\345\206\231\344\275\234\351\200\232\347\224\250\347\224\250''glm-47'$'\350\267\221\347\203\255\347\202\271\346\211\253\346\217\217\346\226\207\347\253\240\347\224\237\346\210\220\350\277\230\350\266\205\347\234\201\351\222\261''.md'
+'artifacts/reports-4/content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md' -> 'content/posts/2025-12-27-a'$'\350\202\241\345\221\250\346\212\245\346\262\252\346\214\207\345\205\253\350\277\236\351\230\263\351\200\274\350\277\221''4000'$'\347\202\271\350\267\250\345\271\264\350\241\214\346\203\205\345\220\257\345\212\250\344\275\206\344\270\252\350\202\241\345\210\206\345\214\226\345\211\247\347\203\210''.md'
+'artifacts/reports-4/content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md' -> 'content/posts/2025-12-31-'$'\345\244\247\345\256\227\345\225\206\345\223\201\346\266\250\344\273\267\351\241\272\345\272\217\347\232\204\351\200\273\350\276\221\346\241\206\346\236\266\345\210\206\346\236\220''.md'
+'artifacts/reports-4/content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md' -> 'content/posts/2025-12-30-55k-star'$'\347\224\250''ai'$'\347\202\222\350\202\241\345\217\221\347\216\260\344\272\206\344\270\200\344\270\252\351\207\221\350\236\215\346\225\260\346\215\256\345\274\200\346\272\220\347\245\236\345\231\250''.md'
+'artifacts/reports-4/content/posts/hugo-deployment-deep-dive.md' -> 'content/posts/hugo-deployment-deep-dive.md'
+'artifacts/reports-4/content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md' -> 'content/posts/2025-12-28-'$'\350\202\241\347\245\250\345\210\206\346\236\220''-skill-'$'\346\250\241\346\235\277\345\260\206''-claude-'$'\346\211\223\351\200\240\346\210\220\345\205\250\346\240\210\350\202\241\347\245\250\345\210\206\346\236\220\345\270\210''.md'
+'artifacts/reports-4/content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md' -> 'content/posts/2025-12-30-'$'\347\224\250''-claude-code-'$'\346\216\245\347\256\241''google-antigravity'$'\345\220\216\346\262\273\345\245\275\344\272\206\346\210\221\347\232\204''token'$'\347\204\246\350\231\221\351\242\235\345\272\246\346\240\271\346\234\254\347\224\250\344\270\215\345\256\214''.md'
+'artifacts/reports-4/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202\347\240\264\345\261\200\346\214\207\345\215\227\345\267\247\347\224\250\346\234\237\350\264\247\345\267\245\345\205\267\345\214\226\350\247\243\344\270\244\345\244\264\345\217\227\346\260\224\345\233\260\345\242\203''.md'
+'artifacts/reports-4/content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\350\261\206\346\262\271\347\273\274\345\220\210\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-4/content/posts/interactive-charts-test.md' -> 'content/posts/interactive-charts-test.md'
+'artifacts/reports-4/content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md' -> 'content/posts/2025-12-28-'$'\345\221\212\345\210\253\345\220\257\345\212\250\346\205\242\344\270\211\346\255\245\346\200\245\346\225\221\346\226\271\346\241\210\350\256\251\344\275\240\347\232\204\350\204\232\344\270\213\347\224\237\351\243\216''.md'
+'artifacts/reports-4/content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-4/content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md' -> 'content/posts/2025-12-28-'$'\345\210\232\345\210\232\345\274\200\346\272\220''-'$'\347\247\201\347\224\250\346\214\272\345\274\272\347\232\204''.md'
+'artifacts/reports-4/content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md' -> 'content/posts/2025'$'\345\271\264\346\234\253''A'$'\350\202\241\346\240\270\345\277\203\350\265\233\351\201\223\344\270\216\346\212\225\350\265\204\347\255\226\347\225\245\350\247\243\346\236\220''.md'
+'artifacts/reports-4/content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md' -> 'content/posts/2025-12-30-'$'\345\244\252\346\226\271\344\276\277\344\272\206\345\244\232''ai-'$'\347\274\226\347\250\213\345\267\245\345\205\267\345\270\220\345\217\267\345\210\207\346\215\242\345\222\214\347\224\250\351\207\217\347\233\221\346\216\247\345\267\245\345\205\267''.md'
+'artifacts/reports-4/content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md' -> 'content/posts/2025-12-28-'$'\344\271\222\344\271\223\347\220\203\346\212\200\346\234\257\347\262\276\350\247\243\344\273\216\351\207\215\345\277\203\346\241\206\346\236\266\345\215\217\350\260\203\345\210\260\346\225\264\345\220\210\347\232\204\345\256\214\346\225\264\344\275\223\347\263\273''.md'
+'artifacts/reports-4/content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md' -> 'content/posts/2025-12-29-claude-code'$'\350\266\205\347\272\247\345\212\251\346\211\213''-superclaude.md'
+'artifacts/reports-4/content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md' -> 'content/posts/2025-12-31-manus'$'\344\270\212\345\262\270\344\272\206\345\205\266\344\273\226\344\272\272\345\221\242''.md'
+'artifacts/reports-4/content/posts/hugo-tutorial.md' -> 'content/posts/hugo-tutorial.md'
+'artifacts/reports-4/content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\351\253\230\346\225\210\345\255\246\344\271\240\347\274\226\347\250\213\344\273\216\345\205\245\351\227\250\345\210\260\347\262\276\351\200\232\347\232\204\345\256\236\347\224\250\346\214\207\345\215\227''.md'
+'artifacts/reports-4/content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md' -> 'content/posts/2025-12-27-'$'\345\246\202\344\275\225\346\211\223\351\200\240\344\270\252\344\272\272\347\237\245\350\257\206\345\272\223\344\273\216\344\277\241\346\201\257\346\224\266\351\233\206\345\210\260\347\237\245\350\257\206\345\206\205\345\214\226\347\232\204\345\256\214\346\225\264\346\214\207\345\215\227''.md'
+'artifacts/reports-4/content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/AI'$'\350\241\214\344\270\232\350\265\204\351\207\221\346\265\201\345\220\221\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-4/content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md' -> 'content/posts/2025-12-31-'$'\346\224\276\346\260\264\346\255\243\346\234\211\351\242\204\350\260\213\347\232\204\350\277\233\350\241\214\350\265\204\344\272\247\344\273\267\346\240\274\345\215\263\345\260\206\350\277\216\346\235\245\345\244\247\345\217\230\345\244\251''.md'
+'artifacts/reports-4/content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-27-'$'\351\243\237\347\224\250\346\262\271\345\214\205\350\243\205\345\216\202''2025'$'\345\271\264\345\272\225\347\224\237\345\255\230\346\214\207\345\215\227\346\234\237\350\264\247\350\231\232\346\213\237\345\272\223\345\255\230\344\270\216\345\237\272\345\267\256\351\224\200\345\224\256\347\255\226\347\225\245''.md'
+'artifacts/reports-4/content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md' -> 'content/posts/2025-12-29-'$'\347\234\213\345\256\214\350\277\231\347\257\207\346\226\207\347\253\240\344\275\240\345\260\261\350\203\275\347\234\213\346\207\202''90'$'\347\232\204\347\273\217\345\205\270\351\207\217\345\214\226\347\255\226\347\225\245''.md'
+'artifacts/reports-4/content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md' -> 'content/posts/'$'\346\246\250\345\210\251\346\267\261\345\272\246\345\210\206\346\236\220\346\212\245\345\221\212''.md'
+'artifacts/reports-4/content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md' -> 'content/posts/2025-12-29-2025'$'\345\271\264''12'$'\346\234\210''29'$'\346\227\245\350\261\206\346\262\271\350\241\214\346\203\205\345\210\206\346\236\220\346\234\237\350\264\247\351\234\207\350\215\241\345\201\217\345\274\261\347\216\260\350\264\247\345\235\232\346\214\272''.md'
+'artifacts/reports-4/content/posts/pyecharts'$'\346\265\213\350\257\225''.md' -> 'content/posts/pyecharts'$'\346\265\213\350\257\225''.md'
+'artifacts/reports-4/content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md' -> 'content/posts/2025-12-27-'$'\346\234\211\350\211\262\351\207\221\345\261\236\350\266\205\347\272\247\350\241\214\346\203\205\346\267\261\345\272\246\350\247\243\346\236\220\351\207\221\350\236\215\345\261\236\346\200\247\344\270\216\344\272\247\344\270\232\347\274\272\345\217\243\347\232\204\345\217\214\351\207\215\345\205\261\346\214\257''.md'
+'artifacts/reports-4/content/posts/my-first-post copy.md' -> 'content/posts/my-first-post copy.md'
+'artifacts/reports-4/content/posts/2025-12-23-crush-margin.md' -> 'content/posts/2025-12-23-crush-margin.md'
+'artifacts/reports-4/content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md' -> 'content/posts/2025-12-25-2025'$'\345\271\264\350\261\206\346\262\271\350\241\214\346\203\205\345\205\250\345\233\236\351\241\276''.md'
+'artifacts/reports-4/content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md' -> 'content/posts/2025-12-27-2025'$'\345\271\264\346\234\211\350\211\262\351\207\221\345\261\236\346\212\225\350\265\204\347\255\226\347\225\245\347\264\247\346\211\243''ai'$'\344\270\216\346\226\260\350\203\275\346\272\220\350\201\232\347\204\246\345\233\233\345\244\247\346\240\270\345\277\203\350\265\233\351\201\223''.md'
+'artifacts/reports-4/content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md' -> 'content/posts/2025-12-27-'$'\350\260\267\346\255\214''alphabet2025'$'\345\271\264\345\237\272\346\234\254\351\235\242\346\267\261\345\272\246\345\210\206\346\236\220\346\240\270\345\277\203\347\250\263\345\201\245\344\272\221\344\270\232\345\212\241\347\210\206\345\217\221\344\270\216''ai'$'\346\210\230\347\225\245\346\212\274\346\263\250''.md'
+'artifacts/reports-4/content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md' -> 'content/posts/2025-12-29-github-'$'\344\270\212''-10-'$'\344\270\252\344\273\244\344\272\272\346\203\212\350\211\263\347\232\204''-agent-'$'\345\274\200\345\217\221\345\271\263\345\217\260\345\244\252\351\241\266\344\272\206''.md'
+=== 开始移动图表文件（支持多种格式）===
+'artifacts/reports-1/static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png' -> 'static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png'
+'artifacts/reports-1/static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png'
+'artifacts/reports-1/static/images/charts/industry_inflow_10d.png' -> 'static/images/charts/industry_inflow_10d.png'
+'artifacts/reports-1/static/images/charts/industry_inflow_5d.png' -> 'static/images/charts/industry_inflow_5d.png'
+'artifacts/reports-1/static/images/charts/industry_inflow_combined.png' -> 'static/images/charts/industry_inflow_combined.png'
+'artifacts/reports-1/static/images/charts/industry_scatter_5d.png' -> 'static/images/charts/industry_scatter_5d.png'
+'artifacts/reports-1/static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-1/static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-1/static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png'
+'artifacts/reports-1/static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png'
+'artifacts/reports-1/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-1/static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-1/static/images/charts/industry_inflow_3d.png' -> 'static/images/charts/industry_inflow_3d.png'
+'artifacts/reports-1/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png'
+'artifacts/reports-2/static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png' -> 'static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png'
+'artifacts/reports-2/static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png'
+'artifacts/reports-2/static/images/charts/industry_inflow_10d.png' -> 'static/images/charts/industry_inflow_10d.png'
+'artifacts/reports-2/static/images/charts/industry_inflow_5d.png' -> 'static/images/charts/industry_inflow_5d.png'
+'artifacts/reports-2/static/images/charts/industry_inflow_combined.png' -> 'static/images/charts/industry_inflow_combined.png'
+'artifacts/reports-2/static/images/charts/industry_scatter_5d.png' -> 'static/images/charts/industry_scatter_5d.png'
+'artifacts/reports-2/static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-2/static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-2/static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png'
+'artifacts/reports-2/static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png'
+'artifacts/reports-2/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-2/static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-2/static/images/charts/industry_inflow_3d.png' -> 'static/images/charts/industry_inflow_3d.png'
+'artifacts/reports-2/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png'
+'artifacts/reports-0/static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png' -> 'static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png'
+'artifacts/reports-0/static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png'
+'artifacts/reports-0/static/images/charts/industry_inflow_10d.png' -> 'static/images/charts/industry_inflow_10d.png'
+'artifacts/reports-0/static/images/charts/industry_inflow_5d.png' -> 'static/images/charts/industry_inflow_5d.png'
+'artifacts/reports-0/static/images/charts/industry_inflow_combined.png' -> 'static/images/charts/industry_inflow_combined.png'
+'artifacts/reports-0/static/images/charts/industry_scatter_5d.png' -> 'static/images/charts/industry_scatter_5d.png'
+'artifacts/reports-0/static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-0/static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-0/static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png'
+'artifacts/reports-0/static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png'
+'artifacts/reports-0/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-0/static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-0/static/images/charts/industry_inflow_3d.png' -> 'static/images/charts/industry_inflow_3d.png'
+'artifacts/reports-0/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png'
+'artifacts/reports-3/static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png' -> 'static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png'
+'artifacts/reports-3/static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png'
+'artifacts/reports-3/static/images/charts/industry_inflow_10d.png' -> 'static/images/charts/industry_inflow_10d.png'
+'artifacts/reports-3/static/images/charts/industry_inflow_5d.png' -> 'static/images/charts/industry_inflow_5d.png'
+'artifacts/reports-3/static/images/charts/industry_inflow_combined.png' -> 'static/images/charts/industry_inflow_combined.png'
+'artifacts/reports-3/static/images/charts/industry_scatter_5d.png' -> 'static/images/charts/industry_scatter_5d.png'
+'artifacts/reports-3/static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-3/static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-3/static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png'
+'artifacts/reports-3/static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png'
+'artifacts/reports-3/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-3/static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-3/static/images/charts/industry_inflow_3d.png' -> 'static/images/charts/industry_inflow_3d.png'
+'artifacts/reports-3/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png'
+'artifacts/reports-4/static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png' -> 'static/images/charts/margin_chart_'$'\345\205\250\345\216\206\345\217\262''.png'
+'artifacts/reports-4/static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\350\241\214\344\270\232\345\212\250\351\207\217\345\210\206\346\236\220\345\233\276''.png'
+'artifacts/reports-4/static/images/charts/industry_inflow_10d.png' -> 'static/images/charts/industry_inflow_10d.png'
+'artifacts/reports-4/static/images/charts/industry_inflow_5d.png' -> 'static/images/charts/industry_inflow_5d.png'
+'artifacts/reports-4/static/images/charts/industry_inflow_combined.png' -> 'static/images/charts/industry_inflow_combined.png'
+'artifacts/reports-4/static/images/charts/industry_scatter_5d.png' -> 'static/images/charts/industry_scatter_5d.png'
+'artifacts/reports-4/static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-4/static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-4/static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\344\270\244\345\271\264''.png'
+'artifacts/reports-4/static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png' -> 'static/images/charts/A'$'\350\202\241\345\270\202\345\234\272\345\256\275\345\272\246\345\205\250\346\231\257\345\233\276''.png'
+'artifacts/reports-4/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264''.png'
+'artifacts/reports-4/static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png' -> 'static/images/charts/margin_chart_'$'\345\215\212\345\271\264''.png'
+'artifacts/reports-4/static/images/charts/industry_inflow_3d.png' -> 'static/images/charts/industry_inflow_3d.png'
+'artifacts/reports-4/static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png' -> 'static/images/charts/full_analysis_chart_'$'\344\270\200\345\271\264\345\215\212''.png'
+=== 移动后 content/posts 目录内容 ===
+total 416
+drwxr-xr-x 2 runner runner  4096 Dec 31 15:03 .
+drwxr-xr-x 4 runner runner  4096 Dec 31 15:03 ..
+-rw-r--r-- 1 runner runner  4164 Dec 31 15:03 2025-12-23-crush-margin.md
+-rw-r--r-- 1 runner runner  4789 Dec 31 15:03 2025-12-25-2025年豆油行情全回顾.md
+-rw-r--r-- 1 runner runner  6248 Dec 31 15:03 2025-12-26-豆类市场独立行情分析豆粕领涨豆油震荡大豆承压.md
+-rw-r--r-- 1 runner runner  4908 Dec 31 15:03 2025-12-27-2025年有色金属投资策略紧扣ai与新能源聚焦四大核心赛道.md
+-rw-r--r-- 1 runner runner  5995 Dec 31 15:03 2025-12-27-a股周报沪指八连阳逼近4000点跨年行情启动但个股分化剧烈.md
+-rw-r--r-- 1 runner runner  4752 Dec 31 15:03 2025-12-27-github-上-5000-人收藏的-vibe-coding-神级指南.md
+-rw-r--r-- 1 runner runner  7620 Dec 31 15:03 2025-12-27-github宝藏项目111k星标的claude-skill仓库让你的ai助手秒变全能.md
+-rw-r--r-- 1 runner runner  5356 Dec 31 15:03 2025-12-27-如何打造个人知识库从信息收集到知识内化的完整指南.md
+-rw-r--r-- 1 runner runner  3576 Dec 31 15:03 2025-12-27-如何高效学习编程从入门到精通的实用指南.md
+-rw-r--r-- 1 runner runner  5669 Dec 31 15:03 2025-12-27-有色金属超级行情深度解析金融属性与产业缺口的双重共振.md
+-rw-r--r-- 1 runner runner  5474 Dec 31 15:03 2025-12-27-谷歌alphabet2025年基本面深度分析核心稳健云业务爆发与ai战略押注.md
+-rw-r--r-- 1 runner runner  4555 Dec 31 15:03 2025-12-27-食用油包装厂2025年底生存指南期货虚拟库存与基差销售策略.md
+-rw-r--r-- 1 runner runner  5109 Dec 31 15:03 2025-12-27-食用油包装厂破局指南巧用期货工具化解两头受气困境.md
+-rw-r--r-- 1 runner runner  7310 Dec 31 15:03 2025-12-28-39k-starantigravity-火了但更狠的是这个配套工具.md
+-rw-r--r-- 1 runner runner  4320 Dec 31 15:03 2025-12-28-乒乓球技术精解从重心框架协调到整合的完整体系.md
+-rw-r--r-- 1 runner runner  4709 Dec 31 15:03 2025-12-28-刚刚开源-私用挺强的.md
+-rw-r--r-- 1 runner runner  4041 Dec 31 15:03 2025-12-28-告别启动慢三步急救方案让你的脚下生风.md
+-rw-r--r-- 1 runner runner 12876 Dec 31 15:03 2025-12-28-老金的公众号自动写作助手写作通用用glm-47跑热点扫描文章生成还超省钱.md
+-rw-r--r-- 1 runner runner  5035 Dec 31 15:03 2025-12-28-股票分析-skill-模板将-claude-打造成全栈股票分析师.md
+-rw-r--r-- 1 runner runner  5922 Dec 31 15:03 2025-12-28-财务分析报告-claude-skill-模板构建标准化分析工作流.md
+-rw-r--r-- 1 runner runner  4109 Dec 31 15:03 2025-12-29-2025年12月29日豆油行情分析期货震荡偏弱现货坚挺.md
+-rw-r--r-- 1 runner runner  8056 Dec 31 15:03 2025-12-29-claude-code-内一键调用-gemini-cli我把多模态彻底打通超长上下文-免费额度.md
+-rw-r--r-- 1 runner runner  7798 Dec 31 15:03 2025-12-29-claude-code超级助手-superclaude.md
+-rw-r--r-- 1 runner runner  9252 Dec 31 15:03 2025-12-29-claude官方开源16个技能库老金帮你挑出5个必装神器.md
+-rw-r--r-- 1 runner runner 10988 Dec 31 15:03 2025-12-29-github-上-10-个令人惊艳的-agent-开发平台太顶了.md
+-rw-r--r-- 1 runner runner 18039 Dec 31 15:03 2025-12-29-看完这篇文章你就能看懂90的经典量化策略.md
+-rw-r--r-- 1 runner runner  4859 Dec 31 15:03 2025-12-30-55k-star用ai炒股发现了一个金融数据开源神器.md
+-rw-r--r-- 1 runner runner  4493 Dec 31 15:03 2025-12-30-太方便了多ai-编程工具帐号切换和用量监控工具.md
+-rw-r--r-- 1 runner runner  9668 Dec 31 15:03 2025-12-30-用-claude-code-接管google-antigravity后治好了我的token焦虑额度根本用不完.md
+-rw-r--r-- 1 runner runner  6973 Dec 31 15:03 2025-12-31-3步搞定我靠邪修搞到了glm-47的全套skills源码.md
+-rw-r--r-- 1 runner runner 27768 Dec 31 15:03 2025-12-31-manus上岸了其他人呢.md
+-rw-r--r-- 1 runner runner  3709 Dec 31 15:03 2025-12-31-大宗商品涨价顺序的逻辑框架分析.md
+-rw-r--r-- 1 runner runner 13729 Dec 31 15:03 2025-12-31-放水正有预谋的进行资产价格即将迎来大变天.md
+-rw-r--r-- 1 runner runner  3767 Dec 31 15:03 2025年末A股核心赛道与投资策略解析.md
+-rw-r--r-- 1 runner runner  4652 Dec 31 15:03 2025年豆油行情全回顾.md
+-rw-r--r-- 1 runner runner 14888 Dec 31 15:03 AI行业资金流向分析报告.md
+-rw-r--r-- 1 runner runner 11768 Dec 31 15:03 A股市场宽度分析日报.md
+-rw-r--r-- 1 runner runner  2778 Dec 31 15:03 hugo-deployment-deep-dive.md
+-rw-r--r-- 1 runner runner  1219 Dec 31 15:03 hugo-tutorial.md
+-rw-r--r-- 1 runner runner  6700 Dec 31 15:03 interactive-charts-test.md
+-rw-r--r-- 1 runner runner   380 Dec 31 15:03 my-first-post copy.md
+-rw-r--r-- 1 runner runner  1204 Dec 31 15:03 pyecharts测试.md
+-rw-r--r-- 1 runner runner  6961 Dec 31 15:03 榨利深度分析报告.md
+-rw-r--r-- 1 runner runner  9311 Dec 31 15:03 油脂期货深度分析报告.md
+-rw-r--r-- 1 runner runner  9221 Dec 31 15:03 豆油综合分析报告.md
+=== 移动后 static/images/charts 目录内容 ===
+total 4312
+drwxr-xr-x 2 runner runner   4096 Dec 31 15:03 .
+drwxr-xr-x 5 runner runner   4096 Dec 31 15:03 ..
+-rw-r--r-- 1 runner runner 295352 Dec 31 15:03 A股市场宽度全景图.png
+-rw-r--r-- 1 runner runner 217089 Dec 31 15:03 A股行业动量分析图.png
+-rw-r--r-- 1 runner runner 441423 Dec 31 15:03 full_analysis_chart_一年.png
+-rw-r--r-- 1 runner runner 480870 Dec 31 15:03 full_analysis_chart_一年半.png
+-rw-r--r-- 1 runner runner 371757 Dec 31 15:03 full_analysis_chart_半年.png
+-rw-r--r-- 1 runner runner  68705 Dec 31 15:03 industry_inflow_10d.png
+-rw-r--r-- 1 runner runner  62758 Dec 31 15:03 industry_inflow_3d.png
+-rw-r--r-- 1 runner runner  65520 Dec 31 15:03 industry_inflow_5d.png
+-rw-r--r-- 1 runner runner  92742 Dec 31 15:03 industry_inflow_combined.png
+-rw-r--r-- 1 runner runner 856213 Dec 31 15:03 industry_scatter_5d.png
+-rw-r--r-- 1 runner runner 345804 Dec 31 15:03 margin_chart_一年.png
+-rw-r--r-- 1 runner runner 384387 Dec 31 15:03 margin_chart_两年.png
+-rw-r--r-- 1 runner runner 408813 Dec 31 15:03 margin_chart_全历史.png
+-rw-r--r-- 1 runner runner 287659 Dec 31 15:03 margin_chart_半年.png
