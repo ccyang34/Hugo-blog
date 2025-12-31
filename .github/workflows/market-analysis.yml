@@ -76,14 +76,18 @@ jobs:
 
     - name: 汇总并移动文件
       run: |
-        # 将下载的文件移动到正确的位置
+        # 确保目标目录存在，避免复制时报错
+        mkdir -p content/posts static/images/charts
+        
+        # 将从 Artifacts 下载的 Markdown 报告移动到 Hugo 内容目录
         if [ -d "artifacts/content/posts" ]; then
           cp -rf artifacts/content/posts/* content/posts/
         fi
+        
+        # 将生成的分析图表移动到静态资源目录
         if [ -d "artifacts/static/images/charts" ]; then
           cp -rf artifacts/static/images/charts/* static/images/charts/
         fi
-        
     - name: 提交并推送生成的报告
       run: |
         git config --local user.name "github-actions[bot]"
