@@ -1,20 +1,26 @@
 name: 多AI分析文件运行
 
 permissions:
-  contents: write       # 允许写入仓库内容
-  actions: write        # 允许触发其他 workflow
-  # 如果后续需要部署到其他仓库，可以添加:
-  # contents: write      # 写入仓库内容
-  # pull-requests: write # 写入PR
+  contents: write
+  actions: write
 
 on:
   schedule:
-    - cron: '30 7 * * 1-5'  # 工作日收盘后运行 (UTC 7:30 = 北京时间 15:30)
-  workflow_dispatch:  # 允许手动触发
+    - cron: '30 7 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   analysis:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - "分析文章脚本/AI油脂期货分析师_增强版.py"
+          - "分析文章脚本/榨利计算深度分析_v3.py"
+          - "分析文章脚本/AI市场宽度分析师_v4.py"
+          - "分析文章脚本/AI行业分析师.py"
+          - "分析文章脚本/豆油持仓价格榨利分析.py"
     
     steps:
     - name: 检出代码
@@ -36,48 +42,46 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas numpy requests akshare pytz matplotlib beautifulsoup4 lxml
         
-    - name: 运行油脂期货分析
+    - name: 运行分析脚本
       run: |
-        python "分析文章脚本/AI油脂期货分析师_增强版.py"
+        python "${{ matrix.script }}"
       env:
         HUGO_BLOG_DIR: "."
         DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
-    - name: 运行榨利计算深度分析
-      run: |
-        python "分析文章脚本/榨利计算深度分析_v3.py"
-      env:
-        HUGO_BLOG_DIR: "."
-        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+    - name: 上传生成的报告和图表
+      uses: actions/upload-artifact@v4
+      with:
+        name: reports-${{ strategy.job-index }}
+        path: |
+          content/posts/*.md
+          static/images/charts/*.png
+        retention-days: 1
 
-    - name: 运行市场宽度分析
-      run: |
-        python "分析文章脚本/AI市场宽度分析师_v4.py"
-      env:
-        HUGO_BLOG_DIR: "."
-        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+  publish:
+    needs: analysis
+    runs-on: ubuntu-latest
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-    - name: 运行行业资金流向分析
+    - name: 下载所有分析结果
+      uses: actions/download-artifact@v4
+      with:
+        path: artifacts
+        pattern: reports-*
+        merge-multiple: true
+
+    - name: 汇总并移动文件
       run: |
-        python "分析文章脚本/AI行业分析师.py"
-      env:
-        HUGO_BLOG_DIR: "."
-        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        
-    - name: 检查执行状态
-      run: |
-        if [ $? -eq 0 ]; then
-          echo "✅ 所有分析任务完成"
-          # 检查生成的Hugo博客文件
-          if ls content/posts/*.md 1> /dev/null 2>&1; then
-            echo "✅ Hugo博客文件生成成功"
-            ls -l content/posts/*.md
-          else
-            echo "⚠️ 未找到Hugo博客文件"
-          fi
-        else
-          echo "❌ 分析脚本运行出错"
-          exit 1
+        # 将下载的文件移动到正确的位置
+        if [ -d "artifacts/content/posts" ]; then
+          cp -rn artifacts/content/posts/* content/posts/
+        fi
+        if [ -d "artifacts/static/images/charts" ]; then
+          cp -rn artifacts/static/images/charts/* static/images/charts/
         fi
         
     - name: 提交并推送生成的报告
@@ -89,7 +93,7 @@ jobs:
         if git diff --staged --quiet; then
           echo "没有新文件需要提交"
         else
-          git commit -m "Auto-generated: Multi-Market AI Analysis Reports [skip ci]"
+          git commit -m "Auto-generated: Multi-Market AI Analysis Reports (Parallel) [skip ci]"
           git push
         fi
         
