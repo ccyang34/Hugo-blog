@@ -510,7 +510,7 @@ def build_analysis_prompt(df):
 请从以下维度进行深入分析：
 
 1. **持仓分析**
-   - 分析中粮期货在各豆油合约上的空单持仓变化趋势
+   - 分析中粮期货在各豆油合约上的空单持仓变化趋势（合约换月出现大幅减仓增仓是正常的）
    - 解读持仓变化反映的市场预期和套保需求
    - 评估大型机构持仓对后市价格的潜在影响
 
@@ -694,13 +694,6 @@ image: /images/charts/{chart_files.get('半年', 'full_analysis_chart_半年.png
     with open(md_path, 'w', encoding='utf-8') as f:
         f.write(content)
     print(f"  ✓ Hugo 博客已保存: {md_path}")
-    
-    # 同时保存到脚本目录
-    local_path = os.path.join(SCRIPT_DIR, "豆油综合分析报告.md")
-    with open(local_path, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print(f"  ✓ 本地副本已保存: {local_path}")
-    
     return md_path
 
 # ================= 主函数 =================
