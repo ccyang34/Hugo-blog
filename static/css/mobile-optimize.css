@@ -311,6 +311,15 @@ article .article-header {
     align-items: flex-start !important;
 }
 
+/* 全局修正文章页内边距对齐 */
+.article-page .main-article .article-header .article-details,
+.article-page .main-article .article-content {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+section.article-list article .article-image,
+
 section.article-list article .article-image,
 .article-list article .article-image {
     width: 100px !important;
