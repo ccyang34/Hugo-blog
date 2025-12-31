@@ -78,10 +78,10 @@ jobs:
       run: |
         # 将下载的文件移动到正确的位置
         if [ -d "artifacts/content/posts" ]; then
-          cp -rn artifacts/content/posts/* content/posts/
+          cp -rf artifacts/content/posts/* content/posts/
         fi
         if [ -d "artifacts/static/images/charts" ]; then
-          cp -rn artifacts/static/images/charts/* static/images/charts/
+          cp -rf artifacts/static/images/charts/* static/images/charts/
         fi
         
     - name: 提交并推送生成的报告
