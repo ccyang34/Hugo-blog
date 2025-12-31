@@ -133,7 +133,7 @@ jobs:
         if git diff --staged --quiet; then
           echo "没有新文件需要提交"
         else
-          git commit -m "Auto-generated: Multi-Market AI Analysis Reports (Parallel) [skip ci]"
+          git commit -m "Auto-generated: Multi-Market AI Analysis Reports (Parallel)"
           git push
         fi
         
