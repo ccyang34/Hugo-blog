@@ -27,9 +27,18 @@ jobs:
           - "分析文章脚本/豆油持仓价格榨利分析.py"
     
     steps:
-    - name: 检出代码
+    - name: 检出代码（只拉取脚本，不拉取历史文章）
       uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          分析文章脚本
+        sparse-checkout-cone-mode: false
       
+    - name: 创建输出目录
+      run: |
+        mkdir -p content/posts
+        mkdir -p static/images/charts
+        
     - name: 设置Python环境
       uses: actions/setup-python@v4
       with:
@@ -46,11 +55,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas numpy requests akshare pytz matplotlib beautifulsoup4 lxml
         
-    - name: 创建干净的输出目录
-      run: |
-        mkdir -p generated/content/posts
-        mkdir -p generated/static/images/charts
-        
     - name: 运行分析脚本
       run: |
         python "${{ matrix.script }}"
@@ -58,26 +62,20 @@ jobs:
         HUGO_BLOG_DIR: "."
         DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
-    - name: 识别新生成的文件并移动到干净目录
+    - name: 显示生成的文件
       run: |
-        # 移动最近5分钟内修改的 .md 文件（排除历史文章）
-        find content/posts -name "*.md" -mmin -5 -exec cp {} generated/content/posts/ \;
-        
-        # 移动最近5分钟内修改的图表文件
-        find static/images/charts -type f -mmin -5 -exec cp {} generated/static/images/charts/ \; 2>/dev/null || true
-        
-        echo "=== 新生成的报告 ==="
-        ls -la generated/content/posts/ || echo "无报告文件"
-        echo "=== 新生成的图表 ==="
-        ls -la generated/static/images/charts/ || echo "无图表文件"
+        echo "=== 生成的报告 ==="
+        ls -la content/posts/ || echo "无报告文件"
+        echo "=== 生成的图表 ==="
+        ls -la static/images/charts/ || echo "无图表文件"
 
     - name: 上传生成的报告和图表
       uses: actions/upload-artifact@v4
       with:
         name: reports-${{ strategy.job-index }}
         path: |
-          generated/content/posts/*
-          generated/static/images/charts/*
+          content/posts/*
+          static/images/charts/*
         retention-days: 1
         if-no-files-found: warn
 
