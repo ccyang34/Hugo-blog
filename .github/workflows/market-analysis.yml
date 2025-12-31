@@ -78,17 +78,31 @@ jobs:
         pattern: reports-*
         merge-multiple: false
 
+    - name: 调试 - 查看 Artifact 结构
+      run: |
+        echo "=== Artifact 目录完整结构 ==="
+        find artifacts -type f
+        echo ""
+        echo "=== 找到的 .md 文件 ==="
+        find artifacts -name "*.md" -type f
+        echo ""
+        echo "=== 找到的 .png 文件 ==="
+        find artifacts -name "*.png" -type f
+
     - name: 汇总并移动文件
       run: |
         # 确保目标目录存在
         mkdir -p content/posts static/images/charts
         
-        # 遍历所有 reports-* 目录并移动内容，支持多层级覆盖
-        # 报告文件
-        find artifacts -path "*/content/posts/*.md" -exec cp -f {} content/posts/ \;
+        # 遍历所有 reports-* 目录并移动内容
+        echo "=== 开始移动报告文件 ==="
+        find artifacts -name "*.md" -type f -exec cp -fv {} content/posts/ \;
         
-        # 图表文件
-        find artifacts -path "*/static/images/charts/*.png" -exec cp -f {} static/images/charts/ \;
+        echo "=== 开始移动图表文件 ==="
+        find artifacts -name "*.png" -type f -exec cp -fv {} static/images/charts/ \;
+        
+        echo "=== 移动后 content/posts 目录内容 ==="
+        ls -la content/posts/
 
     - name: 提交并推送生成的报告
       run: |
