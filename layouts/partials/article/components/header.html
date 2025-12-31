@@ -1,12 +1,12 @@
 {{- $page := . -}}
 {{- $showImage := true -}}
 {{- if reflect.IsMap . -}}
-    {{- if .Page -}}
-        {{- $page = .Page -}}
-    {{- end -}}
-    {{- if .HideImage -}}
-        {{- $showImage = false -}}
-    {{- end -}}
+{{- if .Page -}}
+{{- $page = .Page -}}
+{{- end -}}
+{{- if .HideImage -}}
+{{- $showImage = false -}}
+{{- end -}}
 {{- end -}}
 
 {{- with $page -}}
@@ -33,7 +33,7 @@
     {{- end -}}
     {{- end -}}
 
-    {{- if and $hasImage $showImage -}}
+    {{- if and $hasImage $showImage (not $isSinglePage) -}}
     <div class="article-image">
         {{- /* 在文章浏览页不使用链接包裹图片，避免点击刷新 */ -}}
         {{- if not $isSinglePage -}}<a href="{{ .RelPermalink }}">{{- end -}}
