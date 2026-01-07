@@ -60,36 +60,48 @@ class 榨利计算器V3:
 
     # ================= 数据获取逻辑 (引用自 榨利计算器.py) =================
 
-    def 获取豆二数据(self):
-        """使用akshare获取豆二(B0)期货数据"""
-        print("\n🌱 开始获取豆二(B0)期货数据...")
+    def 获取期货主力数据(self, symbol):
+        """通用函数：使用 akshare 获取期货主力合约日线数据"""
+        print(f"📡 获取期货主力合约 {symbol} 数据...")
         try:
-            # 获取豆二主力合约数据
-            豆二数据 = ak.futures_zh_daily_sina(symbol="B0")
-            if 豆二数据.empty: return None
+            df = ak.futures_zh_daily_sina(symbol=symbol)
+            if df is None or df.empty:
+                print(f"⚠️ {symbol} 数据为空")
+                return None
             
-            # 重命名列名为中文
-            豆二数据 = 豆二数据.rename(columns={
+            # 重命名列名
+            df = df.rename(columns={
                 'date': '日期', 'open': '开盘价', 'high': '最高价', 
                 'low': '最低价', 'close': '收盘价', 'volume': '成交量',
                 'hold': '持仓量', 'settle': '结算价'
             })
-            
-            # 使用收盘价作为基础，结算价用于展示
-            豆二数据['豆二价格'] = 豆二数据['收盘价']
-            豆二数据['日期'] = pd.to_datetime(豆二数据['日期'])
-            return 豆二数据[['日期', '豆二价格', '结算价']]
+            df['日期'] = pd.to_datetime(df['日期'])
+            return df[['日期', '收盘价', '结算价']]
             
         except Exception as e:
-            print(f"❌ 获取豆二数据失败: {e}")
+            print(f"❌ 获取 {symbol} 数据失败: {e}")
             return None
 
-    def 获取元爬虫数据(self, 产品类型='Y'):
-        """引用原始稳健的元爬虫获取逻辑"""
+    def 获取豆二数据(self):
+        """使用 akshare 获取豆二(B0)期货数据"""
+        df = self.获取期货主力数据("B0")
+        if df is not None:
+            df = df.rename(columns={'收盘价': '豆二价格'})
+        return df
+
+    def 获取豆系数据(self, 产品类型='Y'):
+        """获取豆油/豆粕的期货价格(akshare)及基差(元爬虫)"""
         产品映射 = {'Y': '豆油', 'M': '豆粕'}
         产品名称 = 产品映射.get(产品类型, '未知产品')
-        print(f"📊 开始获取{产品名称}数据...")
+        print(f"📊 开始获取{产品名称}综合数据...")
         
+        # 1. 获取期货价格 (akshare)
+        symbol = f"{产品类型}0"
+        期货数据 = self.获取期货主力数据(symbol)
+        if 期货数据 is None: return None
+        期货数据 = 期货数据.rename(columns={'收盘价': f'{产品名称}价格'})
+        
+        # 2. 获取基差数据 (元爬虫)
         url = "https://www.jiaoyifamen.com/tools/api//future-basis/query"
         params = {'t': int(time.time() * 1000), 'type': 产品类型}
         headers = {
@@ -100,57 +112,56 @@ class 榨利计算器V3:
         try:
             response = requests.get(url, params=params, headers=headers, timeout=30, verify=False)
             if response.status_code == 200:
-                数据 = response.json()
-                return self.解析元爬虫数据(数据, 产品类型)
-            else:
-                print(f"❌ {产品名称}数据请求失败: {response.status_code}")
-                return None
+                基差数据 = self.解析基差数据(response.json(), 产品类型)
+                if 基差数据 is not None:
+                    # 合并价格和基差
+                    return pd.merge(期货数据, 基差数据, on='日期', how='inner')
+            return 期货数据 # 如果基差获取失败，至少返回价格
         except Exception as e:
-            print(f"❌ 获取{产品名称}数据异常: {e}")
-            return None
+            print(f"❌ 获取{产品名称}基差失败: {e}")
+            return 期货数据
 
-    def 解析元爬虫数据(self, 原始数据, 产品类型):
-        """引用原始稳健的数据解析逻辑"""
+    def 解析基差数据(self, 原始数据, 产品类型):
+        """解析来自交易法门的基差数据"""
         if not 原始数据 or 'data' not in 原始数据: return None
         数据内容 = 原始数据['data']
-        
-        日期数据 = 数据内容.get('category')
-        if 日期数据 is None:
-            for k in 数据内容.keys():
-                if 'category' in k.lower(): 日期数据 = 数据内容[k]; break
-        
-        价格数据, 基差数据 = None, None
+        日期数据 = 数据内容.get('category', [])
+        基差数据 = None
         for k, v in 数据内容.items():
-            if 'price' in k.lower() and 'value' in k.lower(): 价格数据 = v
-            if 'basis' in k.lower() and 'value' in k.lower(): 基差数据 = v
-            
-        if not (日期数据 and 价格数据 and 基差数据): return None
+            if 'basis' in k.lower() and 'value' in k.lower(): 
+                基差数据 = v; break
         
-        min_len = min(len(日期数据), len(价格数据), len(基差数据))
-        产品数据 = pd.DataFrame({
-            '日期': 日期数据[:min_len],
-            '价格': 价格数据[:min_len],
-            '基差': 基差数据[:min_len]
-        })
+        if not (日期数据 and 基差数据): return None
         
-        # 转换日期，处理非闰年2-29等异常
+        min_len = min(len(日期数据), len(基差数据))
+        df = pd.DataFrame({'日期': 日期数据[:min_len], '基差': 基差数据[:min_len]})
+        
         curr_year = datetime.now().year
         def try_parse_date(x):
             if isinstance(x, str) and '-' in x and len(x) <= 5:
                 try: return pd.to_datetime(f"{curr_year}-{x}")
-                except:
-                    try: return pd.to_datetime(f"{curr_year-1}-{x}")
-                    except: return pd.NaT
+                except: return pd.NaT
             return pd.to_datetime(x, errors='coerce')
 
-        产品数据['日期'] = 产品数据['日期'].apply(try_parse_date)
-        产品数据 = 产品数据.dropna(subset=['日期'])
-        产品数据['价格'] = pd.to_numeric(产品数据['价格'], errors='coerce')
-        产品数据['基差'] = pd.to_numeric(产品数据['基差'], errors='coerce')
-        产品数据 = 产品数据.dropna()
+        df['日期'] = df['日期'].apply(try_parse_date)
+        df = df.dropna(subset=['日期'])
+        df['基差'] = pd.to_numeric(df['基差'], errors='coerce')
         
         col_prefix = '豆油' if 产品类型 == 'Y' else '豆粕'
-        return 产品数据.rename(columns={'价格': f'{col_prefix}价格', '基差': f'{col_prefix}基差'})
+        return df.rename(columns={'基差': f'{col_prefix}基差'})
+
+    def 获取油脂对比数据(self):
+        """获取三大油脂的价格对比数据"""
+        print("🍳 获取油脂对比数据 (豆油, 棕榈油, 菜油)...")
+        y = self.获取期货主力数据("Y0").rename(columns={'收盘价': '豆油'})
+        p = self.获取期货主力数据("P0").rename(columns={'收盘价': '棕榈油'})
+        oi = self.获取期货主力数据("OI0").rename(columns={'收盘价': '菜油'})
+        
+        if y is None or p is None or oi is None: return None
+        
+        merged = pd.merge(y[['日期', '豆油']], p[['日期', '棕榈油']], on='日期', how='inner')
+        merged = pd.merge(merged, oi[['日期', '菜油']], on='日期', how='inner')
+        return merged
 
     def 合并并计算榨利(self, 豆油数据, 豆粕数据, 豆二数据):
         """合并数据并计算利润"""
@@ -254,6 +265,33 @@ class 榨利计算器V3:
         plt.close()
         return 文件名
 
+    def 绘制油脂对比图(self, 油脂数据, 天数=180):
+        """绘制豆油、棕榈油、菜油价格对比图"""
+        print(f"📊 绘制油脂对比走势图 (最近{天数}天)...")
+        data = 油脂数据.tail(天数).copy() if 天数 < len(油脂数据) else 油脂数据.copy()
+        
+        plt.figure(figsize=(12, 6), dpi=100)
+        plt.plot(data['日期'], data['豆油'], label='豆油 (Y)', color='darkorange', linewidth=2)
+        plt.plot(data['日期'], data['棕榈油'], label='棕榈油 (P)', color='brown', linewidth=1.5)
+        plt.plot(data['日期'], data['菜油'], label='菜油 (OI)', color='gold', linewidth=1.5)
+        
+        plt.title('三大油脂期货价格对比走势', fontsize=14)
+        plt.xlabel('日期')
+        plt.ylabel('价格 (元/吨)')
+        plt.legend(loc='upper left')
+        plt.grid(True, alpha=0.3)
+        
+        latest_date = data['日期'].max().strftime('%Y-%m-%d')
+        plt.text(0.99, 0.02, f'数据截止: {latest_date}', transform=plt.gca().transAxes, 
+                 fontsize=9, ha='right', va='bottom', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5))
+        
+        plt.tight_layout()
+        文件名 = "margin_chart_油脂对比.png"
+        plt.savefig(os.path.join(HUGO_IMAGES_DIR, 文件名))
+        plt.savefig(os.path.join(self.输出目录, 文件名))
+        plt.close()
+        return 文件名
+
     # ================= AI 分析与博客生成逻辑 =================
 
     def 深度分析(self, 榨利数据):
@@ -342,6 +380,10 @@ image: /images/charts/{文件名列表[0]}
 展现大周期的榨利轮回。
 ![全历史走势](/images/charts/{文件名列表[3]})
 
+### 🥑 油脂板块对比 (豆、棕、菜)
+展示国内三大核心植物油的共振走势。
+![油脂对比](/images/charts/{文件名列表[4]})
+
 ---
 
 ## 🛠️ 计算说明
@@ -362,14 +404,15 @@ image: /images/charts/{文件名列表[0]}
         """执行完整工作流"""
         print("=" * 60)
         豆二 = self.获取豆二数据()
-        豆油 = self.获取元爬虫数据('Y')
-        豆粕 = self.获取元爬虫数据('M')
+        豆油 = self.获取豆系数据('Y')
+        豆粕 = self.获取豆系数据('M')
         
         if 豆二 is None or 豆油 is None or 豆粕 is None:
             print("❌ 数据获取不完整，任务终止")
             return
             
         df = self.合并并计算榨利(豆油, 豆粕, 豆二)
+        油脂df = self.获取油脂对比数据()
         
         # 绘图顺序：半年、一年、两年、全历史
         imgs = []
@@ -377,6 +420,9 @@ image: /images/charts/{文件名列表[0]}
         imgs.append(self.绘制图表(df, 365, "一年"))
         imgs.append(self.绘制图表(df, 730, "两年"))
         imgs.append(self.绘制图表(df, 9999, "全历史"))
+        
+        if 油脂df is not None:
+            imgs.append(self.绘制油脂对比图(油脂df, 180))
         
         self.生成报告(df, imgs)
         print("\n🎉 榨利深度分析 V3 工作流执行完毕！")
