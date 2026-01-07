@@ -190,12 +190,13 @@ class 榨利计算器V3:
 
     # ================= 图表绘制逻辑 (基于原始 3x1 结构优化) =================
 
-    def 绘制图表(self, 榨利数据, 天数, 名称):
-        """绘制详尽的多周期图表"""
-        print(f"📊 绘制{名称}走势图...")
+    def 绘制图表(self, 榨利数据, 油脂数据, 天数, 名称):
+        """绘制详尽的多周期组合图表 (含油脂对比)"""
+        print(f"📊 绘制 {名称} 全维度组合图...")
         data = 榨利数据.tail(天数).copy() if 天数 < len(榨利数据) else 榨利数据.copy()
         
-        fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 14), dpi=100)
+        # 创建 4 层结构图表
+        fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(12, 18), dpi=100)
         最新日期 = data['日期'].max().strftime('%Y-%m-%d')
         
         # 1. 期货价格走势 (上图)
@@ -237,7 +238,7 @@ class 榨利计算器V3:
         lines1, labels1 = ax2.get_legend_handles_labels()
         lines2, labels2 = ax2_r.get_legend_handles_labels()
         ax2.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
-        ax2.set_title(f'基差走势 & 油粕比 - 最新油粕比: {data["现货油粕比"].iloc[-1]:.3f} | 基差率: {data["豆油基差率"].iloc[-1]:.1f}%', fontsize=12)
+        ax2.set_title(f'基差走势 & 油粕比 - 最新油粕比: {data["现货油粕比"].iloc[-1]:.3f}', fontsize=12)
         
         # 3. 榨利走势 (下图) - 含盘面榨利面积图
         # 盘面榨利面积图（不含基差）
@@ -253,44 +254,27 @@ class 榨利计算器V3:
         ax3.annotate(f'最高: {max_v:.0f}', xy=(max_d, max_v), xytext=(0, 10), textcoords='offset points', ha='center', color='purple', fontsize=8)
         ax3.annotate(f'最低: {min_v:.0f}', xy=(min_d, min_v), xytext=(0, -20), textcoords='offset points', ha='center', color='purple', fontsize=8)
         
-        ax3.set_title(f'大豆压榨利润走势 - 现货榨利: {data["榨利"].iloc[-1]:.2f} | 盘面榨利: {data["盘面榨利"].iloc[-1]:.2f}', fontsize=14)
+        ax3.set_title(f'大豆压榨利润走势 - 现货榨利: {data["榨利"].iloc[-1]:.2f}', fontsize=14)
         ax3.set_ylabel('榨利(元/吨)')
         ax3.legend(loc='upper left', fontsize=9)
         ax3.grid(True, alpha=0.3)
+        
+        # 4. 油脂板块对比 (新增底图)
+        if 油脂数据 is not None:
+            oil_data = 油脂数据.tail(天数).copy() if 天数 < len(油脂数据) else 油脂数据.copy()
+            ax4.plot(oil_data['日期'], oil_data['豆油'], label='豆油 (Y)', color='darkorange', linewidth=2)
+            ax4.plot(oil_data['日期'], oil_data['棕榈油'], label='棕榈油 (P)', color='brown', linewidth=1.5)
+            ax4.plot(oil_data['日期'], oil_data['菜油'], label='菜油 (OI)', color='gold', linewidth=1.5)
+            ax4.set_title('油脂板块价格对比 (豆、棕、菜)', fontsize=14)
+            ax4.set_ylabel('价格(元/吨)')
+            ax4.legend(loc='upper left', fontsize=9)
+            ax4.grid(True, alpha=0.3)
         
         plt.tight_layout()
         文件名 = f"margin_chart_{名称}.png"
         plt.savefig(os.path.join(HUGO_IMAGES_DIR, 文件名))
         plt.savefig(os.path.join(self.输出目录, 文件名))
         plt.close()
-        return 文件名
-
-    def 绘制油脂对比图(self, 油脂数据, 天数, 名称):
-        """绘制豆油、棕榈油、菜油价格对比图"""
-        print(f"📊 绘制油脂对比走势图 ({名称})...")
-        data = 油脂数据.tail(天数).copy() if 天数 < len(油脂数据) else 油脂数据.copy()
-        
-        plt.figure(figsize=(12, 6), dpi=100)
-        plt.plot(data['日期'], data['豆油'], label='豆油 (Y)', color='darkorange', linewidth=2)
-        plt.plot(data['日期'], data['棕榈油'], label='棕榈油 (P)', color='brown', linewidth=1.5)
-        plt.plot(data['日期'], data['菜油'], label='菜油 (OI)', color='gold', linewidth=1.5)
-        
-        plt.title(f'三大油脂期货价格对比走势 - {名称}', fontsize=14)
-        plt.xlabel('日期')
-        plt.ylabel('价格 (元/吨)')
-        plt.legend(loc='upper left')
-        plt.grid(True, alpha=0.3)
-        
-        latest_date = data['日期'].max().strftime('%Y-%m-%d')
-        plt.text(0.99, 0.02, f'数据截止: {latest_date}', transform=plt.gca().transAxes, 
-                 fontsize=9, ha='right', va='bottom', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5))
-        
-        plt.tight_layout()
-        文件名 = f"oil_compare_chart_{名称}.png"
-        plt.savefig(os.path.join(HUGO_IMAGES_DIR, 文件名))
-        plt.savefig(os.path.join(self.输出目录, 文件名))
-        plt.close()
-        return 文件名
 
     # ================= AI 分析与博客生成逻辑 =================
 
@@ -366,23 +350,19 @@ image: /images/charts/{文件名列表[0]}
 ---
 
 ## 📈 多维度走势分析
-(各时间段包含：榨利深度走势 + 油脂板块对比)
+(各周期图表均包含：价格、基差、榨利、板块对比)
 
 ### 1. 近半年 (180天)
 ![半年走势](/images/charts/{文件名列表[0]})
-![半年油脂对比](/images/charts/{文件名列表[4]})
 
 ### 2. 近一年 (365天)
 ![一年走势](/images/charts/{文件名列表[1]})
-![一年油脂对比](/images/charts/{文件名列表[5]})
 
 ### 3. 近两年 (730天)
 ![两年走势](/images/charts/{文件名列表[2]})
-![两年油脂对比](/images/charts/{文件名列表[6]})
 
 ### 4. 全历史周期
 ![全历史走势](/images/charts/{文件名列表[3]})
-![全历史油脂对比](/images/charts/{文件名列表[7]})
 
 ---
 
@@ -418,14 +398,9 @@ image: /images/charts/{文件名列表[0]}
         imgs = []
         periods = [(180, "半年"), (365, "一年"), (730, "两年"), (9999, "全历史")]
         
-        # 首先生成四张榨利图
+        # 直接生成四张全维度组合图
         for days, name in periods:
-            imgs.append(self.绘制图表(df, days, name))
-        
-        # 接着生成四张油脂对比图
-        if 油脂df is not None:
-            for days, name in periods:
-                imgs.append(self.绘制油脂对比图(油脂df, days, name))
+            imgs.append(self.绘制图表(df, 油脂df, days, name))
         
         self.生成报告(df, imgs)
         print("\n🎉 榨利深度分析 V3 工作流执行完毕！")
