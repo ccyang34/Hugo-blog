@@ -265,9 +265,9 @@ class 榨利计算器V3:
         plt.close()
         return 文件名
 
-    def 绘制油脂对比图(self, 油脂数据, 天数=180):
+    def 绘制油脂对比图(self, 油脂数据, 天数, 名称):
         """绘制豆油、棕榈油、菜油价格对比图"""
-        print(f"📊 绘制油脂对比走势图 (最近{天数}天)...")
+        print(f"📊 绘制油脂对比走势图 ({名称})...")
         data = 油脂数据.tail(天数).copy() if 天数 < len(油脂数据) else 油脂数据.copy()
         
         plt.figure(figsize=(12, 6), dpi=100)
@@ -275,7 +275,7 @@ class 榨利计算器V3:
         plt.plot(data['日期'], data['棕榈油'], label='棕榈油 (P)', color='brown', linewidth=1.5)
         plt.plot(data['日期'], data['菜油'], label='菜油 (OI)', color='gold', linewidth=1.5)
         
-        plt.title('三大油脂期货价格对比走势', fontsize=14)
+        plt.title(f'三大油脂期货价格对比走势 - {名称}', fontsize=14)
         plt.xlabel('日期')
         plt.ylabel('价格 (元/吨)')
         plt.legend(loc='upper left')
@@ -286,7 +286,7 @@ class 榨利计算器V3:
                  fontsize=9, ha='right', va='bottom', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5))
         
         plt.tight_layout()
-        文件名 = "margin_chart_油脂对比.png"
+        文件名 = f"oil_compare_chart_{名称}.png"
         plt.savefig(os.path.join(HUGO_IMAGES_DIR, 文件名))
         plt.savefig(os.path.join(self.输出目录, 文件名))
         plt.close()
@@ -366,23 +366,23 @@ image: /images/charts/{文件名列表[0]}
 ---
 
 ## 📈 多维度走势分析
+(各时间段包含：榨利深度走势 + 油脂板块对比)
 
-### 近半年明细 (高精度)
+### 1. 近半年 (180天)
 ![半年走势](/images/charts/{文件名列表[0]})
+![半年油脂对比](/images/charts/{文件名列表[4]})
 
-### 近一年对比
+### 2. 近一年 (365天)
 ![一年走势](/images/charts/{文件名列表[1]})
+![一年油脂对比](/images/charts/{文件名列表[5]})
 
-### 近两年对比
+### 3. 近两年 (730天)
 ![两年走势](/images/charts/{文件名列表[2]})
+![两年油脂对比](/images/charts/{文件名列表[6]})
 
-### 全历史周期
-展现大周期的榨利轮回。
+### 4. 全历史周期
 ![全历史走势](/images/charts/{文件名列表[3]})
-
-### 🥑 油脂板块对比 (豆、棕、菜)
-展示国内三大核心植物油的共振走势。
-![油脂对比](/images/charts/{文件名列表[4]})
+![全历史油脂对比](/images/charts/{文件名列表[7]})
 
 ---
 
@@ -414,15 +414,18 @@ image: /images/charts/{文件名列表[0]}
         df = self.合并并计算榨利(豆油, 豆粕, 豆二)
         油脂df = self.获取油脂对比数据()
         
-        # 绘图顺序：半年、一年、两年、全历史
+        # 绘图顺序
         imgs = []
-        imgs.append(self.绘制图表(df, 180, "半年"))
-        imgs.append(self.绘制图表(df, 365, "一年"))
-        imgs.append(self.绘制图表(df, 730, "两年"))
-        imgs.append(self.绘制图表(df, 9999, "全历史"))
+        periods = [(180, "半年"), (365, "一年"), (730, "两年"), (9999, "全历史")]
         
+        # 首先生成四张榨利图
+        for days, name in periods:
+            imgs.append(self.绘制图表(df, days, name))
+        
+        # 接着生成四张油脂对比图
         if 油脂df is not None:
-            imgs.append(self.绘制油脂对比图(油脂df, 180))
+            for days, name in periods:
+                imgs.append(self.绘制油脂对比图(油脂df, days, name))
         
         self.生成报告(df, imgs)
         print("\n🎉 榨利深度分析 V3 工作流执行完毕！")
