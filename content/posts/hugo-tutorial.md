@@ -5,7 +5,6 @@ draft: false
 tags: ["Hugo", "Tutorial"]
 categories: ["技术"]
 ---
-
 ## 什么是 Hugo？
 
 Hugo 是一个用 Go 语言编写的静态网站生成器。它以极快的构建速度和简单易用的特性深受开发者喜爱。

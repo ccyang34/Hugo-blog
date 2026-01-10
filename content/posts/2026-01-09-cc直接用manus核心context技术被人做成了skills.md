@@ -4,7 +4,6 @@ date: 2026-01-09T10:44:06+08:00
 lastmod: 2026-01-09T10:44:06+08:00
 categories: ["未分类"]
 ---
-
 planning-with-files是开源社区最近疯传的一个Skill，发布仅四天收获3.3k star。目前还在持续增长。
 
 ![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUX0oeYbb596zHiaN8GW1F43BEMfzDqxBBJMW3nkUTibOUW4GPWcbJmpFQ/640?wx_fmt=png&from=appmsg)爆火的原因很简单，因为这个项目的核心极具吸引力：它通过一个标准的Claude Skill，复刻了Meta斥资20亿美元收购的**Manus**公司的核心技术——**上下文工程（Context Engineering）**。

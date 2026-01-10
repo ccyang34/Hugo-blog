@@ -5,7 +5,6 @@ draft: false
 tags: ["Hugo", "GitHub Actions", "Deployment"]
 categories: ["实战指南"]
 ---
-
 ## 序章
 
 本文记录了本博客从环境搭建到成功部署至 GitHub Pages 的完整流程，包括在过程中遇到的坑以及如何修复它们的具体调试细节。
