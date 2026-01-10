@@ -85,8 +85,25 @@ def process_file(filepath):
     
     title = title_match.group(1) if title_match else os.path.basename(filepath)
 
+    # 检查是否需要强制重新分类
+    # 匹配 categories: ["xxx"]
+    current_cat_match = re.search(r'categories:\s*\["(.*?)"\]', frontmatter)
+    current_cat = current_cat_match.group(1) if current_cat_match else ""
+    
+    # 如果 categories 格式是 categories: \n - xxx
+    if not current_cat:
+        current_cat_match = re.search(r'categories:\s*\n\s*-\s*(.*)', frontmatter)
+        current_cat = current_cat_match.group(1).strip('"\' ') if current_cat_match else ""
+
+    needs_recollect = current_cat in ["未分类", "实战指南", "", "[]", "None"] or 'categories:' not in frontmatter
+    
+    if not needs_recollect:
+        if current_cat in PRESET_CATEGORIES:
+            # print(f"➖ 已规范分类: {title} ({current_cat})")
+            return False
+
     # 获取 AI 分类
-    print(f"🔍 正在为文章分析分类: {title}...")
+    print(f"🔍 正在为文章分析分类: {title} (当前状态: {current_cat or '缺失'})...")
     new_category = call_deepseek_category(title, body[:1000])
     
     if not new_category or new_category not in PRESET_CATEGORIES:
@@ -95,15 +112,12 @@ def process_file(filepath):
 
     # 更新 categories 字段
     if 'categories:' in frontmatter:
-        updated_frontmatter = re.sub(r'categories:\s*\[?.*?\]?\n', f'categories: ["{new_category}"]\n', frontmatter)
+        # 支持多种格式的替换
+        frontmatter = re.sub(r'categories:.*?\n(\s*-.*?\n)*', f'categories: ["{new_category}"]\n', frontmatter, flags=re.DOTALL)
     else:
-        updated_frontmatter = frontmatter + f'\ncategories: ["{new_category}"]'
+        frontmatter = frontmatter + f'\ncategories: ["{new_category}"]'
     
-    if updated_frontmatter == frontmatter:
-        print(f"➖ 分类未变: {new_category}")
-        return False
-
-    new_content = f"---\n{updated_frontmatter}\n---\n{body}"
+    new_content = f"---\n{frontmatter}\n---\n{body}"
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(new_content)
     
@@ -113,12 +127,11 @@ def process_file(filepath):
 if __name__ == "__main__":
     count = 0
     files = [f for f in os.listdir(POSTS_DIR) if f.endswith(".md")]
-    print(f"🚀 开始为 {len(files)} 篇文章进行 AI 智能分类...")
+    print(f"🚀 开始检查并清理未分类或不规范文章 (共 {len(files)} 篇)...")
     
     for filename in files:
         if process_file(os.path.join(POSTS_DIR, filename)):
             count += 1
-        # 添加微小延迟避免触发速率限制
-        time.sleep(0.2)
+        time.sleep(0.1)
         
-    print(f"\n✨ AI 分类整理完成！总计更新文章数量: {count}")
+    print(f"\n✨ 清理完成！总计成功修正文章分类数量: {count}")
