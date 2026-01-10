@@ -2,10 +2,9 @@
 title: "Claude Skills = 给AI装SOP!效率直接翻3倍"
 date: 2026-01-05T13:56:05+08:00
 lastmod: 2026-01-05T13:56:05+08:00
-categories: ["AI工具与效率提升"]
+categories: ["AI与技术"]
 tags: ["Claude", "AI智能体", "自动化工作流", "AI提效工具", "Skills", "MCP", "RAG", "技术变现"]
 ---
-
 **作者**: 造个智能体
 
 ---

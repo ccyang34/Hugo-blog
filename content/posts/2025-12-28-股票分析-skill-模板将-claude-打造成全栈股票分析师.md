@@ -2,7 +2,7 @@
 title: "股票分析 Skill 模板：将 Claude 打造成全栈股票分析师"
 date: 2025-12-28T01:48:29+08:00
 lastmod: 2025-12-28T01:48:29+08:00
-categories: ["投资理财"]
+categories: ["AI与技术"]
 tags: ["Claude Skills", "股票分析", "投资研究", "AI 模板", "金融科技", "量化分析", "研报生成", "技能开发"]
 ---
 这是一个基于最新市场分析框架和 Claude Skills 最佳实践设计的股票分析 Skill 模板。

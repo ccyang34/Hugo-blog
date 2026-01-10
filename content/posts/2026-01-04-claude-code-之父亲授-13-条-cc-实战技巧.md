@@ -2,10 +2,9 @@
 title: "Claude Code 之父亲授 13 条 cc 实战技巧"
 date: 2026-01-04T15:44:06+08:00
 lastmod: 2026-01-04T15:44:06+08:00
-categories: ["AI 编程工具"]
+categories: ["AI与技术"]
 tags: ["Claude Code", "编程技巧", "AI 助手", "代码生成", "Boris", "开发者工具", "效率提升"]
 ---
-
 **作者**: 程序员小江
 **原文链接**: https://www.xiaohongshu.com/discovery/item/69592d33000000001e03894c
 

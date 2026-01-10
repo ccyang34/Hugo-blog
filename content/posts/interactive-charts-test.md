@@ -1,11 +1,10 @@
 ---
 title: "交互式图表框架测试"
 date: 2025-12-22T18:27:00+08:00
-categories: ["技术"]
+categories: ["AI与技术"]
 tags: ["图表", "可视化", "测试"]
 draft: false
 ---
-
 本文测试多种图表框架在 Hugo 博客中的移动端兼容性。
 
 <!--more-->

@@ -2,10 +2,9 @@
 title: "GitHub 1.4w星的 Claude Skills “军火库”"
 date: 2026-01-04T13:17:03+08:00
 lastmod: 2026-01-04T13:17:03+08:00
-categories: ["AI绘画"]
+categories: ["AI与技术"]
 tags: ["小红书", "图集"]
 ---
-
 **作者**: AI智见录
 **原文链接**: https://www.xiaohongshu.com/discovery/item/6959af28000000001d03de51
 ---

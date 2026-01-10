@@ -2,10 +2,9 @@
 title: "用 Claude Code 接管Google Antigravity后，治好了我的token焦虑，额度根本用不完！"
 date: 2025-12-30T20:04:44+08:00
 lastmod: 2025-12-30T20:04:44+08:00
-categories: ["AI 工具与开发"]
+categories: ["AI与技术"]
 tags: ["Google Antigravity", "Claude Code", "AI 中转", "免费额度", "大模型", "开发工具", "Antigravity Tools", "API 代理"]
 ---
-
 Google Antigravity 随着 Gemini 3 发布有一段时间了，跟 Gemini 3 的光芒闪耀比起来，Antigravity 就像个副产品。
 
 **刚开始发布的时候，大家对 Antigravity 的讨论最多的就是：怎么登录？登不上去啊？怎么卡在这个界面不动了。**

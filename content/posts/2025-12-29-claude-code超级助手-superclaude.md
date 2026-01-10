@@ -2,7 +2,7 @@
 title: "Claude Code超级助手 - SuperClaude"
 date: 2025-12-29T21:45:11+08:00
 lastmod: 2025-12-29T21:45:11+08:00
-categories: ["投资理财"]
+categories: ["AI与技术"]
 tags: ["SuperClaude", "Claude Code", "AI开发助手", "配置框架", "MCP集成", "AI编程", "开源工具", "开发工作流"]
 ---
 SuperClaude是一个专门为Claude Code设计的综合配置框架，旨在将Claude Code转变为一个专业的AI开发助手。它通过结构化的配置文件和专业化的工作流程，极大地增强了Claude Code的开发能力。

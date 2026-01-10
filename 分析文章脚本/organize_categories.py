@@ -1,18 +1,75 @@
 import os
 import re
+import json
+import requests
+import time
 
 # 配置
 POSTS_DIR = "/Users/ccy/Hugo-blog/content/posts"
+DEEPSEEK_API_KEY = "sk-f637d9858dda4c86bd3ec411a6b4bb81"
+DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
-# 关键词定义
-FUTURES_KEYWORDS = ["榨利", "豆油", "棕榈油", "菜油", "基差", "持仓", "期货", "大豆", "油脂", "豆粕", "crush-margin", "压榨"]
-INVESTMENT_KEYWORDS = ["投资", "理财", "基金", "股票", "A股", "公募基金", "配置框架", "资产配置", "有色金属", "证券", "市值", "大类资产"]
+# 预设分类及其描述
+PRESET_CATEGORIES = {
+    "研究报告": "长篇、深度、结构化的正式报告。",
+    "市场分析": "针对行情品种（期货、股票）的周期性复盘和短期走势解析。",
+    "投资策略": "偏向方法论、配置逻辑、模型工具的使用、避坑指南。",
+    "投资理财": "泛理财、宏观资产价格变动、个人财务规划。",
+    "AI与技术": "AI工具、编程开发、自动化脚本、技术干货。",
+    "新闻资讯": "宏观新闻事件点评、行业突发新闻。",
+    "个人随笔": "生活、运动（乒乓球）、学习方法、随感、认知进化。"
+}
+
+def call_deepseek_category(title, content_preview):
+    """调用 DeepSeek API 获取最合适的分类"""
+    prompt = f"""你是一个专业的博客文章分类专家。请根据以下文章的标题和内容片段，将其归入最合适的【唯一】一个分类中。
+
+## 候选分类及定义：
+{json.dumps(PRESET_CATEGORIES, ensure_ascii=False, indent=2)}
+
+## 待分类文章信息：
+标题：{title}
+内容片段：{content_preview[:800]}
+
+## 要求：
+1. 仅返回分类名称，不要包含任何解释或标点符号。
+2. 必须且只能从候选分类中选择一个。
+3. 如果文章同时涉及多个领域，选择最核心的主题。
+
+分类结果："""
+    
+    headers = {
+        'Authorization': f'Bearer {DEEPSEEK_API_KEY}',
+        'Content-Type': 'application/json'
+    }
+    
+    payload = {
+        'model': 'deepseek-chat',
+        'messages': [
+            {'role': 'system', 'content': '你是一个精准的分类助手。'},
+            {'role': 'user', 'content': prompt}
+        ],
+        'temperature': 0.3
+    }
+
+    try:
+        response = requests.post(f"{DEEPSEEK_BASE_URL}/chat/completions", headers=headers, json=payload, timeout=20)
+        response.raise_for_status()
+        result = response.json()['choices'][0]['message']['content'].strip()
+        # 清理可能出现的引号或额外字符
+        for cat in PRESET_CATEGORIES.keys():
+            if cat in result:
+                return cat
+        return result
+    except Exception as e:
+        print(f"❌ API 调用失败: {e}")
+        return None
 
 def process_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # 提取 Frontmatter (YAML 部分)
+    # 提取 Frontmatter
     match = re.search(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
     if not match:
         return False
@@ -20,51 +77,47 @@ def process_file(filepath):
     frontmatter = match.group(1)
     body = content[match.end():]
 
-    # 排除性关键词 (如果包含这些，即使有投资关键词也不归入投资理财)
-    EXCLUDE_FROM_INVESTMENT = ["Claude", "AI", "Agent", "编程", "代码", "程序员", "Github", "开源", "开发", "工具"]
-
-    # 判断类别
-    is_futures = any(kw in filepath or kw in frontmatter for kw in FUTURES_KEYWORDS)
-    is_investment = any(kw in filepath or kw in frontmatter for kw in INVESTMENT_KEYWORDS)
+    # 提取标题
+    title_match = re.search(r'title:\s*"(.*?)"', frontmatter)
+    if not title_match:
+        title_match = re.search(r'title:\s*(.*)', frontmatter)
     
-    # 投资理财的额外检查
-    if is_investment:
-        # 如果包含排除词，则取消投资理财分类
-        if any(ex in filepath or ex in frontmatter for ex in EXCLUDE_FROM_INVESTMENT):
-            is_investment = False
+    title = title_match.group(1) if title_match else os.path.basename(filepath)
 
-    new_category = None
-    if is_futures:
-        new_category = "期货"
-    elif is_investment:
-        new_category = "投资理财"
-
-    if not new_category:
-        return False # 不相关的照旧不改
+    # 获取 AI 分类
+    print(f"🔍 正在为文章分析分类: {title}...")
+    new_category = call_deepseek_category(title, body[:1000])
+    
+    if not new_category or new_category not in PRESET_CATEGORIES:
+        print(f"⚠️ 分类返回异常: {new_category}，跳过该文件。")
+        return False
 
     # 更新 categories 字段
-    # 匹配 categories: [...] 或 categories: "..." 或 categories: \n - ...
     if 'categories:' in frontmatter:
-        # 替换现有的 categories 字段
         updated_frontmatter = re.sub(r'categories:\s*\[?.*?\]?\n', f'categories: ["{new_category}"]\n', frontmatter)
     else:
-        # 如果没有 categories 字段，则添加一个
         updated_frontmatter = frontmatter + f'\ncategories: ["{new_category}"]'
     
     if updated_frontmatter == frontmatter:
+        print(f"➖ 分类未变: {new_category}")
         return False
 
     new_content = f"---\n{updated_frontmatter}\n---\n{body}"
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(new_content)
     
-    print(f"✅ Updated {os.path.basename(filepath)} -> {new_category}")
+    print(f"✅ 更新成功 -> {new_category}")
     return True
 
 if __name__ == "__main__":
     count = 0
-    for filename in os.listdir(POSTS_DIR):
-        if filename.endswith(".md"):
-            if process_file(os.path.join(POSTS_DIR, filename)):
-                count += 1
-    print(f"\n✨ 总计更新文章数量: {count}")
+    files = [f for f in os.listdir(POSTS_DIR) if f.endswith(".md")]
+    print(f"🚀 开始为 {len(files)} 篇文章进行 AI 智能分类...")
+    
+    for filename in files:
+        if process_file(os.path.join(POSTS_DIR, filename)):
+            count += 1
+        # 添加微小延迟避免触发速率限制
+        time.sleep(0.2)
+        
+    print(f"\n✨ AI 分类整理完成！总计更新文章数量: {count}")

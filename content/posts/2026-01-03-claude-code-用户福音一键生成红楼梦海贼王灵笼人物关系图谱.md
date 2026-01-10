@@ -2,10 +2,9 @@
 title: "Claude Code 用户福音！一键生成红楼梦、海贼王、灵笼人物关系图谱"
 date: 2026-01-03T17:44:18+08:00
 lastmod: 2026-01-03T17:44:18+08:00
-categories: ["AI 工具应用"]
+categories: ["AI与技术"]
 tags: ["Claude Code", "AI Skills", "人物关系图谱", "Graphviz", "自动化调研", "Vibe Coding", "GLM-4"]
 ---
-
 昨天在 Twitter 上闲逛，偶然翻到了王树义老师的帖子，他建了个 Claude Skills，可以让 Claude Code 自动完成调研并绘制复杂的（不限于）人物关系图谱，我试了一下，果然好用！
 
 我测试了几个，如下（可以点击图片放大观看）：

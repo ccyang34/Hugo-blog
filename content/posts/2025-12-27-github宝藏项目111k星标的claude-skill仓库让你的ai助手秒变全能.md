@@ -2,10 +2,9 @@
 title: "GitHub宝藏项目：11.1k星标的Claude Skill仓库，让你的AI助手秒变全能！"
 date: 2025-12-27T18:08:14+08:00
 lastmod: 2025-12-27T18:08:14+08:00
-categories: ["AI工具与效率"]
+categories: ["AI与技术"]
 tags: ["Claude AI", "GitHub项目", "AI技能", "效率工具", "开源", "教程", "开发者工具", "内容创作"]
 ---
-
 ![Composio banner](https://mmbiz.qpic.cn/mmbiz_png/lWjVMMDeFmmQceIgXrcuU2RDFSLvWsvWowjic8s7XLxFdmQ0d0pibJicy8x2XcpOKOVhAB9Zo5Qjp6VxfPu6DxlPA/640?wx_fmt=png&from=appmsg)
 
 大家好！今天给大家推荐一个GitHub上的超实用项目——**awesome-claude-skills**，这个项目已经获得了**11.1k星标**，是专门为Claude AI用户打造的技能集合库。

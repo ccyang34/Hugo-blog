@@ -2,10 +2,9 @@
 title: "这份 Vibe Coding 指南，把 AI 编程讲透了"
 date: 2026-01-09T13:33:46+08:00
 lastmod: 2026-01-09T13:33:46+08:00
-categories: ["AI编程教程"]
+categories: ["AI与技术"]
 tags: ["Vibe Coding", "AI编程", "GitHub开源", "提示词库", "编程效率", "开发环境", "Claude", "Cursor"]
 ---
-
 **作者**: Feiskyer
 
 ---

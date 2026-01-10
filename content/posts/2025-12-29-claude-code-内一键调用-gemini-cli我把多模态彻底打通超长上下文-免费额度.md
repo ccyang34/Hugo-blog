@@ -2,10 +2,9 @@
 title: "Claude Code 内一键调用 Gemini CLI，我把多模态彻底打通（超长上下文 + 免费额度）"
 date: 2025-12-29T20:44:43+08:00
 lastmod: 2025-12-29T20:44:43+08:00
-categories: ["AI 工具与效率"]
+categories: ["AI与技术"]
 tags: ["Claude Code", "Gemini CLI", "AI 工作流", "多模态 AI", "开发效率", "自动化", "Subagent", "Skills"]
 ---
-
 你一定遇到过这种瞬间：
 
 你正在 Claude Code 里酣畅淋漓地重构后端接口，突然，前端负责人或者 UI 设计师甩过来一张 PNG 截图（或者一个 15 秒的 Bug 复现录屏），附带一句话：

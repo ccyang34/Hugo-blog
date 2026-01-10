@@ -2,10 +2,9 @@
 title: "3.9K Star！Antigravity 火了，但更狠的是这个配套工具！"
 date: 2025-12-28T13:58:51+08:00
 lastmod: 2025-12-28T13:58:51+08:00
-categories: ["AI编程工具"]
+categories: ["AI与技术"]
 tags: ["Vibe Coding", "Antigravity", "AI编程", "Claude Code", "Gemini", "开源工具", "模型路由", "开发者工具"]
 ---
-
 如果说2024年是AI编程工具的元年，那么2025年绝对是 **Vibe Coding（氛围编程）** 的爆发年。
 
 最近如果你刷 `Vibe Coding` 圈子，一定绕不开一个名字：**Antigravity**。

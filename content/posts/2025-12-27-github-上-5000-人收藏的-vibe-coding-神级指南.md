@@ -2,10 +2,9 @@
 title: "GitHub 上 5000 人收藏的 Vibe Coding 神级指南。"
 date: 2025-12-27T18:36:42+08:00
 lastmod: 2025-12-27T18:36:42+08:00
-categories: ["AI 编程"]
+categories: ["AI与技术"]
 tags: ["Vibe Coding", "AI 编程", "开源项目", "Cursor", "提示词", "软件开发", "GitHub"]
 ---
-
 Vibe Coding 说白了就是开发个应用不再像程序员一样，苦哈哈地写每一行代码，而是化身为导演。只需要保持一种感觉，这种感觉可能是对产品逻辑、用户流程、审美和交互的把握，剩下的体力活全交给 Cursor、Windsurf、Trae 等 AI 编程工具。
 
 用 Karpathy 的话说：我几乎不写代码了，我只负责调整氛围（Vibe），代码会自动长出来。

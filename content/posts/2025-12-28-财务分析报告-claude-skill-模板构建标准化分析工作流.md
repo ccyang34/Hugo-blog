@@ -2,10 +2,9 @@
 title: "财务分析报告 Claude Skill 模板：构建标准化分析工作流"
 date: 2025-12-28T01:47:09+08:00
 lastmod: 2025-12-28T01:47:09+08:00
-categories: ["技术教程"]
+categories: ["AI与技术"]
 tags: ["Claude Skills", "财务分析", "模板", "自动化", "数据分析", "Python", "Markdown", "最佳实践"]
 ---
-
 这是一个基于 Claude Skills 最佳实践构建的完整财务分析报告 Skill 模板。
 
 这个模板的设计目标是：标准化输出格式、强制包含关键指标、并提供可操作的建议。你可以直接使用这个结构来创建你的 `financial-analysis.skill` 文件夹。

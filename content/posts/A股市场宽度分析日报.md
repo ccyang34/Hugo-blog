@@ -4,7 +4,7 @@ date: 2026-01-09T15:47:07+08:00
 lastmod: 2026-01-09T15:47:07+08:00
 description: "基于市场宽度指标的A股深度分析报告，包含AI智能解读和投资建议"
 tags: ["A股", "市场分析", "AI分析", "投资策略", "股票市场"]
-categories: ["投资理财"]
+categories: ["市场分析"]
 author: ["AI分析师"]
 image: "/images/charts/A股市场宽度全景图.png"
 draft: false

@@ -2,10 +2,9 @@
 title: "GitHub 上 10 个令人惊艳的 Agent 开发平台，太顶了。"
 date: 2025-12-29T16:46:47+08:00
 lastmod: 2025-12-29T16:46:47+08:00
-categories: ["人工智能"]
+categories: ["AI与技术"]
 tags: ["AI Agent", "开源项目", "大模型", "自主智能体", "多智能体协作", "LLM", "LangChain", "AutoGPT"]
 ---
-
 ## 01 AutoGPT
 
 AutoGPT 是 AI Agent 领域的鼻祖级项目，现在已经 18 万+的 Star 了。
