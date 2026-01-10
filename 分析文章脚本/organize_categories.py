@@ -21,13 +21,19 @@ PRESET_CATEGORIES = {
     "个人随笔": "生活、运动（乒乓球）、学习方法、随感、认知进化。"
 }
 
-# 强制词云：如果标题或内容包含这些词，AI 分类时会增加权重或由脚本直接修正
+# 强制词云
 AI_FORCE_KEYWORDS = ["NotebookLM", "Claude", "Gemini", "ChatGPT", "AI", "Agent", "Manus", "AnyGen"]
+MARKET_PRIORITY_KEYWORDS = ["资金流向", "股市", "A股", "行情日报", "宽度分析"]
 
 def call_deepseek_category(title, content_preview):
     """调用 DeepSeek API 获取最合适的分类"""
     
-    # 强制逻辑检查：如果标题包含关键 AI 产品词，直接返回 AI与技术
+    # 市场分析优先级判断：如果包含资金流向等核心词，即使有 AI 也是市场分析
+    for kw in MARKET_PRIORITY_KEYWORDS:
+        if kw.lower() in title.lower():
+            return "市场分析"
+
+    # 强制 AI 逻辑检查
     for kw in AI_FORCE_KEYWORDS:
         if kw.lower() in title.lower():
             return "AI与技术"
