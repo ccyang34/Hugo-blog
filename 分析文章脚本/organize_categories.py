@@ -16,13 +16,22 @@ PRESET_CATEGORIES = {
     "市场分析": "针对股票、宏观经济、行业资金流向等非期货品种的周期性复盘。",
     "投资策略": "偏向方法论、配置逻辑、模型工具的使用、避坑指南。",
     "投资理财": "泛理财、公募基金、个人财务规划。",
-    "AI与技术": "AI工具（如Claude, NotebookLM, Gemini）、编程开发、自动化脚本、技术干货。",
+    "AI与技术": "AI工具（如Claude, NotebookLM, Gemini, ChatGPT）、编程开发、自动化脚本、量化技术、技术干货。",
     "新闻资讯": "宏观新闻事件点评、行业突发新闻。",
     "个人随笔": "生活、运动（乒乓球）、学习方法、随感、认知进化。"
 }
 
+# 强制词云：如果标题或内容包含这些词，AI 分类时会增加权重或由脚本直接修正
+AI_FORCE_KEYWORDS = ["NotebookLM", "Claude", "Gemini", "ChatGPT", "AI", "Agent", "Manus", "AnyGen"]
+
 def call_deepseek_category(title, content_preview):
     """调用 DeepSeek API 获取最合适的分类"""
+    
+    # 强制逻辑检查：如果标题包含关键 AI 产品词，直接返回 AI与技术
+    for kw in AI_FORCE_KEYWORDS:
+        if kw.lower() in title.lower():
+            return "AI与技术"
+
     prompt = f"""你是一个专业的博客文章分类专家。请根据以下文章的标题和内容片段，将其归入最合适的【唯一】一个分类中。
 
 ## 候选分类及定义：
@@ -36,6 +45,7 @@ def call_deepseek_category(title, content_preview):
 1. 仅返回分类名称，不要包含任何解释或标点符号。
 2. 必须且只能从候选分类中选择一个。
 3. 如果文章同时涉及多个领域，选择最核心的主题。
+4. 特别注意：涉及到 AI 工具（如 NotebookLM）的应用虽然有个人感悟，但其技术属性更强，应归入“AI与技术”。
 
 分类结果："""
     
@@ -57,7 +67,6 @@ def call_deepseek_category(title, content_preview):
         response = requests.post(f"{DEEPSEEK_BASE_URL}/chat/completions", headers=headers, json=payload, timeout=20)
         response.raise_for_status()
         result = response.json()['choices'][0]['message']['content'].strip()
-        # 清理可能出现的引号或额外字符
         for cat in PRESET_CATEGORIES.keys():
             if cat in result:
                 return cat
@@ -71,36 +80,39 @@ def process_file(filepath):
         content = f.read()
 
     # 提取 Frontmatter
-    match = re.search(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
+    match = re.search(r'^---\s*\n(.*?)\n---\s*', content, re.DOTALL)
     if not match:
         return False
 
     frontmatter = match.group(1)
-    body = content[match.end():]
+    # 确保 body 从正确的结尾开始 (跳过 ---)
+    body_start_match = re.search(r'^---\s*\n.*?\n---\s*\n', content, re.DOTALL)
+    if not body_start_match:
+        # 兼容性处理
+        body = content[match.end():].lstrip('- \n')
+    else:
+        body = content[body_start_match.end():]
 
     # 提取标题
-    title_match = re.search(r'title:\s*"(.*?)"', frontmatter)
-    if not title_match:
-        title_match = re.search(r'title:\s*(.*)', frontmatter)
-    
+    title_match = re.search(r'title:\s*["\']?(.*?)["\']?\n', frontmatter)
     title = title_match.group(1) if title_match else os.path.basename(filepath)
 
-    # 检查是否需要强制重新分类
-    # 匹配 categories: ["xxx"]
+    # 检查当前分类
     current_cat_match = re.search(r'categories:\s*\["(.*?)"\]', frontmatter)
     current_cat = current_cat_match.group(1) if current_cat_match else ""
-    
-    # 如果 categories 格式是 categories: \n - xxx
     if not current_cat:
-        current_cat_match = re.search(r'categories:\s*\n\s*-\s*(.*)', frontmatter)
-        current_cat = current_cat_match.group(1).strip('"\' ') if current_cat_match else ""
+        current_cat_match = re.search(r'categories:\s*\n\s*-\s*["\']?(.*?)["\']?\n', frontmatter)
+        current_cat = current_cat_match.group(1) if current_cat_match else ""
 
     needs_recollect = current_cat in ["未分类", "实战指南", "", "[]", "None"] or 'categories:' not in frontmatter
     
     if not needs_recollect:
+        # 如果当前分类已经是 7 大类之一，且不含强制定正词，则跳过
         if current_cat in PRESET_CATEGORIES:
-            # print(f"➖ 已规范分类: {title} ({current_cat})")
-            return False
+            # 特殊情况：如果是 AI 词但被分到了别的类，强制重分
+            is_ai_misclassified = current_cat != "AI与技术" and any(kw.lower() in title.lower() for kw in AI_FORCE_KEYWORDS)
+            if not is_ai_misclassified:
+                return False
 
     # 获取 AI 分类
     print(f"🔍 正在为文章分析分类: {title} (当前状态: {current_cat or '缺失'})...")
@@ -112,12 +124,15 @@ def process_file(filepath):
 
     # 更新 categories 字段
     if 'categories:' in frontmatter:
-        # 支持多种格式的替换
-        frontmatter = re.sub(r'categories:.*?\n(\s*-.*?\n)*', f'categories: ["{new_category}"]\n', frontmatter, flags=re.DOTALL)
+        # 更加健壮的正则表达式替换
+        new_frontmatter = re.sub(r'categories:.*?\n(\s*-.*?\n)*', f'categories: ["{new_category}"]\n', frontmatter + "\n", flags=re.DOTALL).strip()
     else:
-        frontmatter = frontmatter + f'\ncategories: ["{new_category}"]'
+        new_frontmatter = frontmatter.strip() + f'\ncategories: ["{new_category}"]'
     
-    new_content = f"---\n{frontmatter}\n---\n{body}"
+    if new_frontmatter == frontmatter:
+        return False
+
+    new_content = f"---\n{new_frontmatter}\n---\n{body}"
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(new_content)
     
@@ -127,11 +142,11 @@ def process_file(filepath):
 if __name__ == "__main__":
     count = 0
     files = [f for f in os.listdir(POSTS_DIR) if f.endswith(".md")]
-    print(f"🚀 开始检查并清理未分类或不规范文章 (共 {len(files)} 篇)...")
+    print(f"🚀 开始检查并清理博客文章分类 (共 {len(files)} 篇)...")
     
     for filename in files:
         if process_file(os.path.join(POSTS_DIR, filename)):
             count += 1
-        time.sleep(0.1)
+        time.sleep(0.05)
         
-    print(f"\n✨ 清理完成！总计成功修正文章分类数量: {count}")
+    print(f"\n✨ 分类任务完成！总计修正数量: {count}")
