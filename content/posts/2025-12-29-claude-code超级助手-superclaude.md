@@ -2,10 +2,9 @@
 title: "Claude Code超级助手 - SuperClaude"
 date: 2025-12-29T21:45:11+08:00
 lastmod: 2025-12-29T21:45:11+08:00
-categories: ["AI编程工具"]
+categories: ["投资理财"]
 tags: ["SuperClaude", "Claude Code", "AI开发助手", "配置框架", "MCP集成", "AI编程", "开源工具", "开发工作流"]
 ---
-
 SuperClaude是一个专门为Claude Code设计的综合配置框架，旨在将Claude Code转变为一个专业的AI开发助手。它通过结构化的配置文件和专业化的工作流程，极大地增强了Claude Code的开发能力。
 
 前天发布“[AI Coding 开发范式：OpenSpec，从0到1实践指南](https://mp.weixin.qq.com/s?__biz=MzA4MjI5OTUyNA==&mid=2247484994&idx=4&sn=79ab623381f29ce8440edf32bb530fd3&scene=21#wechat_redirect)”免费开源工具－claude-code-router：让你丝滑纵享各种Claude Code模型”时，说一个人带着6个MCP干项目简直不要太爽，今天又发现一个一次性集成30个命令、16个智能体、7大行为模式和8个MCP集成服务（还在不断扩展ing...），零编程经验也能开发复杂项目的Claude Code超级助手具－－SuperClaude，下面我就来介绍一个它的详细使用。
