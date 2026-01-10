@@ -20,9 +20,18 @@ def process_file(filepath):
     frontmatter = match.group(1)
     body = content[match.end():]
 
+    # 排除性关键词 (如果包含这些，即使有投资关键词也不归入投资理财)
+    EXCLUDE_FROM_INVESTMENT = ["Claude", "AI", "Agent", "编程", "代码", "程序员", "Github", "开源", "开发", "工具"]
+
     # 判断类别
     is_futures = any(kw in filepath or kw in frontmatter for kw in FUTURES_KEYWORDS)
     is_investment = any(kw in filepath or kw in frontmatter for kw in INVESTMENT_KEYWORDS)
+    
+    # 投资理财的额外检查
+    if is_investment:
+        # 如果包含排除词，则取消投资理财分类
+        if any(ex in filepath or ex in frontmatter for ex in EXCLUDE_FROM_INVESTMENT):
+            is_investment = False
 
     new_category = None
     if is_futures:
