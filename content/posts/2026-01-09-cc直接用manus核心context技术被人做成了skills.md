@@ -2,7 +2,7 @@
 title: "CC直接用，Manus核心Context技术被人做成了Skills"
 date: 2026-01-09T10:44:06+08:00
 lastmod: 2026-01-09T10:44:06+08:00
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
 planning-with-files是开源社区最近疯传的一个Skill，发布仅四天收获3.3k star。目前还在持续增长。
 

@@ -2,7 +2,7 @@
 title: "字节版 Manus 上线！实测 AnyGen：不仅是聊天机器人，更是你的超级员工"
 date: 2026-01-05T14:34:13+08:00
 lastmod: 2026-01-05T14:34:13+08:00
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
 ![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/4ONtZwRRHGnaMhr6wwAvEibR0MJlA7yZZdLbaP6DDHkqXF0PC6JcktndXNndf1gicgcl4hicgDO3JL14kxuZ0v9XA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)关注 “**AI 工具派”**
 
