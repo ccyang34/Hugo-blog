@@ -1010,7 +1010,7 @@ date: {date_iso}
 lastmod: {date_iso}
 description: "基于市场宽度指标的A股深度分析报告，包含AI智能解读和投资建议"
 tags: ["A股", "市场分析", "AI分析", "投资策略", "股票市场"]
-categories: ["市场分析", "投资策略"]
+categories: ["市场分析"]
 author: ["AI分析师"]
 image: "{featured_image}"
 draft: false

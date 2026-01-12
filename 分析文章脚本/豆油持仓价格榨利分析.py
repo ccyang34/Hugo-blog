@@ -636,7 +636,7 @@ date: {date_iso}
 lastmod: {date_iso}
 description: "整合中粮持仓、价格基差、压榨利润等多维度数据，结合 DeepSeek AI 生成的专业分析报告。"
 draft: false
-categories: ["综合分析"]
+categories: ["期货分析"]
 tags: ["豆油", "持仓分析", "基差", "榨利", "期货", "可视化"]
 image: /images/charts/{chart_files.get('半年', 'full_analysis_chart_半年.png')}
 ---

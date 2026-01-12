@@ -228,7 +228,7 @@ title: "综合油脂产业链深度分析报告"
 date: {date_iso}
 description: "全维度整合：持仓、榨利、基差、内外盘联动。一站式产业链深度穿透。"
 draft: false
-categories: ["综合产业链分析"]
+categories: ["期货分析"]
 tags: ["豆油", "榨利", "持仓", "宏观"]
 image: /images/charts/{imgs[0]}
 ---

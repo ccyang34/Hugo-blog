@@ -331,7 +331,7 @@ date: {date_iso}
 lastmod: {date_iso}
 description: "自动化生成的压榨利润深度报告，引用原始版本高精绘图和 DeepSeek AI 逻辑。"
 draft: false
-categories: ["榨利深度分析"]
+categories: ["期货分析"]
 tags: ["大豆", "豆油", "豆粕", "期货", "可视化"]
 image: /images/charts/{文件名列表[0]}
 ---
