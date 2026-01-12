@@ -251,6 +251,318 @@
     .hamburger-inner::after {
         background-color: #ffffff !important;
     }
+
+    /* =========================================
+       收藏按钮样式
+       ========================================= */
+    .favorite-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-left: 8px !important;
+        cursor: pointer !important;
+        color: #999 !important;
+        transition: all 0.2s ease !important;
+        vertical-align: middle !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+
+    .favorite-btn:hover {
+        color: #FFD700 !important;
+        transform: scale(1.1) !important;
+    }
+
+    .favorite-btn.favorited {
+        color: #FFD700 !important;
+    }
+
+    .favorite-btn.favorited .favorite-icon {
+        fill: #FFD700 !important;
+        stroke: #FFD700 !important;
+    }
+
+    .favorite-btn .favorite-icon {
+        width: 18px !important;
+        height: 18px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    /* 暗色模式收藏按钮 */
+    [data-scheme="dark"] .favorite-btn {
+        color: #666 !important;
+    }
+
+    [data-scheme="dark"] .favorite-btn:hover,
+    [data-scheme="dark"] .favorite-btn.favorited {
+        color: #FFD700 !important;
+    }
+
+    /* =========================================
+       即时搜索框样式
+       ========================================= */
+    .instant-search-container {
+        position: relative;
+        padding: 10px 15px;
+        background: var(--card-background, #fff);
+    }
+
+    .instant-search-box {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        padding: 8px 15px;
+        gap: 10px;
+    }
+
+    [data-scheme="dark"] .instant-search-box {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .instant-search-box .search-icon {
+        flex-shrink: 0;
+        color: #999;
+    }
+
+    .instant-search-box input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        font-size: 1.4rem;
+        color: #333;
+        outline: none;
+    }
+
+    [data-scheme="dark"] .instant-search-box input {
+        color: #e0e0e0;
+    }
+
+    .instant-search-box input::placeholder {
+        color: #999;
+    }
+
+    .search-clear {
+        flex-shrink: 0;
+        background: transparent;
+        border: none;
+        padding: 2px;
+        cursor: pointer;
+        color: #999;
+    }
+
+    .search-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 15px;
+        right: 15px;
+        background: var(--card-background, #fff);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    [data-scheme="dark"] .search-suggestions {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .search-suggestion-item {
+        display: block;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        font-size: 1.4rem;
+        transition: background 0.15s;
+    }
+
+    [data-scheme="dark"] .search-suggestion-item {
+        color: #e0e0e0;
+        border-bottom-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .search-suggestion-item:hover {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    [data-scheme="dark"] .search-suggestion-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .search-suggestion-item:last-child {
+        border-bottom: none;
+    }
+
+    .search-suggestion-item mark {
+        background: #FFD700;
+        color: #333;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+
+    .search-no-result {
+        padding: 15px;
+        text-align: center;
+        color: #999;
+        font-size: 1.3rem;
+    }
+
+    /* =========================================
+       顶部导航栏即时搜索框样式
+       ========================================= */
+    /* 强制提高Sidebar层级，防止下拉框被文章列表内容遮挡 */
+    .sidebar.left-sidebar {
+        z-index: 5000 !important;
+    }
+
+    /* 顶部导航 Header 布局 - 强制水平一行 */
+    /* 顶部导航 Header 布局 - 强制水平一行 */
+    .sidebar header {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: 54px !important;
+        /* 高度54px */
+        padding: 0 5px !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    /* 确保直接子元素没有多余间距 */
+    .sidebar header>* {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* 汉堡菜单样式调整 */
+    .sidebar .hamburger {
+        position: static !important;
+        /* 移除可能的绝对定位 */
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 0 10px !important;
+        margin: 0 !important;
+    }
+
+    .header-home-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 44px;
+        /* 稍微加大 */
+        height: 100%;
+        color: #fff;
+        margin-right: 5px;
+    }
+
+    .header-home-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .header-search-container {
+        position: relative;
+        flex: 1 !important;
+        /* 强制撑满剩余空间 */
+        width: auto !important;
+        max-width: none !important;
+        /* 移除宽度限制 */
+        margin: 0 10px !important;
+        min-width: 0 !important;
+        /* 防止flex子元素溢出 */
+    }
+
+    .header-search-box {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 6px 12px;
+        gap: 8px;
+        height: 38px;
+        /* 高度38px，配合Header 54px，实现上下8px间隙 */
+    }
+
+    .header-search-box .search-icon {
+        flex-shrink: 0;
+        color: #fff;
+        opacity: 0.8;
+    }
+
+    .header-search-box input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        font-size: 1.3rem;
+        color: #fff;
+        outline: none;
+        min-width: 0;
+    }
+
+    .header-search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .header-search-box .search-clear {
+        flex-shrink: 0;
+        background: transparent;
+        border: none;
+        padding: 2px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .header-search-suggestions {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: var(--card-background, #fff);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        max-height: 350px;
+        overflow-y: auto;
+        z-index: 9999;
+    }
+
+    .header-search-suggestions .search-suggestion-item {
+        display: block;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        font-size: 1.4rem;
+    }
+
+    [data-scheme="dark"] .header-search-suggestions .search-suggestion-item {
+        color: #e0e0e0;
+        border-bottom-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .header-search-suggestions .search-suggestion-item:hover {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    [data-scheme="dark"] .header-search-suggestions .search-suggestion-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .header-search-suggestions .search-suggestion-item mark {
+        background: #FFD700;
+        color: #333;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
 </style>
 
 <script>
@@ -332,6 +644,15 @@
         </svg>
         <span>分类</span>
     </a>
+    <a href="/favorites/" class="nav-item" data-page="favorites">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+        </svg>
+        <span>收藏</span>
+    </a>
     <a href="/search/" class="nav-item" data-page="search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -351,7 +672,214 @@
 </nav>
 
 <script>
+    // =========================================
+    // 收藏功能 - 全局函数
+    // =========================================
+    const FAVORITES_KEY = 'hugo_blog_favorites';
+
+    // 获取收藏列表
+    function getFavorites() {
+        try {
+            const data = localStorage.getItem(FAVORITES_KEY);
+            return data ? JSON.parse(data) : [];
+        } catch (e) {
+            console.error('读取收藏列表失败:', e);
+            return [];
+        }
+    }
+
+    // 保存收藏列表
+    function saveFavorites(favorites) {
+        try {
+            localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+        } catch (e) {
+            console.error('保存收藏列表失败:', e);
+        }
+    }
+
+    // 检查是否已收藏
+    function isFavorited(permalink) {
+        const favorites = getFavorites();
+        return favorites.some(item => item.permalink === permalink);
+    }
+
+    // 切换收藏状态
+    function toggleFavorite(btn) {
+        const permalink = btn.getAttribute('data-permalink');
+        const title = btn.getAttribute('data-title');
+        const date = btn.getAttribute('data-date');
+        const readingTime = btn.getAttribute('data-reading-time');
+        const categories = btn.getAttribute('data-categories');
+
+        if (!permalink) return;
+
+        let favorites = getFavorites();
+        const index = favorites.findIndex(item => item.permalink === permalink);
+
+        if (index > -1) {
+            // 已收藏，取消收藏
+            favorites.splice(index, 1);
+            btn.classList.remove('favorited');
+        } else {
+            // 未收藏，添加收藏
+            favorites.unshift({
+                permalink: permalink,
+                title: title,
+                date: date,
+                readingTime: readingTime,
+                categories: categories,
+                addedAt: new Date().toISOString()
+            });
+            btn.classList.add('favorited');
+        }
+
+        saveFavorites(favorites);
+    }
+
+    // 初始化页面上的收藏按钮状态
+    function initFavoriteButtons() {
+        document.querySelectorAll('.favorite-btn').forEach(function (btn) {
+            const permalink = btn.getAttribute('data-permalink');
+            if (permalink && isFavorited(permalink)) {
+                btn.classList.add('favorited');
+            }
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
+        // 初始化收藏按钮状态
+        initFavoriteButtons();
+
+        // =========================================
+        // 即时搜索功能
+        // =========================================
+        const searchInput = document.getElementById('instant-search-input');
+        const searchClear = document.getElementById('search-clear');
+        const suggestions = document.getElementById('search-suggestions');
+        const searchDataEl = document.getElementById('search-data');
+
+        if (searchInput && searchDataEl) {
+            let searchData = [];
+            try {
+                searchData = JSON.parse(searchDataEl.textContent);
+            } catch (e) {
+                console.error('解析搜索数据失败:', e);
+            }
+
+            // 输入事件
+            searchInput.addEventListener('input', function () {
+                const query = this.value.trim().toLowerCase();
+                searchClear.style.display = query ? 'block' : 'none';
+
+                if (!query) {
+                    suggestions.style.display = 'none';
+                    return;
+                }
+
+                // 搜索匹配
+                const matches = searchData.filter(item =>
+                    item.title.toLowerCase().includes(query)
+                ).slice(0, 10);
+
+                if (matches.length === 0) {
+                    suggestions.innerHTML = '<div class="search-no-result">未找到匹配的文章</div>';
+                } else {
+                    suggestions.innerHTML = matches.map(item => {
+                        const title = item.title.replace(
+                            new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'),
+                            '<mark>$1</mark>'
+                        );
+                        return '<a href="' + item.url + '" class="search-suggestion-item">' + title + '</a>';
+                    }).join('');
+                }
+                suggestions.style.display = 'block';
+            });
+
+            // 清除按钮
+            if (searchClear) {
+                searchClear.addEventListener('click', function () {
+                    searchInput.value = '';
+                    searchClear.style.display = 'none';
+                    suggestions.style.display = 'none';
+                    searchInput.focus();
+                });
+            }
+
+            // 点击外部关闭
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.instant-search-container')) {
+                    suggestions.style.display = 'none';
+                }
+            });
+        }
+
+        // =========================================
+        // 顶部导航栏即时搜索功能
+        // =========================================
+        const headerSearchInput = document.getElementById('header-search-input');
+        const headerSearchClear = document.getElementById('header-search-clear');
+        const headerSuggestions = document.getElementById('header-search-suggestions');
+        const searchDataEl2 = document.getElementById('search-data');
+
+        if (headerSearchInput) {
+            let searchData2 = [];
+            if (searchDataEl2) {
+                try {
+                    searchData2 = JSON.parse(searchDataEl2.textContent);
+                } catch (e) {
+                    console.error('解析搜索数据失败:', e);
+                }
+            }
+
+            // 输入事件
+            headerSearchInput.addEventListener('input', function () {
+                const query = this.value.trim().toLowerCase();
+                if (headerSearchClear) headerSearchClear.style.display = query ? 'block' : 'none';
+
+                if (!query || searchData2.length === 0) {
+                    if (headerSuggestions) headerSuggestions.style.display = 'none';
+                    return;
+                }
+
+                // 搜索匹配
+                const matches = searchData2.filter(item =>
+                    item.title.toLowerCase().includes(query)
+                ).slice(0, 10);
+
+                if (headerSuggestions) {
+                    if (matches.length === 0) {
+                        headerSuggestions.innerHTML = '<div class="search-no-result">未找到匹配的文章</div>';
+                    } else {
+                        headerSuggestions.innerHTML = matches.map(item => {
+                            const title = item.title.replace(
+                                new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'),
+                                '<mark>$1</mark>'
+                            );
+                            return '<a href="' + item.url + '" class="search-suggestion-item">' + title + '</a>';
+                        }).join('');
+                    }
+                    headerSuggestions.style.display = 'block';
+                }
+            });
+
+            // 清除按钮
+            if (headerSearchClear) {
+                headerSearchClear.addEventListener('click', function () {
+                    headerSearchInput.value = '';
+                    headerSearchClear.style.display = 'none';
+                    if (headerSuggestions) headerSuggestions.style.display = 'none';
+                    headerSearchInput.focus();
+                });
+            }
+
+            // 点击外部关闭
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.header-search-container') && headerSuggestions) {
+                    headerSuggestions.style.display = 'none';
+                }
+            });
+        }
+
         // =========================================
         // 阅读进度条
         // =========================================

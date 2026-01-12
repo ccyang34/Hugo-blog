@@ -184,8 +184,8 @@
     /* 文章详情页元信息区域紧凑化 */
     .article-page .main-article .article-header .article-details {
         gap: 0 !important;
-        padding-top: 2px !important;
-        padding-bottom: 2px !important;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
     }
 
     .article-page .main-article .article-header .article-time {
@@ -1064,4 +1064,44 @@ footer.article-time {
 /* 暗色模式下适当调低亮度 */
 [data-scheme="dark"] .taxonomy-item {
     filter: saturate(0.8) brightness(0.9) !important;
+}
+
+/* =========================================
+   分类页面移动端修复
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* 修复标题被导航栏遮挡 */
+    main.main>header {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* 分类标签强制两列布局 */
+    .taxonomy-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 10px 15px !important;
+    }
+
+    /* 分类项目自适应宽度 */
+    .taxonomy-item {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 12px 14px !important;
+        gap: 4px !important;
+    }
+
+    /* 分类名称样式 */
+    .taxonomy-name {
+        margin-right: 0 !important;
+        margin-bottom: 2px !important;
+    }
+
+    /* 文章数换行显示 */
+    .taxonomy-count {
+        display: block !important;
+    }
 }

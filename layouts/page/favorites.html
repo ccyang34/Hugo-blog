@@ -1,0 +1,151 @@
+{{ define "main" }}
+<section class="article-list" id="favorites-list">
+    <!-- 收藏的文章将通过JavaScript动态渲染 -->
+</section>
+<div class="favorites-empty" id="favorites-empty"
+    style="display: none; text-align: center; padding: 60px 20px; color: #999;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="1.5" style="color: #ddd; margin-bottom: 20px;">
+        <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+        </polygon>
+    </svg>
+    <p style="font-size: 1.4rem; margin-bottom: 20px;">暂无收藏的文章</p>
+    <a href="/"
+        style="display: inline-block; padding: 10px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; text-decoration: none; border-radius: 20px;">去看看文章</a>
+</div>
+
+<style>
+    #favorites-list .fav-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+    }
+
+    [data-scheme="dark"] #favorites-list .fav-item {
+        border-bottom-color: rgba(255, 255, 255, 0.05);
+    }
+
+    #favorites-list .fav-star {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 12px;
+        cursor: pointer;
+        color: #FFD700;
+    }
+
+    #favorites-list .fav-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #favorites-list .fav-title {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #333;
+        margin: 0 0 4px 0;
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    [data-scheme="dark"] #favorites-list .fav-title {
+        color: #e0e0e0;
+    }
+
+    #favorites-list .fav-title a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    #favorites-list .fav-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.15rem;
+        color: #888;
+    }
+
+    #favorites-list .fav-meta .cat-tag {
+        display: inline-block;
+        padding: 1px 6px;
+        border-radius: 3px;
+        font-size: 1rem;
+        color: #fff;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const listContainer = document.getElementById('favorites-list');
+        const emptyContainer = document.getElementById('favorites-empty');
+
+        function formatRelativeTime(dateInput) {
+            if (!dateInput) return '';
+            let date;
+            if (typeof dateInput === 'number' || /^\d+$/.test(dateInput)) {
+                date = new Date(parseInt(dateInput) * 1000);
+            } else {
+                date = new Date(dateInput);
+            }
+            if (isNaN(date.getTime())) return '';
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMin = Math.floor(diffMs / 60000);
+            const diffHour = Math.floor(diffMin / 60);
+            const diffDay = Math.floor(diffHour / 24);
+            if (diffMin < 60) return diffMin + '分钟前';
+            if (diffHour < 24) return diffHour + '小时前';
+            if (diffDay < 7) return diffDay + '天前';
+            if (diffDay < 30) return Math.floor(diffDay / 7) + '周前';
+            return Math.floor(diffDay / 30) + '个月前';
+        }
+
+        const colors = ['#8ea885', '#df7988', '#0177b8', '#ffb900', '#6b69d6'];
+        const clockSvg = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px; margin-right: 2px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+
+        function render() {
+            const favs = getFavorites();
+            if (favs.length === 0) {
+                listContainer.style.display = 'none';
+                emptyContainer.style.display = 'block';
+                return;
+            }
+            listContainer.style.display = 'block';
+            emptyContainer.style.display = 'none';
+
+            listContainer.innerHTML = favs.map((item, i) => {
+                const time = formatRelativeTime(item.date);
+                const reading = item.readingTime ? clockSvg + '阅读时长: ' + item.readingTime + ' 分钟' : '';
+                let cats = '';
+                if (item.categories) {
+                    item.categories.split(',').filter(c => c.trim()).forEach(c => {
+                        cats += '<span class="cat-tag" style="background:' + colors[i % 5] + '">' + c.trim() + '</span>';
+                    });
+                }
+                return '<div class="fav-item" onclick="window.location.href=\'' + item.permalink + '\'">' +
+                    '<svg class="fav-star" onclick="event.stopPropagation();removeFavorite(\'' + item.permalink + '\')" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>' +
+                    '<div class="fav-content">' +
+                    '<h3 class="fav-title"><a href="' + item.permalink + '">' + item.title + '</a></h3>' +
+                    '<div class="fav-meta">' + (time ? '<span>' + time + '</span>' : '') + (reading ? '<span>' + reading + '</span>' : '') + cats + '</div>' +
+                    '</div>' +
+                    '</div>';
+            }).join('');
+        }
+
+        window.removeFavorite = function (url) {
+            let favs = getFavorites();
+            favs = favs.filter(f => f.permalink !== url);
+            saveFavorites(favs);
+            render();
+        };
+        render();
+    });
+</script>
+{{ end }}

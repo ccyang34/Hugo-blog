@@ -27,6 +27,17 @@
 
 {{- partial "pagination.html" . -}}
 {{- partial "footer/footer" . -}}
+
+<!-- 搜索数据 -->
+<script id="search-data" type="application/json">
+[
+{{ $allPages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ range $index, $page := $allPages }}
+{{ if $index }},{{ end }}
+{"title": {{ $page.Title | jsonify }}, "url": "{{ $page.RelPermalink }}"}
+{{ end }}
+]
+</script>
 {{ end }}
 
 {{ define "right-sidebar" }}
