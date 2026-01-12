@@ -491,12 +491,14 @@
 
 
         // =========================================
-        // 无限滚动加载
+        // 无限滚动加载（仅在非主页使用，主页由 category-switch.js 处理）
         // =========================================
+        const categoryNav = document.querySelector('.main-category-nav');
         const articleListContainer = document.querySelector('.article-list, .taxonomy-grid');
         const paginationEl = document.querySelector('.pagination');
 
-        if (articleListContainer && paginationEl) {
+        // 如果有分类导航（主页），跳过这里的无限滚动，由 category-switch.js 处理
+        if (articleListContainer && paginationEl && !categoryNav) {
             // 隐藏传统分页器
             paginationEl.style.display = 'none';
 

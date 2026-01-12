@@ -1,6 +1,7 @@
 /**
  * 分类切换功能 - 类似新闻App的分类栏切换效果
  * 点击分类时：1. 下划线平滑切换 2. 文章列表动态刷新
+ * 支持分类内的无限滚动加载
  */
 (function () {
     const categoryNav = document.querySelector('.main-category-nav');
@@ -10,6 +11,12 @@
 
     const categoryItems = categoryNav.querySelectorAll('.category-item');
     let isLoading = false;
+    let currentCategoryUrl = '/'; // 当前分类 URL
+    let nextPageUrl = null; // 下一页 URL
+
+    // 隐藏传统分页器
+    const pagination = document.querySelector('.pagination');
+    if (pagination) pagination.style.display = 'none';
 
     // 为每个分类项添加点击事件
     categoryItems.forEach(item => {
@@ -26,24 +33,32 @@
             const categoryUrl = this.getAttribute('data-category');
 
             if (categoryUrl === 'all') {
-                // 返回主页获取全部文章
-                await loadArticles('/');
+                currentCategoryUrl = '/';
             } else {
-                // 加载对应分类的文章
-                await loadArticles(categoryUrl);
+                currentCategoryUrl = categoryUrl;
             }
+
+            // 加载第一页
+            await loadArticles(currentCategoryUrl, true);
         });
     });
 
+    // 初始化无限滚动
+    initInfiniteScroll();
+
     /**
      * 加载指定URL的文章列表
+     * @param {string} url - 要加载的 URL
+     * @param {boolean} isFirstPage - 是否是第一页（切换分类时）
      */
-    async function loadArticles(url) {
+    async function loadArticles(url, isFirstPage = false) {
         isLoading = true;
 
-        // 添加加载中的淡出效果
-        articleList.style.opacity = '0.5';
-        articleList.style.pointerEvents = 'none';
+        if (isFirstPage) {
+            // 切换分类时淡出效果
+            articleList.style.opacity = '0.5';
+            articleList.style.pointerEvents = 'none';
+        }
 
         try {
             const response = await fetch(url);
@@ -53,35 +68,43 @@
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
 
-            // 根据页面类型提取文章列表
-            let newArticles;
+            // 提取文章列表
             const newArticleList = doc.getElementById('article-list') || doc.querySelector('.article-list');
+            const articles = newArticleList ? newArticleList.querySelectorAll('article') : doc.querySelectorAll('.article-list article');
 
-            if (newArticleList) {
-                newArticles = newArticleList.innerHTML;
-            } else {
-                // 分类页面可能有不同的结构
-                const articles = doc.querySelectorAll('.article-list article');
-                if (articles.length > 0) {
-                    newArticles = Array.from(articles).map(a => a.outerHTML).join('');
+            if (articles.length > 0) {
+                const articlesHtml = Array.from(articles).map(a => a.outerHTML).join('');
+
+                if (isFirstPage) {
+                    // 第一页：替换内容
+                    articleList.innerHTML = articlesHtml;
+                    // 滚动到顶部
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    // 后续页：追加内容
+                    articleList.insertAdjacentHTML('beforeend', articlesHtml);
                 }
-            }
-
-            if (newArticles) {
-                // 淡入新内容
-                articleList.innerHTML = newArticles;
                 articleList.style.opacity = '1';
-            } else {
-                // 如果没有找到文章，显示提示
+            } else if (isFirstPage) {
                 articleList.innerHTML = '<div class="no-articles" style="text-align:center;padding:40px;color:#888;">该分类暂无文章</div>';
                 articleList.style.opacity = '1';
             }
 
-            // 更新无限滚动的触发器（如果存在）
-            const newTrigger = doc.getElementById('infinite-scroll-trigger');
-            const currentTrigger = document.getElementById('infinite-scroll-trigger');
-            if (newTrigger && currentTrigger) {
-                currentTrigger.setAttribute('data-next-url', newTrigger.getAttribute('data-next-url') || '');
+            // 获取下一页 URL（从分页器中提取）
+            const pagination = doc.querySelector('.pagination');
+            if (pagination) {
+                const nextLink = pagination.querySelector('a[aria-label="next page"]') ||
+                    pagination.querySelector('.page-link:last-child[href]');
+                nextPageUrl = nextLink ? nextLink.getAttribute('href') : null;
+            } else {
+                // 尝试从 infinite-scroll-trigger 获取
+                const trigger = doc.getElementById('infinite-scroll-trigger');
+                nextPageUrl = trigger ? trigger.getAttribute('data-next-url') : null;
+            }
+
+            // 重新应用头条标签和相对时间（调用 custom.html 中的函数）
+            if (typeof applyHeadlineAndTime === 'function') {
+                applyHeadlineAndTime();
             }
 
         } catch (error) {
@@ -91,5 +114,26 @@
             articleList.style.pointerEvents = '';
             isLoading = false;
         }
+    }
+
+    /**
+     * 初始化无限滚动
+     */
+    function initInfiniteScroll() {
+        // 获取初始的下一页 URL
+        const trigger = document.getElementById('infinite-scroll-trigger');
+        nextPageUrl = trigger ? trigger.getAttribute('data-next-url') : null;
+
+        // 监听滚动事件
+        window.addEventListener('scroll', async function () {
+            if (isLoading || !nextPageUrl) return;
+
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const threshold = document.body.offsetHeight - 500;
+
+            if (scrollPosition >= threshold) {
+                await loadArticles(nextPageUrl, false);
+            }
+        });
     }
 })();
