@@ -8,7 +8,7 @@
         --article-font-size: 1.6rem !important;
         --article-line-height: 1.6 !important;
         --card-padding: 15px !important;
-        --section-separation: 10px !important;
+        --section-separation: 0px !important;
         --main-top-padding: 10px !important;
     }
 
@@ -104,6 +104,7 @@
         flex-shrink: 0 !important;
         white-space: nowrap !important;
         display: inline-block !important;
+        font-size: 1.4rem !important;
         /* 也可以是 flex, 但 inline-block 兼容性较好 */
     }
 
