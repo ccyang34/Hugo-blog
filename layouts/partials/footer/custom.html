@@ -480,6 +480,19 @@
         margin: 0 10px !important;
         min-width: 0 !important;
         /* 防止flex子元素溢出 */
+        transition: all 0.3s ease;
+        /* 添加过渡效果 */
+    }
+
+    /* 搜索栏聚焦时的样式 - 全宽 */
+    .sidebar header.search-active .header-home-icon,
+    .sidebar header.search-active .hamburger {
+        display: none !important;
+    }
+
+    .sidebar header.search-active .header-search-container {
+        margin: 0 !important;
+        padding: 0 5px;
     }
 
     .header-search-box {
@@ -872,10 +885,17 @@
                 });
             }
 
+            // 聚焦/失焦交互
+            const sidebarHeader = document.querySelector('.sidebar header');
+            headerSearchInput.addEventListener('focus', function () {
+                if (sidebarHeader) sidebarHeader.classList.add('search-active');
+            });
+
             // 点击外部关闭
             document.addEventListener('click', function (e) {
-                if (!e.target.closest('.header-search-container') && headerSuggestions) {
-                    headerSuggestions.style.display = 'none';
+                if (!e.target.closest('.header-search-container')) {
+                    if (headerSuggestions) headerSuggestions.style.display = 'none';
+                    if (sidebarHeader) sidebarHeader.classList.remove('search-active');
                 }
             });
         }
