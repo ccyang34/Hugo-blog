@@ -49,7 +49,7 @@
 
     /* 分类导航栏 */
     .main-category-nav {
-        padding-top: 10px !important;
+        padding-top: 0 !important;
         padding-bottom: 10px !important;
     }
 
