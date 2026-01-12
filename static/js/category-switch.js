@@ -90,16 +90,19 @@
                 articleList.style.opacity = '1';
             }
 
-            // 获取下一页 URL（从分页器中提取）
-            const pagination = doc.querySelector('.pagination');
-            if (pagination) {
-                const nextLink = pagination.querySelector('a[aria-label="next page"]') ||
-                    pagination.querySelector('.page-link:last-child[href]');
-                nextPageUrl = nextLink ? nextLink.getAttribute('href') : null;
-            } else {
-                // 尝试从 infinite-scroll-trigger 获取
-                const trigger = doc.getElementById('infinite-scroll-trigger');
-                nextPageUrl = trigger ? trigger.getAttribute('data-next-url') : null;
+            // 获取下一页 URL
+            // 1. 优先从 infinite-scroll-trigger 获取（这是我们专门为 AJAX 模式准备的标识）
+            const trigger = doc.getElementById('infinite-scroll-trigger');
+            nextPageUrl = trigger ? trigger.getAttribute('data-next-url') : null;
+
+            // 2. 如果没找到，再尝试从传统分页器提取
+            if (!nextPageUrl) {
+                const pagination = doc.querySelector('.pagination');
+                if (pagination) {
+                    const nextLink = pagination.querySelector('a[aria-label="next page"]') ||
+                        pagination.querySelector('.page-link:last-child[href]');
+                    nextPageUrl = nextLink ? nextLink.getAttribute('href') : null;
+                }
             }
 
             // 重新应用头条标签和相对时间（调用 custom.html 中的函数）
@@ -123,6 +126,16 @@
         // 获取初始的下一页 URL
         const trigger = document.getElementById('infinite-scroll-trigger');
         nextPageUrl = trigger ? trigger.getAttribute('data-next-url') : null;
+
+        // 如果没有 trigger，尝试从分页器获取一次初始 URL
+        if (!nextPageUrl) {
+            const pagination = document.querySelector('.pagination');
+            if (pagination) {
+                const nextLink = pagination.querySelector('a[aria-label="next page"]') ||
+                    pagination.querySelector('.page-link:last-child[href]');
+                nextPageUrl = nextLink ? nextLink.getAttribute('href') : null;
+            }
+        }
 
         // 监听滚动事件
         window.addEventListener('scroll', async function () {
