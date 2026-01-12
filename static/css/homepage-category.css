@@ -44,7 +44,7 @@
 /* 分类按钮 - 纯文字下划线样式 */
 .main-category-nav .category-item {
     display: inline-block;
-    padding: 10px 14px;
+    padding: 10px 8px;
     border-radius: 0;
     color: #333;
     font-size: 1.4rem;
@@ -61,24 +61,47 @@
     color: #ccc;
 }
 
-/* 第一个分类（当前分类）高亮 */
-.main-category-nav .category-item:first-child {
+/* 激活状态 - 通过 .active 类控制 */
+.main-category-nav .category-item.active {
     color: #1a73e8;
     font-weight: 600;
 }
 
-.main-category-nav .category-item:first-child::after {
+.main-category-nav .category-item::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 14px;
-    right: 14px;
+    left: 8px;
+    right: 8px;
     height: 2px;
     background: #1a73e8;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.main-category-nav .category-item.active::after {
+    transform: scaleX(1);
+}
+
+[data-scheme="dark"] .main-category-nav .category-item.active {
+    color: #5fa8ff;
+}
+
+[data-scheme="dark"] .main-category-nav .category-item::after {
+    background: #5fa8ff;
 }
 
 .main-category-nav .category-item:hover {
     color: #1a73e8;
     filter: none;
     box-shadow: none;
+}
+
+[data-scheme="dark"] .main-category-nav .category-item:hover {
+    color: #5fa8ff;
+}
+
+/* 文章列表过渡效果 */
+.article-list {
+    transition: opacity 0.2s ease;
 }

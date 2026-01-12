@@ -2,8 +2,11 @@
 <!-- 分类导航 Start -->
 <div class="main-category-nav">
     <div class="category-list">
+        <a href="/" class="category-item active" data-category="all">
+            全部
+        </a>
         {{ range .Site.Taxonomies.categories.ByCount }}
-        <a href="{{ .Page.RelPermalink }}" class="category-item">
+        <a href="{{ .Page.RelPermalink }}" class="category-item" data-category="{{ .Page.RelPermalink }}">
             {{ .Page.Title }}
         </a>
         {{ end }}
@@ -16,7 +19,7 @@
 {{ $filtered := ($pages | intersect $notHidden) }}
 {{ $pag := .Paginate ($filtered) }}
 
-<section class="article-list">
+<section class="article-list" id="article-list">
     {{ range $index, $element := $pag.Pages }}
     {{ partial "article-list/default" . }}
     {{ end }}
