@@ -44,7 +44,7 @@
 /* 分类按钮 - 纯文字下划线样式 */
 .main-category-nav .category-item {
     display: inline-block;
-    padding: 10px 8px;
+    padding: 10px 5px;
     border-radius: 0;
     color: #333;
     font-size: 1.4rem;
@@ -71,8 +71,8 @@
     content: '';
     position: absolute;
     bottom: 0;
-    left: 8px;
-    right: 8px;
+    left: 5px;
+    right: 5px;
     height: 2px;
     background: #e53935 !important;
     transform: scaleX(0);

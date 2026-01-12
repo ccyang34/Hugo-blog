@@ -93,10 +93,10 @@
     .main-category-nav .category-list {
         display: flex !important;
         flex-wrap: nowrap !important;
-        gap: 10px !important;
+        gap: 0 !important;
         width: max-content !important;
         /* 确保内容撑开宽度 */
-        padding: 0 15px !important;
+        padding: 0 10px !important;
         /* 内边距加在内容上，保证滚动首尾留白 */
     }
 
