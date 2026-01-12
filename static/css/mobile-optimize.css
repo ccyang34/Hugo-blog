@@ -96,7 +96,7 @@
         gap: 0 !important;
         width: max-content !important;
         /* 确保内容撑开宽度 */
-        padding: 0 10px !important;
+        padding: 0 12px !important;
         /* 内边距加在内容上，保证滚动首尾留白 */
     }
 
@@ -110,7 +110,7 @@
     /* 文章列表间距 */
     .article-list {
         gap: 6px !important;
-        margin-top: 6px !important;
+        margin-top: 2px !important;
     }
 
     /* 主页文章标题字号 */
