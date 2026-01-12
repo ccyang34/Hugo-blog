@@ -93,7 +93,7 @@
     .main-category-nav .category-list {
         display: flex !important;
         flex-wrap: nowrap !important;
-        gap: 8px !important;
+        gap: 5px !important;
         width: max-content !important;
         /* 确保内容撑开宽度 */
         padding: 0 12px !important;
