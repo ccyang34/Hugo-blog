@@ -1073,8 +1073,8 @@ footer.article-time {
 
     /* 修复标题被导航栏遮挡 */
     main.main>header {
-        padding-top: 8px !important;
-        margin-top: 8px !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
     }
 
     /* 分类标签强制两列布局 */

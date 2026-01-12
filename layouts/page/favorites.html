@@ -1,4 +1,7 @@
 {{ define "main" }}
+<div class="favorites-header">
+    <h2>我的收藏</h2>
+</div>
 <section class="article-list" id="favorites-list">
     <!-- 收藏的文章将通过JavaScript动态渲染 -->
 </section>
@@ -16,6 +19,18 @@
 </div>
 
 <style>
+    .favorites-header {
+        padding: 20px 20px 10px;
+        background: var(--card-background);
+    }
+
+    .favorites-header h2 {
+        margin: 0;
+        font-size: 2.0rem;
+        font-weight: 700;
+        color: var(--card-text-color-main);
+    }
+
     #favorites-list .fav-item {
         display: flex;
         flex-direction: row;
