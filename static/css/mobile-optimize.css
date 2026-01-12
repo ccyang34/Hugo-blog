@@ -17,7 +17,7 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
         padding-top: 0 !important;
-        gap: 8px !important;
+        gap: 0 !important;
     }
 
     /* 左侧边栏头部下移对齐 + 边距 + 背景色 */
@@ -110,7 +110,7 @@
     /* 文章列表间距 */
     .article-list {
         gap: 6px !important;
-        margin-top: 2px !important;
+        margin-top: 6px !important;
     }
 
     /* 主页文章标题字号 */

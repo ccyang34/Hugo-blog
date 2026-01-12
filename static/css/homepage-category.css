@@ -1,6 +1,6 @@
 /* 全局变量覆盖：减少卡片之间的间距 */
 :root {
-    --section-separation: 0px !important;
+    --section-separation: 6px !important;
     --main-top-padding: 0px !important;
 }
 
