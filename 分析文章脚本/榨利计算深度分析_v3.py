@@ -275,6 +275,7 @@ class 榨利计算器V3:
         plt.savefig(os.path.join(HUGO_IMAGES_DIR, 文件名))
         plt.savefig(os.path.join(self.输出目录, 文件名))
         plt.close()
+        return 文件名
 
     # ================= AI 分析与博客生成逻辑 =================
 
