@@ -71,7 +71,14 @@ params:
             enabled: true
 
 menu:
-    main: []
+    main:
+    - identifier: blog-publisher
+      name: 博客发布器
+      url: https://hugo-fabu.ccyang.online/
+      weight: -40
+      params:
+          icon: upload
+          newTab: true
 
 related:
     includeNewer: true

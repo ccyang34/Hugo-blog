@@ -1,0 +1,70 @@
+.left-sidebar {
+    gap: 0;
+}
+
+/* Mobile Layout Adjustments */
+@media (max-width: 767px) {
+    #main-menu {
+        display: none;
+
+        &.show {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            /* Minimal gap */
+            padding: 10px;
+            /* Minimal padding */
+        }
+    }
+
+    #main-menu .menu-bottom-section,
+    #main-menu .menu-bottom-section .menu {
+        display: contents;
+    }
+
+    #main-menu li {
+        width: 100%;
+        margin: 0;
+    }
+
+    #main-menu li a,
+    #dark-mode-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        padding: 0;
+        border-radius: var(--card-border-radius);
+        gap: 5px;
+        /* Gap between icon and text */
+
+        height: auto;
+        min-height: 60px;
+        font-size: 1.4rem;
+        /* Ensure consistent font size */
+        line-height: normal;
+    }
+
+    /* Enforce consistent icon size */
+    #main-menu li a svg,
+    #dark-mode-toggle svg {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        /* Prevent shrinking */
+        min-height: 24px;
+        stroke-width: 1.5;
+        /* Normalize stroke width if needed */
+        margin: 0;
+        /* Remove any margins */
+    }
+
+    #dark-mode-toggle {
+        margin-top: 0;
+        cursor: pointer;
+        color: var(--body-text-color);
+        box-shadow: none;
+    }
+}
