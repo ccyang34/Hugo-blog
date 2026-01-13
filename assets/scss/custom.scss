@@ -240,6 +240,7 @@
     width: 44px;
     height: 44px;
     background: rgba(255, 255, 255, 0.7);
+    opacity: 0.20;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 50%;
@@ -340,7 +341,7 @@
 .mobile-toc-body {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
+    padding: 15px;
 }
 
 /* TOC Styles specific to mobile drawer */
@@ -360,36 +361,53 @@
 /* Level 1 (H2) */
 .mobile-toc-body nav>ol>li>a {
     display: block;
-    padding: 10px 0;
+    padding: 8px 12px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.15rem;
     color: var(--card-text-color-main, #333);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: none;
+    margin-bottom: 2px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-toc-body nav>ol>li>a:active {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Level 2 (H3) and deeper */
 .mobile-toc-body nav ol ol {
-    padding-left: 15px;
-    border-left: 1px solid rgba(0, 0, 0, 0.05);
-    margin-left: 5px;
+    padding-left: 0;
+    margin-left: 0;
+    border-left: none;
 }
 
 .mobile-toc-body nav ol ol li a {
     display: block;
-    padding: 6px 0 6px 15px;
-    font-size: 0.9rem;
+    padding: 6px 12px 6px 26px;
+    font-size: 1rem;
     color: #666;
     font-weight: 400;
     border-bottom: none;
+    border-radius: 8px;
+}
+
+.mobile-toc-body nav ol ol li a:active {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 [data-scheme="dark"] .mobile-toc-body nav>ol>li>a {
     color: #eee;
-    border-bottom-color: rgba(255, 255, 255, 0.05);
+    border-bottom: none;
 }
 
 [data-scheme="dark"] .mobile-toc-body nav ol ol {
-    border-left-color: rgba(255, 255, 255, 0.1);
+    border-left: none;
+}
+
+[data-scheme="dark"] .mobile-toc-body nav>ol>li>a:active,
+[data-scheme="dark"] .mobile-toc-body nav ol ol li a:active {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 [data-scheme="dark"] .mobile-toc-body nav ol ol li a {
@@ -399,4 +417,15 @@
 .mobile-toc-body nav a:hover,
 .mobile-toc-body nav a.active {
     color: var(--primary) !important;
+}
+
+/* Back to Top Button Opacity */
+.back-to-top,
+.back-to-top.visible {
+    opacity: 0.35 !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    opacity: 1 !important;
 }
