@@ -999,3 +999,78 @@
 
 <!-- 分类切换功能 -->
 <script src="/js/category-switch.js"></script>
+
+<!-- Mobile TOC Button & Overlay -->
+<div id="mobile-toc-btn" class="mobile-toc-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list" width="24" height="24"
+        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="9" y1="6" x2="20" y2="6"></line>
+        <line x1="9" y1="12" x2="20" y2="12"></line>
+        <line x1="9" y1="18" x2="20" y2="18"></line>
+        <line x1="5" y1="6" x2="5" y2="6.01"></line>
+        <line x1="5" y1="12" x2="5" y2="12.01"></line>
+        <line x1="5" y1="18" x2="5" y2="18.01"></line>
+    </svg>
+</div>
+
+<div id="mobile-toc-overlay" class="mobile-toc-overlay">
+    <div class="mobile-toc-content">
+        <div class="mobile-toc-header">
+            <h3>目录</h3>
+            <span class="mobile-toc-close">&times;</span>
+        </div>
+        <div id="mobile-toc-body" class="mobile-toc-body"></div>
+    </div>
+</div>
+
+<script>
+    // JS Logic for Mobile TOC
+    document.addEventListener('DOMContentLoaded', function () {
+        const tocWidget = document.querySelector('.widget--toc');
+        const tocBtn = document.getElementById('mobile-toc-btn');
+        const tocOverlay = document.getElementById('mobile-toc-overlay');
+        const tocBody = document.getElementById('mobile-toc-body');
+        const tocClose = document.querySelector('.mobile-toc-close');
+
+        if (tocWidget && tocBtn) {
+            // Check if TOC has content (it might be empty if short article)
+            if (tocWidget.innerText.trim().length > 0) {
+                // Clone TOC content
+                tocBody.innerHTML = tocWidget.innerHTML;
+            } else {
+                // If empty TOC, hide button
+                tocBtn.style.setProperty('display', 'none', 'important');
+                return;
+            }
+
+            // Open
+            tocBtn.addEventListener('click', function () {
+                tocOverlay.classList.add('show');
+            });
+
+            // Close
+            tocClose.addEventListener('click', function () {
+                tocOverlay.classList.remove('show');
+            });
+
+            // Close on overlay click
+            tocOverlay.addEventListener('click', function (e) {
+                if (e.target === tocOverlay) {
+                    tocOverlay.classList.remove('show');
+                }
+            });
+
+            // Close on link click
+            tocBody.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    tocOverlay.classList.remove('show');
+                });
+            });
+        } else if (tocBtn) {
+            // If no TOC widget found (e.g. homepage), hide button
+            tocBtn.style.setProperty('display', 'none', 'important');
+        }
+    });
+</script>
