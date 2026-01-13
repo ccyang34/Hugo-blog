@@ -72,13 +72,20 @@ params:
 
 menu:
     main:
-    - identifier: blog-publisher
-      name: 博客发布器
-      url: https://hugo-fabu.ccyang.online/
-      weight: -40
-      params:
-          icon: upload
-          newTab: true
+        - identifier: blog-publisher
+          name: 博客发布器
+          url: https://hugo-fabu.ccyang.online/
+          weight: -40
+          params:
+              icon: upload
+              newTab: true
+        - identifier: market-map
+          name: 大盘云图
+          url: https://52etf.site/
+          weight: -35
+          params:
+              icon: bar-chart-2
+              newTab: true
 
 related:
     includeNewer: true

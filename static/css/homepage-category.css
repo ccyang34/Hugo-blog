@@ -62,6 +62,7 @@
 }
 
 /* 激活状态 - 通过 .active 类控制 */
+/* 激活状态 - 通过 .active 类控制 */
 .main-category-nav .category-item.active {
     color: #e53935 !important;
     font-weight: 700 !important;
@@ -80,7 +81,8 @@
 }
 
 .main-category-nav .category-item.active::after {
-    transform: scaleX(1);
+    transform: scaleX(0.7);
+    /* Shorten the underline */
 }
 
 [data-scheme="dark"] .main-category-nav .category-item.active {
@@ -100,6 +102,49 @@
 
 [data-scheme="dark"] .main-category-nav .category-item:hover {
     color: #ff6b6b;
+}
+
+/* Arrow Indicator */
+/* Arrow Indicator */
+.main-category-nav {
+    position: relative;
+    /* Ensure positioning context */
+}
+
+/* Arrow Indicator Container */
+.category-indicator {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 25px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    /* Let clicks pass through if needed, though background covers */
+}
+
+/* Arrow Icon */
+.category-indicator::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    transform: rotate(-45deg);
+    display: block;
+    margin-right: 4px;
+}
+
+[data-scheme="dark"] .category-indicator {
+    background: linear-gradient(to right, rgba(26, 26, 46, 0) 0%, rgba(26, 26, 46, 1) 30%, rgba(26, 26, 46, 1) 100%);
+}
+
+[data-scheme="dark"] .category-indicator::after {
+    border-color: #666;
 }
 
 /* 文章列表过渡效果 */
