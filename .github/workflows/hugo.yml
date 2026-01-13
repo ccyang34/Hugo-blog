@@ -61,12 +61,21 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      # 缓存 Hugo 资源
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
       # 4. 构建 Hugo 站点
       # --gc: 构建前运行垃圾回收
       # --minify: 压缩输出文件
       - name: Build with Hugo
         env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_CACHEDIR: /tmp/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: Asia/Shanghai # 设置时区，确保日期时间正确
         run: |
