@@ -12,32 +12,33 @@
         border: 1px solid var(--line-color, #eee);
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 8px;
         transition: all 0.3s;
     }
 
     .search-form {
-        margin-top: 20px !important;
+        margin-top: 5px !important;
     }
 
     .status-container {
         display: flex;
         align-items: center;
         width: 100%;
+        gap: 10px;
     }
 
     .status-item {
         flex: 1;
         display: flex;
-        align-items: flex-start;
-        gap: 10px;
+        flex-direction: column;
+        gap: 4px;
     }
 
     .status-divider {
         width: 1px;
         height: 24px;
         background: #eee;
-        margin: 0 16px;
+        margin: 0 8px;
     }
 
     .status-dot {
@@ -45,12 +46,12 @@
         height: 8px;
         border-radius: 50%;
         background-color: #d1d5db;
-        /* 默认灰色 */
         display: inline-block;
         flex-shrink: 0;
-        margin-top: 5px;
+        /* margin-top removed */
     }
 
+    /* ... dot colors ... */
     .status-dot.success {
         background-color: #10b981;
         box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
@@ -91,24 +92,30 @@
     .status-content {
         display: flex;
         flex-direction: column;
+        gap: 4px;
+    }
+
+    .status-value-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
     }
 
     .status-label {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         color: #888;
-        margin-bottom: 2px;
+        line-height: 1;
     }
 
     .status-value {
         font-weight: 700;
         color: var(--card-text-color, #333);
         font-size: 0.95rem;
-        line-height: 1.2;
+        line-height: 1;
     }
 
     .status-value span {
         display: none;
-        /* Hide timestamp for compact view */
     }
 
     .status-actions {
@@ -119,6 +126,7 @@
 
     #check-status-btn,
     .deploy-btn {
+        /* ... existing styles ... */
         background: #f38020;
         color: white;
         border: none;
@@ -138,7 +146,6 @@
 
     .deploy-btn {
         background: #2563eb !important;
-        /* Slightly darker blue */
     }
 
     #check-status-btn:active,
@@ -152,19 +159,14 @@
         cursor: not-allowed;
     }
 
+    /* Mobile adjustments */
     @media screen and (max-width: 480px) {
         .status-container {
-            align-items: flex-start;
+            align-items: center;
+            /* keep centered alignment */
         }
 
-        .status-item {
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .status-dot {
-            margin-top: 2px;
-        }
+        /* No need for column switch on status-item anymore */
     }
 </style>
 {{ end }}
@@ -174,10 +176,12 @@
     <div class="status-container">
         <!-- Cloudflare -->
         <div class="status-item">
-            <div id="status-dot" class="status-dot"></div>
             <div class="status-content">
                 <div class="status-label">Cloudflare Pages</div>
-                <div id="status-text" class="status-value">待查询</div>
+                <div class="status-value-row">
+                    <div id="status-dot" class="status-dot"></div>
+                    <div id="status-text" class="status-value">待查询</div>
+                </div>
             </div>
         </div>
 
@@ -185,10 +189,12 @@
 
         <!-- GitHub -->
         <div class="status-item">
-            <div id="gh-status-dot" class="status-dot"></div>
             <div class="status-content">
                 <div class="status-label">GitHub Actions</div>
-                <div id="gh-status-text" class="status-value">初始化...</div>
+                <div class="status-value-row">
+                    <div id="gh-status-dot" class="status-dot"></div>
+                    <div id="gh-status-text" class="status-value">初始化...</div>
+                </div>
             </div>
         </div>
     </div>
