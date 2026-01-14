@@ -18,6 +18,63 @@
     const pagination = document.querySelector('.pagination');
     if (pagination) pagination.style.display = 'none';
 
+    // ========== PC端箭头滑动功能 ==========
+    // 仅在PC端添加箭头（宽度 > 1024px）
+    if (window.innerWidth >= 1024) {
+        // 获取实际滚动的容器（.category-list 是真正溢出的元素）
+        const scrollContainer = categoryNav.querySelector('.category-list') || categoryNav;
+
+        // 创建箭头容器
+        const navWrapper = document.createElement('div');
+        navWrapper.className = 'category-nav-wrapper';
+        categoryNav.parentNode.insertBefore(navWrapper, categoryNav);
+        navWrapper.appendChild(categoryNav);
+
+        // 创建左箭头
+        const leftArrow = document.createElement('button');
+        leftArrow.className = 'category-nav-arrow category-nav-arrow-left';
+        leftArrow.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
+        navWrapper.insertBefore(leftArrow, categoryNav);
+
+        // 创建右箭头
+        const rightArrow = document.createElement('button');
+        rightArrow.className = 'category-nav-arrow category-nav-arrow-right';
+        rightArrow.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+        navWrapper.appendChild(rightArrow);
+
+        // 滑动距离
+        const scrollAmount = 200;
+
+        // 左箭头点击事件
+        leftArrow.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        // 右箭头点击事件
+        rightArrow.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        // 更新箭头显示状态
+        function updateArrowVisibility() {
+            const isAtStart = scrollContainer.scrollLeft <= 0;
+            const isAtEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
+
+            leftArrow.style.opacity = isAtStart ? '0.3' : '1';
+            leftArrow.style.pointerEvents = isAtStart ? 'none' : 'auto';
+            rightArrow.style.opacity = isAtEnd ? '0.3' : '1';
+            rightArrow.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+        }
+
+        // 监听滚动事件更新箭头状态
+        scrollContainer.addEventListener('scroll', updateArrowVisibility);
+
+        // 初始化箭头状态
+        updateArrowVisibility();
+    }
+    // ========== 箭头滑动功能结束 ==========
+
+
     // 为每个分类项添加点击事件
     categoryItems.forEach(item => {
         item.addEventListener('click', async function (e) {

@@ -1073,7 +1073,7 @@ footer.article-time {
 
     /* 修复标题被导航栏遮挡 */
     main.main>header {
-        padding-top: 0 !important;
+        padding-top: 5px !important;
         margin-top: 0 !important;
     }
 
@@ -1103,5 +1103,85 @@ footer.article-time {
     /* 文章数换行显示 */
     .taxonomy-count {
         display: block !important;
+    }
+}
+
+/* =========================================
+   分类/标签切换器 - iOS 分段控制器风格
+   ========================================= */
+.taxonomy-switcher {
+    display: none;
+}
+
+/* 仅移动端显示切换器 */
+@media (max-width: 768px) {
+    .taxonomy-switcher {
+        display: inline-flex;
+        align-items: stretch;
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        padding: 3px;
+        flex-shrink: 0;
+        margin-left: 10px;
+    }
+
+    [data-scheme="dark"] .taxonomy-switcher {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .taxonomy-switcher .switcher-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 7px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.35);
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+
+    [data-scheme="dark"] .taxonomy-switcher .switcher-btn {
+        color: rgba(255, 255, 255, 0.35);
+    }
+
+    .taxonomy-switcher .switcher-btn svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+        opacity: 0.6;
+    }
+
+    .taxonomy-switcher .switcher-btn.active {
+        background: #fff;
+        color: #e53935;
+        font-weight: 600;
+        box-shadow:
+            0 2px 6px rgba(0, 0, 0, 0.15),
+            0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .taxonomy-switcher .switcher-btn.active svg {
+        opacity: 1;
+        stroke: #e53935;
+    }
+
+    [data-scheme="dark"] .taxonomy-switcher .switcher-btn.active {
+        background: #fff;
+        color: #e53935;
+        box-shadow:
+            0 2px 6px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    [data-scheme="dark"] .taxonomy-switcher .switcher-btn.active svg {
+        stroke: #e53935;
+    }
+
+    .taxonomy-switcher .switcher-btn:active {
+        transform: scale(0.96);
     }
 }

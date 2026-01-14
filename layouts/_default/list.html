@@ -1,19 +1,49 @@
 {{ define "main" }}
 <header>
+    {{/* 只在非分类/标签顶级页面时显示标题，因为顶级页面有切换器 */}}
+    {{ $isTaxonomyOverview := and (eq .Parent (.GetPage "/")) (or (eq .Data.Plural "categories") (eq .Data.Plural
+    "tags")) }}
+    {{ if not $isTaxonomyOverview }}
     <h3 class="section-title">
         {{ if eq .Parent (.GetPage "/") }}
-        {{ if eq .Data.Plural "categories" }}
-        分类
-        {{ else if eq .Data.Plural "tags" }}
-        标签
-        {{ else }}
         {{ T "list.section" }}
-        {{ end }}
         {{ else }}
         {{ if eq .Parent.Title "Categories" }}分类{{ else if eq .Parent.Title "Tags" }}标签{{ else }}{{ .Parent.Title }}{{
         end }}
         {{ end }}
     </h3>
+    {{ end }}
+
+
+    {{/* 分类/标签切换开关 - 仅在顶级分类或标签页面显示 */}}
+    {{ if eq .Parent (.GetPage "/") }}
+    {{ if or (eq .Data.Plural "categories") (eq .Data.Plural "tags") }}
+    {{ $isCategories := eq .Title "Categories" }}
+    {{ $isTags := eq .Title "Tags" }}
+    <div class="taxonomy-switcher">
+        <a href="/categories/" class="switcher-btn{{ if $isCategories }} active{{ end }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>分类</span>
+        </a>
+        <a href="/tags/" class="switcher-btn{{ if $isTags }} active{{ end }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            <span>标签</span>
+        </a>
+    </div>
+    {{ end }}
+    {{ end }}
+
+
 
     <div class="section-card">
         <div class="section-details">
@@ -72,6 +102,11 @@
 {{- end -}}
 
 {{/* List only pages that are not a subsection */}}
+{{/* 对于分类和标签页面，按文章数量从高到低排序 */}}
+{{ if eq .Kind "taxonomy" }}
+{{- $pages = sort $pages ".Pages.Len" "desc" -}}
+{{ end }}
+
 {{ $paginator := .Paginate $pages }}
 {{ if eq .Kind "taxonomy" }}
 <section class="taxonomy-grid">
