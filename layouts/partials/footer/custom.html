@@ -922,54 +922,59 @@
         }
 
 
-                async function performSync(token) {
+                        async function performSync(token) {
             const headers = {
                 "Authorization": `token ${token}`,
                 "Accept": "application/vnd.github.v3+json"
             };
 
+            let logMsg = "";
+
             // 1. 获取 Gists
             let gistId = null;
             let remoteFavorites = [];
 
-            // 增加 per_page=100 以防 Gist 太多找不到
-            const gistsRes = await fetch("https://api.github.com/gists?per_page=100", { headers });
-            if (!gistsRes.ok) throw new Error("GitHub API Error: " + gistsRes.status);
-            const gists = await gistsRes.json();
+            try {
+                // 增加 per_page=100 以防 Gist 太多找不到
+                const gistsRes = await fetch("https://api.github.com/gists?per_page=100", { headers });
+                if (!gistsRes.ok) throw new Error("GitHub API Error: " + gistsRes.status);
+                const gists = await gistsRes.json();
 
-            // 查找包含目标文件的 Gist
-            const targetGist = gists.find(g => g.files[GIST_FILENAME]);
+                // 查找包含目标文件的 Gist
+                const targetGist = gists.find(g => g.files[GIST_FILENAME]);
 
-            if (targetGist) {
-                gistId = targetGist.id;
-                console.log("Found Sync Gist ID:", gistId);
-                const rawUrl = targetGist.files[GIST_FILENAME].raw_url;
-                try {
-                    const contentRes = await fetch(rawUrl);
-                    remoteFavorites = await contentRes.json();
-                } catch(e) {
-                    console.error("Parse Gist Content Error", e);
-                    remoteFavorites = []; 
+                if (targetGist) {
+                    gistId = targetGist.id;
+                    const rawUrl = targetGist.files[GIST_FILENAME].raw_url;
+                    try {
+                        const contentRes = await fetch(rawUrl);
+                        remoteFavorites = await contentRes.json();
+                    } catch(e) {
+                        console.error("Parse Gist Content Error", e);
+                        remoteFavorites = []; 
+                    }
                 }
-            } else {
-                console.log("No existing Sync Gist found. Will create new.");
+            } catch (e) {
+                console.error("Fetch Gist Error", e);
+                alert("获取云端数据失败: " + e.message);
+                return;
             }
 
             // 2. 合并
             const localFavorites = getFavorites();
-            // 以 permalink 为 key 去重
             const mergedMap = new Map();
             [...remoteFavorites, ...localFavorites].forEach(item => {
                 mergedMap.set(item.permalink, item);
             });
             const mergedList = Array.from(mergedMap.values());
-
-            // 按时间排序 (addedAt 倒序)
             mergedList.sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
 
             // 3. 更新本地
             saveFavorites(mergedList);
-            // render(); // UI will be refreshed by reload
+            
+            logMsg += `云端找到: ${remoteFavorites.length} 篇\n`;
+            logMsg += `本地原有: ${localFavorites.length} 篇\n`;
+            logMsg += `合并后: ${mergedList.length} 篇\n`;
 
             // 4. 更新/创建 远程
             const contentStr = JSON.stringify(mergedList, null, 2);
@@ -979,36 +984,46 @@
                 }
             };
             
-            // Debug Info
-            alert(`同步完成！\n\n云端找到: ${remoteFavorites.length} 篇\n本地原有: ${localFavorites.length} 篇\n合并后: ${mergedList.length} 篇\n\n状态: ${gistId ? "更新现有Gist" : "创建新Gist"}`);
+            let uploadSuccess = false;
+            let uploadMsg = "";
 
-            let response;
-            if (gistId) {
-                console.log("Updating existing Gist:", gistId);
-                response = await fetch(`https://api.github.com/gists/${gistId}`, {
-                    method: "PATCH",
-                    headers,
-                    body: JSON.stringify({ files })
-                });
-            } else {
-                console.log("Creating new Gist");
-                response = await fetch(`https://api.github.com/gists`, {
-                    method: "POST",
-                    headers,
-                    body: JSON.stringify({
-                        description: "Hugo Blog Favorites Sync",
-                        public: false,
-                        files
-                    })
-                });
+            try {
+                let response;
+                if (gistId) {
+                    response = await fetch(`https://api.github.com/gists/${gistId}`, {
+                        method: "PATCH",
+                        headers,
+                        body: JSON.stringify({ files })
+                    });
+                } else {
+                    response = await fetch(`https://api.github.com/gists`, {
+                        method: "POST",
+                        headers,
+                        body: JSON.stringify({
+                            description: "Hugo Blog Favorites Sync",
+                            public: false,
+                            files
+                        })
+                    });
+                }
+
+                if (response.ok) {
+                    uploadSuccess = true;
+                    uploadMsg = "✅ 云端同步成功";
+                } else {
+                    const errText = await response.text();
+                    uploadMsg = `❌ 上传失败 (Code: ${response.status})`;
+                    console.error("Upload Failed", errText);
+                }
+            } catch (e) {
+                 uploadMsg = `❌ 网络或接口错误: ${e.message}`;
             }
 
-            if (response.ok) {
-                alert("✅ 上传成功！\n云端已更新数据。");
-            } else {
-                const errText = await response.text();
-                console.error("Gist Upload Failed", response.status, errText);
-                alert("❌ 上传失败！\n状态码: " + response.status + "\n错误信息: " + errText);
+            // 统一显示结果
+            alert(`同步完成！\n\n${logMsg}\n----------------\n${uploadMsg}`);
+            
+            if (uploadSuccess) {
+                window.location.reload();
             }
         }
 
