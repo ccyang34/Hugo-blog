@@ -431,7 +431,7 @@
             var href = titleLink.getAttribute('href');
             if (!href) return;
 
-            // 添加 cursor 样式
+            // Add cursor pointer style
             article.style.cursor = 'pointer';
 
             // 点击事件
@@ -462,6 +462,7 @@
 <!-- Busuanzi Analytics -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
     referrerpolicy="no-referrer-when-downgrade"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
 <!-- =========================================
      资讯APP风格增强组件
@@ -798,9 +799,149 @@
 
             // 首页特殊处理
             if (currentPath === '/' || currentPath === '') {
-                navItems[0].classList.add('active');
+                navItems.forEach(i => i.classList.remove('active'));
+                bottomNav.querySelector('[data-page="home"]').classList.add('active');
             }
         }
+
+        // =========================================
+        // 收藏夹云端同步功能 (Gist based)
+        // =========================================
+        const ENCRYPTED_AUTH = "U2FsdGVkX18Tye0cnsCZgODOlZH3unA75Ps9KFGCF301+y3tRKRRIxPIX1LQGK5g8hlO8NVQNUWgrdZjMl21WA==";
+        const GIST_FILENAME = "blog_favorites_sync.json";
+
+        // 获取 Sync Button 容器 (添加到 Favorites 页面)
+        if (window.location.pathname.includes('/favorites/')) {
+            addSyncUI();
+        }
+
+        function addSyncUI() {
+            const container = document.querySelector('.main-container') || document.querySelector('main') || document.body;
+            // 查找标题区域
+            const header = document.querySelector('.article-header') || container.querySelector('h1')?.parentNode || container;
+
+            const syncBtn = document.createElement('button');
+            syncBtn.className = 'sync-btn';
+            syncBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                同步收藏
+            `;
+            syncBtn.style.cssText = `
+                margin-left: 15px;
+                padding: 5px 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background: white;
+                cursor: pointer;
+                font-size: 14px;
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+            `;
+
+            // 如果只有标题，插在标题后面？
+            // 简单起见，插在 .favorites-list 之前 或者 main 开头
+            if (document.querySelector('h1.section-term')) {
+                document.querySelector('h1.section-term').parentNode.appendChild(syncBtn);
+            } else {
+                header.appendChild(syncBtn);
+            }
+
+            syncBtn.addEventListener('click', handleSyncClick);
+        }
+
+        async function handleSyncClick() {
+            const pwd = prompt("请输入同步密码 (c):");
+            if (!pwd) return;
+
+            try {
+                const decryptedBytes = CryptoJS.AES.decrypt(ENCRYPTED_AUTH, pwd);
+                const token = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+                if (!token || !token.startsWith('ghp_')) {
+                    alert("密码错误！");
+                    return;
+                }
+
+                await performSync(token);
+                alert("同步成功！");
+                window.location.reload();
+
+            } catch (e) {
+                console.error(e);
+                alert("密码错误或同步失败: " + e.message);
+            }
+        }
+
+        async function performSync(token) {
+            const headers = {
+                "Authorization": `token ${token}`,
+                "Accept": "application/vnd.github.v3+json"
+            };
+
+            // 1. 获取 Gists
+            let gistId = null;
+            let remoteFavorites = [];
+
+            // 简单处理：搜索 Gist
+            const gistsRes = await fetch("https://api.github.com/gists", { headers });
+            const gists = await gistsRes.json();
+
+            const targetGist = gists.find(g => g.files[GIST_FILENAME]);
+
+            if (targetGist) {
+                gistId = targetGist.id;
+                const rawUrl = targetGist.files[GIST_FILENAME].raw_url;
+                const contentRes = await fetch(rawUrl);
+                remoteFavorites = await contentRes.json();
+            }
+
+            // 2. 合并
+            const localFavorites = getFavorites();
+            // 以 permalink 为 key 去重
+            const mergedMap = new Map();
+            [...remoteFavorites, ...localFavorites].forEach(item => {
+                mergedMap.set(item.permalink, item);
+            });
+            const mergedList = Array.from(mergedMap.values());
+
+            // 按时间排序 (addedAt 倒序)
+            mergedList.sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
+
+            // 3. 更新本地
+            saveFavorites(mergedList);
+
+            // 4. 更新/创建 远程
+            const contentStr = JSON.stringify(mergedList, null, 2);
+            const files = {
+                [GIST_FILENAME]: {
+                    content: contentStr
+                }
+            };
+
+            if (gistId) {
+                await fetch(`https://api.github.com/gists/${gistId}`, {
+                    method: "PATCH",
+                    headers,
+                    body: JSON.stringify({ files })
+                });
+            } else {
+                await fetch(`https://api.github.com/gists`, {
+                    method: "POST",
+                    headers,
+                    body: JSON.stringify({
+                        description: "Hugo Blog Favorites Sync",
+                        public: false,
+                        files
+                    })
+                });
+            }
+        }
+
 
         // =========================================
         // 相对时间转换
