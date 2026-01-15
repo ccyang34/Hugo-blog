@@ -815,11 +815,26 @@
             addSyncUI();
         }
 
-        function addSyncUI() {
-            const container = document.querySelector('.main-container') || document.querySelector('main') || document.body;
-            // 查找标题区域
-            const header = document.querySelector('.article-header') || container.querySelector('h1')?.parentNode || container;
+                function addSyncUI() {
+            // Create Container
+            const wrapper = document.createElement('div');
+            wrapper.style.cssText = 'display: inline-flex; align-items: center; gap: 8px; margin-left: auto;';
 
+            // Pass Input
+            const input = document.createElement('input');
+            input.type = 'password';
+            input.placeholder = '密码';
+            input.id = 'sync-password-input';
+            input.style.cssText = `
+                width: 60px;
+                padding: 6px 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+                outline: none;
+            `;
+            
+            // Sync Button
             const syncBtn = document.createElement('button');
             syncBtn.className = 'sync-btn';
             syncBtn.innerHTML = `
@@ -828,11 +843,10 @@
                     <polyline points="7 10 12 15 17 10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                同步收藏
+                同步
             `;
             syncBtn.style.cssText = `
-                margin-left: 15px;
-                padding: 5px 10px;
+                padding: 6px 12px;
                 border: 1px solid #ddd;
                 border-radius: 4px;
                 background: white;
@@ -841,7 +855,12 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 5px;
+                color: #555;
+                white-space: nowrap;
             `;
+
+            wrapper.appendChild(input);
+            wrapper.appendChild(syncBtn);
 
             // 1. Priority: Favorites Header (Mobile/New Template)
             const favHeader = document.querySelector('.favorites-header');
@@ -850,27 +869,39 @@
                 favHeader.style.alignItems = 'center';
                 favHeader.style.justifyContent = 'space-between';
                 const h2 = favHeader.querySelector('h2');
-                if (h2) h2.style.margin = '0';
-
-                favHeader.appendChild(syncBtn);
+                if(h2) h2.style.margin = '0';
+                
+                favHeader.appendChild(wrapper);
                 syncBtn.addEventListener('click', handleSyncClick);
                 return;
             }
 
             // 2. Fallback: section-term (PC)
             if (document.querySelector('h1.section-term')) {
-                document.querySelector('h1.section-term').parentNode.appendChild(syncBtn);
-            } else {
-                header.appendChild(syncBtn);
+                const container = document.querySelector('h1.section-term').parentNode;
+                wrapper.style.marginLeft = '15px';
+                container.appendChild(wrapper);
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                syncBtn.addEventListener('click', handleSyncClick);
+                return;
             }
 
+            // 3. Fallback: General Header
+            const container = document.querySelector('.main-container') || document.querySelector('main') || document.body;
+            const header = document.querySelector('.article-header') || container.querySelector('h1')?.parentNode || container;
+            header.appendChild(wrapper);
             syncBtn.addEventListener('click', handleSyncClick);
         }
 
         async function handleSyncClick() {
-            const pwd = prompt("请输入同步密码 (c):");
-            if (!pwd) return;
-
+            const input = document.getElementById('sync-password-input');
+            const pwd = input ? input.value.trim() : prompt("请输入同步密码 (c):");
+            if (!pwd) {
+                alert("请输入密码");
+                return;
+            }
+            
             try {
                 const decryptedBytes = CryptoJS.AES.decrypt(ENCRYPTED_AUTH, pwd);
                 const token = decryptedBytes.toString(CryptoJS.enc.Utf8);
@@ -889,6 +920,7 @@
                 alert("密码错误或同步失败: " + e.message);
             }
         }
+
 
         async function performSync(token) {
             const headers = {
