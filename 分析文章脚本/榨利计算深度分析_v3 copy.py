@@ -163,101 +163,6 @@ class 榨利计算器V3:
         merged = pd.merge(merged, oi[['日期', '菜油']], on='日期', how='inner')
         return merged
 
-    # ================= 持仓数据获取 (新增) =================
-    
-    def read_position_data(self, file_path):
-        """从本地文件读取持仓数据"""
-        try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            if data.get('code') != 200: return None
-            return data.get('data', {})
-        except: return None
-
-    def get_position_from_api(self, contract):
-        """从API获取持仓数据"""
-        try:
-            timestamp = int(time.time() * 1000)
-            url = f'https://www.jiaoyifamen.com/tools/api//position/interest-process?t={timestamp}&type=Y&instrument={contract}&seat=%E4%B8%AD%E7%B2%AE%E6%9C%9F%E8%B4%A7'
-            headers_pos = {'User-Agent': 'Mozilla/5.0', 'Referer': 'https://www.jiaoyifamen.com/'}
-            response = requests.get(url, headers=headers_pos, timeout=30)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get('code') == 200: return data.get('data', {})
-            return None
-        except: return None
-
-    def 获取持仓数据(self):
-        """获取并整理中粮持仓数据"""
-        print("🏗️ 获取中粮期货豆油空单持仓数据...")
-        contracts = {
-            'Y2609': os.path.join(SCRIPT_DIR, "中粮Y2609持仓数据.json"),
-            'Y2605': os.path.join(SCRIPT_DIR, "中粮Y2605持仓数据_1767169342679.json"),
-            'Y2601': os.path.join(SCRIPT_DIR, "中粮Y2601持仓数据.json"),
-            'Y2509': os.path.join(SCRIPT_DIR, "中粮Y2509持仓数据.json"),
-            'Y2505': os.path.join(SCRIPT_DIR, "中粮Y2505持仓数据.json"),
-        }
-        
-        position_data = {}
-        for contract, file_path in contracts.items():
-            data = self.read_position_data(file_path)
-            if not data: data = self.get_position_from_api(contract.lower())
-            if data: position_data[contract] = data
-            
-        # 整合为 DataFrame
-        all_dates = set()
-        for c, d in position_data.items():
-            all_dates.update(d.get('category', []))
-            
-        if not all_dates: return None
-        
-        df = pd.DataFrame({'日期': sorted(list(all_dates))})
-        df['日期'] = pd.to_datetime(df['日期'])
-        
-        for contract, data in position_data.items():
-            dates = data.get('category', [])
-            neat_positions = data.get('neatPosition', []) # 空单持仓
-            # 注意：API返回的neatPosition是净持仓，多单-空单？
-            # 原始脚本里：position_df[f'{contract}持仓'] = ... .abs()
-            # 交易法门接口 neatPosition 通常是净持仓。如果是空单持仓，通常是 rank_short - rank_long?
-            # 让我们看原始脚本: `date_pos_map = dict(zip(dates, neat_positions))` -> `abs()`
-            # 假设 neatPosition 是我们需要的数据。
-            
-            # 修正：我们需要的是特定席位的"空单持仓"还是"净持仓"?
-            # 原始脚本注释写的是 "中粮期货豆油空单持仓走势"。
-            # 但是 variable 叫 neatPosition (净持仓)。
-            # 并且用了 abs()。
-            # 如果是空单，应该是 shortVolume?
-            # 再次检查 `豆油持仓价格榨利分析.py`. 
-            # API URL: `interest-process`. Response structure has `neatPosition`.
-            # If we trust the original script logic:
-            if not dates or not neat_positions: continue
-            
-            mapping = dict(zip(dates, neat_positions))
-            # dates are strings in API response usually?
-            # 原始脚本: `position_df['日期'].dt.strftime('%Y-%m-%d').map(date_pos_map)`
-            # 所以我们需要把 df['日期'] 转 str 来 map
-            
-            # 为了更稳健，我们先构建一个小DF然后merge
-            temp_df = pd.DataFrame({'日期': dates, f'{contract}持仓': neat_positions})
-            # 尝试解析日期
-            try:
-                # 简单处理 '2023-01-01' 或 '23-01-01'
-                # 原始脚本逻辑:
-                # for d in dates: if '-' in d...
-                # 这里为了简化，我们假设 dates 格式标准 (YYYY-MM-DD)
-                # 还是照搬 merge 逻辑吧
-                pass
-            except: pass
-            
-            # 使用简单的 map 方式
-            date_map = {d: v for d, v in zip(dates, neat_positions)}
-            # 转换 df 日期为 str 匹配
-            date_strs = df['日期'].dt.strftime('%Y-%m-%d')
-            df[f'{contract}持仓'] = date_strs.map(date_map).abs() # 取绝对值
-            
-        return df
-
     def 合并并计算榨利(self, 豆油数据, 豆粕数据, 豆二数据):
         """合并数据并计算利润"""
         print("🔄 合并数据并计算榨利...")
@@ -290,36 +195,9 @@ class 榨利计算器V3:
         print(f"📊 绘制 {名称} 全维度组合图...")
         data = 榨利数据.tail(天数).copy() if 天数 < len(榨利数据) else 榨利数据.copy()
         
-        # 创建 5 层结构图表 (新增持仓)
-        fig, (ax0, ax1, ax2, ax3, ax4) = plt.subplots(5, 1, figsize=(12, 22), dpi=100)
+        # 创建 4 层结构图表
+        fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(12, 18), dpi=100)
         最新日期 = data['日期'].max().strftime('%Y-%m-%d')
-        
-        # 0. 持仓走势 (新增 Top)
-        pos_cols = [c for c in data.columns if '持仓' in c]
-        if pos_cols:
-            colors_pos = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD']
-            for idx, col in enumerate(sorted(pos_cols)):
-                contract = col.replace('持仓', '')
-                try:
-                    valid = data.dropna(subset=[col]) # different path than v3 logic which used just data
-                    # actually data is already sliced.
-                    valid = data[data[col].notna()]
-                    if not valid.empty:
-                        c = colors_pos[idx % len(colors_pos)]
-                        ax0.fill_between(valid['日期'], 0, valid[col], alpha=0.4, label=contract, color=c)
-                        ax0.plot(valid['日期'], valid[col], linewidth=1.5, color=c)
-                except: pass
-            ax0.set_title(f'中粮期货豆油空单持仓走势 - {名称}', fontsize=14)
-            ax0.set_ylabel('持仓量(手)')
-            ax0.legend(loc='upper left', fontsize=9, ncol=3)
-        else:
-            ax0.text(0.5, 0.5, '暂无持仓数据', ha='center', va='center')
-        ax0.grid(True, alpha=0.3)
-        
-        # 右上角显示最新数据日期 (Moved to Top)
-        ax0.text(0.99, 0.97, f'数据截止: {最新日期}', transform=ax0.transAxes, 
-                 fontsize=9, ha='right', va='top', 
-                 bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.7))
         
         # 1. 期货价格走势 (上图)
         ax1.plot(data['日期'], data['豆油价格'], color='darkorange', linestyle='-', label='豆油价格', linewidth=1.5)
@@ -329,7 +207,7 @@ class 榨利计算器V3:
         ax1.grid(True, alpha=0.3)
         
         ax1_r = ax1.twinx()
-        ax1_r.plot(data['日期'], data['豆粕价格'], color='brown', linestyle='-', label='豆粕价格', linewidth=1.5)
+        ax1_r.plot(data['日期'], data['豆粕价格'], 'b-', label='豆粕价格', linewidth=1.5)
         ax1_r.plot(data['日期'], data['豆二价格'], 'g--', label='豆二价格', linewidth=1.5)
         ax1_r.set_ylabel('豆粕/豆二价格(元/吨)')
         
@@ -337,10 +215,10 @@ class 榨利计算器V3:
         lines2, labels2 = ax1_r.get_legend_handles_labels()
         ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
         
-        # 右上角显示最新数据日期 (Moved to ax0)
-        # ax1.text(0.99, 0.97, f'数据截止: {最新日期}', transform=ax1.transAxes, 
-        #          fontsize=9, ha='right', va='top', 
-        #          bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.7))
+        # 右上角显示最新数据日期
+        ax1.text(0.99, 0.97, f'数据截止: {最新日期}', transform=ax1.transAxes, 
+                 fontsize=9, ha='right', va='top', 
+                 bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.7))
         
         # 2. 基差走势 (中图) - 含现货油粕比面积图
         ax2.plot(data['日期'], data['豆油基差'], color='darkorange', linestyle='--', label='豆油基差', alpha=0.8)
@@ -378,24 +256,14 @@ class 榨利计算器V3:
         
         ax3.set_title(f'大豆压榨利润走势 - 现货榨利: {data["榨利"].iloc[-1]:.2f}', fontsize=14)
         ax3.set_ylabel('榨利(元/吨)')
+        ax3.legend(loc='upper left', fontsize=9)
         ax3.grid(True, alpha=0.3)
-        
-        # 右轴：豆油期货走势 (新增)
-        ax3_r = ax3.twinx()
-        ax3_r.plot(data['日期'], data['豆油价格'], color='#5F9EA0', linestyle='--', label='豆油期货(右轴)', alpha=0.7, linewidth=1)
-        ax3_r.set_ylabel('豆油价格(元/吨)', color='#5F9EA0')
-        ax3_r.tick_params(axis='y', labelcolor='#5F9EA0')
-        
-        # 合并图例
-        lines1, labels1 = ax3.get_legend_handles_labels()
-        lines2, labels2 = ax3_r.get_legend_handles_labels()
-        ax3.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
         
         # 4. 油脂板块对比 (新增底图)
         if 油脂数据 is not None:
             oil_data = 油脂数据.tail(天数).copy() if 天数 < len(油脂数据) else 油脂数据.copy()
             ax4.plot(oil_data['日期'], oil_data['豆油'], label='豆油 (Y)', color='darkorange', linewidth=2)
-            ax4.plot(oil_data['日期'], oil_data['棕榈油'], label='棕榈油 (P)', color='green', linewidth=1.5)
+            ax4.plot(oil_data['日期'], oil_data['棕榈油'], label='棕榈油 (P)', color='brown', linewidth=1.5)
             ax4.plot(oil_data['日期'], oil_data['菜油'], label='菜油 (OI)', color='gold', linewidth=1.5)
             ax4.set_title('油脂板块价格对比 (豆、棕、菜)', fontsize=14)
             ax4.set_ylabel('价格(元/吨)')
@@ -526,14 +394,6 @@ image: /images/charts/{文件名列表[0]}
             
         df = self.合并并计算榨利(豆油, 豆粕, 豆二)
         油脂df = self.获取油脂对比数据()
-        
-        # 合并持仓数据
-        持仓df = self.获取持仓数据()
-        if 持仓df is not None:
-            print("🔄 合并持仓数据...")
-            # 使用 outer join 保留所有日期，然后 sort
-            df = pd.merge(df, 持仓df, on='日期', how='outer')
-            df = df.sort_values('日期')
         
         # 绘图顺序
         imgs = []
