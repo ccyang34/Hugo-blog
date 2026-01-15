@@ -982,14 +982,17 @@
             // Debug Info
             alert(`同步完成！\n\n云端找到: ${remoteFavorites.length} 篇\n本地原有: ${localFavorites.length} 篇\n合并后: ${mergedList.length} 篇\n\n状态: ${gistId ? "更新现有Gist" : "创建新Gist"}`);
 
+            let response;
             if (gistId) {
-                await fetch(`https://api.github.com/gists/${gistId}`, {
+                console.log("Updating existing Gist:", gistId);
+                response = await fetch(`https://api.github.com/gists/${gistId}`, {
                     method: "PATCH",
                     headers,
                     body: JSON.stringify({ files })
                 });
             } else {
-                await fetch(`https://api.github.com/gists`, {
+                console.log("Creating new Gist");
+                response = await fetch(`https://api.github.com/gists`, {
                     method: "POST",
                     headers,
                     body: JSON.stringify({
@@ -998,6 +1001,14 @@
                         files
                     })
                 });
+            }
+
+            if (response.ok) {
+                alert("✅ 上传成功！\n云端已更新数据。");
+            } else {
+                const errText = await response.text();
+                console.error("Gist Upload Failed", response.status, errText);
+                alert("❌ 上传失败！\n状态码: " + response.status + "\n错误信息: " + errText);
             }
         }
 
