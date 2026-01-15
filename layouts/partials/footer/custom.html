@@ -922,7 +922,7 @@
         }
 
 
-        async function performSync(token) {
+                async function performSync(token) {
             const headers = {
                 "Authorization": `token ${token}`,
                 "Accept": "application/vnd.github.v3+json"
@@ -932,17 +932,27 @@
             let gistId = null;
             let remoteFavorites = [];
 
-            // 简单处理：搜索 Gist
-            const gistsRes = await fetch("https://api.github.com/gists", { headers });
+            // 增加 per_page=100 以防 Gist 太多找不到
+            const gistsRes = await fetch("https://api.github.com/gists?per_page=100", { headers });
+            if (!gistsRes.ok) throw new Error("GitHub API Error: " + gistsRes.status);
             const gists = await gistsRes.json();
 
+            // 查找包含目标文件的 Gist
             const targetGist = gists.find(g => g.files[GIST_FILENAME]);
 
             if (targetGist) {
                 gistId = targetGist.id;
+                console.log("Found Sync Gist ID:", gistId);
                 const rawUrl = targetGist.files[GIST_FILENAME].raw_url;
-                const contentRes = await fetch(rawUrl);
-                remoteFavorites = await contentRes.json();
+                try {
+                    const contentRes = await fetch(rawUrl);
+                    remoteFavorites = await contentRes.json();
+                } catch(e) {
+                    console.error("Parse Gist Content Error", e);
+                    remoteFavorites = []; 
+                }
+            } else {
+                console.log("No existing Sync Gist found. Will create new.");
             }
 
             // 2. 合并
@@ -959,6 +969,7 @@
 
             // 3. 更新本地
             saveFavorites(mergedList);
+            render(); // 立即刷新UI
 
             // 4. 更新/创建 远程
             const contentStr = JSON.stringify(mergedList, null, 2);
@@ -967,6 +978,9 @@
                     content: contentStr
                 }
             };
+            
+            // Debug Info
+            alert(`同步完成！\n\n云端找到: ${remoteFavorites.length} 篇\n本地原有: ${localFavorites.length} 篇\n合并后: ${mergedList.length} 篇\n\n状态: ${gistId ? "更新现有Gist" : "创建新Gist"}`);
 
             if (gistId) {
                 await fetch(`https://api.github.com/gists/${gistId}`, {
