@@ -969,7 +969,7 @@
 
             // 3. 更新本地
             saveFavorites(mergedList);
-            render(); // 立即刷新UI
+            // render(); // UI will be refreshed by reload
 
             // 4. 更新/创建 远程
             const contentStr = JSON.stringify(mergedList, null, 2);
