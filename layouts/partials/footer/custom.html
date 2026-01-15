@@ -843,8 +843,21 @@
                 gap: 5px;
             `;
 
-            // 如果只有标题，插在标题后面？
-            // 简单起见，插在 .favorites-list 之前 或者 main 开头
+            // 1. Priority: Favorites Header (Mobile/New Template)
+            const favHeader = document.querySelector('.favorites-header');
+            if (favHeader) {
+                favHeader.style.display = 'flex';
+                favHeader.style.alignItems = 'center';
+                favHeader.style.justifyContent = 'space-between';
+                const h2 = favHeader.querySelector('h2');
+                if (h2) h2.style.margin = '0';
+
+                favHeader.appendChild(syncBtn);
+                syncBtn.addEventListener('click', handleSyncClick);
+                return;
+            }
+
+            // 2. Fallback: section-term (PC)
             if (document.querySelector('h1.section-term')) {
                 document.querySelector('h1.section-term').parentNode.appendChild(syncBtn);
             } else {
