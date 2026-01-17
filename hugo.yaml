@@ -86,6 +86,13 @@ menu:
           params:
               icon: bar-chart-2
               newTab: true
+        - identifier: dataview
+          name: DataView
+          url: https://dataview.ccyang.online/
+          weight: -30
+          params:
+              icon: table
+              newTab: true
 
 related:
     includeNewer: true
