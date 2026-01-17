@@ -1,7 +1,7 @@
 ---
 title: "OpenCowork：可控、可扩展的开源桌面AI助手"
-date: 2026-01-18T01:04:07+08:00
-lastmod: 2026-01-18T01:04:07+08:00
+date: 2026-01-18T01:04:08+08:00
+lastmod: 2026-01-18T01:04:08+08:00
 categories: ["AI与技术"]
 tags: ["OpenCowork", "桌面Agent", "开源AI助手", "Skills系统", "MCP协议", "本地文件操作", "终端命令", "AI工作流"]
 ---
