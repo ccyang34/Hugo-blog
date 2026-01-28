@@ -4,7 +4,7 @@ date: 2026-01-28T13:05:07+08:00
 lastmod: 2026-01-28T13:05:07+08:00
 author: "硅基思维"
 categories: ["AI与技术"]
-tags: ["Antigravity", "AI编程", "Google账号", "额度管理", "效率工具", "Google One", "家庭共享", "技巧分享"]
+tags: ["Antigravity", "AI编程", "Google账号", "家庭共享", "额度管理", "效率工具", "编程技巧", "AI工具"]
 ---
 
 **作者**: 硅基思维
@@ -26,7 +26,7 @@ Google 有个家庭共享机制。首先你得有一个 Pro 账号，那你再�
 这里说一个丝滑的方法：
 用手机端的 Gmail App 去注册，而不是在浏览器里折腾。
 
-先去 Google Play 确认你主账号的地区在哪，比如我的在新加坡，这一步非常重要。
+先去 google play 确认你主账号的地区在哪，比如我的在新加坡，这一步非常重要。
 
 ![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AG8L8wHialacxvGWPygKlu2maWNnB205IU1sIC9jBemRl5XLdDliaaQXJAQSKZmeXWJqleeS2xDsFIb9ttHfjhmg/640?wx_fmt=png&from=appmsg)
 
@@ -58,7 +58,7 @@ Google 有个家庭共享机制。首先你得有一个 Pro 账号，那你再�
 
 **[Figma 还没学会，现在又出了个 Pencil，设计师和前端又要死一次了](https://mp.weixin.qq.com/s?__biz=MzU3MjQ5MDEzNw==&mid=2247484827&idx=1&sn=9e29bf8ec5d905913913b900a1039d6f&scene=21#wechat_redirect)**
 
-**[AI编程工具的“应用商店”来了，Vercel这步棋下得漂亮](https://mp.weixin.qq.com/s?__biz=MzU3MjQ5MDEzNw==&mid=2247484813&idx=1&sn=4db0a4a038b05a10cdd96a4255f60df8&scene=21#wechat_redirect)**
+**[AI编程工具的"应用商店"来了，Vercel这步棋下得漂亮](https://mp.weixin.qq.com/s?__biz=MzU3MjQ5MDEzNw==&mid=2247484813&idx=1&sn=4db0a4a038b05a10cdd96a4255f60df8&scene=21#wechat_redirect)**
 
 **[用 AI 写代码，界面丑得像一个模子刻出来的？这个Skill治好了我的强迫症](https://mp.weixin.qq.com/s?__biz=MzU3MjQ5MDEzNw==&mid=2247484804&idx=1&sn=046ac54cb95207029647499515477235&scene=21#wechat_redirect)**
 
