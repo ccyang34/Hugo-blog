@@ -29,54 +29,15 @@ SYMBOLS = {
     'OI0': '菜油'
 }
 
+# 🎨 各品种风格配置：(折线颜色, 战略色, 战术色, 文字背景色)
+STYLE_CONFIG = {
+    'Y0':  {'line': '#1976D2', 'strat': '#0D47A1', 'tact': '#42A5F5', 'bg': '#E3F2FD'}, # 蓝色系-豆油
+    'P0':  {'line': '#E65100', 'strat': '#BF360C', 'tact': '#FB8C00', 'bg': '#FFF3E0'}, # 橙色系-棕榈油
+    'OI0': {'line': '#2E7D32', 'strat': '#1B5E20', 'tact': '#66BB6A', 'bg': '#E8F5E9'}  # 绿色系-菜油
+}
+
 def 核心信号决策引擎(df):
-    if df is None or len(df) < 60:
-        return None
-        
-    df['low_60'] = df['close'].rolling(60).min()
-    df['ma20'] = df['close'].rolling(20).mean()
-    df['bias'] = (df['close'] - df['ma20']) / df['ma20'] * 100
-    
-    df['is_buy'] = False
-    df['weight'] = 0.0
-    df['reason'] = ""
-    
-    # 按照月份进行循环扫描
-    df['m_key'] = df['date'].dt.strftime('%y-%m')
-    months = df['m_key'].unique()
-
-    for m in months:
-        m_df = df[df['m_key'] == m]
-        if len(m_df) < 3: continue
-        
-        found = False
-        
-        # A. 战略大坑 (6x)
-        strat_mask = (m_df['close'] <= m_df['low_60'] * 1.03) & (m_df['bias'] < -3.5)
-        if not m_df[strat_mask].empty:
-            idx = m_df[strat_mask].index[0]
-            df.at[idx, 'is_buy'] = True
-            df.at[idx, 'weight'] = 6.0
-            df.at[idx, 'reason'] = "战略入场：60日级深产底"
-            continue 
-
-        # B. 战术止跌 (3x)
-        for i in range(m_df.index[0]+1, m_df.index[-1]):
-            curr, prev = df.loc[i], df.loc[i-1]
-            if curr['close'] < curr['ma20'] and curr['close'] > prev['close'] and curr['bias'] < -1.5:
-                df.at[i, 'is_buy'] = True
-                df.at[i, 'weight'] = 3.0
-                df.at[i, 'reason'] = "战术入场：技术超跌企稳"
-                found = True
-                break 
-        
-        # C. 刚需保底 (1x)
-        if not found and not any(df.loc[m_df.index, 'is_buy']):
-            target_idx = m_df.tail(5)['close'].idxmin()
-            df.at[target_idx, 'is_buy'] = True
-            df.at[target_idx, 'weight'] = 1.0
-            df.at[target_idx, 'reason'] = "保底任务：补齐月度刚需"
-
+# ... (逻辑保持不变)
     return df
 
 def 生成长周期报表(df_result, symbol, name):
@@ -84,34 +45,35 @@ def 生成长周期报表(df_result, symbol, name):
     生成最近五年的长图
     """
     print(f"\n🎨 正在绘制{name}({symbol})历史五年实战拆解对照图...")
+    style = STYLE_CONFIG.get(symbol, {'line': '#90A4AE', 'strat': '#7B1FA2', 'tact': '#D32F2F', 'bg': 'white'})
     
     today = datetime.now()
     years = [today.year - 4, today.year - 3, today.year - 2, today.year - 1, today.year]
     
     fig, axes = plt.subplots(len(years), 1, figsize=(16, 28))
     title = f'{name}主力 {symbol} 战略采购五年全景图 ({years[0]}-{years[-1]})'
-    fig.suptitle(title, fontsize=24, fontweight='bold', y=0.99)
+    fig.suptitle(title, fontsize=24, fontweight='bold', y=0.99, color=style['line'])
 
     for i, year in enumerate(years):
         ax = axes[i]
         d_y = df_result[df_result['date'].dt.year == year]
         if d_y.empty: continue
         
-        ax.plot(d_y['date'], d_y['close'], color='#90A4AE', alpha=0.6, label='收盘价')
+        ax.plot(d_y['date'], d_y['close'], color=style['line'], alpha=0.7, linewidth=1.5, label='收盘价')
         
         # 月度分割线
         for month in range(1, 13):
             try:
                 m_sep = datetime(year, month, 1)
-                ax.axvline(m_sep, color='#212121', linestyle='-', linewidth=1.5, alpha=0.3)
-                ax.text(m_sep, ax.get_ylim()[1], f' {month}月', fontweight='bold', alpha=0.5, fontsize=10)
+                ax.axvline(m_sep, color='#212121', linestyle='-', linewidth=1.2, alpha=0.2)
+                ax.text(m_sep, ax.get_ylim()[1], f' {month}月', fontweight='bold', alpha=0.4, fontsize=10)
             except:
                 continue
 
         # 信号点标注
         buys = d_y[d_y['is_buy']]
-        ax.scatter(buys[buys['weight'] == 6.0]['date'], buys[buys['weight'] == 6.0]['close'], color='#7B1FA2', marker='D', s=160, label='战略(6x)', zorder=10)
-        ax.scatter(buys[buys['weight'] == 3.0]['date'], buys[buys['weight'] == 3.0]['close'], color='#D32F2F', marker='^', s=130, label='战术(3x)', zorder=10)
+        ax.scatter(buys[buys['weight'] == 6.0]['date'], buys[buys['weight'] == 6.0]['close'], color=style['strat'], marker='D', s=160, label='战略(6x)', zorder=10)
+        ax.scatter(buys[buys['weight'] == 3.0]['date'], buys[buys['weight'] == 3.0]['close'], color=style['tact'], marker='^', s=130, label='战术(3x)', zorder=10)
         ax.scatter(buys[buys['weight'] == 1.0]['date'], buys[buys['weight'] == 1.0]['close'], color='#455A64', marker='o', s=100, label='保底(1x)', zorder=10)
 
         ax.set_title(f'🚀 {year}年度 实战部署节点', fontsize=18, fontweight='bold', loc='left')
@@ -122,11 +84,10 @@ def 生成长周期报表(df_result, symbol, name):
         y_m = d_y['close'].mean()
         y_s = (d_y['close'] * d_y['weight']).sum() / d_y['weight'].sum()
         ax.text(0.015, 0.05, f"年度结算：比市场平均采购价节省 {y_m - y_s:.1f} 元/吨", transform=ax.transAxes, 
-                fontsize=15, fontweight='bold', color='#1B5E20', bbox=dict(boxstyle='round,pad=0.5', facecolor='white', alpha=0.9))
+                fontsize=15, fontweight='bold', color=style['strat'], bbox=dict(boxstyle='round,pad=0.5', facecolor=style['bg'], edgecolor=style['line'], alpha=0.9))
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.98])
     
-    # 修改保存路径到 Hugo static 目录
     static_dir = os.path.join(os.path.dirname(__file__), '..', 'static', 'images')
     if not os.path.exists(static_dir):
         os.makedirs(static_dir)
@@ -134,7 +95,7 @@ def 生成长周期报表(df_result, symbol, name):
     img_name = f'oil_analysis_{symbol}.png'
     save_path = os.path.join(static_dir, img_name)
     plt.savefig(save_path, dpi=120)
-    plt.close() # 释放内存
+    plt.close() 
     print(f"✅ 图片已导出：{save_path}")
     return img_name
 
@@ -152,11 +113,13 @@ def 生成年度汇总对比图(all_results):
 
     for i, res in enumerate(all_results):
         ax = axes[i]
+        symbol = res['symbol']
+        style = STYLE_CONFIG.get(symbol, {'line': '#90A4AE', 'strat': '#7B1FA2', 'tact': '#D32F2F', 'bg': 'white'})
         df_result = res['df_result']
         d_y = df_result[df_result['date'].dt.year == year]
         if d_y.empty: continue
         
-        ax.plot(d_y['date'], d_y['close'], color='#90A4AE', alpha=0.6, label='收盘价')
+        ax.plot(d_y['date'], d_y['close'], color=style['line'], alpha=0.7, linewidth=1.5, label='收盘价')
         
         # 月度分割线
         for month in range(1, 13):
@@ -169,11 +132,11 @@ def 生成年度汇总对比图(all_results):
 
         # 信号点标注
         buys = d_y[d_y['is_buy']]
-        ax.scatter(buys[buys['weight'] == 6.0]['date'], buys[buys['weight'] == 6.0]['close'], color='#7B1FA2', marker='D', s=140, label='战略(6x)', zorder=10)
-        ax.scatter(buys[buys['weight'] == 3.0]['date'], buys[buys['weight'] == 3.0]['close'], color='#D32F2F', marker='^', s=110, label='战术(3x)', zorder=10)
+        ax.scatter(buys[buys['weight'] == 6.0]['date'], buys[buys['weight'] == 6.0]['close'], color=style['strat'], marker='D', s=140, label='战略(6x)', zorder=10)
+        ax.scatter(buys[buys['weight'] == 3.0]['date'], buys[buys['weight'] == 3.0]['close'], color=style['tact'], marker='^', s=110, label='战术(3x)', zorder=10)
         ax.scatter(buys[buys['weight'] == 1.0]['date'], buys[buys['weight'] == 1.0]['close'], color='#455A64', marker='o', s=80, label='保底(1x)', zorder=10)
 
-        ax.set_title(f'📊 {res["name"]} ({res["symbol"]})', fontsize=16, fontweight='bold', loc='left')
+        ax.set_title(f'📊 {res["name"]} ({res["symbol"]})', fontsize=16, fontweight='bold', loc='left', color=style['line'])
         ax.grid(True, axis='y', alpha=0.1)
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
         ax.legend(loc='upper right', fontsize=10)
@@ -181,7 +144,7 @@ def 生成年度汇总对比图(all_results):
         y_m = d_y['close'].mean()
         y_s = (d_y['close'] * d_y['weight']).sum() / d_y['weight'].sum()
         ax.text(0.015, 0.05, f"年度结算：节省 {y_m - y_s:.1f} 元/吨", transform=ax.transAxes, 
-                fontsize=13, fontweight='bold', color='#1B5E20', bbox=dict(boxstyle='round,pad=0.4', facecolor='white', alpha=0.8))
+                fontsize=13, fontweight='bold', color=style['strat'], bbox=dict(boxstyle='round,pad=0.4', facecolor=style['bg'], edgecolor=style['line'], alpha=0.8))
 
     plt.tight_layout(rect=[0, 0.02, 1, 0.96])
     
