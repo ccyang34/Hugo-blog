@@ -37,7 +37,53 @@ STYLE_CONFIG = {
 }
 
 def 核心信号决策引擎(df):
-# ... (逻辑保持不变)
+    if df is None or len(df) < 60:
+        return None
+        
+    df['low_60'] = df['close'].rolling(60).min()
+    df['ma20'] = df['close'].rolling(20).mean()
+    df['bias'] = (df['close'] - df['ma20']) / df['ma20'] * 100
+    
+    df['is_buy'] = False
+    df['weight'] = 0.0
+    df['reason'] = ""
+    
+    # 按照月份进行循环扫描
+    df['m_key'] = df['date'].dt.strftime('%y-%m')
+    months = df['m_key'].unique()
+
+    for m in months:
+        m_df = df[df['m_key'] == m]
+        if len(m_df) < 3: continue
+        
+        found = False
+        
+        # A. 战略大坑 (6x)
+        strat_mask = (m_df['close'] <= m_df['low_60'] * 1.03) & (m_df['bias'] < -3.5)
+        if not m_df[strat_mask].empty:
+            idx = m_df[strat_mask].index[0]
+            df.at[idx, 'is_buy'] = True
+            df.at[idx, 'weight'] = 6.0
+            df.at[idx, 'reason'] = "战略入场：60日级深产底"
+            continue 
+
+        # B. 战术止跌 (3x)
+        for i in range(m_df.index[0]+1, m_df.index[-1]):
+            curr, prev = df.loc[i], df.loc[i-1]
+            if curr['close'] < curr['ma20'] and curr['close'] > prev['close'] and curr['bias'] < -1.5:
+                df.at[i, 'is_buy'] = True
+                df.at[i, 'weight'] = 3.0
+                df.at[i, 'reason'] = "战术入场：技术超跌企稳"
+                found = True
+                break 
+        
+        # C. 刚需保底 (1x)
+        if not found and not any(df.loc[m_df.index, 'is_buy']):
+            target_idx = m_df.tail(5)['close'].idxmin()
+            df.at[target_idx, 'is_buy'] = True
+            df.at[target_idx, 'weight'] = 1.0
+            df.at[target_idx, 'reason'] = "保底任务：补齐月度刚需"
+
     return df
 
 def 生成长周期报表(df_result, symbol, name):
