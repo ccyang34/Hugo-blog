@@ -6,7 +6,13 @@ import time
 
 # 配置
 POSTS_DIR = "/Users/ccy/Hugo-blog/content/posts"
-DEEPSEEK_API_KEY = "sk-f637d9858dda4c86bd3ec411a6b4bb81"
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
 # 预设分类及其描述

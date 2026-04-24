@@ -21,7 +21,13 @@ plt.rcParams['axes.unicode_minus'] = False
 
 # ================= 配置区域 =================
 # 请在环境变量中设置 DEEPSEEK_API_KEY，或直接在此处填入 (不推荐直接提交到代码库)
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-063857d175bd48038684520e7b6ec934")
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"  # DeepSeek 官方 API 地址
 
 
