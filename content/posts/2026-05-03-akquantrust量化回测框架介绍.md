@@ -4,7 +4,7 @@ date: 2026-05-03T12:44:13+08:00
 lastmod: 2026-05-03T12:44:13+08:00
 author: "AI量化交易研究院"
 categories: ["AI与技术", "投资策略"]
-tags: ["AKQuant", "量化框架", "Rust", "Python", "因子库", "回测系统", "机器学习", "开源项目"]
+tags: ["AKQuant", "量化框架", "Rust", "Python", "因子表达", "回测", "机器学习", "GitHub"]
 ---
 
 **作者**: AI量化交易研究院
