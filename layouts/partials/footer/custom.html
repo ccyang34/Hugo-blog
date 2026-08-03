@@ -438,6 +438,72 @@
     }
 
     /* =========================================
+       删除确认弹窗 - 移动端适配
+       ========================================= */
+    @media screen and (max-width: 767px) {
+        .delete-confirm-overlay {
+            align-items: flex-end;
+            padding-bottom: 0;
+        }
+
+        .delete-confirm-box {
+            padding: 24px 20px;
+            width: 92%;
+            max-width: none;
+            max-height: 85vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 14px 14px 0 0;
+            box-sizing: border-box;
+        }
+
+        .delete-confirm-box h3 {
+            font-size: 1.5rem !important;
+            margin: 0 0 14px 0;
+        }
+
+        .delete-confirm-box p {
+            font-size: 1.1rem !important;
+            line-height: 1.65;
+        }
+
+        .delete-confirm-box .delete-target-title {
+            font-size: 1.15rem !important;
+        }
+
+        .delete-confirm-box .delete-warning {
+            font-size: 1rem !important;
+            margin-top: 10px;
+        }
+
+        /* 覆盖弹窗内输入框的内联样式，放大字号与触控区域 */
+        .delete-confirm-box input#delete-confirm-pwd {
+            font-size: 1.15rem !important;
+            padding: 12px 14px !important;
+            margin-top: 8px !important;
+            border-radius: 8px !important;
+        }
+
+        .delete-confirm-actions {
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .delete-confirm-actions button {
+            width: 100%;
+            padding: 13px 0;
+            font-size: 1.15rem !important;
+            border-radius: 8px;
+        }
+
+        .delete-confirm-status {
+            font-size: 1.05rem !important;
+            min-height: 24px;
+        }
+    }
+
+    /* =========================================
        即时搜索框样式
        ========================================= */
     .instant-search-container {
