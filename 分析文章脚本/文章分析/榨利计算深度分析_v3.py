@@ -33,7 +33,8 @@ DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 
 # Hugo 博客配置
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-HUGO_BLOG_DIR = os.path.dirname(SCRIPT_DIR)
+# 优先使用环境变量 HUGO_BLOG_DIR（GitHub Actions 中为仓库根 "."）；否则向上两级定位博客根
+HUGO_BLOG_DIR = os.getenv("HUGO_BLOG_DIR") or os.path.dirname(os.path.dirname(SCRIPT_DIR))
 HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
 HUGO_IMAGES_DIR = os.path.join(HUGO_BLOG_DIR, "static", "images", "charts")
 
@@ -153,6 +154,25 @@ class 榨利计算器V3:
         df = df.dropna(subset=['日期'])
         df['基差'] = pd.to_numeric(df['基差'], errors='coerce')
         
+        # 异常清洗：与前后值对比，只有孤立突变（与前后差异均巨大）才修复
+        # 例如 2026-06-29 基差=2026.0（=年份值），前后均正常(~205)，是数据源错误
+        # 而 2022 年连续高基差(1500+)是真实行情/连续数据，不与前后产生巨大差异，不会被误判
+        df = df.sort_values('日期').reset_index(drop=True)
+        基差序列 = df['基差']
+        前值 = 基差序列.shift(1)
+        后值 = 基差序列.shift(-1)
+        邻域均值 = (前值 + 后值) / 2
+        与前值差 = (基差序列 - 前值).abs()
+        与后值差 = (基差序列 - 后值).abs()
+        # 阈值：绝对值 > 300 元/吨，或超过邻域均值的 30%（对高基差区间更稳健）
+        阈值 = np.maximum(300.0, 邻域均值.abs() * 0.3)
+        孤立突变 = (与前值差 > 阈值) & (与后值差 > 阈值)
+        if 孤立突变.any():
+            print(f"⚠️ {产品类型} 基差异常点 {孤立突变.sum()} 个，已用邻域均值修复")
+            for i in df.index[孤立突变]:
+                print(f"   {df.loc[i, '日期'].strftime('%Y-%m-%d')}: {df.loc[i, '基差']} -> {邻域均值[i]:.0f}")
+            df.loc[孤立突变, '基差'] = 邻域均值[孤立突变]
+        
         col_prefix = '豆油' if 产品类型 == 'Y' else '豆粕'
         return df.rename(columns={'基差': f'{col_prefix}基差'})
 
@@ -234,7 +254,6 @@ class 榨利计算器V3:
             # 但是 variable 叫 neatPosition (净持仓)。
             # 并且用了 abs()。
             # 如果是空单，应该是 shortVolume?
-            # 再次检查 `豆油持仓价格榨利分析.py`. 
             # API URL: `interest-process`. Response structure has `neatPosition`.
             # If we trust the original script logic:
             if not dates or not neat_positions: continue

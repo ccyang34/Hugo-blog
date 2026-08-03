@@ -47,7 +47,8 @@ MODEL_NAME = "deepseek-chat"
 
 # Hugo 博客配置
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-HUGO_BLOG_DIR = os.path.dirname(SCRIPT_DIR)
+# 优先使用环境变量 HUGO_BLOG_DIR（GitHub Actions 中为仓库根 "."）；否则向上两级定位博客根
+HUGO_BLOG_DIR = os.getenv("HUGO_BLOG_DIR") or os.path.dirname(os.path.dirname(SCRIPT_DIR))
 HUGO_CONTENT_DIR = os.path.join(HUGO_BLOG_DIR, "content", "posts")
 HUGO_IMAGES_DIR = os.path.join(HUGO_BLOG_DIR, "static", "images", "charts")
 

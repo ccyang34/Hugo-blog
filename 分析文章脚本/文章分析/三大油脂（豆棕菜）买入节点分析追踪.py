@@ -78,11 +78,13 @@ def 核心信号决策引擎(df):
                 break 
         
         # C. 刚需保底 (1x)
+        # 修复前视偏差：原版 m_df.tail(5) 取"当月最后5日最低点"，需等月末才能确认，存在前视
+        # 改为"当月最后一个交易日"（月末定投），当日收盘即可确认成交，实盘可执行、无前视
         if not found and not any(df.loc[m_df.index, 'is_buy']):
-            target_idx = m_df.tail(5)['close'].idxmin()
+            target_idx = m_df.index[-1]  # 当月最后一个交易日，月末定投
             df.at[target_idx, 'is_buy'] = True
             df.at[target_idx, 'weight'] = 1.0
-            df.at[target_idx, 'reason'] = "保底任务：补齐月度刚需"
+            df.at[target_idx, 'reason'] = "保底定投：月末无信号，刚需补仓"
 
     return df
 
@@ -134,7 +136,7 @@ def 生成长周期报表(df_result, symbol, name):
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.98])
     
-    static_dir = os.path.join(os.path.dirname(__file__), '..', 'static', 'images')
+    static_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'static', 'images')
     if not os.path.exists(static_dir):
         os.makedirs(static_dir)
         
@@ -194,7 +196,7 @@ def 生成年度汇总对比图(all_results):
 
     plt.tight_layout(rect=[0, 0.02, 1, 0.96])
     
-    static_dir = os.path.join(os.path.dirname(__file__), '..', 'static', 'images')
+    static_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'static', 'images')
     img_name = f'oil_analysis_summary_{year}.png'
     save_path = os.path.join(static_dir, img_name)
     plt.savefig(save_path, dpi=120)
@@ -240,7 +242,7 @@ categories: ["市场分析"]
         content += f"![{res['name']}五年复盘图](/images/{res['img_name']})\n\n"
 
     # 保存文章
-    posts_dir = os.path.join(os.path.dirname(__file__), '..', 'content', 'posts')
+    posts_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'content', 'posts')
     if not os.path.exists(posts_dir):
         os.makedirs(posts_dir)
         
