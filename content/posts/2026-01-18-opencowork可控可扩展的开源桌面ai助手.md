@@ -29,25 +29,25 @@ MCP 则把外部工具接进来：MCPClientService 连接 MCP 服务器，自动
 <a class="wx_topic_link" topic-id="mkgdhjes-419xfc" style="color: #576B95 !important;" data-topic="1">#桌面Agent</a> <a class="wx_topic_link" topic-id="mkgdhjes-tjo7jf" style="color: #576B95 !important;" data-topic="1">#开源AI助手</a> <a class="wx_topic_link" topic-id="mkgdhjes-vl662k" style="color: #576B95 !important;" data-topic="1">#Skills系统</a> <a class="wx_topic_link" topic-id="mkgdhjes-epqiln" style="color: #576B95 !important;" data-topic="1">#MCP协议</a> <a class="wx_topic_link" topic-id="mkgdhjes-56zm29" style="color: #576B95 !important;" data-topic="1">#OpenCowork</a>
 <a class="wx_topic_link" topic-id="mkgdkdrq-macst1" style="color: #576B95 !important;" data-topic="1">#Cowork</a>
 
-![图片1](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabVEeXG3B6ygLEf5CeEXGO3VTguzdZZooat0WVGx362ldV6wFQH8giaww/0?wx_fmt=png&from=appmsg)
+![图片1](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabVEeXG3B6ygLEf5CeEXGO3VTguzdZZooat0WVGx362ldV6wFQH8giaww/0?wx_fmt=png&from=appmsg)
 
-![图片2](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabM42gxjNUXRq38RLxXwou2GV3TJLosD3RFhfX3noxRtbmQU4Q6yA0qA/0?wx_fmt=png&from=appmsg)
+![图片2](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabM42gxjNUXRq38RLxXwou2GV3TJLosD3RFhfX3noxRtbmQU4Q6yA0qA/0?wx_fmt=png&from=appmsg)
 
-![图片3](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciab4iaz0ADJU3VK7xREAg05FUtfatot61r1IpTYg56apysibMP1laWJ4hfA/0?wx_fmt=png&from=appmsg)
+![图片3](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciab4iaz0ADJU3VK7xREAg05FUtfatot61r1IpTYg56apysibMP1laWJ4hfA/0?wx_fmt=png&from=appmsg)
 
-![图片4](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciab62hf1OCyM6l7lRrfxMDIreYQSgKt8EccsWwPZQ4kpAjX4VPLJOmyAw/0?wx_fmt=png&from=appmsg)
+![图片4](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciab62hf1OCyM6l7lRrfxMDIreYQSgKt8EccsWwPZQ4kpAjX4VPLJOmyAw/0?wx_fmt=png&from=appmsg)
 
-![图片5](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciab46SJjcubNdacbSkW3ibSo01j6LTZms1jkkpvutlKaTR89tMHY8JK5ZQ/0?wx_fmt=png&from=appmsg)
+![图片5](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciab46SJjcubNdacbSkW3ibSo01j6LTZms1jkkpvutlKaTR89tMHY8JK5ZQ/0?wx_fmt=png&from=appmsg)
 
-![图片6](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabX5tujELK5ph22wy89CtVLxEKzrsMBibs6BibDeRJDGZdq3dbiclwxqF3g/0?wx_fmt=png&from=appmsg)
+![图片6](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabX5tujELK5ph22wy89CtVLxEKzrsMBibs6BibDeRJDGZdq3dbiclwxqF3g/0?wx_fmt=png&from=appmsg)
 
-![图片7](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabALZCj0xJibwhmlzv7EM3n54ERKSBViaWjgTBqc1yDZVX5hI6HbmAs6aA/0?wx_fmt=png&from=appmsg)
+![图片7](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabALZCj0xJibwhmlzv7EM3n54ERKSBViaWjgTBqc1yDZVX5hI6HbmAs6aA/0?wx_fmt=png&from=appmsg)
 
-![图片8](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabPVLFbWKRpYwur42fRK7ICMSS1vePibBN5yQJ50iboyrR4dHBSA2BKZwg/0?wx_fmt=png&from=appmsg)
+![图片8](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabPVLFbWKRpYwur42fRK7ICMSS1vePibBN5yQJ50iboyrR4dHBSA2BKZwg/0?wx_fmt=png&from=appmsg)
 
-![图片9](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabpnkxuibrUhxmcF77JTuYWbJf60VB3yWrBzsibtmibos50z2uOFX4OQ6Vg/0?wx_fmt=png&from=appmsg)
+![图片9](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabpnkxuibrUhxmcF77JTuYWbJf60VB3yWrBzsibtmibos50z2uOFX4OQ6Vg/0?wx_fmt=png&from=appmsg)
 
-![图片10](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabbUKt8ibLcNXmAhMoHuK7dibuOl5jdML1pJPjR62lAgayKPUVoprXoDIQ/0?wx_fmt=png&from=appmsg)
+![图片10](https://mmbiz.qpic.cn/sz_mmbiz_png/NyOPFgr71zibzCT6KH4KCwtPYLPEcDiciabbUKt8ibLcNXmAhMoHuK7dibuOl5jdML1pJPjR62lAgayKPUVoprXoDIQ/0?wx_fmt=png&from=appmsg)
 
 ---
 *来源: [微信公众号](https://mp.weixin.qq.com/s/c6cCoTCAPV12G3tlnUvMXg)*

@@ -11,7 +11,7 @@ tags: ["Antigravity", "AI编程", "Google账号", "家庭共享", "额度管理"
 
 关于怎么让 Antigravity 的额度用不完。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AG8L8wHialacxvGWPygKlu2maWNnB205IYp1Pck6tXFXzo3CKW61kdFPJLF2ibE7TeupYLY46cRG2Vic0N6v02oEA/640?wx_fmt=png&from=appmsg)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/AG8L8wHialacxvGWPygKlu2maWNnB205IYp1Pck6tXFXzo3CKW61kdFPJLF2ibE7TeupYLY46cRG2Vic0N6v02oEA/640?wx_fmt=png&from=appmsg)
 
 先说背景，我用 Antigravity 已经有段时间了，说实话这玩意确实好用，AI 编程界的顶流工具之一，但有一个问题一直困扰着我——额度不够用。
 
@@ -28,17 +28,17 @@ Google 有个家庭共享机制。首先你得有一个 Pro 账号，那你再�
 
 先去 google play 确认你主账号的地区在哪，比如我的在新加坡，这一步非常重要。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AG8L8wHialacxvGWPygKlu2maWNnB205IU1sIC9jBemRl5XLdDliaaQXJAQSKZmeXWJqleeS2xDsFIb9ttHfjhmg/640?wx_fmt=png&from=appmsg)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/AG8L8wHialacxvGWPygKlu2maWNnB205IU1sIC9jBemRl5XLdDliaaQXJAQSKZmeXWJqleeS2xDsFIb9ttHfjhmg/640?wx_fmt=png&from=appmsg)
 
 具体操作是这样的：打开手机上的 Gmail App，然后把你的🪜切到全局模式，节点切到和你 Pro 账号一样的节点。接着在 Gmail 里点添加账号，选择创建新账号就行了。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_jpg/AG8L8wHialacxvGWPygKlu2maWNnB205IWqY5C2gD6ZtQPoeQ4y4tGQF3RWCwtYgV442YNkln8I9ibduO9OrzOiaQ/640?wx_fmt=jpeg)
+![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/AG8L8wHialacxvGWPygKlu2maWNnB205IWqY5C2gD6ZtQPoeQ4y4tGQF3RWCwtYgV442YNkln8I9ibduO9OrzOiaQ/640?wx_fmt=jpeg)
 
 整个过程行云流水，没有任何卡顿，验证码也能正常收到。我用这个方法连续注册了好几个，一个都没失败。
 
 注册完账号之后，下一步就是组建家庭了。用你的主号去发起家庭共享邀请，把新注册的这些账号都拉进来。Google 的家庭最多可以有 6 个成员，也就是说理论上你可以有 6 倍的额度。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AG8L8wHialacxvGWPygKlu2maWNnB205IdnPYNeIIMCU7FxDia7fZL6qd9rddoUicOISYQb8h5rDGEPR5njD1PLyQ/640?wx_fmt=png&from=appmsg)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/AG8L8wHialacxvGWPygKlu2maWNnB205IdnPYNeIIMCU7FxDia7fZL6qd9rddoUicOISYQb8h5rDGEPR5njD1PLyQ/640?wx_fmt=png&from=appmsg)
 
 这里有个需要注意的点，你要打开“与家人共享 Google One”，否则其他账号是没有会员权益的。
 

@@ -11,7 +11,7 @@ categories: ["AI与技术"]
 > 
 > 
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_jpg/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJA3z17ykM4x49F6l88daPxuaclk1POdQN9ibthP0hwvqlsbVWh8wzrmg/640?wx_fmt=jpeg&from=appmsg)当然，李飞飞原始的表述是比较温和的，温和到对教育和 ai 有足够理解的人都会觉得这是常识，温和到自媒体必须对原始观点进行夸大和扭曲才能获得流量。
+![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJA3z17ykM4x49F6l88daPxuaclk1POdQN9ibthP0hwvqlsbVWh8wzrmg/640?wx_fmt=jpeg&from=appmsg)当然，李飞飞原始的表述是比较温和的，温和到对教育和 ai 有足够理解的人都会觉得这是常识，温和到自媒体必须对原始观点进行夸大和扭曲才能获得流量。
 
 我认同李飞飞的观点，我也一直秉持类似的观点：
 
@@ -30,7 +30,7 @@ categories: ["AI与技术"]
 
 而上周ai 讲座的主角 **notebooklm，在我看来，就是解决应试教育低效 bug 的神器**。不论是成年人**为了自己**的终身学习、效率提升，还是成年人**为了孩子**的学习效率效果提升，都应该好好研究，天天研究，先花费 100 个小时再说。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJsbia8Do79YTCBoK75UV1QbCaicPfQUre5HPBBCToDUcXsDOGmsVvI0Cw/640?wx_fmt=png&from=appmsg)下面就是上周ai讲座的大纲笔记啦。还没上课的可以大概了解讲了什么，上过课的可以温故知新。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJsbia8Do79YTCBoK75UV1QbCaicPfQUre5HPBBCToDUcXsDOGmsVvI0Cw/640?wx_fmt=png&from=appmsg)下面就是上周ai讲座的大纲笔记啦。还没上课的可以大概了解讲了什么，上过课的可以温故知新。
 
 **howie 的 ai 主题直播**
 
@@ -38,7 +38,7 @@ categories: ["AI与技术"]
 * **主讲**：@howie.serious
 * **时间**：2025-12-26 （W2552）
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJyMxV8tun9fu5sqibY0TU3qHcRBVz7SPgFM9NzPeZmqLMhjT0Q9hdedw/640?wx_fmt=png&from=appmsg)2025 年是 **”ai slop”元年**。“ai slop”，也可以称为ai泔水，ai垃圾内容。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJyMxV8tun9fu5sqibY0TU3qHcRBVz7SPgFM9NzPeZmqLMhjT0Q9hdedw/640?wx_fmt=png&from=appmsg)2025 年是 **”ai slop”元年**。“ai slop”，也可以称为ai泔水，ai垃圾内容。
 
 无论短文字、长文字、视频还是 Podcast，各个媒体频道充斥着 ai 生成的低质量内容。在这方面，未来让人悲观：从现在开始，我们都要面对互联网上铺天盖地的 ai slop，无可逃避。
 
@@ -48,7 +48,7 @@ categories: ["AI与技术"]
 
 ### NotebookLM：从发布到可用的两年
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJIzbOmczCI1ucmsSuW8SyHBzVIcbqkvzzcs6Kg1aEFQTEPpxvbRYBnw/640?wx_fmt=png&from=appmsg)**产品历程**
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJIzbOmczCI1ucmsSuW8SyHBzVIcbqkvzzcs6Kg1aEFQTEPpxvbRYBnw/640?wx_fmt=png&from=appmsg)**产品历程**
 
 * **2023 年 5 月**：NotebookLM 公开发布，至今已两年半。
 * **两年间的状态**：每次 Google 发布新模型就会试用，但每次都很失望，"仍然垃圾，仍然不好用"。
@@ -58,13 +58,13 @@ categories: ["AI与技术"]
 
 ### 界面与功能概览
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJTicfeciaCw1BbMWEqBgSzljxgz6ZAVTVVYVmtuicZMwsZXjlbEUsuRgLQ/640?wx_fmt=png&from=appmsg)**整体布局**
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJTicfeciaCw1BbMWEqBgSzljxgz6ZAVTVVYVmtuicZMwsZXjlbEUsuRgLQ/640?wx_fmt=png&from=appmsg)**整体布局**
 
 * **左边：Source（信息源）** —— 你的资料库
 * **中间：Chat（对话）** —— 与大语言模型对话，内容可保存为笔记
 * **右边：Studio（工作室）** —— 9 种预制功能，生成各类产物
 
-**Studio 的 9 种功能**![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJUecuViaetQiad3nUyoDG8RC0XfRtlSdPqR8luT2ibibAfF1m9NP4CGh8wA/640?wx_fmt=png&from=appmsg)
+**Studio 的 9 种功能**![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJUecuViaetQiad3nUyoDG8RC0XfRtlSdPqR8luT2ibibAfF1m9NP4CGh8wA/640?wx_fmt=png&from=appmsg)
 
 **支持的信息源类型** 依托 Google 生态，支持导入：PDF、Google 云端硬盘文件、网站链接、YouTube 视频、音频等。因为 Google 的模型本身就是**原生多模态**的。
 
@@ -72,7 +72,7 @@ categories: ["AI与技术"]
 
 ### 场景一：K12 学习教练
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJoyvJCUCyibXqIWzoxLCR9HmP8vznibYEpvYklaCJeBZ8N6RboeCQ1Bcw/640?wx_fmt=png&from=appmsg)**核心理念：** 家庭教育最重要的一件事是构建学习型家庭，父母一定要**躬身入局**。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJoyvJCUCyibXqIWzoxLCR9HmP8vznibYEpvYklaCJeBZ8N6RboeCQ1Bcw/640?wx_fmt=png&from=appmsg)**核心理念：** 家庭教育最重要的一件事是构建学习型家庭，父母一定要**躬身入局**。
 
 **痛点与解决：**
 
@@ -90,13 +90,13 @@ categories: ["AI与技术"]
 
 ### 场景二：小学生必背古诗 75 首
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJzk01icOTkoib4bPibl0yGdMRTpZkNm7loTiawxx5UaQTuqn9Z9x381Z6Cw/640?wx_fmt=png&from=appmsg)* 把小学初中阶段需要背诵的古诗词相关材料全部放到 NotebookLM 的 Source 里
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJzk01icOTkoib4bPibl0yGdMRTpZkNm7loTiawxx5UaQTuqn9Z9x381Z6Cw/640?wx_fmt=png&from=appmsg)* 把小学初中阶段需要背诵的古诗词相关材料全部放到 NotebookLM 的 Source 里
 * 操作简单：直接拖拽进来即可
 * 从这个笔记本能得到多少价值，**完全取决于我们自己的应用程度**
 
 ### 场景三：编程竞赛备考（NOI与GESP）
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJ2DsKqFhicEYAHTWXUTtlWtibqDW2picyg9kbc7QwiajV3jcyMoEibWsiaEng/640?wx_fmt=png&from=appmsg)**背景：** 家长没法提供具体编程指导，但需要支持孩子备考。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJ2DsKqFhicEYAHTWXUTtlWtibqDW2picyg9kbc7QwiajV3jcyMoEibWsiaEng/640?wx_fmt=png&from=appmsg)**背景：** 家长没法提供具体编程指导，但需要支持孩子备考。
 
 **操作方法：**
 
@@ -114,7 +114,7 @@ categories: ["AI与技术"]
 
 **示例：** 研究 LearnLM（Google 教育版大模型）的演变
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJzD3JwJDficaqJZyDgGGJY3nr4qSCf6OSTW2OeFdYkOqov053JTRuq4g/640?wx_fmt=png&from=appmsg)**操作流程：**
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJzD3JwJDficaqJZyDgGGJY3nr4qSCf6OSTW2OeFdYkOqov053JTRuq4g/640?wx_fmt=png&from=appmsg)**操作流程：**
 
 1. 用自然语言描述需求："请帮我搜索跟 LearnLM 相关的所有进展、学术论文、模型演进以及重要资讯"
 2. 使用 Fast Research 或 Deep Research，来源可以是 Web 或云盘资料
@@ -125,12 +125,12 @@ categories: ["AI与技术"]
 
 ### 场景五：Deep Research 报告与知识可视化
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJWX6xzFCLfyDMuKElJ8YuWDEG2WtJE63ZEZb9ricYuHIoWqMwnicRRXaA/640?wx_fmt=png&from=appmsg)* 把 Deep Research 生成的高质量报告放进 NotebookLM
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJWX6xzFCLfyDMuKElJ8YuWDEG2WtJE63ZEZb9ricYuHIoWqMwnicRRXaA/640?wx_fmt=png&from=appmsg)* 把 Deep Research 生成的高质量报告放进 NotebookLM
 * 报告可以作为后续知识可视化（PPT、信息图）的素材基础
 
 ### 场景六：打通微信读书与 Readwise
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJ68nPgaAEIZL7zMGGibZlZYiaNrDq9zY8MlbLiaVcn6XqkVZgD8wjSt0kg/640?wx_fmt=png&from=appmsg)**1. 微信读书整合**
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJ68nPgaAEIZL7zMGGibZlZYiaNrDq9zY8MlbLiaVcn6XqkVZgD8wjSt0kg/640?wx_fmt=png&from=appmsg)**1. 微信读书整合**
 
 * 通过导出功能，把过去 10 年微信读书里所有的划线和笔记一次性导入 NotebookLM
 * 在手机或电脑上，可以随时随地 Chat with 你过去所有的阅读笔记
@@ -149,7 +149,7 @@ categories: ["AI与技术"]
 
 ### 场景七：经典文学研读
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJGcia8GgSKj9BdugF2ibAph7eia4JdZsBzZkxszZDKeOVHQiaLYepFRm0Zw/640?wx_fmt=png&from=appmsg)**操作方法：** 在 GitHub 找名著文本（TXT 或 Markdown 格式）；git clone 下来，上传到 NotebookLM。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJGcia8GgSKj9BdugF2ibAph7eia4JdZsBzZkxszZDKeOVHQiaLYepFRm0Zw/640?wx_fmt=png&from=appmsg)**操作方法：** 在 GitHub 找名著文本（TXT 或 Markdown 格式）；git clone 下来，上传到 NotebookLM。
 
 **可做的项目：**
 
@@ -166,7 +166,7 @@ categories: ["AI与技术"]
 
 ### 场景八：技术类硬知识学习
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJlKDLhYaNcgD4SkttSUmKdLQ0CLAU6TxOpWLib4Y4UElcyqC14uUzVtg/640?wx_fmt=png&from=appmsg)* 针对博大精深、需要不断更新的网络知识等主题
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJlKDLhYaNcgD4SkttSUmKdLQ0CLAU6TxOpWLib4Y4UElcyqC14uUzVtg/640?wx_fmt=png&from=appmsg)* 针对博大精深、需要不断更新的网络知识等主题
 * 单独建立笔记本，指哪打哪，非常精准
 
 ### 理念升级：从”dead tree”到 ai 学习神器
@@ -185,7 +185,7 @@ categories: ["AI与技术"]
 
 虽然 NotebookLM 靠生成"ai 播客"出圈，但音频和视频功能**完全没有价值**，甚至可以说是 ai slop。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJSH9IrLENNMOiaRsMuuVvnr281M0cUKV0BkicoicJ09RaZ3CAJHdRL1udA/640?wx_fmt=png&from=appmsg)**原因在于学习的本质：**
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJSH9IrLENNMOiaRsMuuVvnr281M0cUKV0BkicoicJ09RaZ3CAJHdRL1udA/640?wx_fmt=png&from=appmsg)**原因在于学习的本质：**
 
 * 学习最重要的事情是把线性的语言文字，变成有体系、有结构的知识框架
 * 这就是把**非结构化材料转化为结构化材料**的过程
@@ -211,11 +211,11 @@ categories: ["AI与技术"]
 
 **概念二：NotebookLM 即 Gemini Projects**
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJGVwYIDQ9Be5vbicdSia6XMtShKTn2fH4GxQgaW2bQmbITgy1WTMicXaNg/640?wx_fmt=png&from=appmsg)**为什么 ChatGPT 有 Projects 功能，而 Gemini App 里没有？**
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJGVwYIDQ9Be5vbicdSia6XMtShKTn2fH4GxQgaW2bQmbITgy1WTMicXaNg/640?wx_fmt=png&from=appmsg)**为什么 ChatGPT 有 Projects 功能，而 Gemini App 里没有？**
 
 因为 **NotebookLM 本身就是 Gemini 的 Projects**。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJWoV6yjCfpo9zVqNQ6BCmZJicMfVTtSpHyk559cOLnSnkME7DiazQPr9g/640?wx_fmt=png&from=appmsg)* 这几十个笔记本，就是你 Gemini 账号下的一个个项目库
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJWoV6yjCfpo9zVqNQ6BCmZJicMfVTtSpHyk559cOLnSnkME7DiazQPr9g/640?wx_fmt=png&from=appmsg)* 这几十个笔记本，就是你 Gemini 账号下的一个个项目库
 * **联动更新：** 在 Gemini 网页端，可以直接把 NotebookLM 里的笔记本作为信息源调用
 * **模型选择：** 虽然 NotebookLM 界面内默认模型是 Gemini 1.5 Flash（无法手动切换），但通过在 Gemini App 里调用 NotebookLM，可以用 Gemini 3.0 Pro 甚至 Flash Thinking 模型来处理笔记里的材料
 
@@ -225,7 +225,7 @@ categories: ["AI与技术"]
 
 界面设计完美对应了人类学习闭环的全过程：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJSnpkRoNGqDee4LxsuaxHjGSiaGdWGXzN5FdJOooKL7JicJhSuJvCUTOg/640?wx_fmt=png&from=appmsg)* **输入环节：** 审视信息源的质量和齐备程度
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJSnpkRoNGqDee4LxsuaxHjGSiaGdWGXzN5FdJOooKL7JicJhSuJvCUTOg/640?wx_fmt=png&from=appmsg)* **输入环节：** 审视信息源的质量和齐备程度
 * **理解环节：** 最顶级的模型 24×7 待命，实现真正的因材施教
 * **输出环节：** 辅助生成各种笔记和可视化材料
 
@@ -256,7 +256,7 @@ categories: ["AI与技术"]
 
 **产品前身** NotebookLM 最早在 2023 年 Google I/O 大会上发布时，名字叫 **Project Tailwind**。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJHXicCqWkrZpu0rHcnvicAqkFBib385uUcOKGQ8FVEaGjLrch30Hbk0EdQ/640?wx_fmt=png&from=appmsg)**命名隐喻：**
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJHXicCqWkrZpu0rHcnvicAqkFBib385uUcOKGQ8FVEaGjLrch30Hbk0EdQ/640?wx_fmt=png&from=appmsg)**命名隐喻：**
 
 * "Tailwind" 意为"顺风"或"尾风"
 * 在航海术语中，是从你背后吹来的风，助力你加速向目标前进
@@ -355,11 +355,11 @@ Q4：为什么需要 Workflow？
 
 加入”做中学·ai社群“，即可获得以下全部权益：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJ7hrOr9icibBMJjohnddUzyzialS2ahJECCG8Qv8VUu7OXCzuXC5L2W3bQ/640?wx_fmt=png&from=appmsg)chatgpt发布三年来，我首次招募ai社群，就是因为**现在是 ai 最可以也最应该落地的时刻**。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJ7hrOr9icibBMJjohnddUzyzialS2ahJECCG8Qv8VUu7OXCzuXC5L2W3bQ/640?wx_fmt=png&from=appmsg)chatgpt发布三年来，我首次招募ai社群，就是因为**现在是 ai 最可以也最应该落地的时刻**。
 
 首次招募，领券后只需365 元，还赠送 129 元《内驱式学习》签名书。数量有限，先到先得。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJJzLqoEz8Es3l602yAJrENR7STyrN8Gzibg1FBReqC37NC3A4CFHQGPQ/640?wx_fmt=png&from=appmsg)点击”**阅读原文**“，现在加入社群。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/Wp9RhwK45WicF4T3VgOf3X4sworRkR3fJJzLqoEz8Es3l602yAJrENR7STyrN8Gzibg1FBReqC37NC3A4CFHQGPQ/640?wx_fmt=png&from=appmsg)点击”**阅读原文**“，现在加入社群。
 
 ---
 *来源: [微信公众号](https://mp.weixin.qq.com/s/ArpcfAi1x-P7UVqzQcTLlg)*

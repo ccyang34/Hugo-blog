@@ -8,17 +8,17 @@ categories: ["未分类"]
 
 **作者**: 逛逛GitHub
 
-这个叫 everything-claude-code 的开源项目太顶了。开源没几天就 3.5 万的 Star 了。。。先看它的简介，上面写的是：完整的 Claude Code 配置合集——Agent、Skill、Hook、快捷命令、规则、MCPs。来自 Anthropic 黑客马拉松获胜者的经过实战检验的配置。![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruzR5pDpuoicpAAeibGn6gQH5ItVbXveh4nbuLg9bTebEOhKqV3gOpOCcfia8Z8mnROgZEJGSloLEYg1A/640?wx_fmt=png&from=appmsg)重点是：来自 Anthropic 黑客马拉松获胜者的经过实战检验。这个开源项目的作者是 Affaan Mustafa，是一位超级资深的 AI 开发者。
+这个叫 everything-claude-code 的开源项目太顶了。开源没几天就 3.5 万的 Star 了。。。先看它的简介，上面写的是：完整的 Claude Code 配置合集——Agent、Skill、Hook、快捷命令、规则、MCPs。来自 Anthropic 黑客马拉松获胜者的经过实战检验的配置。![](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruzR5pDpuoicpAAeibGn6gQH5ItVbXveh4nbuLg9bTebEOhKqV3gOpOCcfia8Z8mnROgZEJGSloLEYg1A/640?wx_fmt=png&from=appmsg)重点是：来自 Anthropic 黑客马拉松获胜者的经过实战检验。这个开源项目的作者是 Affaan Mustafa，是一位超级资深的 AI 开发者。
 
 这个开源项目是它长达 10 个月的高强度使用 Claude Code 经验总结而来的。而且它用这套配置赢得了 Anthropic x Forum Ventures 黑客松 Hackathon 的冠军。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6VXeFAXJVbIeGmEREKibbicGqFUXhP0uIQsQoicg0RqPWeSiaK2fQmXMl4w/640?wx_fmt=png&from=appmsg)在黑客松比赛中，时间很紧迫，通常只有一天。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6VXeFAXJVbIeGmEREKibbicGqFUXhP0uIQsQoicg0RqPWeSiaK2fQmXMl4w/640?wx_fmt=png&from=appmsg)在黑客松比赛中，时间很紧迫，通常只有一天。
 
 他们在短短 8 小时 内，完全依靠 Claude Code 这一工具从零开发了一个 AI 驱动的客户发现平台：zenith.chat。
 
 并成功进行了现场演示，最后获得了冠军儿🏆。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6tiaYS0aT3mwXz75ibOj3sZJsKpYLYySlViaice7z1YHSv5SWFXg034wBvw/640?wx_fmt=png&from=appmsg)01
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6tiaYS0aT3mwXz75ibOj3sZJsKpYLYySlViaice7z1YHSv5SWFXg034wBvw/640?wx_fmt=png&from=appmsg)01
 
 **开源项目简介**
 
@@ -28,7 +28,7 @@ everything-claude-code 是一个为 Claude Code 打造的完整配置工具箱�
 
 说白了，就是能把你的 Claude Code 武装到牙齿。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruzR5pDpuoicpAAeibGn6gQH5I2BT2LpoqMdDjYictBUQWm2pZkMu4ISrIsHjwBibcQuTHnSE1tUEco33A/640?wx_fmt=png&from=appmsg)* 
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruzR5pDpuoicpAAeibGn6gQH5I2BT2LpoqMdDjYictBUQWm2pZkMu4ISrIsHjwBibcQuTHnSE1tUEco33A/640?wx_fmt=png&from=appmsg)* 
 
 
 ```
@@ -60,13 +60,13 @@ Affaan 利用这套配置中的 Skills 和 Rules，强制 AI 始终遵循特定�
 
 当然只看这个开源项目学不到精髓，作者写了两篇文章，一定要去看看：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6ZoAIUOp9ic4tJT9iabYmibx3FMwt8WictFXYe97RPWpYic4F2xEjzV9acYQ/640?wx_fmt=png&from=appmsg)* 
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6ZoAIUOp9ic4tJT9iabYmibx3FMwt8WictFXYe97RPWpYic4F2xEjzV9acYQ/640?wx_fmt=png&from=appmsg)* 
 
 
 ```
 指南一：https://x.com/affaanmustafa/status/2012378465664745795
 ```
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6Rvw2qIhqxAxjdf44MIGdtO9WSq7vgXc13Nzzb1EO0hDic2FGuJ6icNiag/640?wx_fmt=png&from=appmsg)* 
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruwh6d3dak64YsKicx7qYW3s6Rvw2qIhqxAxjdf44MIGdtO9WSq7vgXc13Nzzb1EO0hDic2FGuJ6icNiag/640?wx_fmt=png&from=appmsg)* 
 
 
 ```
@@ -112,7 +112,7 @@ Affaan 利用这套配置中的 Skills 和 Rules，强制 AI 始终遵循特定�
 
 这个公众号历史发布过很多有趣的开源项目，如果你懒得翻文章一个个找，你直接关注微信公众号：逛逛 GitHub ，后台对话聊天就行了：
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRrux2sRxwJzmfe1lK8ic33XvtVPsIPCMV7hjicmScibtxIZ1NsjXxNoVNMb3zLy32Al7PSpfbVAtrACYqQ/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=11)
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRrux2sRxwJzmfe1lK8ic33XvtVPsIPCMV7hjicmScibtxIZ1NsjXxNoVNMb3zLy32Al7PSpfbVAtrACYqQ/640?wx_fmt=other&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=11)
 
 ---
 *来源: [微信公众号](https://mp.weixin.qq.com/s/K7nVgjV8uiieK9ZdP10FuA)*

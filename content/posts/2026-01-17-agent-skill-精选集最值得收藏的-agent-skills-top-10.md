@@ -13,7 +13,7 @@ tags: ["AI工具", "Agent Skills", "Claude", "Codex", "GitHub", "效率工具", 
 
 最近有人在 GitHub 上做了一个采样调查，统计了哪些 Skills 的质量最佳和最受欢迎。我整理了这份 **Top 10 榜单**，加上使用场景和适合人群，帮你快速找到最有用的那几个。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_jpg/5EZ1TshXkh5xG9WntZJeZSrJGxBL4Z35JynPa6qvvcBPHEDpLgIbfSnQFII7Y6Wp5sdPicfq3BVrKdLedz53XCA/640?wx_fmt=jpeg&from=appmsg "null")
+![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/5EZ1TshXkh5xG9WntZJeZSrJGxBL4Z35JynPa6qvvcBPHEDpLgIbfSnQFII7Y6Wp5sdPicfq3BVrKdLedz53XCA/640?wx_fmt=jpeg&from=appmsg "null")
 
 ### Top 10 最受欢迎的 Agent Skills
 
@@ -113,7 +113,7 @@ tags: ["AI工具", "Agent Skills", "Claude", "Codex", "GitHub", "效率工具", 
 
 安装 Skill 的方法很简单：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_jpg/5EZ1TshXkh5xG9WntZJeZSrJGxBL4Z353WA9aibpSqARlPCXBRabmsib8ag5bb5sEYIiar9WsZyQ0XHfiayKM11jbg/640?wx_fmt=jpeg&from=appmsg "null")
+![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/5EZ1TshXkh5xG9WntZJeZSrJGxBL4Z353WA9aibpSqARlPCXBRabmsib8ag5bb5sEYIiar9WsZyQ0XHfiayKM11jbg/640?wx_fmt=jpeg&from=appmsg "null")
 
 1.  **Claude Code / Codex 用户**: 把 Skill 文件夹放到 `~/.claude/skills/` 或 `~/.codex/skills/` 目录下。
 2.  **Gemini CLI 用户**: 放到 `~/.gemini/skills/` 目录下。
@@ -136,7 +136,7 @@ Agent Skills 虽好，但也不要贪杯。前不久报道出来的黑客利用 
 
 如果你想自己开发 Skill，从 **Skill Creator** 开始，参考格式把自己的工作流固化进去。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_jpg/5EZ1TshXkh5xG9WntZJeZSrJGxBL4Z35dX7pQIiauRswM4BagYC2YSaMKbUWyZeeOGiaOmqdTFfCpTDxAaiaoTgFg/640?wx_fmt=jpeg&from=appmsg "null")
+![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/5EZ1TshXkh5xG9WntZJeZSrJGxBL4Z35dX7pQIiauRswM4BagYC2YSaMKbUWyZeeOGiaOmqdTFfCpTDxAaiaoTgFg/640?wx_fmt=jpeg&from=appmsg "null")
 
 你最想用哪个 Skill？或你正在使用哪些 Skill 呢？评论区聊聊。
 

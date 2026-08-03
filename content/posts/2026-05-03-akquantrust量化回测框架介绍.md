@@ -38,7 +38,7 @@ AKQuant 这类项目的看点，不只是它用了 Rust，而是它试图把高�
 
 ## 官方预览图：AKQuant 想做的不是脚本堆，而是完整投研工作台
 
-![官方预览图：AKQuant 想做的不是脚本堆，而是完整投研工作台](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/p1q58J1IVH7ZREBdoZoBBoKibAlhCgGwO0b9bzTvCX44VpU5ic7tvkoEGEhh0RhTQDB9YLdrb2CcheCex1CwSv5ibsuNFHsTvJ86hdFfH1x0sA/640?from=appmsg)图源：akfamily/akquant assets/dashboard_preview.png
+![官方预览图：AKQuant 想做的不是脚本堆，而是完整投研工作台](https://mmbiz.qpic.cn/sz_mmbiz_png/p1q58J1IVH7ZREBdoZoBBoKibAlhCgGwO0b9bzTvCX44VpU5ic7tvkoEGEhh0RhTQDB9YLdrb2CcheCex1CwSv5ibsuNFHsTvJ86hdFfH1x0sA/640?from=appmsg)图源：akfamily/akquant assets/dashboard_preview.png
 
 **1.** 这张图最直观地说明了项目定位，它不是只给你几个策略函数，而是希望把回测、分析和结果展示一起组织成工作台。
 
@@ -48,7 +48,7 @@ AKQuant 这类项目的看点，不只是它用了 Rust，而是它试图把高�
 
 ## 官方结构图：Rust 核心和 Python 接口的组合是项目主线
 
-![官方结构图：Rust 核心和 Python 接口的组合是项目主线](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/p1q58J1IVH5VKcCmIkTiaFZxIlPedI4YT3C5zxQkqiadiajJRXyQMMvib5p4ficJeAdSRjic3N5cib3YSEowdbE7diaQJfOgnNeN358e7217vA3V8hM/640?from=appmsg)图源：akfamily/akquant assets/social_preview.png
+![官方结构图：Rust 核心和 Python 接口的组合是项目主线](https://mmbiz.qpic.cn/sz_mmbiz_png/p1q58J1IVH5VKcCmIkTiaFZxIlPedI4YT3C5zxQkqiadiajJRXyQMMvib5p4ficJeAdSRjic3N5cib3YSEowdbE7diaQJfOgnNeN358e7217vA3V8hM/640?from=appmsg)图源：akfamily/akquant assets/social_preview.png
 
 **1.** 这张图虽然更像对外展示图，但它已经把项目最核心的信息写清楚了：Rust 提供高性能底层，Python 负责上层研究和策略开发。
 

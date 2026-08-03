@@ -6,7 +6,7 @@ categories: ["AI与技术"]
 ---
 planning-with-files是开源社区最近疯传的一个Skill，发布仅四天收获3.3k star。目前还在持续增长。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUX0oeYbb596zHiaN8GW1F43BEMfzDqxBBJMW3nkUTibOUW4GPWcbJmpFQ/640?wx_fmt=png&from=appmsg)爆火的原因很简单，因为这个项目的核心极具吸引力：它通过一个标准的Claude Skill，复刻了Meta斥资20亿美元收购的**Manus**公司的核心技术——**上下文工程（Context Engineering）**。
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUX0oeYbb596zHiaN8GW1F43BEMfzDqxBBJMW3nkUTibOUW4GPWcbJmpFQ/640?wx_fmt=png&from=appmsg)爆火的原因很简单，因为这个项目的核心极具吸引力：它通过一个标准的Claude Skill，复刻了Meta斥资20亿美元收购的**Manus**公司的核心技术——**上下文工程（Context Engineering）**。
 
 本文将带你深入代码层，看这个项目的Skill是如何用**仅用几百行指令和三个Markdown文件，就在你的本地终端里模拟了价值20亿美元的Agent核心工作流。**
 
@@ -16,7 +16,7 @@ planning-with-files是开源社区最近疯传的一个Skill，发布仅四天�
 
 Manus之所以能从众多Agent创业公司中突围，并非因为它拥有更强的模型，而是它重新定义了模型与上下文交互的方式。在 `planning-with-files` 项目的 `reference.md` 中，详细记录了这六大原则：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUfico6kUia0j04dvsDZgBKVXorPwlDtWzibLdVB67xAJYmavnDYrxrc5wA/640?wx_fmt=png&from=appmsg)1. **文件系统作为外部记忆 (Filesystem as External Memory)**
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUfico6kUia0j04dvsDZgBKVXorPwlDtWzibLdVB67xAJYmavnDYrxrc5wA/640?wx_fmt=png&from=appmsg)1. **文件系统作为外部记忆 (Filesystem as External Memory)**
 * **原理**：不要依赖易失的Context Window。将磁盘视为无限的“外挂内存”，只在Context中保留文件路径。
 
 3. **通过重复进行注意力操纵 (Attention Manipulation Through Repetition)**
@@ -40,7 +40,7 @@ planning-with-files Skill将上述抽象原则具象化为一套严格的 **“
 
 当这个Skill被触发时（例如你要求“帮我策划并开发一个贪吃蛇游戏”），它会强制Claude在当前目录维护三个文件：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUoDLROQjajyYdhUfRicbibQN4cvuicrOaBaSiaPibTKp6Ts9QePC1viaoBWAQ/640?wx_fmt=png&from=appmsg)### 1. `task_plan.md`（指挥塔 寄存器）
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUoDLROQjajyYdhUfRicbibQN4cvuicrOaBaSiaPibTKp6Ts9QePC1viaoBWAQ/640?wx_fmt=png&from=appmsg)### 1. `task_plan.md`（指挥塔 寄存器）
 
 这是整个架构的核心。它不存储具体知识，只存储**元数据**。
 
@@ -61,13 +61,13 @@ planning-with-files Skill将上述抽象原则具象化为一套严格的 **“
 
 对于Claude Code用户来说，安装这个Skill后，最直观的变化是你的工作目录下会多出三个文件。但这不仅仅是文件，它们构成了一个**基于文件的状态机（File-Based State Machine）**。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUYOo4BCVSWczXa1szbPfico348PfxzD64cMdn3Cu2XjQ4qV1BvKXLavg/640?wx_fmt=png&from=appmsg)让我们透视一下当你输入“帮我策划并开发一个贪吃蛇游戏”时，这套协议是如何接管Claude的行为的：
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUYOo4BCVSWczXa1szbPfico348PfxzD64cMdn3Cu2XjQ4qV1BvKXLavg/640?wx_fmt=png&from=appmsg)让我们透视一下当你输入“帮我策划并开发一个贪吃蛇游戏”时，这套协议是如何接管Claude的行为的：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUBFJsUXb0Ef2389ibWibfYsj4JSNYibOvxMp6Kzy8Wdx8CagjUbxLNNBNw/640?wx_fmt=png&from=appmsg)### 阶段0：协议握手与状态机初始化
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUBFJsUXb0Ef2389ibWibfYsj4JSNYibOvxMp6Kzy8Wdx8CagjUbxLNNBNw/640?wx_fmt=png&from=appmsg)### 阶段0：协议握手与状态机初始化
 
 Claude Code识别到复杂任务，Skill激活。它首先创建 **`task_plan.md`**。 这不是普通的文档，它是Agent的**程序计数器（Program Counter）**。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFU8yx4zecwDibkA7bBDNjQT7jh0Hmezfrxw9KDkCicIYiaSdIB2VYvnCicYg/640?wx_fmt=png&from=appmsg)* 它定义了 `Goal`（全局指令）。
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFU8yx4zecwDibkA7bBDNjQT7jh0Hmezfrxw9KDkCicIYiaSdIB2VYvnCicYg/640?wx_fmt=png&from=appmsg)* 它定义了 `Goal`（全局指令）。
 * 它将任务拆解为 `Phases`（指令流水线）。
 * 它标记了 `Status`（当前指针位置）。
 
@@ -77,7 +77,7 @@ Claude Code识别到复杂任务，Skill激活。它首先创建 **`task_plan.m
 
 在开始写任何代码之前，Skill强制Claude执行 `read_file task_plan.md`。 这一步至关重要。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFU61XetH7p1IcD8icAOdKJRwmKsLpOmzCmnibdxKEyerA5syHINibBvYnlw/640?wx_fmt=png&from=appmsg)* 如果没有这一步，Claude可能会基于上文的闲聊或20轮之前的记忆开始瞎猜。
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFU61XetH7p1IcD8icAOdKJRwmKsLpOmzCmnibdxKEyerA5syHINibBvYnlw/640?wx_fmt=png&from=appmsg)* 如果没有这一步，Claude可能会基于上文的闲聊或20轮之前的记忆开始瞎猜。
 * 有了这一步，Claude的Context尾部被注入了最新的状态：“我现在处于Phase 2，目标是修改Login接口，且之前在Phase 1已经确认了Token格式。”
 * 这相当于在每次CPU时钟周期开始时，强制执行一次**Fetch Instruction**。
 
@@ -131,11 +131,11 @@ Claude需要查阅OAuth2.0的最新协议。
 
 让我们看看 `planning-with-files/SKILL.md` 的关键片段：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUonF3ogKDfSpHOria6bG1KJFjh97CAddfQ0zeqj2CPOJp1sbV1zdGlTw/640?wx_fmt=png&from=appmsg)**1. 自动触发机制**： YAML头部定义了Skill的元数据。当用户输入“帮我规划...”、“研究...”或“这个任务很复杂”时，Claude会语义匹配 `description`，自动挂载此Skill。
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUonF3ogKDfSpHOria6bG1KJFjh97CAddfQ0zeqj2CPOJp1sbV1zdGlTw/640?wx_fmt=png&from=appmsg)**1. 自动触发机制**： YAML头部定义了Skill的元数据。当用户输入“帮我规划...”、“研究...”或“这个任务很复杂”时，Claude会语义匹配 `description`，自动挂载此Skill。
 
 **2. 负面约束 (Negative Constraints)**：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUcm80GvUYTyQxZibcu5tBbUXSVOPFxDumqjO8U785MviaCHY4IibcwYCvw/640?wx_fmt=png&from=appmsg)Skill使用了极强的命令语气，在System Prompt层级锁定了Agent的行为模式。
+![](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdHDoxNlibQYpyLVlYbRl7PFUcm80GvUYTyQxZibcu5tBbUXSVOPFxDumqjO8U785MviaCHY4IibcwYCvw/640?wx_fmt=png&from=appmsg)Skill使用了极强的命令语气，在System Prompt层级锁定了Agent的行为模式。
 
 **3. 循环定义**： Skill显式定义了 `Read Plan -> Act -> Update Plan` 的闭环逻辑，将Agent从线性的问答机器变成了有状态的循环执行者。
 
@@ -178,7 +178,7 @@ git clone https://github.com/OthmanAdi/planning-with-files.git
 
 来已来，有缘一起同行！
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdG2f1hZialLRKViaL7icSibRcjXFz7E4XsNic3e2j4M4tcJsq5sH3MqSYnUPyh8P5qkJ51QZn4Qpxy8Vhw/640?wx_fmt=other&from=appmsg&watermark=1&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=13)<本文完结>
+![图片](https://mmbiz.qpic.cn/mmbiz_png/Iurk1iaf4xdG2f1hZialLRKViaL7icSibRcjXFz7E4XsNic3e2j4M4tcJsq5sH3MqSYnUPyh8P5qkJ51QZn4Qpxy8Vhw/640?wx_fmt=other&from=appmsg&watermark=1&wxfrom=5&wx_lazy=1&tp=webp#imgIndex=13)<本文完结>
 
 1. **转载请与本喵联系，私自抓取转载将被起诉**
 

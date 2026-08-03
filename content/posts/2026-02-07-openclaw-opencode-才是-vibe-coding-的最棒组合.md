@@ -28,44 +28,44 @@ categories: ["未分类"]
 
 这个项目是Openclaw全自主完成的：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVO8IgRALviaiaG2EBrqiatjWapALnYlEmPfBkbSPWq8d81ABiag8AOLQFeA/640?wx_fmt=png&from=appmsg)游戏完全可用：
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVO8IgRALviaiaG2EBrqiatjWapALnYlEmPfBkbSPWq8d81ABiag8AOLQFeA/640?wx_fmt=png&from=appmsg)游戏完全可用：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dV6yabdfia3BktBVRX2dFosuYvSbUmnXT9pichFFicQbRx98LyiasHHrDtTQ/640?wx_fmt=png&from=appmsg)下面是我和 Openclaw 的全部聊天。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dV6yabdfia3BktBVRX2dFosuYvSbUmnXT9pichFFicQbRx98LyiasHHrDtTQ/640?wx_fmt=png&from=appmsg)下面是我和 Openclaw 的全部聊天。
 
 先安装 opencode：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVKhEic96LibHBibD821Kz0bUNFDPgeuFDk6FJAFvMibQQZFK2dCT8yCjaibA/640?from=appmsg)新建目录用做项目目录：
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVKhEic96LibHBibD821Kz0bUNFDPgeuFDk6FJAFvMibQQZFK2dCT8yCjaibA/640?from=appmsg)新建目录用做项目目录：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVJGmW0IbkZVMB1FzNaxJWFKx1lmcNqmslHmSNpv6tnBnericw2XaMT1w/640?from=appmsg)切换目录，启动 opencode：
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVJGmW0IbkZVMB1FzNaxJWFKx1lmcNqmslHmSNpv6tnBnericw2XaMT1w/640?from=appmsg)切换目录，启动 opencode：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVHerVeBTjmw2r4wp022q6DwAjibxmOPFA2ptT8OLKQ8N4CBicONxR9BAA/640?from=appmsg)用 opencode 来开发贪吃蛇游戏：
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVHerVeBTjmw2r4wp022q6DwAjibxmOPFA2ptT8OLKQ8N4CBicONxR9BAA/640?from=appmsg)用 opencode 来开发贪吃蛇游戏：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVgEztF7pzKhcIswyNTkld0dKG3gC1aBW4iaZWqicFia7KbVN5dic3pZeB4g/640?from=appmsg)提供我的 GitHub 信息，让他连：
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVgEztF7pzKhcIswyNTkld0dKG3gC1aBW4iaZWqicFia7KbVN5dic3pZeB4g/640?from=appmsg)提供我的 GitHub 信息，让他连：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVPkYgpaSj7VjQMMKnkBe8JQtMFU9WnFwWlIC1ZB7kjE1QiayRN5nc8fw/640?from=appmsg)按照它给的提示，创建一个 token，权限就给仓库权限，直接丢给他 token。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVPkYgpaSj7VjQMMKnkBe8JQtMFU9WnFwWlIC1ZB7kjE1QiayRN5nc8fw/640?from=appmsg)按照它给的提示，创建一个 token，权限就给仓库权限，直接丢给他 token。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVFGMWBaa25rhib8xicMYE8lZJCAKltwbAapicK1u9UiaqOBxQ04ytqzibAAw/640?from=appmsg)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVFGMWBaa25rhib8xicMYE8lZJCAKltwbAapicK1u9UiaqOBxQ04ytqzibAAw/640?from=appmsg)
 > 这里一定记得开启部分权限，防止它瞎搞。
 > 
 > 
 
 它说已经推送好了：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dV7cHKQnzAhyMkKiaxEWsOSMT2icFzoic3oXkyltQuDiaGfXxBuuDPc27s5Q/640?from=appmsg)我打开 GitHub 看下，果然有了，已经自动将代码推送到 GitHub 了。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dV7cHKQnzAhyMkKiaxEWsOSMT2icFzoic3oXkyltQuDiaGfXxBuuDPc27s5Q/640?from=appmsg)我打开 GitHub 看下，果然有了，已经自动将代码推送到 GitHub 了。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVSxwKtk8H5MLLQR4cJjYZFdnGIwicAGNURcsjf69a5O1PIAwzFOv5qxg/640?from=appmsg)然后让它部署到Vercel，方便得到一个可访问的网页链接：
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVSxwKtk8H5MLLQR4cJjYZFdnGIwicAGNURcsjf69a5O1PIAwzFOv5qxg/640?from=appmsg)然后让它部署到Vercel，方便得到一个可访问的网页链接：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVCq7ZqmcfdW373cvGk3gjtaVSJ3HdoYJlWt9LdQz0TO2GrknxoXkCyw/640?from=appmsg)同样按照要求，给个 token，就已经完成了自动部署。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVCq7ZqmcfdW373cvGk3gjtaVSJ3HdoYJlWt9LdQz0TO2GrknxoXkCyw/640?from=appmsg)同样按照要求，给个 token，就已经完成了自动部署。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVkDWzzyThtKzJKPWxp28mHdhFXfrbxI6QO1Xribd0GFS2K7ibN6fSpzlQ/640?from=appmsg)🐂🍺，就已经完成了全链路的自动化，真的麻了，兄弟们，虽然只是跑通了闭环，但Openclaw 想象空间真的无限。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVkDWzzyThtKzJKPWxp28mHdhFXfrbxI6QO1Xribd0GFS2K7ibN6fSpzlQ/640?from=appmsg)🐂🍺，就已经完成了全链路的自动化，真的麻了，兄弟们，虽然只是跑通了闭环，但Openclaw 想象空间真的无限。
 
 我甚至直接让但 Openclaw 记录下这个过程，并写一篇文章，推送到刚才这个仓库，这个由 Agent 自主开发部署的仓库。
 
 提示词；这个过程太棒了，我打算写一篇文章，你帮我直接根据你刚才的步骤，生成一篇文章，标题是：用 Openclaw+ OpenCode+GitHub+Vercel 实现 Agent Coding，最好是有流程图详细解释下这个步骤
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVCQ6TEyVXgaSWdPiakeuBo7ibFw077ThLWe1RyjNnXnOXhRx5qQWuhpXw/640?from=appmsg)然后打开 GitHub 看，也已经有了描述：
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVCQ6TEyVXgaSWdPiakeuBo7ibFw077ThLWe1RyjNnXnOXhRx5qQWuhpXw/640?from=appmsg)然后打开 GitHub 看，也已经有了描述：
 
-![](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVLAA26bqA3YicSRMUr4j9ibxSVAI1KvL6Z0Kv2eLGV0oI6hUQPuuzcdMg/640?from=appmsg)下面，我把 Openclaw 生成的教程也贴出来，方便大家看看。Openclaw 的应用仿佛打开了潘多拉魔盒，未来，coding 的范式是不是可以变为 agent coding，每一个人都有一个专属 agent，帮我们 coding，或者做任何我们希望做的事情。
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVLAA26bqA3YicSRMUr4j9ibxSVAI1KvL6Z0Kv2eLGV0oI6hUQPuuzcdMg/640?from=appmsg)下面，我把 Openclaw 生成的教程也贴出来，方便大家看看。Openclaw 的应用仿佛打开了潘多拉魔盒，未来，coding 的范式是不是可以变为 agent coding，每一个人都有一个专属 agent，帮我们 coding，或者做任何我们希望做的事情。
 
 
 

@@ -18,7 +18,7 @@ categories: ["未分类"]
 
 一个频道绑一个 Agent。进 ✍️-写作 是蔡笔，进 🛠️-编程 是蔡农，进 💪-减肥 是蔡练。干净、隔离、不串味。
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzbQxAMzHcoa4BrescVFuLYJuiaCCYla8ibMaQvIJkTPg1yHeDQica653zKa552KS9pRSE8krGjAOKmhBVtsgzgIJtrrn8iasicO9MQE/640?wx_fmt=png&from=appmsg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzbQxAMzHcoa4BrescVFuLYJuiaCCYla8ibMaQvIJkTPg1yHeDQica653zKa552KS9pRSE8krGjAOKmhBVtsgzgIJtrrn8iasicO9MQE/640?wx_fmt=png&from=appmsg)
 
 ---
 
@@ -34,7 +34,7 @@ Discord 不一样。**一个服务器里可以建无数个频道，每个频道�
 * 每个频道可以绑不同的 Agent
 * 频道描述（topic）能被 AI 读取，当作行为提示
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzYibBaBM1sbmn0PF0skNQiblMJFV7o2cURMIzldWs3LEsjhYE4u7LmGcoo5VjyKSul4G3oOAHqab2nWHibt7FiaeAytUCwIA2Riakuc/640?wx_fmt=png&from=appmsg)不需要建多个群，不需要多个 Bot Token，一个服务器全搞定。
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzYibBaBM1sbmn0PF0skNQiblMJFV7o2cURMIzldWs3LEsjhYE4u7LmGcoo5VjyKSul4G3oOAHqab2nWHibt7FiaeAytUCwIA2Riakuc/640?wx_fmt=png&from=appmsg)不需要建多个群，不需要多个 Bot Token，一个服务器全搞定。
 
 社区里很多人的结论一样："一旦用上 Discord 就回不去 TG 了。" 响应更流畅，通知更精准，频道切换快，历史消息搜索方便。TG 移动端虽然强，但长对话容易乱，多人场景也弱一些。
 
@@ -44,7 +44,7 @@ Discord 不一样。**一个服务器里可以建无数个频道，每个频道�
 
 ## 我的频道架构
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzaFj8aKwlrk9x8Mx88ZGWSS6e94AjVHNfScbHWSH7FQKiaNsby1qfBicuqaDyqQkhbxKx0LYusZQ1oDiavXOSkUzuodd1uSo2VBeQ/640?wx_fmt=png&from=appmsg)
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzaFj8aKwlrk9x8Mx88ZGWSS6e94AjVHNfScbHWSH7FQKiaNsby1qfBicuqaDyqQkhbxKx0LYusZQ1oDiavXOSkUzuodd1uSo2VBeQ/640?wx_fmt=png&from=appmsg)
 ```
 
 ```
@@ -80,17 +80,17 @@ Discord Server（小蔡一人公司）
 * Server Members Intent — 不开就无法解析用户信息
 * Message Content Intent — 不开就收不到消息内容
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzaFfTyAJRdr8Qx5xH17N8iaMPibsibbibxBxSwWqd1RUk0DbXsk0UZSMBcSdgqaZa2GqWVI0mNwEC5y3fIm5rXuDjSyOCr1hhEmCC8/640?wx_fmt=png&from=appmsg)少开一个 Intent，不会报错，就是静悄悄地丢消息。你以为 Bot 挂了，其实它活着，只是"聋"了。这个坑我踩了，浪费半小时。
+![图片](https://mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzaFfTyAJRdr8Qx5xH17N8iaMPibsibbibxBxSwWqd1RUk0DbXsk0UZSMBcSdgqaZa2GqWVI0mNwEC5y3fIm5rXuDjSyOCr1hhEmCC8/640?wx_fmt=png&from=appmsg)少开一个 Intent，不会报错，就是静悄悄地丢消息。你以为 Bot 挂了，其实它活着，只是"聋"了。这个坑我踩了，浪费半小时。
 
 邀请链接用 OAuth2 → URL Generator，Scopes 勾 `bot` + `applications.commands`。
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzaucpnibQIvkZMEqQ88GmeVgPiaQIUVZx2XqvFOFe8tLbeMhaJIkoaH6giaTqPntLz5rNZpBfGqNdr7kQwkQ6btK3ibYiblVLzPRCw4/640?wx_fmt=png&from=appmsg)自用服务器我直接勾了 Administrator，图省事。如果你的服务器有其他人，建议最小权限：View Channels、Send Messages、Read Message History、Embed Links、Attach Files、Add Reactions。
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzaucpnibQIvkZMEqQ88GmeVgPiaQIUVZx2XqvFOFe8tLbeMhaJIkoaH6giaTqPntLz5rNZpBfGqNdr7kQwkQ6btK3ibYiblVLzPRCw4/640?wx_fmt=png&from=appmsg)自用服务器我直接勾了 Administrator，图省事。如果你的服务器有其他人，建议最小权限：View Channels、Send Messages、Read Message History、Embed Links、Attach Files、Add Reactions。
 
 ### 拿 ID
 
 开启 Discord 开发者模式（设置 → 高级 → 开发者模式），然后右键复制服务器 ID 和每个频道的 ID。
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzaDXSvPMcutt8HHMvjDGyPUtDsYwmj8nCKFsSdQ98RGEm3FWlWhWqYJOLDYm1N6S51nVcYf0hUAkehQD1RKsicQadKxnKVcuaJY/640?wx_fmt=png&from=appmsg)### 改 openclaw.json
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/AT9aMhkicnzaDXSvPMcutt8HHMvjDGyPUtDsYwmj8nCKFsSdQ98RGEm3FWlWhWqYJOLDYm1N6S51nVcYf0hUAkehQD1RKsicQadKxnKVcuaJY/640?wx_fmt=png&from=appmsg)### 改 openclaw.json
 
 三块配置：定义 Agent、开启 Discord、写 bindings。
 
@@ -208,7 +208,7 @@ bindings: [
 
 我的 💪-减肥 频道 topic 写的是："你是一个严格的健身教练，回复风格直接、不废话、数据驱动。用户说吃了什么就帮他算热量，不要安慰，不要鼓励，直接说超没超。"
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzZiauvhcotKupRkpoX62yAVVw4CCpGdOBg0ibLGzxWvHafibYBThZ7VpI0rHcrmvuNDYeIicS648pNU0jiaJQjlZLHUvvd4NCwjibLVo/640?wx_fmt=png&from=appmsg)效果：我说"今天吃了一碗螺蛳粉"，蔡练直接回"450大卡，你今天的配额还剩800，晚饭少吃点"。
+![图片](https://mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzZiauvhcotKupRkpoX62yAVVw4CCpGdOBg0ibLGzxWvHafibYBThZ7VpI0rHcrmvuNDYeIicS648pNU0jiaJQjlZLHUvvd4NCwjibLVo/640?wx_fmt=png&from=appmsg)效果：我说"今天吃了一碗螺蛳粉"，蔡练直接回"450大卡，你今天的配额还剩800，晚饭少吃点"。
 
 换到 💬-个人 频道，同一个 Bot，语气完全不一样。
 
@@ -245,7 +245,7 @@ Discord 线程就是干这个的。每个线程是频道里的子房间，有独
 ```
 开了 autoThread，每次在主频道发消息，Bot 自动创建线程来回复。主频道只剩一排线程标题，像目录。想看哪个任务点进去就行。
 
-![图片](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzYE8aDfwWyddrPKmKibtBHHsOVKItXaQXDIJa5UySa6qHYwjMg21Cwr3jaqd2uOjibxT3fTVbdMen3ibm9KqnJaRBTjlVNhW2rKG0/640?wx_fmt=png&from=appmsg)* 所以我现在的架构是两层隔离：
+![图片](https://mmbiz.qpic.cn/mmbiz_png/AT9aMhkicnzYE8aDfwWyddrPKmKibtBHHsOVKItXaQXDIJa5UySa6qHYwjMg21Cwr3jaqd2uOjibxT3fTVbdMen3ibm9KqnJaRBTjlVNhW2rKG0/640?wx_fmt=png&from=appmsg)* 所以我现在的架构是两层隔离：
 * 频道做"职能分层"——写作、编程、减肥、个人，各管各的
 * 线程做"任务分层"——同一个频道里，每篇文章、每个项目各有独立上下文
 

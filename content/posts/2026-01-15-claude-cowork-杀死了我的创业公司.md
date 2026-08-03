@@ -13,14 +13,14 @@ categories: ["未分类"]
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOOXz1rTnlfCtSJHcYqV9VdQpnPeiaJBdCHHicboFvWp3WVIibiazBWibH5TA/640?wx_fmt=other&from=appmsg)👦🏻 作者: 镜山
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOOXz1rTnlfCtSJHcYqV9VdQpnPeiaJBdCHHicboFvWp3WVIibiazBWibH5TA/640?wx_fmt=other&from=appmsg)👦🏻 作者: 镜山
 
 🧑‍🎨 排版: NCon
 
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOZibDerVSzNaJ3EBJ8bAJpdiaKVtC7Qj9TbGG8nSFbX0ANnibDXpib001Lw/640?wx_fmt=other&from=appmsg)在 AI 领域，其实有一种大家都心照不宣的恐惧，叫 「被 Sherlocked」。
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOZibDerVSzNaJ3EBJ8bAJpdiaKVtC7Qj9TbGG8nSFbX0ANnibDXpib001Lw/640?wx_fmt=other&from=appmsg)在 AI 领域，其实有一种大家都心照不宣的恐惧，叫 「被 Sherlocked」。
 
   
 
@@ -63,7 +63,7 @@ categories: ["未分类"]
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOLr975gwJWWBvibqc0baicw3bKAMRWNhkf0onSLgXtAAwZd7J10f1n3Tw/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOLr975gwJWWBvibqc0baicw3bKAMRWNhkf0onSLgXtAAwZd7J10f1n3Tw/640?wx_fmt=other&from=appmsg)  
 
 
 1 天时间，这条 X 推文超过 6000 次点赞、近 100 万次浏览。
@@ -110,7 +110,7 @@ categories: ["未分类"]
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOW2LibwbSm1Bt9adib5u5JvW4UBupsIyZdibZfZqsY1l7oCPbDJCTvBSpA/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOW2LibwbSm1Bt9adib5u5JvW4UBupsIyZdibZfZqsY1l7oCPbDJCTvBSpA/640?wx_fmt=other&from=appmsg)  
 
 
 我们找到了几个 Eigent 的案例，一起来看看。
@@ -134,7 +134,7 @@ categories: ["未分类"]
 ```
 
 
-[![📺 点击观看视频](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbO6YCeIvYvMhwq6ucNALSzVl6sicy1wAnvIZDl95PpLN1qJfZ9pWqLfVg/0?wx_fmt=jpeg)](https://mp.weixin.qq.com/s/KPYp0hKNAspQ5OC8bsMlZw)
+[![📺 点击观看视频](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbO6YCeIvYvMhwq6ucNALSzVl6sicy1wAnvIZDl95PpLN1qJfZ9pWqLfVg/0?wx_fmt=jpeg)](https://mp.weixin.qq.com/s/KPYp0hKNAspQ5OC8bsMlZw)
 
   
 
@@ -144,7 +144,7 @@ categories: ["未分类"]
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOQT27GsoYAlEwWDvSFibVG2MOX1ht3QKY5V66xZYSz1iaXHdvaTcxHSIQ/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOQT27GsoYAlEwWDvSFibVG2MOX1ht3QKY5V66xZYSz1iaXHdvaTcxHSIQ/640?wx_fmt=other&from=appmsg)  
 
 
 你会发现，它可以用一些比较模糊的提示词，一步步把整个桌面整理好，特别是那种很复杂很凌乱的桌面，上面已经放满了各种文件，最后都会被分类放到几个特别的文件夹里：
@@ -152,7 +152,7 @@ categories: ["未分类"]
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOjyt3oFA3mDYx65y9PdgFuPy92DkVkz7TMdichOBr2GUA0UVyiaM8O6qA/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOjyt3oFA3mDYx65y9PdgFuPy92DkVkz7TMdichOBr2GUA0UVyiaM8O6qA/640?wx_fmt=other&from=appmsg)  
 
 
 我找了做这个任务的一段视频，放在了下面。
@@ -162,7 +162,7 @@ categories: ["未分类"]
 
 
 
-[![📺 点击观看视频](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOvf7JTTEFCVXszicLPvz59WlFKDrLSHHSQvd8P8lLbVSahYJlYFiaehibQ/0?wx_fmt=jpeg)](https://mp.weixin.qq.com/s/KPYp0hKNAspQ5OC8bsMlZw)
+[![📺 点击观看视频](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOvf7JTTEFCVXszicLPvz59WlFKDrLSHHSQvd8P8lLbVSahYJlYFiaehibQ/0?wx_fmt=jpeg)](https://mp.weixin.qq.com/s/KPYp0hKNAspQ5OC8bsMlZw)
 
   
 
@@ -172,7 +172,7 @@ categories: ["未分类"]
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbO9MEiattu5LicWdY6ia0EeRznHULCPp4tIvHHyicdmOGwBMjU2Af8E3Gg5w/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbO9MEiattu5LicWdY6ia0EeRznHULCPp4tIvHHyicdmOGwBMjU2Af8E3Gg5w/640?wx_fmt=other&from=appmsg)  
 
 
 所以，这种 「Multi Agent 并行工作模式 + 本地权限 + Browser Use」 的能力，让很多日常工作场景达到了闭环。
@@ -225,7 +225,7 @@ GitHub 项目链接如下，有非常完整的部署 Guide Book：
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbO3iaBTsicHV66wlv4FfXofjVHS6Gdq3xj5LeFXJAxUtoGRvP4ssK7R4qQ/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbO3iaBTsicHV66wlv4FfXofjVHS6Gdq3xj5LeFXJAxUtoGRvP4ssK7R4qQ/640?wx_fmt=other&from=appmsg)  
 
 
 可以说，前面那些「被巨头杀死」的叙事，让 Eigent 进入了更多人的视野。但让它没有迅速退场的原因，仍然来自技术层面。
@@ -248,7 +248,7 @@ GitHub 项目链接如下，有非常完整的部署 Guide Book：
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOYZ4PWWeJXKo32Y7RpnmhTzyK3hYHqYBm8HaYzgibuJyjDcDt2QWtpIg/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOYZ4PWWeJXKo32Y7RpnmhTzyK3hYHqYBm8HaYzgibuJyjDcDt2QWtpIg/640?wx_fmt=other&from=appmsg)  
 
 
 Eigent 和 CAMEL AI 其实是同一个团队，Eigent 的 Multi Agent 架构，其实是基于背后 C AMEL 之前做的 Agent 框架。整个 CAMEL Workforce System 里的这些任务需要多个人或者多个系统来合作完成。
@@ -337,7 +337,7 @@ Eigent 和 CAMEL AI 其实是同一个团队，Eigent 的 Multi Agent 架构，�
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOYYoIKyPEYVtMyJ2DM8TOdJlKBLLYysVd94Vls9cZAkpr7LcS3F9o9g/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOYYoIKyPEYVtMyJ2DM8TOdJlKBLLYysVd94Vls9cZAkpr7LcS3F9o9g/640?wx_fmt=other&from=appmsg)  
 
 
 与之相似的背书，其实还有很多，比如，HuggingFace 的 Co-founder 曾为这个项目点赞：
@@ -345,7 +345,7 @@ Eigent 和 CAMEL AI 其实是同一个团队，Eigent 的 Multi Agent 架构，�
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOibEmzzqLicuiajWnCnGS0ialnZDSa3z8bTKQxVpPKmv1avicrr3jldvk3QA/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOibEmzzqLicuiajWnCnGS0ialnZDSa3z8bTKQxVpPKmv1avicrr3jldvk3QA/640?wx_fmt=other&from=appmsg)  
 
 
 巧的是 4 天前，Eigent 团队曾发过一个叫做 SETA 的项目，是一个非常大的开源终端 Agent 训练 RL 环境，也被 Andrej Karpathy，John Schulman 等人点赞：
@@ -353,7 +353,7 @@ Eigent 和 CAMEL AI 其实是同一个团队，Eigent 的 Multi Agent 架构，�
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOoDleQsWaEmSxzL1egrv3zrU1ticZGPQKxjmic3vt5gNFse2romw11icVA/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOoDleQsWaEmSxzL1egrv3zrU1ticZGPQKxjmic3vt5gNFse2romw11icVA/640?wx_fmt=other&from=appmsg)  
 
 
 在执行层面，Eigent 不仅停留在概念上。
@@ -381,7 +381,7 @@ Eigent 和 CAMEL AI 其实是同一个团队，Eigent 的 Multi Agent 架构，�
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOn67rvrAibl0P7U0ng76oiaGHwBFPrIfngJl4Mlu2ov7Y5g3uBv2JlGng/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOn67rvrAibl0P7U0ng76oiaGHwBFPrIfngJl4Mlu2ov7Y5g3uBv2JlGng/640?wx_fmt=other&from=appmsg)  
 
 
 用户也可以用自己的 API Key，来选择不同的模型接入到 Eigent 里，不只局限在某个单一模型。
@@ -391,7 +391,7 @@ Eigent 和 CAMEL AI 其实是同一个团队，Eigent 的 Multi Agent 架构，�
 
 
 
-[![📺 点击观看视频](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOmy8DQkRt9alkpF9VM0nVov85vDUfadaDzWviaZPHMyRgwibLwMB1AnMg/0?wx_fmt=jpeg)](https://mp.weixin.qq.com/s/KPYp0hKNAspQ5OC8bsMlZw)
+[![📺 点击观看视频](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOmy8DQkRt9alkpF9VM0nVov85vDUfadaDzWviaZPHMyRgwibLwMB1AnMg/0?wx_fmt=jpeg)](https://mp.weixin.qq.com/s/KPYp0hKNAspQ5OC8bsMlZw)
 
   
 
@@ -480,13 +480,13 @@ GitHub 链接：**https://github.com/eigent-ai/eigent**
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOK3rdZmooCG81pM15RCSbCjp5swH0AtYzRT90I92H5ZBz9jovVhtGsg/640?wx_fmt=other&from=appmsg)  
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOK3rdZmooCG81pM15RCSbCjp5swH0AtYzRT90I92H5ZBz9jovVhtGsg/640?wx_fmt=other&from=appmsg)  
 
 
   
 
 
-![loading](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOyhK1QqSclYf3ZneZ33KGkTLjmEicGqe8otZpia6N2KC7DTdGPwrGjnvA/640?wx_fmt=other&from=appmsg)
+![loading](https://mmbiz.qpic.cn/mmbiz_jpg/FFcNSoQ3Kicu9N5g3FSR7LopEGdtibBHbOyhK1QqSclYf3ZneZ33KGkTLjmEicGqe8otZpia6N2KC7DTdGPwrGjnvA/640?wx_fmt=other&from=appmsg)
 
 ---
 *来源: [微信公众号](https://mp.weixin.qq.com/s/KPYp0hKNAspQ5OC8bsMlZw)*

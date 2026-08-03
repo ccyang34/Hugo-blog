@@ -8,7 +8,7 @@ tags: ["开源项目", "AI工具", "NotebookLM", "自托管", "学习助手", "�
 
 嗨，我是小华同学，专注解锁高效工作与前沿AI工具！每日精选开源技术、实战技巧，助你省时50%、领先他人一步。👉免费订阅，与10万+技术人共享升级秘籍！
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/mRgvnruIwyCMXsVvwpicauWciaAGzibsM2icM2Oj0tBlPgIicjO5h0Kw8xtianRt1ccjJERZMiajKicsN0NWaO5W5c2tZQ/640?wx_fmt=png&from=appmsg)
+![](https://mmbiz.qpic.cn/mmbiz_png/mRgvnruIwyCMXsVvwpicauWciaAGzibsM2icM2Oj0tBlPgIicjO5h0Kw8xtianRt1ccjJERZMiajKicsN0NWaO5W5c2tZQ/640?wx_fmt=png&from=appmsg)
 
 > 如果你用过 NotebookLM，大概率会爱上这种“把资料丢进去→对着资料问问题→沉淀笔记”的学习方式。但很多人卡在同一个点：**资料隐私、模型选择、可扩展性**。
 
@@ -36,7 +36,7 @@ tags: ["开源项目", "AI工具", "NotebookLM", "自托管", "学习助手", "�
 
 > 小提醒：如果你选用的是云端模型（比如 OpenAI/Anthropic），被选中的上下文仍可能会发送给对应服务商；想更“本地化”，就优先用 Ollama/LM Studio 之类本地端点。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/mRgvnruIwyCMXsVvwpicauWciaAGzibsM2icbp1FyXqEuTdK6V5I29QicGM0MflcO13J9gjg7AKQyVQSBiaRV7P90voA/640?wx_fmt=png&from=appmsg)
+![](https://mmbiz.qpic.cn/mmbiz_png/mRgvnruIwyCMXsVvwpicauWciaAGzibsM2icbp1FyXqEuTdK6V5I29QicGM0MflcO13J9gjg7AKQyVQSBiaRV7P90voA/640?wx_fmt=png&from=appmsg)
 
 ## 5 分钟上手
 
@@ -80,7 +80,7 @@ docker compose up
 
 程序员/独立开发者：想用 API 把它接进自己的自动化管道。
 
-![](https://i0.wp.com/mmbiz.qpic.cn/mmbiz_png/mRgvnruIwyCMXsVvwpicauWciaAGzibsM2icFm5bjXUUtjqZfjz1BCOsiapj8vOu2tcSaIBQWlEa2nOOjmtesrlT0CQ/640?wx_fmt=png&from=appmsg)
+![](https://mmbiz.qpic.cn/mmbiz_png/mRgvnruIwyCMXsVvwpicauWciaAGzibsM2icFm5bjXUUtjqZfjz1BCOsiapj8vOu2tcSaIBQWlEa2nOOjmtesrlT0CQ/640?wx_fmt=png&from=appmsg)
 
 ## 项目地址
 
