@@ -302,6 +302,142 @@
     }
 
     /* =========================================
+       删除文章按钮样式
+       ========================================= */
+    .delete-article-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-left: 8px !important;
+        cursor: pointer !important;
+        color: #999 !important;
+        transition: all 0.2s ease !important;
+        vertical-align: middle !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+
+    .delete-article-btn:hover {
+        color: #e74c3c !important;
+        transform: scale(1.1) !important;
+    }
+
+    .delete-article-btn .delete-article-icon {
+        width: 18px !important;
+        height: 18px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    [data-scheme="dark"] .delete-article-btn {
+        color: #666 !important;
+    }
+
+    [data-scheme="dark"] .delete-article-btn:hover {
+        color: #e74c3c !important;
+    }
+
+    /* 删除确认弹窗 */
+    .delete-confirm-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 99999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .delete-confirm-overlay.show {
+        display: flex;
+    }
+
+    .delete-confirm-box {
+        background: var(--card-background, #fff);
+        color: var(--card-text-color, #333);
+        border-radius: 10px;
+        padding: 28px 30px;
+        max-width: 460px;
+        width: 90%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    .delete-confirm-box h3 {
+        margin: 0 0 12px 0;
+        font-size: 1.2rem;
+        color: #e74c3c;
+    }
+
+    .delete-confirm-box p {
+        margin: 6px 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--card-text-color, #333);
+    }
+
+    .delete-confirm-box .delete-target-title {
+        font-weight: 700;
+        word-break: break-all;
+    }
+
+    .delete-confirm-box .delete-warning {
+        color: #e74c3c;
+        font-size: 0.85rem;
+        margin-top: 8px;
+    }
+
+    .delete-confirm-actions {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .delete-confirm-actions button {
+        padding: 8px 22px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+
+    .delete-confirm-cancel {
+        background: #e0e0e0;
+        color: #333;
+    }
+
+    .delete-confirm-cancel:hover {
+        background: #d0d0d0;
+    }
+
+    .delete-confirm-ok {
+        background: #e74c3c;
+        color: #fff;
+    }
+
+    .delete-confirm-ok:hover {
+        background: #c0392b;
+    }
+
+    .delete-confirm-ok:disabled {
+        background: #f5b7b1;
+        cursor: not-allowed;
+    }
+
+    .delete-confirm-status {
+        margin-top: 12px;
+        font-size: 0.9rem;
+        min-height: 20px;
+    }
+
+    /* =========================================
        即时搜索框样式
        ========================================= */
     .instant-search-container {
@@ -1310,4 +1446,145 @@
 {"title": {{ $page.Title | jsonify }}, "url": "{{ $page.RelPermalink }}"}
 {{ end }}
 ]
+</script>
+
+<script>
+    // =========================================
+    // 删除文章功能 - 通过发布器 API (hugo-api.ccyang.online)
+    // =========================================
+    const DELETE_API_BASE = "https://hugo-api.ccyang.online";
+    const DELETE_VERIFY_URL = DELETE_API_BASE + "/api/verify-password";
+    const DELETE_FILE_URL = DELETE_API_BASE + "/api/file";
+
+    // 当前删除的上下文
+    let deleteTarget = null;
+
+    // 显示删除确认弹窗
+    function showDeleteConfirm(btn) {
+        const filePath = btn.getAttribute('data-file-path');   // 例如 posts/xxx.md
+        const title = btn.getAttribute('data-title');
+        const permalink = btn.getAttribute('data-permalink');
+        if (!filePath) {
+            alert("无法获取文章文件路径");
+            return;
+        }
+        deleteTarget = { filePath: filePath, title: title, permalink: permalink };
+
+        const overlay = document.getElementById('delete-confirm-overlay');
+        document.getElementById('delete-confirm-title').textContent = title || '(未知标题)';
+        document.getElementById('delete-confirm-filepath').textContent = filePath;
+        const statusEl = document.getElementById('delete-confirm-status');
+        statusEl.textContent = '';
+        const okBtn = document.getElementById('delete-confirm-ok');
+        okBtn.disabled = false;
+        const pwdInput = document.getElementById('delete-confirm-pwd');
+        if (pwdInput) pwdInput.value = '';
+        overlay.classList.add('show');
+    }
+
+    // 关闭删除确认弹窗
+    function closeDeleteConfirm() {
+        const overlay = document.getElementById('delete-confirm-overlay');
+        overlay.classList.remove('show');
+        deleteTarget = null;
+    }
+
+    // 执行删除
+    async function confirmDeleteArticle() {
+        if (!deleteTarget) return;
+
+        const pwdInput = document.getElementById('delete-confirm-pwd');
+        const pwd = pwdInput ? pwdInput.value.trim() : '';
+        if (!pwd) {
+            alert("请输入发布密码");
+            return;
+        }
+
+        const statusEl = document.getElementById('delete-confirm-status');
+        const okBtn = document.getElementById('delete-confirm-ok');
+        okBtn.disabled = true;
+        statusEl.textContent = "正在验证密码...";
+        statusEl.style.color = '#333';
+
+        try {
+            // 1. 验证发布密码
+            const verifyRes = await fetch(DELETE_VERIFY_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ password: pwd })
+            });
+            const verifyData = await verifyRes.json();
+            if (!verifyData.success) {
+                statusEl.textContent = "❌ 密码错误！";
+                statusEl.style.color = '#e74c3c';
+                okBtn.disabled = false;
+                return;
+            }
+
+            // 2. 调用删除 API
+            statusEl.textContent = "正在删除...";
+            const fullPath = "content/" + deleteTarget.filePath; // 仓库内路径
+            const delRes = await fetch(DELETE_FILE_URL + "?path=" + encodeURIComponent(fullPath), {
+                method: "DELETE",
+                headers: {
+                    "X-Auth-Token": pwd,
+                    "Accept": "application/json"
+                }
+            });
+            const delData = await delRes.json().catch(() => ({}));
+
+            if (!delRes.ok || delData.success !== true) {
+                throw new Error(delData.error || ("HTTP " + delRes.status));
+            }
+
+            statusEl.textContent = "✅ 已删除，页面即将刷新...";
+            statusEl.style.color = '#27ae60';
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1200);
+        } catch (e) {
+            console.error(e);
+            statusEl.textContent = "❌ " + e.message;
+            statusEl.style.color = '#e74c3c';
+            okBtn.disabled = false;
+        }
+    }
+
+    // 初始化弹窗（注入到 body）
+    function initDeleteConfirm() {
+        const overlay = document.createElement('div');
+        overlay.id = 'delete-confirm-overlay';
+        overlay.className = 'delete-confirm-overlay';
+        overlay.innerHTML = `
+            <div class="delete-confirm-box">
+                <h3>⚠️ 确认删除文章</h3>
+                <p class="delete-target-title" id="delete-confirm-title"></p>
+                <p>文件路径: <code id="delete-confirm-filepath" style="word-break: break-all;"></code></p>
+                <p class="delete-warning">此操作将永久删除 GitHub 仓库中的对应文件，且不可恢复！</p>
+                <p style="text-align: left; font-size: 0.9rem;">请输入发布密码以确认：</p>
+                <input type="password" id="delete-confirm-pwd" placeholder="发布密码"
+                    style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; margin-top: 6px; font-size: 1rem; box-sizing: border-box;" />
+                <div class="delete-confirm-status" id="delete-confirm-status"></div>
+                <div class="delete-confirm-actions">
+                    <button class="delete-confirm-cancel" onclick="closeDeleteConfirm()">取消</button>
+                    <button class="delete-confirm-ok" id="delete-confirm-ok" onclick="confirmDeleteArticle()">确认删除</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // 点击遮罩关闭
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) closeDeleteConfirm();
+        });
+        // Enter 键确认
+        const pwdInput = overlay.querySelector('#delete-confirm-pwd');
+        if (pwdInput) {
+            pwdInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') confirmDeleteArticle();
+            });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', initDeleteConfirm);
 </script>
