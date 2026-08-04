@@ -1251,6 +1251,19 @@
             markArticleRead(window.location.pathname);
         }
 
+        // bfcache 加固: 从后退缓存恢复列表页时 JS 不会重跑, 需手动移除已读文章的头条标签
+        window.addEventListener('pageshow', function (e) {
+            if (e.persisted) {
+                document.querySelectorAll('.article-list article.is-headline').forEach(function (article) {
+                    const link = article.querySelector('a');
+                    const href = link ? link.pathname : '';
+                    if (isArticleRead(href)) {
+                        article.classList.remove('is-headline');
+                    }
+                });
+            }
+        });
+
         // =========================================
         // 华尔街见闻风格 - 头条标签
         // 发布时间5小时以内的文章显示头条标签
@@ -1271,8 +1284,10 @@
                         const diffMs = now - publishDate;
                         if (diffMs <= fiveHoursMs && diffMs >= 0) {
                             // 已读文章不再显示头条标签
+                            // 注意: 用 link.pathname 取绝对路径, 与详情页记录的 window.location.pathname 一致
+                            // (link.getAttribute('href') 会取到相对路径 ./posts/xxx/, 导致匹配失败)
                             const link = article.querySelector('a');
-                            const href = link ? link.getAttribute('href') : '';
+                            const href = link ? link.pathname : '';
                             if (!isArticleRead(href)) {
                                 article.classList.add('is-headline');
                             }
@@ -1390,8 +1405,9 @@
                             const diffMs = now - publishDate;
                             if (diffMs <= fiveHoursMs && diffMs >= 0) {
                                 // 已读文章不再显示头条标签
+                                // 用 link.pathname 取绝对路径, 与详情页记录格式一致
                                 const link = article.querySelector('a');
-                                const href = link ? link.getAttribute('href') : '';
+                                const href = link ? link.pathname : '';
                                 if (!isArticleRead(href)) {
                                     article.classList.add('is-headline');
                                 }
