@@ -339,18 +339,16 @@
         color: #e74c3c !important;
     }
 
-    /* 删除确认弹窗 */
+    /* 删除确认弹窗 - 紧凑版 */
     .delete-confirm-overlay {
         display: none;
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.55);
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
         z-index: 99999;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        padding: 12vh 16px 16px;
     }
 
     .delete-confirm-overlay.show {
@@ -361,50 +359,56 @@
         background: var(--card-background, #fff);
         color: var(--card-text-color, #333);
         border-radius: 10px;
-        padding: 28px 30px;
-        max-width: 460px;
-        width: 90%;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        padding: 20px 22px;
+        max-width: 340px;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
         text-align: center;
     }
 
     .delete-confirm-box h3 {
-        margin: 0 0 12px 0;
-        font-size: 1.2rem;
+        margin: 0 0 8px;
+        font-size: 1.05rem;
         color: #e74c3c;
-    }
-
-    .delete-confirm-box p {
-        margin: 6px 0;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: var(--card-text-color, #333);
     }
 
     .delete-confirm-box .delete-target-title {
+        margin: 0 0 12px;
+        font-size: 0.9rem;
         font-weight: 700;
         word-break: break-all;
+        line-height: 1.5;
     }
 
-    .delete-confirm-box .delete-warning {
-        color: #e74c3c;
+    .delete-confirm-box input#delete-confirm-pwd {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+    }
+
+    .delete-confirm-status {
+        min-height: 18px;
         font-size: 0.85rem;
-        margin-top: 8px;
+        margin-top: 4px;
     }
 
     .delete-confirm-actions {
         display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 20px;
+        gap: 10px;
+        margin-top: 10px;
     }
 
     .delete-confirm-actions button {
-        padding: 8px 22px;
+        flex: 1;
+        padding: 8px 0;
         border-radius: 6px;
         border: none;
         cursor: pointer;
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         transition: all 0.2s ease;
     }
 
@@ -431,75 +435,19 @@
         cursor: not-allowed;
     }
 
-    .delete-confirm-status {
-        margin-top: 12px;
-        font-size: 0.9rem;
-        min-height: 20px;
-    }
-
-    /* =========================================
-       删除确认弹窗 - 移动端适配
-       ========================================= */
+    /* 移动端: 仅放大触控区域, 保持紧凑 */
     @media screen and (max-width: 767px) {
-        .delete-confirm-overlay {
-            align-items: center;
-            padding: 16px;
-        }
-
         .delete-confirm-box {
-            padding: 24px 20px;
-            width: 100%;
-            max-width: 400px;
-            max-height: 85vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            border-radius: 14px;
-            box-sizing: border-box;
+            padding: 20px 18px;
         }
 
-        .delete-confirm-box h3 {
-            font-size: 1.5rem !important;
-            margin: 0 0 14px 0;
-        }
-
-        .delete-confirm-box p {
-            font-size: 1.1rem !important;
-            line-height: 1.65;
-        }
-
-        .delete-confirm-box .delete-target-title {
-            font-size: 1.15rem !important;
-        }
-
-        .delete-confirm-box .delete-warning {
-            font-size: 1rem !important;
-            margin-top: 10px;
-        }
-
-        /* 覆盖弹窗内输入框的内联样式，放大字号与触控区域 */
         .delete-confirm-box input#delete-confirm-pwd {
-            font-size: 1.15rem !important;
-            padding: 12px 14px !important;
-            margin-top: 8px !important;
-            border-radius: 8px !important;
-        }
-
-        .delete-confirm-actions {
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 22px;
+            font-size: 1rem;
+            padding: 10px 12px;
         }
 
         .delete-confirm-actions button {
-            width: 100%;
-            padding: 13px 0;
-            font-size: 1.15rem !important;
-            border-radius: 8px;
-        }
-
-        .delete-confirm-status {
-            font-size: 1.05rem !important;
-            min-height: 24px;
+            padding: 10px 0;
         }
     }
 
@@ -1538,7 +1486,6 @@
 
         const overlay = document.getElementById('delete-confirm-overlay');
         document.getElementById('delete-confirm-title').textContent = title || '(未知标题)';
-        document.getElementById('delete-confirm-filepath').textContent = filePath;
         const statusEl = document.getElementById('delete-confirm-status');
         statusEl.textContent = '';
         const okBtn = document.getElementById('delete-confirm-ok');
@@ -1623,17 +1570,13 @@
         overlay.className = 'delete-confirm-overlay';
         overlay.innerHTML = `
             <div class="delete-confirm-box">
-                <h3>⚠️ 确认删除文章</h3>
+                <h3>删除文章</h3>
                 <p class="delete-target-title" id="delete-confirm-title"></p>
-                <p>文件路径: <code id="delete-confirm-filepath" style="word-break: break-all;"></code></p>
-                <p class="delete-warning">此操作将永久删除 GitHub 仓库中的对应文件，且不可恢复！</p>
-                <p style="text-align: left; font-size: 0.9rem;">请输入发布密码以确认：</p>
-                <input type="password" id="delete-confirm-pwd" placeholder="发布密码"
-                    style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; margin-top: 6px; font-size: 1rem; box-sizing: border-box;" />
+                <input type="password" id="delete-confirm-pwd" placeholder="输入发布密码确认删除" />
                 <div class="delete-confirm-status" id="delete-confirm-status"></div>
                 <div class="delete-confirm-actions">
                     <button class="delete-confirm-cancel" onclick="closeDeleteConfirm()">取消</button>
-                    <button class="delete-confirm-ok" id="delete-confirm-ok" onclick="confirmDeleteArticle()">确认删除</button>
+                    <button class="delete-confirm-ok" id="delete-confirm-ok" onclick="confirmDeleteArticle()">删除</button>
                 </div>
             </div>
         `;
