@@ -1214,6 +1214,44 @@
         }
 
         // =========================================
+        // 文章浏览记录 - 已读文章不再显示头条标签
+        // =========================================
+        const READ_ARTICLES_KEY = 'blog_read_articles_v1';
+        const READ_ARTICLES_MAX = 500;
+
+        function getReadArticles() {
+            try {
+                return JSON.parse(localStorage.getItem(READ_ARTICLES_KEY) || '[]');
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function isArticleRead(path) {
+            if (!path) return false;
+            return getReadArticles().indexOf(path) !== -1;
+        }
+
+        function markArticleRead(path) {
+            if (!path) return;
+            const list = getReadArticles();
+            if (list.indexOf(path) === -1) {
+                list.push(path);
+                if (list.length > READ_ARTICLES_MAX) {
+                    list.splice(0, list.length - READ_ARTICLES_MAX); // 只保留最近 500 条
+                }
+                try {
+                    localStorage.setItem(READ_ARTICLES_KEY, JSON.stringify(list));
+                } catch (e) {}
+            }
+        }
+
+        // 详情页: 打开即记录浏览
+        if (isArticlePage) {
+            markArticleRead(window.location.pathname);
+        }
+
+        // =========================================
         // 华尔街见闻风格 - 头条标签
         // 发布时间5小时以内的文章显示头条标签
         // 注意：必须在相对时间转换之前执行
@@ -1232,7 +1270,12 @@
                         const publishDate = new Date(datetime);
                         const diffMs = now - publishDate;
                         if (diffMs <= fiveHoursMs && diffMs >= 0) {
-                            article.classList.add('is-headline');
+                            // 已读文章不再显示头条标签
+                            const link = article.querySelector('a');
+                            const href = link ? link.getAttribute('href') : '';
+                            if (!isArticleRead(href)) {
+                                article.classList.add('is-headline');
+                            }
                         }
                     }
                 }
@@ -1346,7 +1389,12 @@
                             const publishDate = new Date(datetime);
                             const diffMs = now - publishDate;
                             if (diffMs <= fiveHoursMs && diffMs >= 0) {
-                                article.classList.add('is-headline');
+                                // 已读文章不再显示头条标签
+                                const link = article.querySelector('a');
+                                const href = link ? link.getAttribute('href') : '';
+                                if (!isArticleRead(href)) {
+                                    article.classList.add('is-headline');
+                                }
                             }
 
                             // 相对时间
