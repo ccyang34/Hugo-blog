@@ -3,9 +3,8 @@ title: "OpenClaw 最佳实践：弃用飞书，我把 AI 团队全搬到了 Disc
 date: 2026-02-20T07:54:41+08:00
 lastmod: 2026-02-20T07:54:41+08:00
 author: "小蔡AI实验室"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 小蔡AI实验室
 
 大家好，我是小蔡！

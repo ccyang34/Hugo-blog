@@ -3,9 +3,8 @@ title: "OpenClaw（Clawdbot） + Kimi 2.5 最新手把手教程，附飞书接�
 date: 2026-02-01T22:37:07+08:00
 lastmod: 2026-02-01T22:37:07+08:00
 author: "向阳乔木推荐看"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 向阳乔木推荐看
 
 最近刷 X 帖子，看到很多海外博主推荐 Kimi 2.5 接入Clawdbot。

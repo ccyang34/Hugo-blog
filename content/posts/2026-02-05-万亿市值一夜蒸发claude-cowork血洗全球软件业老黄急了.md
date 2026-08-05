@@ -3,9 +3,8 @@ title: "万亿市值一夜蒸发！Claude Cowork血洗全球软件业，老黄�
 date: 2026-02-05T13:18:32+08:00
 lastmod: 2026-02-05T13:18:32+08:00
 author: "新智元"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 新智元
 
 ### 

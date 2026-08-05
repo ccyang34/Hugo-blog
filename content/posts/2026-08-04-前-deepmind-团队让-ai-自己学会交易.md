@@ -3,9 +3,8 @@ title: "前 DeepMind 团队：让 AI 自己学会交易"
 date: 2026-08-04T21:58:36+08:00
 lastmod: 2026-08-04T21:58:36+08:00
 author: "狄奥尼索斯之歌"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 狄奥尼索斯之歌
 
 > *访谈来源：CzechCrunch Money Maker  

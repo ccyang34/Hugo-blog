@@ -3,9 +3,8 @@ title: "OpenClaw值得安装的skills❗"
 date: 2026-02-17T23:03:24+08:00
 lastmod: 2026-02-17T23:03:24+08:00
 author: "少女Yuki日常"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 少女Yuki日常
 ---
 ## 描述

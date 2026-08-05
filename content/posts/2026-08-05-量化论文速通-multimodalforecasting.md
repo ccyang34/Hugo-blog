@@ -4,9 +4,8 @@ date: 2026-08-05T00:43:21+08:00
 lastmod: 2026-08-05T00:43:21+08:00
 author: "虾哥的量化笔记"
 categories: ["AI与技术", "投资策略"]
-tags: ["金融时间序列", "多模态", "Transformer", "利率预测", "自然语言处理", "量化研究", "宏观经济", "美联储"]
+tags: ["量化", "金融时间序列", "多模态", "Transformer", "利率预测", "自然语言处理", "量化研究", "宏观经济", "美联储"]
 ---
-
 **作者**: 虾哥的量化笔记
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/rFibyZZ6fR62VD6NCibic7Gibib5pRcATn1RUYeDM6DcJzyHBvsYA5RfT0Mtl4fOic6JeI5bwWSofnIkGxPww9Q2KnDv0TjzsfgERQYyqnZlW1P68/640?wx_fmt=png&from=appmsg)

@@ -3,9 +3,8 @@ title: "MiniMax Agent 接管桌面：动动嘴，电脑就把活干完了 | 10+�
 date: 2026-02-11T00:08:45+08:00
 lastmod: 2026-02-11T00:08:45+08:00
 author: "AI进修生"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: AI进修生
 
 MiniMax Agent，很多人都知道。

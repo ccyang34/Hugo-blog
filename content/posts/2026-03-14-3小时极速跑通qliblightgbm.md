@@ -4,9 +4,8 @@ date: 2026-03-14T00:28:04+08:00
 lastmod: 2026-03-14T00:28:04+08:00
 author: "Lunartulip Lab"
 categories: ["AI与技术", "投资策略", "市场分析"]
-tags: ["量化交易", "Qlib", "LightGBM", "Alpha因子", "收益归因", "A股", "金融科技", "机器学习"]
+tags: ["量化", "量化交易", "Qlib", "LightGBM", "Alpha因子", "收益归因", "A股", "金融科技", "机器学习"]
 ---
-
 **作者**: Lunartulip Lab
 
 ---

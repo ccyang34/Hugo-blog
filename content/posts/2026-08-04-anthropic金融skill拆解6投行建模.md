@@ -3,9 +3,8 @@ title: "Anthropic金融Skill拆解⑥：投行建模"
 date: 2026-08-04T18:05:13+08:00
 lastmod: 2026-08-04T18:05:13+08:00
 author: "道以研究院"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 道以研究院
 
 金融AI Skill指南 · 第8期

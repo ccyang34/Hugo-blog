@@ -3,9 +3,8 @@ title: "Openclaw + OpenCode 才是 vibe coding 的最棒组合！"
 date: 2026-02-07T00:29:09+08:00
 lastmod: 2026-02-07T00:29:09+08:00
 author: "苍何"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 苍何
 
 这是苍何的第 485 篇原创！大家好，我是苍何。

@@ -3,9 +3,8 @@ title: "堪称外挂的 Claude Code 配置神器，在 GitHub 上杀疯了。"
 date: 2026-01-31T16:11:39+08:00
 lastmod: 2026-01-31T16:11:39+08:00
 author: "逛逛GitHub"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 逛逛GitHub
 
 这个叫 everything-claude-code 的开源项目太顶了。开源没几天就 3.5 万的 Star 了。。。先看它的简介，上面写的是：完整的 Claude Code 配置合集——Agent、Skill、Hook、快捷命令、规则、MCPs。来自 Anthropic 黑客马拉松获胜者的经过实战检验的配置。![](https://mmbiz.qpic.cn/sz_mmbiz_png/ePw3ZeGRruzR5pDpuoicpAAeibGn6gQH5ItVbXveh4nbuLg9bTebEOhKqV3gOpOCcfia8Z8mnROgZEJGSloLEYg1A/640?wx_fmt=png&from=appmsg)重点是：来自 Anthropic 黑客马拉松获胜者的经过实战检验。这个开源项目的作者是 Affaan Mustafa，是一位超级资深的 AI 开发者。

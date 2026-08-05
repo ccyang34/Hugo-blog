@@ -3,9 +3,8 @@ title: "“Claude Cowork 杀死了我的创业公司”"
 date: 2026-01-15T21:08:31+08:00
 lastmod: 2026-01-15T21:08:31+08:00
 author: "十字路口Crossing"
-categories: ["未分类"]
+categories: ["AI与技术"]
 ---
-
 **作者**: 十字路口Crossing
 
 > AI 不再仅仅是操作和交互的对象，它开始成为 Coworker。
