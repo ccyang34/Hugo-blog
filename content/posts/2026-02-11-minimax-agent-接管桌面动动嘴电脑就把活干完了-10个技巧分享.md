@@ -4,6 +4,7 @@ date: 2026-02-11T00:08:45+08:00
 lastmod: 2026-02-11T00:08:45+08:00
 author: "AI进修生"
 categories: ["AI与技术"]
+tags: ["MiniMax", "AI Agent", "AI", "技术干货"]
 ---
 **作者**: AI进修生
 

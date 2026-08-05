@@ -4,6 +4,7 @@ date: 2026-01-31T16:11:39+08:00
 lastmod: 2026-01-31T16:11:39+08:00
 author: "逛逛GitHub"
 categories: ["AI与技术"]
+tags: ["Claude Code", "Claude", "GitHub", "AI"]
 ---
 **作者**: 逛逛GitHub
 

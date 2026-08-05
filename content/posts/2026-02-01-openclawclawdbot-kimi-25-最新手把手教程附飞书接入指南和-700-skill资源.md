@@ -4,6 +4,7 @@ date: 2026-02-01T22:37:07+08:00
 lastmod: 2026-02-01T22:37:07+08:00
 author: "向阳乔木推荐看"
 categories: ["AI与技术"]
+tags: ["Clawdbot", "OpenClaw", "Kimi", "Skills", "飞书"]
 ---
 **作者**: 向阳乔木推荐看
 

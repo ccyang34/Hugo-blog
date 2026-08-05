@@ -4,6 +4,7 @@ date: 2026-02-17T23:03:24+08:00
 lastmod: 2026-02-17T23:03:24+08:00
 author: "少女Yuki日常"
 categories: ["AI与技术"]
+tags: ["OpenClaw", "Skills", "AI", "技术干货"]
 ---
 **作者**: 少女Yuki日常
 ---

@@ -4,6 +4,7 @@ date: 2026-02-02T10:38:00+08:00
 lastmod: 2026-02-02T10:38:00+08:00
 author: "小白debug"
 categories: ["AI与技术"]
+tags: ["Clawdbot", "OpenClaw", "AI", "技术干货"]
 ---
 **作者**: 小白debug
 ---

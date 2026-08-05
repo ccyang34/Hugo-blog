@@ -4,6 +4,7 @@ date: 2026-08-04T18:05:13+08:00
 lastmod: 2026-08-04T18:05:13+08:00
 author: "道以研究院"
 categories: ["AI与技术"]
+tags: ["Anthropic", "Skills", "AI", "技术干货"]
 ---
 **作者**: 道以研究院
 

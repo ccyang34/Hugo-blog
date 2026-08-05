@@ -4,6 +4,7 @@ date: 2026-01-15T21:08:31+08:00
 lastmod: 2026-01-15T21:08:31+08:00
 author: "十字路口Crossing"
 categories: ["AI与技术"]
+tags: ["Claude Cowork", "Claude", "AI", "技术干货"]
 ---
 **作者**: 十字路口Crossing
 

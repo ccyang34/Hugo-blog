@@ -4,6 +4,7 @@ date: 2026-02-07T00:29:09+08:00
 lastmod: 2026-02-07T00:29:09+08:00
 author: "苍何"
 categories: ["AI与技术"]
+tags: ["OpenClaw", "OpenCode", "vibe coding", "AI"]
 ---
 **作者**: 苍何
 

@@ -4,6 +4,7 @@ date: 2026-02-20T07:54:41+08:00
 lastmod: 2026-02-20T07:54:41+08:00
 author: "小蔡AI实验室"
 categories: ["AI与技术"]
+tags: ["OpenClaw", "飞书", "Discord", "AI"]
 ---
 **作者**: 小蔡AI实验室
 
